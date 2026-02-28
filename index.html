@@ -3,78 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Análise Estratégica de Leilão Judicial</title>
+<title>Diligência Estratégica em Leilões Judiciais</title>
 
 <style>
+:root {
+    --gold: #c6a85a;
+    --gold-soft: #e0c98a;
+    --dark: #0f1115;
+    --dark-2: #161a22;
+    --text: #e8e8e8;
+    --text-soft: #b8b8b8;
+}
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     margin: 0;
-    background-color: #f5f7fa;
-    color: #1a1a1a;
+    font-family: "Georgia", serif;
+    background-color: var(--dark);
+    color: var(--text);
 }
 
 .container {
-    max-width: 980px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 40px 20px;
-}
-
-h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 28px;
-    margin-top: 60px;
-}
-
-p {
-    font-size: 18px;
-    line-height: 1.6;
+    padding: 80px 30px;
 }
 
 .hero {
-    background: white;
-    padding: 60px 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    padding: 120px 0 100px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.hero p {
+    font-size: 20px;
+    color: var(--text-soft);
+    max-width: 750px;
+    line-height: 1.7;
 }
 
 .button {
     display: inline-block;
-    margin-top: 25px;
-    padding: 14px 26px;
-    background-color: #0f172a;
-    color: white;
+    margin-top: 40px;
+    padding: 16px 34px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
     text-decoration: none;
-    border-radius: 6px;
-    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--gold);
+    color: var(--dark);
 }
 
 .section {
-    margin-top: 60px;
+    margin-top: 120px;
 }
 
-.box {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.05);
-    margin-top: 20px;
+.section h2 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: var(--gold-soft);
+}
+
+.card {
+    background-color: var(--dark-2);
+    padding: 50px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.card p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-soft);
 }
 
 ul {
-    font-size: 17px;
-    line-height: 1.6;
+    margin-top: 25px;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 12px;
+    color: var(--text-soft);
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 120px 0;
 }
 
 .footer {
-    text-align: center;
-    margin-top: 80px;
-    padding: 40px;
+    margin-top: 150px;
+    padding: 60px 0;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: #777;
     font-size: 14px;
-    color: #666;
 }
 </style>
 </head>
@@ -84,121 +118,167 @@ ul {
 <div class="container">
 
 <div class="hero">
-    <h1>Antes de dar lance em leilão judicial, descubra se é oportunidade ou armadilha.</h1>
+    <h1>
+        Capital inteligente não entra em leilão.  
+        Ele entra apenas quando o risco foi mapeado.
+    </h1>
 
     <p>
-    Eu analiso edital, processo e matrícula e entrego um veredito claro:
-    vale avançar ou é melhor sair antes de comprometer capital.
+        A diligência estratégica existe para investidores que entendem que
+        desconto não compensa incerteza jurídica.
+        Antes do lance, cada variável relevante é analisada:
+        edital, processo, matrícula, passivos ocultos e cenário recursal.
+        O objetivo é simples: preservar capital e decidir com racionalidade.
     </p>
 
-    <a href="#contato" class="button">Solicitar análise</a>
+    <a href="#contato" class="button">SOLICITAR ANÁLISE ESTRATÉGICA</a>
 </div>
 
-<div class="section">
-    <h2>O problema real</h2>
 
-    <div class="box">
+<div class="section">
+    <h2>O erro silencioso do investidor</h2>
+
+    <div class="card">
         <p>
-        A maioria dos imóveis em leilão não é oportunidade.
-        O desconto aparente muitas vezes esconde:
+        A maioria das perdas em leilões não acontece por falta de desconto.
+        Acontece por falha de diligência.
         </p>
 
         <ul>
-            <li>Débitos que sobrevivem à arrematação</li>
-            <li>Posse litigiosa sem prazo previsível</li>
-            <li>Processo travado em segunda instância</li>
-            <li>Nulidades possíveis no procedimento</li>
-            <li>Riscos tributários ignorados</li>
+            <li>Débitos que permanecem após a arrematação</li>
+            <li>Imissão na posse juridicamente prolongada</li>
+            <li>Processo em estágio recursal sensível</li>
+            <li>Estrutura procedimental vulnerável</li>
+            <li>Tributação subestimada</li>
         </ul>
 
         <p>
-        O erro custa caro — e normalmente só é percebido depois do lance.
+        O mercado divulga oportunidades.
+        A diligência identifica riscos.
         </p>
     </div>
 </div>
 
+
+<div class="divider"></div>
+
+
 <div class="section">
-    <h2>Como funciona</h2>
+    <h2>Estrutura da Diligência</h2>
 
-    <div class="box">
-        <p><strong>1. Triagem Inicial</strong></p>
+    <div class="card">
+
+        <p><strong>1 — Triagem Técnica Inicial</strong></p>
         <p>
-        Você envia o link do leilão. Faço uma leitura técnica do edital e do processo
-        para verificar se faz sentido avançar.
+        Avaliação preliminar do edital e do processo para determinar
+        se o ativo justifica aprofundamento.
         </p>
 
-        <p><strong>2. Diligência Completa</strong></p>
-        <p>
-        Se a triagem indicar viabilidade, realizo análise aprofundada do processo,
-        matrícula, riscos jurídicos e estrutura do leilão.
-        </p>
+        <br>
 
-        <p><strong>3. Entrega do Veredito</strong></p>
+        <p><strong>2 — Análise Jurídica Estrutural</strong></p>
         <p>
-        Você recebe um relatório claro com:
+        Exame detalhado de:
         </p>
 
         <ul>
-            <li>Semáforo de risco (verde / amarelo / vermelho)</li>
-            <li>Principais riscos identificados</li>
-            <li>Estimativa de custo jurídico pós-arrematação</li>
+            <li>Regularidade do procedimento</li>
+            <li>Natureza dos débitos</li>
+            <li>Probabilidade de resistência processual</li>
+            <li>Tempo jurídico estimado para consolidação</li>
+            <li>Impacto financeiro real pós-arrematação</li>
+        </ul>
+
+        <br>
+
+        <p><strong>3 — Veredito Estratégico</strong></p>
+        <p>
+        Entrega objetiva contendo:
+        </p>
+
+        <ul>
+            <li>Classificação de risco (baixo, moderado ou elevado)</li>
             <li>Preço-teto racional sugerido</li>
-            <li>Estratégia jurídica recomendada</li>
+            <li>Cenário jurídico projetado</li>
+            <li>Recomendação: avançar ou preservar capital</li>
         </ul>
+
     </div>
 </div>
+
+
+<div class="divider"></div>
+
 
 <div class="section">
-    <h2>Para quem é</h2>
+    <h2>Perfil de Cliente</h2>
 
-    <div class="box">
+    <div class="card">
+        <p>
+        Este serviço é direcionado a investidores que:
+        </p>
+
         <ul>
-            <li>Investidor que já decidiu atuar em leilões</li>
-            <li>Pessoa física que quer segurança antes de dar lance</li>
-            <li>Quem entende que desconto não elimina risco jurídico</li>
+            <li>Atuam ou pretendem atuar em leilões judiciais</li>
+            <li>Trabalham com capital próprio</li>
+            <li>Compreendem que risco mal calculado corrói margem</li>
+            <li>Preferem decisão técnica a especulação</li>
         </ul>
+
+        <p>
+        Não é um serviço de intermediação.
+        É uma análise independente, com foco exclusivo na proteção patrimonial.
+        </p>
     </div>
 </div>
+
+
+<div class="divider"></div>
+
 
 <div class="section">
     <h2>Honorários</h2>
 
-    <div class="box">
+    <div class="card">
         <p>
-        A triagem inicial define se a diligência completa é recomendada.
+        Cada ativo possui complexidade própria.
+        Os honorários são definidos após a triagem inicial.
         </p>
 
         <p>
-        O valor da análise varia conforme complexidade do processo e estágio recursal.
-        </p>
-
-        <p>
-        Cada caso é tratado individualmente.
+        A análise é conduzida de forma individual e confidencial.
         </p>
     </div>
 </div>
+
+
+<div class="divider"></div>
+
 
 <div class="section" id="contato">
-    <h2>Solicitar análise</h2>
+    <h2>Contato</h2>
 
-    <div class="box">
+    <div class="card">
         <p>
-        Envie o link do leilão e uma breve descrição do seu objetivo.
+        Para solicitar análise estratégica, envie o link do leilão
+        acompanhado do seu objetivo de investimento.
         </p>
 
         <p>
-        E-mail: seuemail@dominio.com
-        </p>
-
-        <p>
+        E-mail: seuemail@dominio.com  
         Retorno em até 48 horas úteis.
+        </p>
+
+        <p style="margin-top:30px; font-style: italic; color: var(--gold-soft);">
+        Decidir é simples. Decidir com informação é estratégia.
         </p>
     </div>
 </div>
 
+
 <div class="footer">
-Análise estratégica de leilões judiciais.  
-Atuação independente e técnica.
+Diligência Estratégica em Leilões Judiciais  
+Atuação técnica e independente
 </div>
 
 </div>
