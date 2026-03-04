@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Victor Prata | Inteligência Jurídica Estratégica em Leilões</title>
     
-    <meta name="description" content="Proteja seu capital em leilões judiciais com análise técnica exaustiva. Dr. Victor Prata oferece diligência estratégica e mapeamento de riscos.">
+    <meta name="description" content="Proteja seu capital em leilões judiciais com análise técnica exaustiva. Dr. Victor Prata oferece inteligência em diligência e mapeamento de riscos.">
     <link rel="icon" type="image/png" href="/favicon.png?v=2">
     <meta name="theme-color" content="#0a0c10">
 
@@ -17,100 +17,119 @@
             --text: #f0f0f0; --text-soft: #a0a0a0; --border: rgba(198, 168, 90, 0.2);
         }
         * { box-sizing: border-box; }
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--dark); color: var(--text); line-height: 1.6; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; }
-        .container { max-width: 1050px; margin: 0 auto; padding: 0 25px; }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--dark); color: var(--text); line-height: 1.6; overflow-x: hidden; }
         
-        nav { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
-        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); text-decoration: none; font-weight: 700; letter-spacing: 2px; }
-        .nav-links a { color: var(--text-soft); text-decoration: none; font-size: 12px; letter-spacing: 1px; transition: 0.3s; margin-left: 20px; text-transform: uppercase; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
+        
+        nav { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--gold); text-decoration: none; font-weight: 700; letter-spacing: 2px; }
+        .nav-links a { color: var(--text-soft); text-decoration: none; font-size: 11px; letter-spacing: 1.5px; transition: 0.3s; margin-left: 25px; text-transform: uppercase; font-weight: 600; }
         .nav-links a:hover { color: var(--gold); }
 
-        .hero { padding: 120px 0 100px 0; text-align: center; }
-        .hero h1 { font-size: 3.8rem; line-height: 1.1; margin-bottom: 30px; color: #fff; }
-        .hero p { font-size: 1.25rem; color: var(--text-soft); max-width: 750px; margin: 0 auto 50px auto; font-weight: 300; }
+        .hero { padding: 140px 0 100px 0; text-align: center; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; line-height: 1.1; margin-bottom: 35px; color: #fff; }
+        .hero p { font-size: 1.3rem; color: var(--text-soft); max-width: 800px; margin: 0 auto 55px auto; font-weight: 300; }
         
-        .button { display: inline-block; padding: 22px 50px; background-color: transparent; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 2px; transition: all 0.4s ease; text-transform: uppercase; }
-        .button:hover { background-color: var(--gold); color: var(--dark); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(198, 168, 90, 0.15); }
+        .button { display: inline-block; padding: 22px 55px; background: transparent; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 2px; transition: 0.4s; text-transform: uppercase; }
+        .button:hover { background: var(--gold); color: var(--dark); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(198, 168, 90, 0.2); }
 
         .section { padding: 120px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
-        
-        /* GRID DE ELITE: Alinhamento vertical centralizado */
-        .profile-grid { 
+
+        /* REVISÃO DA GRID DE ELITE */
+        .profile-container { 
             display: flex; 
-            align-items: center; /* Centraliza verticalmente a foto com o texto */
-            justify-content: space-between;
-            gap: 80px; 
+            align-items: center; 
+            justify-content: center;
+            gap: 100px; /* Espaço generoso entre foto e texto */
+        }
+
+        /* Moldura da Foto Corrigida */
+        .photo-wrapper {
+            position: relative;
+            flex-shrink: 0; /* Impede a foto de encolher */
         }
         
-        .profile-img-col { flex: 1; min-width: 300px; }
-        .profile-text-col { flex: 2; }
+        .photo-wrapper::after {
+            content: "";
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--gold);
+            z-index: 1;
+        }
 
         .profile-img { 
-            width: 100%; 
-            max-width: 380px;
-            height: auto; 
-            border-radius: 0; 
-            filter: grayscale(10%); 
-            border: 1px solid var(--border); 
-            box-shadow: 20px 20px 0px rgba(198, 168, 90, 0.1); /* Detalhe estético elegante */
+            width: 380px; /* Tamanho fixo para controle total */
+            height: auto;
             display: block;
+            position: relative;
+            z-index: 2; /* Fica por cima da moldura */
+            filter: grayscale(10%);
+            border: 1px solid var(--border);
         }
 
-        .profile-text-col h2 { font-size: 2.2rem; margin: 0 0 10px 0; color: #fff; }
-        .profile-text-col .role { color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-size: 0.9rem; display: block; margin-bottom: 30px; font-weight: 600; }
+        .profile-content { flex: 1; }
+        .profile-content h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: #fff; margin: 0 0 10px 0; }
+        .profile-content .subtitle { color: var(--gold); font-size: 1rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 600; display: block; margin-bottom: 35px; }
+        .profile-content p { font-size: 1.15rem; color: var(--text-soft); margin-bottom: 25px; font-weight: 300; }
         
-        .highlight { 
-            color: var(--gold-soft); font-style: italic; font-family: 'Playfair Display', serif; 
-            font-size: 1.5rem; margin-top: 40px; display: block; border-left: 2px solid var(--gold); padding-left: 25px; 
+        .quote { 
+            font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.6rem; 
+            color: var(--gold-soft); border-left: 3px solid var(--gold); padding-left: 30px; margin-top: 45px; 
         }
 
-        .footer { padding: 100px 0 50px 0; text-align: center; color: #444; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+        .footer { padding: 100px 0 60px 0; text-align: center; color: #444; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* Ajuste Responsivo */
-        @media (max-width: 850px) { 
-            .profile-grid { flex-direction: column; text-align: center; gap: 50px; }
-            .profile-img-col { min-width: 100%; }
-            .profile-img { margin: 0 auto; max-width: 300px; }
-            .profile-text-col h2 { text-align: center; }
-            .highlight { text-align: left; }
+        /* Responsividade */
+        @media (max-width: 1000px) {
+            .profile-container { flex-direction: column; text-align: center; gap: 70px; }
+            .photo-wrapper { margin-right: 25px; } /* Ajuste para centralizar com a moldura */
+            .profile-img { width: 320px; }
+            .quote { text-align: left; }
         }
     </style>
 </head>
 <body>
+
 <div class="container">
     <nav>
         <a href="/" class="nav-logo">VICTOR PRATA</a>
         <div class="nav-links">
-            <a href="/blog">Artigos</a>
-            <a href="https://wa.me/553491138795">Diligência</a>
+            <a href="/blog">Artigos Técnicos</a>
+            <a href="https://wa.me/553491138795">Consultar Viabilidade</a>
         </div>
     </nav>
 
     <header class="hero">
         <h1>Sua rentabilidade depende da sua segurança jurídica.</h1>
         <p>Inteligência estratégica em leilões judiciais. Mapeamos nulidades e passivos ocultos para garantir que sua arrematação seja um ativo lucrativo.</p>
-        <a href="https://wa.me/553491138795?text=Olá,%20solicito%20análise%20estratégica%20para%20um%20leilão." class="button">Agendar Análise</a>
+        <a href="https://wa.me/553491138795?text=Olá,%20solicito%20análise%20estratégica%20para%20um%20leilão." class="button">Solicitar Diligência Estratégica</a>
     </header>
 
     <section class="section">
-        <div class="profile-grid">
-            <div class="profile-img-col">
+        <div class="profile-container">
+            <div class="photo-wrapper">
                 <img src="foto.png" alt="Dr. Victor Prata" class="profile-img">
             </div>
-            <div class="profile-text-col">
+            
+            <div class="profile-content">
                 <h2>Dr. Victor Prata</h2>
-                <span class="role">Estrategista Jurídico em Leilões</span>
+                <span class="subtitle">Estrategista Jurídico em Leilões</span>
                 <p>Especialista na análise exaustiva de processos de leilão. Minha atuação foca em identificar o que não está escrito no edital: os riscos que comprometem o tempo e a margem de lucro.</p>
-                <p>O foco não é apenas arrematar, mas garantir que o capital retorne com a margem projetada e no menor tempo possível.</p>
-                <span class="highlight">"O lucro em leilões não está no lance, mas na inteligência aplicada antes dele."</span>
+                <p>Atuo na proteção do capital de investidores, transformando incertezas judiciais em decisões baseadas em dados técnicos.</p>
+                <div class="quote">
+                    "O lucro em leilões não está no lance, mas na inteligência aplicada antes dele."
+                </div>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        VICTOR PRATA • ESTRATÉGIA E SEGURANÇA JURÍDICA • 2026
+        Victor Prata • Inteligência em Arrematações • Brasil 2026
     </footer>
 </div>
+
 </body>
 </html>
