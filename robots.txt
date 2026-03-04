@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://SEUDOMINIO.vercel.app/sitemap.xml
+Sitemap: https://analise-leilao.vercel.app/sitemap.xml
