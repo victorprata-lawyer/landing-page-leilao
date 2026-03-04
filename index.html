@@ -3,128 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victor Prata | Inteligência Jurídica Estratégica em Leilões</title>
-    
-    <meta name="description" content="Proteja seu capital em leilões judiciais com análise técnica exaustiva. Dr. Victor Prata oferece diligência estratégica e pareceres de viabilidade.">
+
+    <title>Victor Prata | Decisão Jurídica Estruturada em Leilões Judiciais</title>
+    <meta name="description" content="Parecer técnico conclusivo em até 72h com semáforo de risco, custo total estimado e veredito final antes do seu capital entrar em leilão judicial.">
+
     <link rel="icon" type="image/png" href="/favicon.png?v=2">
     <meta name="theme-color" content="#0a0c10">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Victor Prata | Decisão Jurídica em Leilões Judiciais">
+    <meta property="og:description" content="Entregamos parecer técnico conclusivo em até 72h com semáforo de risco e custo total estimado antes do seu lance.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://SEUDOMINIO.vercel.app/">
+    <meta property="og:image" content="https://SEUDOMINIO.vercel.app/og-image.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --gold: #c6a85a; --gold-soft: #e7d3a1; --dark: #0a0c10; --dark-2: #12161d;
-            --text: #f0f0f0; --text-soft: #a0a0a0; --border: rgba(198, 168, 90, 0.2);
+            --gold: #c6a85a;
+            --gold-soft: #e7d3a1;
+            --dark: #0a0c10;
+            --dark-2: #12161d;
+            --text: #f0f0f0;
+            --text-soft: #a0a0a0;
+            --border: rgba(198, 168, 90, 0.2);
         }
+
         * { box-sizing: border-box; }
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--dark); color: var(--text); line-height: 1.6; overflow-x: hidden; }
-        
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
-        
-        nav { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
-        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--gold); text-decoration: none; font-weight: 700; letter-spacing: 2px; }
-        .nav-links a { color: var(--text-soft); text-decoration: none; font-size: 11px; letter-spacing: 1.5px; transition: 0.3s; margin-left: 25px; text-transform: uppercase; font-weight: 600; }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        nav {
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            color: var(--text-soft);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            transition: 0.3s;
+            margin-left: 25px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
         .nav-links a:hover { color: var(--gold); }
 
-        .hero { padding: 120px 0 80px 0; text-align: center; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 30px; color: #fff; }
-        .hero p { font-size: 1.25rem; color: var(--text-soft); max-width: 800px; margin: 0 auto 50px auto; font-weight: 300; }
-        
-        .button { display: inline-block; padding: 20px 50px; background: transparent; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 2px; transition: 0.4s; text-transform: uppercase; cursor: pointer; }
-        .button:hover { background: var(--gold); color: var(--dark); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(198, 168, 90, 0.15); }
-
-        .section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
-
-        /* GRID DE PERFIL E TANGIBILIZAÇÃO */
-        .profile-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 80px;
-            max-width: 1050px;
-            margin: 0 auto;
+        .hero {
+            padding: 120px 0 80px 0;
+            text-align: center;
         }
 
-        .photo-wrapper {
-            position: relative;
-            flex: 0 0 auto;
-            width: 100%;
-            max-width: 360px;
-        }
-
-        /* AJUSTE APLICADO AQUI: Borda direta, clean e elegante */
-        .profile-img { 
-            display: block;
-            width: 100%;
-            height: auto;
-            position: relative;
-            z-index: 2;
-            border: 1px solid var(--gold);
-            padding: 10px;
-            background-color: var(--dark-2);
-            filter: grayscale(10%);
-        }
-
-        .profile-content { flex: 1; }
-        .profile-content h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: #fff; margin: 0 0 10px 0; }
-        .profile-content .subtitle { color: var(--gold); font-size: 0.95rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 600; display: block; margin-bottom: 30px; }
-        .profile-content p { font-size: 1.1rem; color: var(--text-soft); margin-bottom: 25px; font-weight: 300; }
-        
-        /* BLOCO DE ENTREGÁVEIS TÉCNICOS */
-        .deliverables {
-            margin-top: 35px;
-            padding-top: 25px;
-            border-top: 1px solid var(--border);
-        }
-        .deliverables h3 {
+        .hero h1 {
             font-family: 'Playfair Display', serif;
-            color: var(--gold-soft);
-            font-size: 1.25rem;
-            margin-bottom: 15px;
+            font-size: 3.3rem;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: #fff;
         }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-soft);
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            font-weight: 300;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 20px 50px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: 0.4s;
+            text-transform: uppercase;
+        }
+
+        .button:hover {
+            background: var(--gold);
+            color: var(--dark);
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 100px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .profile-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .profile-content p {
+            font-size: 1.1rem;
+            color: var(--text-soft);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
         .deliverables ul {
             list-style: none;
             padding: 0;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text-soft);
         }
+
         .deliverables li {
-            margin-bottom: 12px;
-            padding-left: 20px;
-            position: relative;
-        }
-        .deliverables li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--gold);
+            margin-bottom: 15px;
         }
 
-        .quote-box { 
-            font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; 
-            color: var(--gold-soft); border-left: 2px solid var(--gold); padding-left: 25px; margin-top: 40px; 
+        .cta-final {
+            text-align: center;
+            padding: 120px 0;
+            background-color: rgba(255,255,255,0.01);
         }
 
-        .cta-final { text-align: center; padding: 120px 0; background-color: rgba(255,255,255,0.01); }
-        .cta-final h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 40px; color: #fff; }
+        .cta-final h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+        }
 
-        .footer { padding: 60px 0; text-align: center; color: #444; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; border-top: 1px solid rgba(255,255,255,0.03); }
+        .footer {
+            padding: 60px 0;
+            text-align: center;
+            color: #444;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
-        @media (max-width: 900px) {
-            .profile-wrapper { flex-direction: column; text-align: center; gap: 60px; }
-            
-            /* AJUSTE APLICADO AQUI: Centralização perfeita para mobile */
-            .photo-wrapper { 
-                margin: 0 auto; 
-                max-width: 300px; 
-            }
-
-            .deliverables { text-align: left; }
-            .quote-box { text-align: left; }
-            .hero h1 { font-size: 2.6rem; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.4rem; }
         }
     </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -132,53 +188,51 @@
         <a href="/" class="nav-logo">VICTOR PRATA</a>
         <div class="nav-links">
             <a href="/blog">Artigos Técnicos</a>
-            <a href="https://wa.me/553491138795?text=Olá,%20Dr.%20Victor.%20Desejo%20contratar%20a%20Diligência%20Estratégica%20para%20analisar%20a%20segurança%20jurídica%20de%20um%20edital%20específico.">Diligência</a>
+            <a href="https://wa.me/553491138795?text=Olá,%20Dr.%20Victor.%20Desejo%20contratar%20análise%20jurídica%20antes%20de%20realizar%20um%20lance.">Diligência</a>
         </div>
     </nav>
 
     <header class="hero">
         <h1>Decisão jurídica estruturada antes do seu capital entrar.</h1>
         <p>Entregamos parecer técnico conclusivo em até 72h com semáforo de risco, custo total estimado e veredito final: avançar ou recuar.</p>
-        <a href="https://wa.me/553491138795?text=Olá,%20Dr.%20Victor.%20Desejo%20contratar%20a%20Diligência%20Estratégica%20para%20analisar%20um%20edital%20judicial." class="button">Solicitar Análise Técnica</a>
+        <a href="https://wa.me/553491138795?text=Olá,%20Dr.%20Victor.%20Desejo%20contratar%20a%20Diligência%20Estratégica." class="button">
+            Solicitar Análise Técnica
+        </a>
     </header>
 
     <section class="section">
-        <div class="profile-wrapper">
-            <div class="photo-wrapper">
-                <img src="foto.png" alt="Dr. Victor Prata" class="profile-img">
+        <h2>O que você recebe</h2>
+        <div class="profile-content">
+            <div class="deliverables">
+                <ul>
+                    <li><strong>Semáforo de Risco:</strong> Classificação objetiva (baixo, médio ou alto risco).</li>
+                    <li><strong>Custo Total Projetado:</strong> Estimativa realista de passivos e contingências.</li>
+                    <li><strong>Preço-Teto Técnico:</strong> Valor máximo racional para oferta.</li>
+                    <li><strong>Veredito Final:</strong> Avançar ou não avançar.</li>
+                </ul>
             </div>
-            
-            <div class="profile-content">
-                <h2>Dr. Victor Prata</h2>
-                <span class="subtitle">Estrategista Jurídico em Leilões</span>
-                <p>Advogado especializado na identificação de passivos invisíveis e nulidades processuais em leilões judiciais. Minha atuação protege o investidor de travar capital em arrematações juridicamente instáveis.</p>
-                
-                <div class="deliverables">
-                    <h3>Diligência Estratégica (Foco Judicial):</h3>
-                    <ul>
-                        <li><strong>Auditoria Processual:</strong> Varredura de citações (fls.) e intimações obrigatórias para blindagem contra nulidades (Art. 889 CPC).</li>
-                        <li><strong>Análise de Avaliação:</strong> Validação técnica do laudo de avaliação (fls.) e proteção contra teses de preço vil (Art. 891 CPC).</li>
-                        <li><strong>Mapeamento de Passivos:</strong> Levantamento exaustivo de débitos de IPTU, condomínio e créditos preferenciais.</li>
-                        <li><strong>Parecer de Viabilidade:</strong> Documento técnico para embasar a decisão de lance ou o recuo estratégico seguro.</li>
-                    </ul>
-                </div>
+        </div>
+    </section>
 
-                <div class="quote-box">
-                    "O lucro em leilões não está no lance, mas na inteligência aplicada antes dele."
-                </div>
-            </div>
+    <section class="section">
+        <h2>Para quem é</h2>
+        <div class="profile-content">
+            <p>✔ Investidor que opera leilão judicial residencial em São Paulo.</p>
+            <p>✔ Decide alocação de capital em até 72 horas.</p>
+            <p>✔ Prefere recuar do que assumir risco oculto.</p>
+            <p>✔ Busca previsibilidade antes de ofertar.</p>
         </div>
     </section>
 
     <section class="cta-final">
-        <div class="container">
-            <h2>Pronto para arrematar com segurança técnica?</h2>
-            <a href="https://wa.me/553491138795?text=Olá,%20Dr.%20Victor.%20Desejo%20contratar%20a%20Diligência%20Estratégica%20para%20analisar%20a%20segurança%20jurídica%20de%20um%20edital%20específico." class="button">Contratar Diligência Agora</a>
-        </div>
+        <h2>Pronto para decidir com segurança técnica?</h2>
+        <a href="https://wa.me/553491138795?text=Olá,%20Dr.%20Victor.%20Quero%20submeter%20um%20edital%20para%20análise." class="button">
+            Contratar Diligência
+        </a>
     </section>
 
     <footer class="footer">
-        Victor Prata • Inteligência em Arrematações • Brasil 2026
+        VICTOR PRATA • DECISÃO JURÍDICA ESTRUTURADA • 2026
     </footer>
 </div>
 
