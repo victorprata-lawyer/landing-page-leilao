@@ -35,7 +35,7 @@
 
         .section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
 
-        /* GRID DE PERFIL */
+        /* GRID DE PERFIL E TANGIBILIZAÇÃO */
         .profile-wrapper {
             display: flex;
             align-items: center;
@@ -45,33 +45,24 @@
             margin: 0 auto;
         }
 
-        /* CORREÇÃO APLICADA AQUI: Limite de tamanho agora está na caixa */
         .photo-wrapper {
             position: relative;
             flex: 0 0 auto;
             width: 100%;
-            max-width: 360px; /* O limite fica na caixa para a moldura acompanhar */
+            max-width: 360px;
         }
 
+        /* AJUSTE APLICADO AQUI: Borda direta, clean e elegante */
         .profile-img { 
             display: block;
             width: 100%;
             height: auto;
             position: relative;
             z-index: 2;
-            border: 1px solid rgba(255,255,255,0.05);
-            filter: grayscale(10%);
-        }
-
-        .photo-wrapper::after {
-            content: "";
-            position: absolute;
-            top: 0px; /* Efeito de deslocamento para baixo */
-            left: 0px; /* Efeito de deslocamento para a direita */
-            width: 100%;
-            height: 100%;
             border: 1px solid var(--gold);
-            z-index: 1;
+            padding: 10px;
+            background-color: var(--dark-2);
+            filter: grayscale(10%);
         }
 
         .profile-content { flex: 1; }
@@ -122,16 +113,10 @@
         @media (max-width: 900px) {
             .profile-wrapper { flex-direction: column; text-align: center; gap: 60px; }
             
-            /* Ajuste de margem no celular para a moldura não vazar da tela */
+            /* AJUSTE APLICADO AQUI: Centralização perfeita para mobile */
             .photo-wrapper { 
                 margin: 0 auto; 
                 max-width: 300px; 
-                padding-right: 20px; /* Compensação do deslocamento */
-                padding-bottom: 20px; /* Compensação do deslocamento */
-            }
-            .photo-wrapper::after {
-                top: 15px;
-                left: 15px;
             }
 
             .deliverables { text-align: left; }
