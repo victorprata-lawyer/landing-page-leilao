@@ -4,27 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>O Mito do Deságio: Por que 50% de desconto não garante lucro | Victor Prata</title>
-    <meta name="description" content="Entenda por que o deságio em leilões judiciais pode ser uma armadilha se não houver análise de passivos e riscos processuais em SP.">
+    <title>Deságio não decide investimento | Victor Prata</title>
+    <meta name="description" content="A ilusão do percentual em leilões judiciais. Por que a ordem registral é o que realmente decide o lucro em São Paulo.">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://analise-leilao.vercel.app/blog/desagio-nao-decide.html">
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="O Mito do Deságio em Leilões Judiciais | Victor Prata">
-    <meta property="og:description" content="A armadilha dos passivos ocultos e o custo do tempo no mercado de leilões em SP.">
+    <meta property="og:url" content="https://analise-leilao.vercel.app/blog/desagio-nao-decide.html">
+    <meta property="og:title" content="Deságio não decide investimento | Victor Prata">
+    <meta property="og:description" content="Por que a ordem registral é o que realmente decide o lucro em leilões.">
     <meta property="og:image" content="https://analise-leilao.vercel.app/og-image.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Deságio não decide investimento | Victor Prata">
+    <meta name="twitter:description" content="A ilusão do percentual em leilões judiciais.">
+    
+    <link rel="icon" type="image/png" href="/favicon.png">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "O Mito do Deságio: Por que 50% de desconto não garante lucro em SP",
+      "headline": "Deságio não decide investimento em leilão judicial. Ordem registral decide.",
       "author": {
         "@type": "Person",
+        "name": "Victor Prata",
+        "url": "https://analise-leilao.vercel.app/"
+      },
+      "publisher": {
+        "@type": "Organization",
         "name": "Victor Prata"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://analise-leilao.vercel.app/blog/desagio-nao-decide.html"
       }
     }
     </script>
-
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
@@ -48,7 +64,7 @@
             line-height: 1.6; 
         }
 
-        /* Bloqueio de azul e roxo em links */
+        /* RESET ANTI-AZUL */
         a, a:visited, a:active { 
             text-decoration: none !important; 
             color: inherit !important; 
@@ -65,7 +81,7 @@
             animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        /* Navegação */
+        /* Nav */
         .glass-nav {
             position: sticky; top: 0; z-index: 1000;
             background: rgba(10, 12, 16, 0.85);
@@ -74,7 +90,7 @@
         }
         
         .nav-wrapper {
-            max-width: 1100px; margin: 0 auto; padding: 20px 40px;
+            max-width: 1100px; margin: 0 auto; padding: 25px 40px;
             display: flex; justify-content: space-between; align-items: center; 
         }
 
@@ -84,11 +100,12 @@
         }
         
         .nav-links a { 
-            font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+            font-size: 11px; letter-spacing: 2px; 
+            margin-left: 30px; text-transform: uppercase; font-weight: 600;
             color: var(--gold) !important; border-bottom: 1px solid var(--gold); padding-bottom: 3px;
         }
 
-        /* Container do Artigo */
+        /* Layout de Leitura */
         .article-container {
             max-width: 800px; margin: 0 auto;
             padding: 80px 40px 60px 40px;
@@ -97,7 +114,7 @@
         .back-link { 
             display: inline-flex; align-items: center; margin-bottom: 40px; 
             color: var(--text-soft) !important; font-size: 11px; letter-spacing: 2px; 
-            text-transform: uppercase; font-weight: 600; cursor: pointer;
+            text-transform: uppercase; font-weight: 600; border: none !important;
         }
         .back-link::before { content: '←'; margin-right: 8px; transition: transform 0.3s; }
         .back-link:hover::before { transform: translateX(-5px); }
@@ -107,29 +124,32 @@
             color: var(--gold); letter-spacing: 3px; font-size: 10px; 
             text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 15px;
         }
+
         .article-header h1 {
-            font-family: 'Playfair Display', serif; font-size: 3rem; 
+            font-family: 'Playfair Display', serif; font-size: 2.8rem; 
             margin: 0 0 20px 0; line-height: 1.2; color: #fff;
         }
+
         .article-meta {
             font-size: 0.9rem; color: var(--text-soft);
             border-bottom: 1px solid rgba(198,168,90,0.2);
             padding-bottom: 30px;
         }
 
-        /* Corpo do Texto */
         .article-body {
             font-size: 1.15rem; color: var(--text-soft); line-height: 1.8;
             font-weight: 300;
         }
+
         .article-body h2 {
-            font-family: 'Playfair Display', serif; font-size: 2rem; 
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; 
             color: var(--gold); margin: 50px 0 20px 0; font-weight: 500;
         }
+
         .article-body p { margin-bottom: 25px; }
         .article-body strong { color: var(--text); font-weight: 600; }
         
-        /* CTA Section */
+        /* CTA */
         .article-cta {
             background: linear-gradient(145deg, var(--dark-2) 0%, var(--dark) 100%);
             padding: 50px 40px; border-radius: 12px; 
@@ -137,17 +157,19 @@
             text-align: center;
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
+
         .article-cta h3 {
             font-family: 'Playfair Display', serif; font-size: 1.8rem; 
             color: var(--gold); margin: 0 0 15px 0;
         }
+
         .article-cta p { color: var(--text-soft); margin-bottom: 30px; }
 
         .button-primary {
             display: inline-block; padding: 20px 45px; border-radius: 8px;
             font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; 
             background: var(--gold); color: var(--dark) !important; 
-            border: none; cursor: pointer;
+            box-shadow: 0 10px 25px rgba(198,168,90,0.15); border: none !important;
         }
         .button-primary:hover { background: var(--gold-hover); transform: translateY(-3px); }
 
@@ -174,38 +196,39 @@
         </div>
     </nav>
 
-    <main class="article-container animate-fade">
+    <div class="article-container animate-fade">
         
         <a href="/blog" class="back-link">Voltar para Artigos</a>
 
         <header class="article-header">
-            <span>Estratégia Imobiliária</span>
-            <h1>O Mito do Deságio: Por que 50% de desconto não garante lucro em SP</h1>
-            <div class="article-meta">Por Dr. Victor Prata • 2026 • Leitura de 2 min</div>
+            <span>Operador Jurídico de Capital</span>
+            <h1>Deságio não decide investimento em leilão judicial. Ordem registral decide.</h1>
+            <div class="article-meta">Por Victor Prata • 2026 • São Paulo</div>
         </header>
 
-        <section class="article-body">
-            <p>Muitos investidores iniciantes cometem o erro clássico de olhar apenas para a diferença entre o valor de avaliação e o lance mínimo. No mercado de São Paulo, o lucro real não é decidido no martelo, mas na <strong>diligência prévia</strong>.</p>
-            
-            <h2>A armadilha dos passivos ocultos</h2>
-            <p>Um imóvel com 60% de deságio pode rapidamente se tornar um prejuízo se houver dívidas de condomínio <em>propter rem</em> não mencionadas no edital, ou se houver IPTU acumulado que o juiz se recuse a sub-rogar no preço da arrematação. Sem um mapeamento de passivos, o investidor está assinando um cheque em branco para o azar.</p>
-            
-            <h2>O custo invisível do tempo</h2>
-            <p>O maior inimigo do retorno sobre investimento (ROI) não é o preço de compra, mas o <strong>custo de oportunidade</strong>. Um leilão com vícios de citação ou falhas na intimação de credores pode resultar em uma arrematação suspensa ou anulada. Isso significa capital travado judicialmente por anos, enquanto a inflação e os custos fixos corroem seu poder de compra.</p>
-            
-            <h2>Conclusão Técnica</h2>
-            <p>O deságio é apenas um dos componentes da equação. O investidor profissional calcula o <strong>Lucro Líquido Real</strong>, subtraindo impostos, custos de desocupação e o tempo estimado de liquidez. Em leilões judiciais, o otimismo desinformado é o caminho mais curto para o prejuízo.</p>
-        </section>
+        <div class="article-body">
+            <h2>A ilusão do percentual</h2>
+            <p>Recebo frequentemente a mesma pergunta: “Está com 60% de desconto. Vale a pena?”</p>
+            <p><strong>Deságio não é critério técnico. É dado superficial.</strong></p>
+            <p>O que decide viabilidade é ordem registral, natureza do gravame, probabilidade de impugnação, custo real de consolidação e tempo projetado até liquidez.</p>
 
-        <aside class="article-cta">
-            <h3>Tem um edital em vista?</h3>
-            <p>Não arrisque seu capital com base em porcentagens genéricas. Eu realizo a análise de viabilidade técnica do seu lance.</p>
-            <a href="https://wa.me/553491138795" class="button-primary" target="_blank">Validar Lucratividade</a>
-        </aside>
+            <h2>O erro estrutural do investidor</h2>
+            <p>O investidor olha valor de avaliação, lance mínimo e potencial de revenda. Ignora prioridade de penhora, alienações fiduciárias anteriores, ônus condominiais acumulados e risco de nulidade do edital.</p>
 
-    </main>
+            <h2>O que realmente precisa ser calculado</h2>
+            <p>Antes de qualquer lance, o mínimo técnico exige linha do tempo registral completa, mapa de credores, custo total projetado até posse, probabilidade de resistência processual e preço-teto técnico.</p>
+
+            <h2>Conclusão</h2>
+            <p>Deságio atrai curiosidade. <strong>Ordem registral decide lucro.</strong></p>
+        </div>
+
+        <div class="article-cta">
+            <h3>Análise Estrutural de Capital</h3>
+            <p>Não entre em leilões baseando-se em porcentagens. Submeta seu edital para uma validação técnica de viabilidade.</p>
+            <a href="https://wa.me/553491138795" class="button-primary">Solicitar Validação</a>
+        </div>
+    </div>
     
-    <footer class="footer">VICTOR PRATA • 2026 • SÃO PAULO - BRASIL</footer>
-
+    <footer class="footer">© 2026 - Operador Jurídico de Capital</footer>
 </body>
 </html>
