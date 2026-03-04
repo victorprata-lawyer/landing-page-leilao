@@ -1,279 +1,152 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diligência Estratégica em Leilões Judiciais</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor Prata | Diligência Estratégica em Leilões</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
 
-<style>
-:root {
-    --gold: #c6a85a;
-    --gold-soft: #e7d3a1;
-    --dark: #0f1115;
-    --dark-2: #161a22;
-    --text: #e8e8e8;
-    --text-soft: #b8b8b8;
-}
+    <style>
+        :root {
+            --gold: #c6a85a;
+            --gold-soft: #e7d3a1;
+            --dark: #0a0c10;
+            --dark-2: #12161d;
+            --text: #f0f0f0;
+            --text-soft: #a0a0a0;
+            --border: rgba(198, 168, 90, 0.2);
+        }
 
-body {
-    margin: 0;
-    font-family: "Georgia", serif;
-    background-color: var(--dark);
-    color: var(--text);
-}
+        * { box-sizing: border-box; }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 80px 30px;
-}
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
 
-.hero {
-    padding: 120px 0 100px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; }
 
-.hero h1 {
-    font-size: 46px;
-    line-height: 1.2;
-    font-weight: 500;
-    margin-bottom: 30px;
-}
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 25px; }
 
-.hero p {
-    font-size: 20px;
-    color: var(--text-soft);
-    max-width: 780px;
-    line-height: 1.7;
-}
+        /* Navegação */
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); text-decoration: none; font-weight: 700; letter-spacing: 1px; }
+        .nav-links a { color: var(--text-soft); text-decoration: none; font-size: 13px; letter-spacing: 1px; transition: 0.3s; margin-left: 20px; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--gold); }
 
-.button {
-    display: inline-block;
-    margin-top: 45px;
-    padding: 16px 36px;
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    text-decoration: none;
-    font-size: 15px;
-    letter-spacing: 1px;
-    transition: 0.3s ease;
-}
+        /* Hero Section */
+        .hero { padding: 100px 0 80px 0; text-align: center; }
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 30px; color: #fff; }
+        .hero p { font-size: 1.2rem; color: var(--text-soft); max-width: 700px; margin: 0 auto 40px auto; font-weight: 300; }
 
-.button:hover {
-    background-color: var(--gold);
-    color: var(--dark);
-}
+        /* Button */
+        .button {
+            display: inline-block;
+            padding: 20px 45px;
+            background-color: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+        }
+        .button:hover { background-color: var(--gold); color: var(--dark); box-shadow: 0 10px 20px rgba(198, 168, 90, 0.2); transform: translateY(-3px); }
 
-.section {
-    margin-top: 120px;
-}
+        /* Sections */
+        .section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .section h2 { font-size: 2.2rem; margin-bottom: 50px; text-align: center; color: var(--gold-soft); }
 
-.section h2 {
-    font-size: 30px;
-    margin-bottom: 30px;
-    color: var(--gold-soft);
-}
+        /* Cards */
+        .card {
+            background-color: var(--dark-2);
+            padding: 60px;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: 0.3s;
+        }
+        .card:hover { border-color: var(--gold); }
 
-.card {
-    background-color: var(--dark-2);
-    padding: 55px;
-    border: 1px solid rgba(255,255,255,0.05);
-}
+        /* Perfil */
+        .profile-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: center; }
+        .profile-img { width: 100%; border-radius: 2px; filter: grayscale(30%); border: 1px solid var(--border); }
 
-.card p {
-    font-size: 18px;
-    line-height: 1.7;
-    color: var(--text-soft);
-}
+        /* Listas */
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 15px; padding-left: 30px; position: relative; color: var(--text-soft); }
+        li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
 
-ul {
-    margin-top: 20px;
-    padding-left: 20px;
-}
+        .highlight { color: var(--gold-soft); font-style: italic; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-top: 25px; display: block; }
 
-li {
-    margin-bottom: 12px;
-    color: var(--text-soft);
-}
+        .footer { padding: 80px 0; text-align: center; color: #555; font-size: 13px; letter-spacing: 1px; }
 
-.highlight {
-    color: var(--gold-soft);
-    font-style: italic;
-}
-
-.divider {
-    height: 1px;
-    background: linear-gradient(to right, transparent, var(--gold), transparent);
-    margin: 120px 0;
-}
-
-.footer {
-    margin-top: 150px;
-    padding: 60px 0;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    color: #777;
-    font-size: 14px;
-}
-</style>
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .profile-grid { grid-template-columns: 1fr; text-align: center; }
+            .card { padding: 30px; }
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="container">
-
-<!-- HERO -->
-
-<div class="hero">
-    <h1>
-        Você não precisa decidir sozinho antes de um lance.
-    </h1>
-
-    <p>
-        Em leilões judiciais, o maior risco não está no desconto.
-        Está nos detalhes jurídicos que passam despercebidos.
-        <br><br>
-        Antes de comprometer capital, tenha ao seu lado
-        uma análise técnica profunda que mapeia riscos,
-        projeta cenários e protege sua margem.
-    </p>
-
-    <a href="https://wa.me/5534911138795?text=Olá,%20quero%20submeter%20um%20imóvel%20para%20análise%20estratégica.%20Segue%20o%20link:%20"
-       class="button">
-       SUBMETER IMÓVEL PARA ANÁLISE
-    </a>
-
-    <p style="margin-top:15px; font-size:14px; color:#777;">
-        Atendimento individual e confidencial.
-    </p>
-</div>
-
-<!-- RESPONSÁVEL -->
-
-<div class="divider"></div>
-
-<div class="section">
-    <h2>Responsável Técnico</h2>
-
-    <div class="card" style="display:flex; gap:50px; align-items:center; flex-wrap:wrap;">
-
-        <div style="flex:1; min-width:260px;">
-            <img src="foto.jpg" alt="Dr. Victor Prata"
-                 style="width:100%; max-width:300px; border:1px solid rgba(255,255,255,0.08);">
+    <nav>
+        <a href="/" class="nav-logo">VICTOR PRATA</a>
+        <div class="nav-links">
+            <a href="/blog/desagio-nao-decide.html">Artigos</a>
+            <a href="https://wa.me/5534911138795">Contato</a>
         </div>
+    </nav>
 
-        <div style="flex:2; min-width:300px;">
-            <p style="font-size:22px; color:var(--gold-soft); margin-bottom:15px;">
-                Dr. Victor Prata
-            </p>
+    <header class="hero">
+        <h1>Você não precisa decidir sozinho antes de um lance.</h1>
+        <p>Análise técnica profunda que mapeia riscos, projeta cenários e protege seu capital em leilões judiciais.</p>
+        <a href="https://wa.me/5534911138795?text=Olá,%20quero%20submeter%20análise" class="button">Submeter Imóvel para Análise</a>
+    </header>
 
-            <p>
-            Advogado com atuação direcionada à análise jurídica de leilões judiciais.
-            </p>
-
-            <p>
-            A metodologia é objetiva: leitura integral do edital,
-            exame técnico dos autos e identificação de riscos
-            que podem comprometer tempo, capital e margem.
-            </p>
-
-            <p>
-            O papel aqui não é incentivar o lance.
-            É garantir que ele ocorra com clareza estratégica.
-            </p>
-
-            <p class="highlight">
-            Decisão segura não é intuição. É método.
-            </p>
+    <section class="section">
+        <div class="profile-grid">
+            <img src="foto.jpg" alt="Dr. Victor Prata" class="profile-img">
+            <div>
+                <h2 style="text-align: left; margin-bottom: 20px;">Responsável Técnico</h2>
+                <p style="color: var(--gold-soft); font-size: 1.4rem; margin-bottom: 20px;">Dr. Victor Prata</p>
+                <p>Advogado especialista em análise jurídica de leilões. Minha metodologia foca no exame técnico exaustivo dos autos para identificar riscos que comprometem margem e tempo.</p>
+                <p>O papel aqui não é incentivar o lance, mas garantir clareza estratégica.</p>
+                <span class="highlight">"Decisão segura não é intuição. É método."</span>
+            </div>
         </div>
+    </section>
 
-    </div>
-</div>
+    <section class="section">
+        <h2>O que está em jogo</h2>
+        <div class="card">
+            <p>Um único ponto mal interpretado pode gerar capital imobilizado por anos e discussões judiciais prolongadas.</p>
+            <ul>
+                <li>Discussões de nulidade de leilão</li>
+                <li>Imissão na posse incerta</li>
+                <li>Débitos condominiais e tributários ocultos</li>
+                <li>Risco recursal não mapeado</li>
+            </ul>
+            <p class="highlight" style="text-align: center; margin-top: 40px;">O desconto não compensa um risco invisível.</p>
+        </div>
+    </section>
 
-<!-- RISCO -->
-
-<div class="divider"></div>
-
-<div class="section">
-    <h2>O que está em jogo</h2>
-
-    <div class="card">
-        <p>
-        Um único ponto mal interpretado pode gerar:
-        </p>
-
-        <ul>
-            <li>Discussões judiciais prolongadas</li>
-            <li>Imissão na posse incerta</li>
-            <li>Débitos inesperados</li>
-            <li>Capital imobilizado por anos</li>
-        </ul>
-
-        <p style="margin-top:30px;">
-        O desconto não compensa um risco invisível.
-        </p>
-
-        <p class="highlight">
-        A análise existe para eliminar surpresa jurídica antes do lance.
-        </p>
-    </div>
-</div>
-
-<!-- PROCESSO -->
-
-<div class="divider"></div>
-
-<div class="section">
-    <h2>Como funciona a análise</h2>
-
-    <div class="card">
-
-        <ul>
-            <li>Leitura técnica completa do edital</li>
-            <li>Análise detalhada dos autos processuais</li>
-            <li>Verificação de ônus e passivos</li>
-            <li>Avaliação de risco recursal</li>
-            <li>Projeção de cenário pós-arrematação</li>
-        </ul>
-
-        <p style="margin-top:30px;">
-        Você recebe uma conclusão objetiva:
-        avançar com racionalidade ou preservar capital.
-        </p>
-
-    </div>
-</div>
-
-<!-- CTA FINAL -->
-
-<div class="divider"></div>
-
-<div class="section">
-    <h2>Envie o imóvel para análise</h2>
-
-    <div class="card">
-        <p>
-        Clique abaixo, envie o link do leilão
-        e descreva brevemente seu objetivo.
-        </p>
-
-        <a href="https://wa.me/5534911138795?text=Olá,%20quero%20submeter%20um%20imóvel%20para%20análise%20estratégica.%20Segue%20o%20link:%20"
-           class="button">
-           INICIAR CONVERSA NO WHATSAPP
-        </a>
-
-        <p style="margin-top:20px; font-size:14px; color:#777;">
-        Retorno em até 48 horas úteis.
-        </p>
-    </div>
-</div>
-
-<a href="/blog/desagio-nao-decide.html">Leia nosso artigo sobre Deságio</a>
-    
-<div class="footer">
-Diligência Estratégica em Leilões Judiciais  
-Proteção técnica antes da decisão
-</div>
-
+    <footer class="footer">
+        VICTOR PRATA | DILIGÊNCIA ESTRATÉGICA EM LEILÕES<br>
+        Proteção técnica antes da decisão estratégica.
+    </footer>
 </div>
 
 </body>
