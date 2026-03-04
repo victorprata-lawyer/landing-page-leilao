@@ -48,6 +48,7 @@
         "@type": "Person",
         "name": "Victor Prata",
         "jobTitle": "Advogado",
+        "url": "https://analise-leilao.vercel.app/",
         "sameAs": "https://www.linkedin.com/in/victor-prata-leilao"
       },
       "priceRange": "$$$"
@@ -59,11 +60,13 @@
     <style>
         :root { 
             --gold: #c6a85a; 
+            --gold-hover: #d4b86a;
             --dark: #0a0c10; 
             --dark-2: #12161d; 
             --text: #f0f0f0; 
             --text-soft: #a0a0a0; 
             --border: rgba(198,168,90,0.15); 
+            --border-soft: rgba(198,168,90,0.05);
         }
         * { 
             box-sizing: border-box; 
@@ -81,12 +84,14 @@
             margin: 0 auto; 
             padding: 0 40px; 
         }
+        
+        /* Navegação */
         nav { 
             padding: 40px 0; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            border-bottom: 1px solid var(--border); 
+            border-bottom: 1px solid var(--border-soft); 
         }
         .nav-logo { 
             font-family: 'Playfair Display', serif; 
@@ -109,6 +114,8 @@
         .nav-links a:hover { 
             color: var(--gold); 
         }
+
+        /* Header / Hero */
         .hero { 
             padding: 140px 0 100px 0; 
             text-align: center; 
@@ -127,14 +134,54 @@
             margin: 0 auto 50px auto; 
             font-weight: 300; 
         }
+
+        /* Botões Refinados */
+        .button { 
+            display: inline-block; 
+            padding: 20px 45px; 
+            border-radius: 8px; /* Quebra o formato quadrado */
+            text-decoration: none; 
+            font-size: 12px; 
+            letter-spacing: 3px; 
+            text-transform: uppercase; 
+            font-weight: 600; 
+            transition: all 0.4s ease; 
+        }
+        
+        .button-primary {
+            background: var(--gold); 
+            color: var(--dark); 
+            border: 1px solid var(--gold);
+            box-shadow: 0 10px 25px rgba(198,168,90,0.15);
+        }
+        .button-primary:hover { 
+            background: var(--gold-hover); 
+            border-color: var(--gold-hover);
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 35px rgba(198,168,90,0.25); 
+        }
+
+        .button-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        .button-outline:hover {
+            background: rgba(198,168,90,0.05);
+            transform: translateY(-3px); 
+        }
+
+        /* Barra de Confiança */
         .trust-bar { 
             background: var(--dark-2); 
             padding: 30px; 
-            border: 1px solid var(--border); 
+            border: 1px solid var(--border-soft); 
+            border-radius: 12px; /* Suavidade nas pontas */
             text-align: center; 
             margin-top: -50px; 
             position: relative; 
             z-index: 10; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
         .trust-bar span { 
             display: block; 
@@ -149,27 +196,10 @@
             font-size: 10px; 
             color: var(--text-soft); 
         }
-        .button { 
-            display: inline-block; 
-            padding: 22px 50px; 
-            border: 1px solid var(--gold); 
-            color: var(--gold); 
-            text-decoration: none; 
-            font-size: 12px; 
-            letter-spacing: 3px; 
-            text-transform: uppercase; 
-            font-weight: 600; 
-            transition: 0.4s; 
-        }
-        .button:hover { 
-            background: var(--gold); 
-            color: var(--dark); 
-            transform: translateY(-3px); 
-            box-shadow: 0 15px 30px rgba(198,168,90,0.1); 
-        }
+
+        /* Seções e Cards */
         .section { 
             padding: 120px 0; 
-            border-bottom: 1px solid rgba(255,255,255,0.03); 
         }
         h2 { 
             font-family: 'Playfair Display', serif; 
@@ -185,17 +215,26 @@
             margin: 0 auto; 
         }
         .d-card { 
-            background: var(--dark-2); 
+            background: linear-gradient(145deg, var(--dark-2) 0%, var(--dark) 100%);
             padding: 40px; 
-            border: 1px solid var(--border); 
+            border: 1px solid var(--border-soft); 
+            border-radius: 12px; /* Layout mais orgânico */
+            transition: all 0.4s ease;
+        }
+        .d-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(198,168,90,0.3);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
         }
         .d-card strong { 
             color: var(--gold); 
             display: block; 
-            font-size: 1.2rem; 
-            margin-bottom: 10px; 
+            font-size: 1.3rem; 
+            margin-bottom: 15px; 
             font-family: 'Playfair Display', serif; 
         }
+
+        /* Perfil */
         .profile-wrapper { 
             display: flex; 
             align-items: center; 
@@ -206,22 +245,18 @@
         .profile-img { 
             width: 350px; 
             border: 1px solid var(--border); 
-            padding: 15px; 
-            filter: grayscale(30%); 
+            border-radius: 16px; /* Borda da foto mais elegante */
+            padding: 12px; 
+            filter: grayscale(20%); 
         }
-        .footer { 
-            padding: 80px 0; 
-            text-align: center; 
-            font-size: 10px; 
-            color: #444; 
-            letter-spacing: 3px; 
-            text-transform: uppercase; 
-        }
+
+        /* Links Internos e Footer */
         .internal-links { 
-            padding: 60px 0; 
+            padding: 80px 0; 
             background: var(--dark-2); 
             text-align: center; 
-            border-top: 1px solid var(--border); 
+            border-top: 1px solid var(--border-soft); 
+            border-radius: 24px 24px 0 0; /* Integração suave com o footer */
         }
         .internal-links a { 
             color: var(--text-soft); 
@@ -229,16 +264,28 @@
             font-size: 12px; 
             letter-spacing: 1px; 
             margin: 0 20px; 
-            border-bottom: 1px solid var(--gold); 
+            border-bottom: 1px solid transparent; 
             transition: 0.3s; 
         }
         .internal-links a:hover { 
             color: var(--gold); 
+            border-bottom: 1px solid var(--gold);
         }
+        .footer { 
+            padding: 60px 0; 
+            background: var(--dark-2);
+            text-align: center; 
+            font-size: 10px; 
+            color: #555; 
+            letter-spacing: 3px; 
+            text-transform: uppercase; 
+        }
+
         @media(max-width:900px){ 
             .hero h1 { font-size: 2.6rem; } 
             .profile-wrapper { flex-direction: column; text-align: center; } 
             .deliverables-grid { grid-template-columns: 1fr; } 
+            .internal-links a { display: block; margin: 15px 0; }
         }
     </style>
 </head>
@@ -255,7 +302,7 @@
         <header class="hero">
             <h1>Blindagem Jurídica para Leilões Judiciais em São Paulo.</h1>
             <p>Não deixe seu capital travado por nulidades processuais. Estruturação de risco e viabilidade técnica para investidores em SP.</p>
-            <a href="https://wa.me/553491138795" class="button">Solicitar Análise Técnica</a>
+            <a href="https://wa.me/553491138795" class="button button-primary">Solicitar Análise Técnica</a>
         </header>
         
         <div class="trust-bar">
@@ -289,22 +336,22 @@
             <div class="profile-wrapper">
                 <img src="foto.png" alt="Victor Prata Advogado Leilões" class="profile-img">
                 <div class="profile-content">
-                    <h2>Dr. Victor Prata</h2>
+                    <h2 style="text-align: left; margin-bottom: 20px;">Dr. Victor Prata</h2>
                     <p>Estrategista jurídico focado em leilões judiciais em São Paulo. Atuo como o filtro técnico final para investidores profissionais no mercado imobiliário paulista.</p>
                     <div style="margin-top:40px;">
-                        <a href="https://wa.me/553491138795" class="button" style="padding:15px 30px; font-size:10px;">Validar meu próximo lance</a>
+                        <a href="https://wa.me/553491138795" class="button button-outline" style="padding:15px 30px; font-size:10px;">Validar meu próximo lance</a>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <section class="internal-links">
-            <h3 style="font-family:'Playfair Display', serif; color:var(--gold); font-size:1.5rem; margin-bottom:25px;">Perspectiva Técnica</h3>
-            <a href="/blog/desagio-nao-decide.html">O Mito do Deságio</a>
-            <a href="/blog/checklist-nulidades.html">Checklist de Nulidades</a>
-        </section>
-        
-        <footer class="footer">VICTOR PRATA • 2026 • SÃO PAULO - BRASIL</footer>
     </div>
+    
+    <section class="internal-links">
+        <h3 style="font-family:'Playfair Display', serif; color:var(--gold); font-size:1.5rem; margin-bottom:25px;">Perspectiva Técnica</h3>
+        <a href="/blog/desagio-nao-decide.html">O Mito do Deságio</a>
+        <a href="/blog/checklist-nulidades.html">Checklist de Nulidades</a>
+    </section>
+    
+    <footer class="footer">VICTOR PRATA • 2026 • SÃO PAULO - BRASIL</footer>
 </body>
 </html>
