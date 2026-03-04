@@ -3,34 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deságio Não Decide | Victor Prata</title>
+    <title>Victor Prata | Análise Técnica de Leilões Judiciais em São Paulo</title>
+    <meta name="description" content="Parecer técnico conclusivo em até 72h para leilões judiciais em SP. Evite capital travado e nulidades processuais com uma análise de risco estruturada.">
     <meta name="robots" content="index, follow">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://analise-leilao.vercel.app/">
+    
+    <meta property="og:title" content="Victor Prata | Análise Técnica de Leilões em SP">
+    <meta property="og:description" content="Proteja seu capital. Análise técnica de editais e processos de leilões residenciais em São Paulo.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://analise-leilao.vercel.app/">
+    <meta property="og:image" content="https://analise-leilao.vercel.app/og-image.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "@id": "https://analise-leilao.vercel.app/#organization",
+      "name": "Victor Prata - Análise de Leilões",
+      "url": "https://analise-leilao.vercel.app/",
+      "image": "https://analise-leilao.vercel.app/og-image.jpg",
+      "logo": "https://analise-leilao.vercel.app/og-image.jpg",
+      "description": "Consultoria jurídica especializada em análise de risco para arrematação judicial em São Paulo.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Victor Prata",
+        "jobTitle": "Advogado",
+        "sameAs": "https://www.linkedin.com/in/victor-prata-leilao"
+      },
+      "priceRange": "$$$"
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root { --gold:#c6a85a; --dark:#0a0c10; --dark-2:#12161d; --text:#f0f0f0; --text-soft:#a0a0a0; --border:rgba(198,168,90,0.15); }
-        body { margin:0; background:var(--dark); color:var(--text); font-family:'Montserrat',sans-serif; line-height:1.8; }
-        .container { max-width:850px; margin:0 auto; padding:0 30px; }
-        nav { padding:40px 0; display:flex; justify-content:space-between; border-bottom:1px solid var(--border); margin-bottom:60px; }
-        .nav-logo { font-family:'Playfair Display',serif; color:var(--gold); text-decoration:none; font-weight:700; font-size:1.3rem; }
-        .article h1 { font-family:'Playfair Display',serif; font-size:3.5rem; line-height:1.1; margin-bottom:40px; }
-        .article h2 { font-family:'Playfair Display',serif; color:var(--gold); margin-top:50px; font-size:2rem; }
-        .highlight-box { background:var(--dark-2); padding:40px; border-left:4px solid var(--gold); margin:40px 0; }
-        .button { display:inline-block; margin-top:40px; padding:22px 50px; border:1px solid var(--gold); color:var(--gold); text-decoration:none; text-transform:uppercase; font-size:12px; letter-spacing:3px; font-weight:600; transition: 0.4s; }
-        .button:hover { background:var(--gold); color:var(--dark); }
+        * { box-sizing:border-box; -webkit-font-smoothing: antialiased; }
+        body { margin:0; font-family:'Montserrat', sans-serif; background-color:var(--dark); color:var(--text); line-height:1.6; }
+        .container { max-width:1100px; margin:0 auto; padding:0 40px; }
+        nav { padding:40px 0; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); }
+        .nav-logo { font-family:'Playfair Display', serif; font-size:1.4rem; color:var(--gold); text-decoration:none; font-weight:700; letter-spacing:3px; }
+        .nav-links a { color:var(--text-soft); text-decoration:none; font-size:11px; letter-spacing:2px; margin-left:30px; text-transform:uppercase; font-weight:600; transition:0.3s; }
+        .nav-links a:hover { color:var(--gold); }
+        .hero { padding:140px 0 100px 0; text-align:center; }
+        .hero h1 { font-family:'Playfair Display', serif; font-size:3.8rem; margin-bottom:30px; line-height:1.1; letter-spacing:-1px; }
+        .hero p { font-size:1.3rem; color:var(--text-soft); max-width:850px; margin:0 auto 50px auto; font-weight:300; }
+        .trust-bar { background: var(--dark-2); padding: 30px; border: 1px solid var(--border); text-align: center; margin-top: -50px; position: relative; z-index: 10; }
+        .trust-bar span { display: block; font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); font-weight: 700; }
+        .trust-bar small { text-transform: uppercase; letter-spacing: 2px; font-size: 10px; color: var(--text-soft); }
+        .button { display:inline-block; padding:22px 50px; border:1px solid var(--gold); color:var(--gold); text-decoration:none; font-size:12px; letter-spacing:3px; text-transform:uppercase; font-weight:600; transition:0.4s; }
+        .button:hover { background:var(--gold); color:var(--dark); transform:translateY(-3px); box-shadow:0 15px 30px rgba(198,168,90,0.1); }
+        .section { padding:120px 0; border-bottom:1px solid rgba(255,255,255,0.03); }
+        h2 { font-family:'Playfair Display', serif; font-size:2.8rem; text-align:center; margin-bottom:70px; }
+        .deliverables-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; max-width:900px; margin:0 auto; }
+        .d-card { background:var(--dark-2); padding:40px; border:1px solid var(--border); }
+        .d-card strong { color:var(--gold); display:block; font-size:1.2rem; margin-bottom:10px; font-family:'Playfair Display', serif; }
+        .profile-wrapper { display:flex; align-items:center; gap:80px; max-width:1000px; margin:0 auto; }
+        .profile-img { width:350px; border:1px solid var(--border); padding:15px; filter:grayscale(30%); }
+        .footer { padding:80px 0; text-align:center; font-size:10px; color:#444; letter-spacing:3px; text-transform:uppercase; }
+        @media(max-width:900px){ .hero h1 { font-size:2.6rem; } .profile-wrapper { flex-direction:column; text-align:center; } .deliverables-grid { grid-template-columns:1fr; } }
     </style>
 </head>
 <body>
 <div class="container">
-    <nav><a href="/" class="nav-logo">VICTOR PRATA</a><a href="/blog" style="color:var(--text-soft);text-decoration:none;font-size:11px;">← Voltar</a></nav>
-    <article class="article">
-        <h1>Deságio Não Decide: A Armadilha do Preço Baixo</h1>
-        <p>O percentual de desconto indicado no edital — o famoso "deságio" — costuma ser a métrica que seduz o amador. No entanto, para o investidor profissional, o deságio isolado é a informação menos relevante da planilha.</p>
-        <div class="highlight-box"><strong>O Mito da Oportunidade Óbvia</strong><p>Um desconto de 60% pode ocultar um risco jurídico precificado pelo mercado. O lucro real nasce na diligência, não no lance.</p></div>
-        <h2>O Custo Invisível: Capital Imobilizado</h2>
-        <p>Arrematar com 60% de desconto e ter o capital travado por 5 anos devido a uma nulidade de citação (fls.) destrói qualquer TIR. O custo de oportunidade e a inflação corroem a margem.</p>
-        <p>Em nossa diligência técnica, <strong>analisamos o regime jurídico da arrematação previsto no Art. 903 do CPC, especialmente quanto à irretratabilidade e hipóteses de invalidação</strong>, garantindo que o seu lance não se torne uma âncora financeira.</p>
-        <div style="text-align:center;"><a href="https://wa.me/553491138795?text=Olá,%20Dr.%20Victor.%20Desejo%20submeter%20um%20edital%20para%20análise%20técnica." class="button">Submeter Edital para Análise</a></div>
-    </article>
+    <nav>
+        <a href="/" class="nav-logo">VICTOR PRATA</a>
+        <div class="nav-links">
+            <a href="/blog">Artigos</a>
+            <a href="https://wa.me/553491138795" target="_blank">Submeter Edital</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Parecer Técnico para Leilões Judiciais em São Paulo.</h1>
+        <p>Não deixe seu capital travado por nulidades processuais. Estruturação de risco e viabilidade jurídica para arrematação em SP.</p>
+        <a href="https://wa.me/553491138795" class="button">Solicitar Análise Técnica</a>
+    </header>
+
+    <div class="trust-bar">
+        <span>+100 Editais em SP</span>
+        <small>Segurança jurídica para investidores profissionais</small>
+    </div>
+
+    <section class="section">
+        <h2>Blindagem do Investimento</h2>
+        <div class="deliverables-grid">
+            <div class="d-card"><strong>Semáforo de Risco</strong><p>Evite o "pesadelo do arrematante": imóveis com recursos pendentes ou citações nulas.</p></div>
+            <div class="d-card"><strong>Custo Total SP</strong><p>Cálculo exato de ITBI, débitos de condomínio e IPTU no estado de São Paulo.</p></div>
+            <div class="d-card"><strong>Agilidade de Posse</strong><p>Análise do juízo e da probabilidade de imissão na posse célere.</p></div>
+            <div class="d-card"><strong>Veredito Final</strong><p>A segurança técnica para você arrematar e não apenas "ganhar o lance".</p></div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="profile-wrapper">
+            <img src="foto.png" alt="Victor Prata Advogado Leilões" class="profile-img">
+            <div class="profile-content">
+                <h2>Dr. Victor Prata</h2>
+                <p>Estrategista jurídico focado em leilões judiciais em São Paulo. Atuo eliminando as surpresas processuais que destroem a rentabilidade do investidor imobiliário.</p>
+                <div style="margin-top:40px;">
+                    <a href="https://wa.me/553491138795" class="button" style="padding:15px 30px; font-size:10px;">Validar meu próximo lance</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">VICTOR PRATA • 2026 • SÃO PAULO - BRASIL</footer>
 </div>
 </body>
 </html>
+
