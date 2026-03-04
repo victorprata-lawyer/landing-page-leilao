@@ -25,47 +25,105 @@
             --text-soft: #a0a0a0;
             --border: rgba(198, 168, 90, 0.2);
         }
+
         * { box-sizing: border-box; }
-        body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--dark); color: var(--text); line-height: 1.6; }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
         h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 500; }
+
         .container { max-width: 1000px; margin: 0 auto; padding: 0 25px; }
-        nav { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
+
+        /* Navegação */
+        nav {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
         .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); text-decoration: none; font-weight: 700; letter-spacing: 1px; }
         .nav-links a { color: var(--text-soft); text-decoration: none; font-size: 13px; letter-spacing: 1px; transition: 0.3s; margin-left: 20px; text-transform: uppercase; }
         .nav-links a:hover { color: var(--gold); }
+
+        /* Hero Section */
         .hero { padding: 100px 0 80px 0; text-align: center; }
         .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 30px; color: #fff; }
         .hero p { font-size: 1.2rem; color: var(--text-soft); max-width: 700px; margin: 0 auto 40px auto; font-weight: 300; }
-        .button { display: inline-block; padding: 20px 45px; background-color: transparent; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 2px; transition: all 0.4s ease; text-transform: uppercase; }
+
+        /* Button */
+        .button {
+            display: inline-block;
+            padding: 20px 45px;
+            background-color: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+        }
         .button:hover { background-color: var(--gold); color: var(--dark); box-shadow: 0 10px 20px rgba(198, 168, 90, 0.2); transform: translateY(-3px); }
+
+        /* Sections */
         .section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
         .section h2 { font-size: 2.2rem; margin-bottom: 50px; text-align: center; color: var(--gold-soft); }
-        .card { background-color: var(--dark-2); padding: 60px; border: 1px solid var(--border); position: relative; transition: 0.3s; }
+
+        /* Cards */
+        .card {
+            background-color: var(--dark-2);
+            padding: 60px;
+            border: 1px solid var(--border);
+            position: relative;
+            transition: 0.3s;
+        }
         .card:hover { border-color: var(--gold); }
+
+        /* Perfil */
         .profile-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 60px; align-items: center; }
         .profile-img { width: 100%; border-radius: 2px; filter: grayscale(30%); border: 1px solid var(--border); }
+
+        /* Listas */
         ul { list-style: none; padding: 0; }
         li { margin-bottom: 15px; padding-left: 30px; position: relative; color: var(--text-soft); }
         li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
+
         .highlight { color: var(--gold-soft); font-style: italic; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-top: 25px; display: block; }
+
         .footer { padding: 80px 0; text-align: center; color: #555; font-size: 13px; letter-spacing: 1px; }
-        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } .profile-grid { grid-template-columns: 1fr; text-align: center; } .card { padding: 30px; } }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .profile-grid { grid-template-columns: 1fr; text-align: center; }
+            .card { padding: 30px; }
+        }
     </style>
 </head>
 <body>
+
 <div class="container">
     <nav>
         <a href="/" class="nav-logo">VICTOR PRATA</a>
         <div class="nav-links">
             <a href="/blog">Artigos</a>
-            <a href="https://wa.me/5534911138795">Contato</a>
+            <a href="https://wa.me/553491138795">Contato</a>
         </div>
     </nav>
+
     <header class="hero">
         <h1>Você não precisa decidir sozinho antes de um lance.</h1>
         <p>Análise técnica profunda que mapeia riscos, projeta cenários e protege seu capital em leilões judiciais.</p>
-        <a href="https://wa.me/5534911138795?text=Olá,%20quero%20submeter%20análise" class="button">Submeter Imóvel para Análise</a>
+        <a href="https://wa.me/553491138795?text=Olá,%20quero%20submeter%20um%20imóvel%20para%20análise" class="button">Submeter Imóvel para Análise</a>
     </header>
+
     <section class="section">
         <div class="profile-grid">
             <img src="foto.png" alt="Dr. Victor Prata" class="profile-img">
@@ -78,6 +136,7 @@
             </div>
         </div>
     </section>
+
     <section class="section">
         <h2>O que está em jogo</h2>
         <div class="card">
@@ -91,10 +150,12 @@
             <p class="highlight" style="text-align: center; margin-top: 40px;">O desconto não compensa um risco invisível.</p>
         </div>
     </section>
+
     <footer class="footer">
         VICTOR PRATA | DILIGÊNCIA ESTRATÉGICA EM LEILÕES<br>
         Proteção técnica antes da decisão estratégica.
     </footer>
 </div>
+
 </body>
 </html>
