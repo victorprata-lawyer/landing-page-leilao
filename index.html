@@ -1,56 +1,176 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Victor Prata | Blindagem Jurídica para Leilões Judiciais em São Paulo</title>
-<meta name="description" content="Análise técnica e blindagem jurídica para investidores em leilões judiciais em São Paulo. Identificação de nulidades e riscos ocultos antes da arrematação.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://analise-leilao.vercel.app/">
-<meta property="og:title" content="Blindagem Jurídica para Leilões Judiciais em São Paulo">
-<meta property="og:description" content="Proteja seu capital antes de arrematar. Parecer técnico especializado em nulidades e riscos processuais.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://analise-leilao.vercel.app/">
-<meta property="og:image" content="https://analise-leilao.vercel.app/og-image.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victor Prata | Blindagem Jurídica para Leilões Judiciais em São Paulo</title>
+    <meta name="description" content="Análise técnica e blindagem jurídica para investidores em leilões judiciais em São Paulo. Identificação de nulidades e riscos ocultos antes da arrematação.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://analise-leilao.vercel.app/">
+    
+    <meta property="og:title" content="Blindagem Jurídica para Leilões Judiciais em São Paulo">
+    <meta property="og:description" content="Proteja seu capital antes de arrematar. Parecer técnico especializado em nulidades e riscos processuais.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://analise-leilao.vercel.app/">
+    <meta property="og:image" content="https://analise-leilao.vercel.app/og-image.jpg">
 
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
- "@type": "LegalService",
- "name": "Victor Prata - Análise Técnica em Leilões Judiciais",
- "image": "https://analise-leilao.vercel.app/og-image.jpg",
- "url": "https://analise-leilao.vercel.app/",
- "areaServed": {
-   "@type": "AdministrativeArea",
-   "name": "São Paulo"
- },
- "serviceType": "Análise de risco em leilões judiciais",
- "founder": {
-   "@type": "Person",
-   "name": "Victor Prata",
-   "sameAs": "https://www.linkedin.com/"
- }
-}
-</script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="/style.css">
+    <style>
+        :root {
+            --gold: #c6a85a;
+            --dark: #0a0c10;
+            --dark-2: #12161d;
+            --text: #f0f0f0;
+            --text-soft: #a0a0a0;
+            --border: rgba(198, 168, 90, 0.2);
+        }
+
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        
+        body { 
+            margin: 0; 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--dark); 
+            color: var(--text); 
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 30px; }
+
+        /* Navegação */
+        nav { 
+            padding: 40px 0; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-logo { 
+            font-family: 'Playfair Display', serif; 
+            color: var(--gold); 
+            text-decoration: none; 
+            font-weight: 700; 
+            letter-spacing: 2px;
+            font-size: 1.3rem;
+        }
+
+        /* Hero Section */
+        header { 
+            padding: 120px 0 80px 0; 
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+        header h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 3.5rem; 
+            margin-bottom: 25px; 
+            line-height: 1.1;
+            color: #fff;
+        }
+        header p { 
+            font-size: 1.2rem; 
+            color: var(--text-soft); 
+            max-width: 700px; 
+            margin: 0 auto 40px auto;
+            font-weight: 300;
+        }
+
+        /* Botão Minimalista */
+        .btn { 
+            display: inline-block; 
+            padding: 20px 45px; 
+            border: 1px solid var(--gold); 
+            color: var(--gold); 
+            text-decoration: none; 
+            font-size: 11px; 
+            letter-spacing: 3px; 
+            text-transform: uppercase; 
+            font-weight: 600;
+            transition: 0.4s ease;
+        }
+        .btn:hover { 
+            background: var(--gold); 
+            color: var(--dark); 
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(198, 168, 90, 0.1);
+        }
+
+        /* Seção de Conteúdo */
+        section { padding: 100px 0; text-align: center; }
+        section h2 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 2.2rem; 
+            margin-bottom: 30px;
+        }
+        section p { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            color: var(--text-soft);
+            font-size: 1.1rem;
+        }
+
+        footer { 
+            padding: 60px 0; 
+            text-align: center; 
+            font-size: 10px; 
+            color: #444; 
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+     "@context": "https://schema.org",
+     "@type": "LegalService",
+     "name": "Victor Prata - Análise Técnica em Leilões Judiciais",
+     "image": "https://analise-leilao.vercel.app/og-image.jpg",
+     "url": "https://analise-leilao.vercel.app/",
+     "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+     "serviceType": "Análise de risco em leilões judiciais",
+     "founder": {
+        "@type": "Person",
+        "name": "Victor Prata",
+        "url": "https://analise-leilao.vercel.app/",
+        "sameAs": "https://www.linkedin.com/in/victor-prata-leilao"
+      }
+    }
+    </script>
 </head>
 <body>
 
-<header>
-<h1>Blindagem Jurídica para Leilões Judiciais em São Paulo</h1>
-<p>Análise técnica de nulidades, vícios processuais e riscos ocultos antes da arrematação.</p>
-<a href="/blog/" class="btn">Acessar Análises Técnicas</a>
-</header>
+    <div class="container">
+        <nav>
+            <a href="/" class="nav-logo">VICTOR PRATA</a>
+            <div style="font-size: 10px; letter-spacing: 2px; color: var(--gold);">ESTRATEGISTA JURÍDICO</div>
+        </nav>
 
-<section>
-<h2>Por que investidores experientes pedem análise antes de arrematar?</h2>
-<p>O deságio não revela passivos ocultos. A análise técnica identifica falhas processuais que podem inviabilizar o lucro da operação.</p>
-</section>
+        <header>
+            <h1>Blindagem Jurídica para Leilões Judiciais em São Paulo</h1>
+            <p>Parecer técnico de nulidades, vícios processuais e estruturação de risco para arrematantes profissionais.</p>
+            <a href="/blog/" class="btn">Acessar Análises Técnicas</a>
+        </header>
 
-<footer>
-<p>© 2026 Victor Prata</p>
-</footer>
+        <section>
+            <h2>O lucro real nasce na diligência, não no lance.</h2>
+            <p>Em São Paulo, o deságio pode ser uma armadilha. Minha análise identifica falhas de citação, débitos omitidos e recursos pendentes que podem sequestrar seu capital por anos.</p>
+        </section>
+
+        <footer>
+            <p>© 2026 Victor Prata • Análise de Risco em São Paulo - Brasil</p>
+        </footer>
+    </div>
 
 </body>
 </html>
