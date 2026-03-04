@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deságio Não Decide | Victor Prata - Artigo Técnico</title>
     
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="theme-color" content="#0a0c10">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
@@ -30,7 +33,6 @@
 
         .container { max-width: 800px; margin: 0 auto; padding: 0 25px; }
 
-        /* Navegação Simplificada para o Artigo */
         nav {
             padding: 30px 0;
             display: flex;
@@ -40,10 +42,9 @@
             margin-bottom: 60px;
         }
         .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); text-decoration: none; font-weight: 700; }
-        .back-link { color: var(--text-soft); text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+        .back-link { color: var(--text-soft); text-decoration: none; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         .back-link:hover { color: var(--gold); }
 
-        /* Conteúdo do Artigo */
         article header { margin-bottom: 50px; text-align: center; }
         article h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 20px; }
         .meta { color: var(--gold); font-size: 14px; letter-spacing: 2px; text-transform: uppercase; }
@@ -57,7 +58,6 @@
         .content li { margin-bottom: 15px; padding-left: 30px; position: relative; }
         .content li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
 
-        /* Conclusão / CTA */
         .article-footer {
             margin-top: 80px;
             padding: 50px;
@@ -73,11 +73,14 @@
             color: var(--gold);
             text-decoration: none;
             font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 14px;
             transition: 0.3s;
         }
         .cta-button:hover { background: var(--gold); color: var(--dark); }
 
-        footer { padding: 60px 0; text-align: center; color: #444; font-size: 12px; }
+        footer { padding: 60px 0; text-align: center; color: #444; font-size: 12px; letter-spacing: 1px; }
 
         @media (max-width: 768px) {
             article h1 { font-size: 2.2rem; }
@@ -89,7 +92,7 @@
 <div class="container">
     <nav>
         <a href="/" class="nav-logo">VICTOR PRATA</a>
-        <a href="/" class="back-link">← Voltar para Home</a>
+        <a href="/blog" class="back-link">← Todos os Artigos</a>
     </nav>
 
     <article>
@@ -99,30 +102,30 @@
         </header>
 
         <div class="content">
-            <p>Em leilões judiciais, a primeira métrica que salta aos olhos é o deságio. Ver um imóvel avaliado em R$ 1 milhão sendo ofertado por R$ 500 mil gera uma euforia imediata. No entanto, <strong>o deságio é uma métrica de vaidade</strong> se não vier acompanhada de uma análise de risco profundo.</p>
+            <p>Em leilões judiciais, a primeira métrica que salta aos olhos é o deságio. No entanto, <strong>o deságio é uma métrica de vaidade</strong> se não vier acompanhada de uma análise de risco profundo.</p>
 
             <h2>A Ilusão do Desconto</h2>
-            <p>O que muitos investidores ignoram é que um deságio de 50% pode ser rapidamente consumido por passivos que não estavam claros no edital ou por uma <strong>imissão na posse</strong> que demora 4 anos para ocorrer devido a nulidades processuais.</p>
+            <p>Um deságio de 50% pode ser rapidamente consumido por passivos que não estavam claros no edital ou por uma imissão na posse que demora anos devido a nulidades processuais.</p>
 
             <ul>
-                <li>Dívidas de condomínio que o edital omitiu;</li>
-                <li>Recursos de terceiros que ainda não transitaram em julgado;</li>
-                <li>Impostos acumulados que superam a margem de lucro prevista.</li>
+                <li>Dívidas de condomínio omitidas;</li>
+                <li>Recursos de terceiros pendentes;</li>
+                <li>Passivos tributários incidentes sobre a arrematação.</li>
             </ul>
 
-            <h2>O Risco de Capital Imobilizado</h2>
-            <p>O lucro em leilões não é feito na compra, mas na <strong>liquidez e na segurança da operação</strong>. Um imóvel com menos deságio, mas com processo "limpo", pode ser muito mais rentável do que uma oportunidade "barata" que trava seu capital em discussões judiciais intermináveis.</p>
+            <h2>Racionalidade acima da Euforia</h2>
+            <p>O lucro real em leilões é feito na <strong>segurança da operação</strong>. Um imóvel com menos deságio, mas com processo "limpo", é frequentemente mais rentável que uma oportunidade "barata" travada judicialmente.</p>
         </div>
 
         <div class="article-footer">
-            <h3>Precisa de uma análise estratégica para seu próximo lance?</h3>
-            <p>Não comprometa seu capital sem um parecer técnico exaustivo.</p>
-            <a href="https://wa.me/5534911138795" class="cta-button">Falar com Dr. Victor Prata</a>
+            <h3>Submeter imóvel para análise estratégica?</h3>
+            <p>Tenha um parecer técnico exaustivo antes de comprometer seu capital.</p>
+            <a href="https://wa.me/553491138795?text=Olá,%20vi%20seu%20artigo%20e%20quero%20analisar%20um%20imóvel." class="cta-button">Falar com Dr. Victor Prata</a>
         </div>
     </article>
 
     <footer>
-        © 2026 Victor Prata - Todos os direitos reservados.
+        © 2026 VICTOR PRATA | PROTEÇÃO TÉCNICA EM LEILÕES
     </footer>
 </div>
 
