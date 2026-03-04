@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Victor Prata | Inteligência Jurídica Estratégica em Leilões</title>
     
-    <meta name="description" content="Proteja seu capital em leilões judiciais com análise técnica exaustiva. Dr. Victor Prata oferece inteligência em diligência e mapeamento de riscos.">
+    <meta name="description" content="Proteja seu capital em leilões judiciais com análise técnica exaustiva. Dr. Victor Prata oferece diligência estratégica.">
     <link rel="icon" type="image/png" href="/favicon.png?v=2">
     <meta name="theme-color" content="#0a0c10">
 
@@ -24,36 +24,40 @@
         nav { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); }
         .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--gold); text-decoration: none; font-weight: 700; letter-spacing: 2px; }
         .nav-links a { color: var(--text-soft); text-decoration: none; font-size: 11px; letter-spacing: 1.5px; transition: 0.3s; margin-left: 25px; text-transform: uppercase; font-weight: 600; }
-        .nav-links a:hover { color: var(--gold); }
 
-        .hero { padding: 140px 0 100px 0; text-align: center; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; line-height: 1.1; margin-bottom: 35px; color: #fff; }
-        .hero p { font-size: 1.3rem; color: var(--text-soft); max-width: 800px; margin: 0 auto 55px auto; font-weight: 300; }
+        .hero { padding: 120px 0 80px 0; text-align: center; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1.1; margin-bottom: 30px; color: #fff; }
+        .hero p { font-size: 1.25rem; color: var(--text-soft); max-width: 800px; margin: 0 auto 50px auto; font-weight: 300; }
         
-        .button { display: inline-block; padding: 22px 55px; background: transparent; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 2px; transition: 0.4s; text-transform: uppercase; }
-        .button:hover { background: var(--gold); color: var(--dark); transform: translateY(-3px); box-shadow: 0 15px 30px rgba(198, 168, 90, 0.2); }
+        .button { display: inline-block; padding: 20px 50px; background: transparent; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 2px; transition: 0.4s; text-transform: uppercase; }
+        .button:hover { background: var(--gold); color: var(--dark); }
 
-        .section { padding: 120px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .section { padding: 100px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
 
-        /* REVISÃO DA GRID DE ELITE */
-        .profile-container { 
-            display: flex; 
-            align-items: center; 
+        /* BOX DO PERFIL - CORREÇÃO DEFINITIVA */
+        .profile-wrapper {
+            display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 100px; /* Espaço generoso entre foto e texto */
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
-        /* Moldura da Foto Corrigida */
-        .photo-wrapper {
+        /* Moldura rígida para evitar desalinhamento */
+        .photo-container {
             position: relative;
-            flex-shrink: 0; /* Impede a foto de encolher */
+            width: 350px; /* Largura exata da foto */
+            height: 440px; /* Altura exata da foto */
+            flex-shrink: 0;
         }
-        
-        .photo-wrapper::after {
+
+        /* A Borda Dourada Fixa */
+        .photo-container::after {
             content: "";
             position: absolute;
-            top: 25px;
-            left: 25px;
+            top: 20px;
+            left: 20px;
             width: 100%;
             height: 100%;
             border: 1px solid var(--gold);
@@ -61,33 +65,31 @@
         }
 
         .profile-img { 
-            width: 380px; /* Tamanho fixo para controle total */
-            height: auto;
-            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             position: relative;
-            z-index: 2; /* Fica por cima da moldura */
-            filter: grayscale(10%);
+            z-index: 2; /* Garante que a foto fique NA FRENTE da borda */
             border: 1px solid var(--border);
+            filter: grayscale(10%);
         }
 
         .profile-content { flex: 1; }
-        .profile-content h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: #fff; margin: 0 0 10px 0; }
-        .profile-content .subtitle { color: var(--gold); font-size: 1rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 600; display: block; margin-bottom: 35px; }
-        .profile-content p { font-size: 1.15rem; color: var(--text-soft); margin-bottom: 25px; font-weight: 300; }
+        .profile-content h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #fff; margin: 0 0 10px 0; }
+        .profile-content .subtitle { color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 600; display: block; margin-bottom: 30px; }
+        .profile-content p { font-size: 1.1rem; color: var(--text-soft); margin-bottom: 20px; font-weight: 300; }
         
-        .quote { 
-            font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.6rem; 
-            color: var(--gold-soft); border-left: 3px solid var(--gold); padding-left: 30px; margin-top: 45px; 
+        .quote-box { 
+            font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.5rem; 
+            color: var(--gold-soft); border-left: 2px solid var(--gold); padding-left: 25px; margin-top: 40px; 
         }
 
-        .footer { padding: 100px 0 60px 0; text-align: center; color: #444; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+        .footer { padding: 80px 0; text-align: center; color: #444; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* Responsividade */
-        @media (max-width: 1000px) {
-            .profile-container { flex-direction: column; text-align: center; gap: 70px; }
-            .photo-wrapper { margin-right: 25px; } /* Ajuste para centralizar com a moldura */
-            .profile-img { width: 320px; }
-            .quote { text-align: left; }
+        @media (max-width: 900px) {
+            .profile-wrapper { flex-direction: column; text-align: center; }
+            .photo-container { width: 280px; height: 350px; margin-bottom: 40px; }
+            .quote-box { text-align: left; }
         }
     </style>
 </head>
@@ -98,19 +100,19 @@
         <a href="/" class="nav-logo">VICTOR PRATA</a>
         <div class="nav-links">
             <a href="/blog">Artigos Técnicos</a>
-            <a href="https://wa.me/553491138795">Consultar Viabilidade</a>
+            <a href="https://wa.me/553491138795">Diligência</a>
         </div>
     </nav>
 
     <header class="hero">
         <h1>Sua rentabilidade depende da sua segurança jurídica.</h1>
-        <p>Inteligência estratégica em leilões judiciais. Mapeamos nulidades e passivos ocultos para garantir que sua arrematação seja um ativo lucrativo.</p>
-        <a href="https://wa.me/553491138795?text=Olá,%20solicito%20análise%20estratégica%20para%20um%20leilão." class="button">Solicitar Diligência Estratégica</a>
+        <p>Inteligência estratégica em leilões judiciais. Mapeamos nulidades antes do seu lance.</p>
+        <a href="https://wa.me/553491138795" class="button">Solicitar Análise</a>
     </header>
 
     <section class="section">
-        <div class="profile-container">
-            <div class="photo-wrapper">
+        <div class="profile-wrapper">
+            <div class="photo-container">
                 <img src="foto.png" alt="Dr. Victor Prata" class="profile-img">
             </div>
             
@@ -119,7 +121,7 @@
                 <span class="subtitle">Estrategista Jurídico em Leilões</span>
                 <p>Especialista na análise exaustiva de processos de leilão. Minha atuação foca em identificar o que não está escrito no edital: os riscos que comprometem o tempo e a margem de lucro.</p>
                 <p>Atuo na proteção do capital de investidores, transformando incertezas judiciais em decisões baseadas em dados técnicos.</p>
-                <div class="quote">
+                <div class="quote-box">
                     "O lucro em leilões não está no lance, mas na inteligência aplicada antes dele."
                 </div>
             </div>
