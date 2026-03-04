@@ -4,30 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Essencial -->
     <title>Perspectiva Técnica | Artigos sobre Leilões Judiciais | Victor Prata</title>
     <meta name="description" content="Análises profundas, estratégias e inteligência imobiliária para investidores de leilões judiciais em São Paulo.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://analise-leilao.vercel.app/blog">
 
-    <!-- Open Graph / Redes Sociais -->
     <meta property="og:type" content="blog">
     <meta property="og:url" content="https://analise-leilao.vercel.app/blog">
     <meta property="og:title" content="Perspectiva Técnica | Victor Prata">
     <meta property="og:description" content="Inteligência imobiliária e análise de risco para arrematações seguras em São Paulo.">
     <meta property="og:image" content="https://analise-leilao.vercel.app/og-image.jpg">
 
-    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://analise-leilao.vercel.app/blog">
     <meta name="twitter:title" content="Perspectiva Técnica | Victor Prata">
     <meta name="twitter:description" content="Inteligência imobiliária e análise de risco para arrematações seguras em São Paulo.">
     <meta name="twitter:image" content="https://analise-leilao.vercel.app/og-image.jpg">
 
-    <!-- Favicon ajustado para a raiz -->
     <link rel="icon" type="image/png" href="/favicon.png">
 
-    <!-- Schema.org / Dados Estruturados -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -46,7 +41,6 @@
     }
     </script>
 
-    <!-- Fontes e Estilos -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root { 
@@ -66,18 +60,18 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
+        /* BLOQUEIO TOTAL DE AZUL E CORES PADRÃO DE LINKS */
+        a, a:visited, a:hover, a:active {
+            text-decoration: none !important;
+            color: inherit;
+        }
+
         body { 
             margin: 0; 
             font-family: 'Montserrat', sans-serif; 
             background-color: var(--dark); 
             color: var(--text); 
             line-height: 1.6; 
-        }
-
-        /* Reseta links azuis padrão do navegador */
-        a {
-            text-decoration: none;
-            color: inherit;
         }
 
         /* Animações de Entrada */
@@ -128,7 +122,7 @@
         }
         
         .nav-links a { 
-            color: var(--text-soft); 
+            color: var(--text-soft) !important; 
             font-size: 11px; 
             letter-spacing: 2px; 
             margin-left: 30px; 
@@ -137,7 +131,7 @@
             transition: 0.3s; 
         }
         .nav-links a:hover { 
-            color: var(--gold); 
+            color: var(--gold) !important; 
         }
 
         /* Header do Blog */
@@ -187,7 +181,6 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: all 0.4s ease;
             height: 100%;
-            color: var(--text) !important; /* Força remoção do azul */
         }
         .article-card:hover {
             transform: translateY(-8px);
@@ -249,8 +242,9 @@
         .cta-banner h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.2rem;
-            color: var(--gold);
+            color: var(--gold) !important;
             margin: 0 0 15px 0;
+            text-align: center;
         }
         .cta-banner p {
             color: var(--text-soft);
@@ -330,7 +324,6 @@
         <section class="articles-section">
             <div class="articles-grid animate-fade delay-1">
                 
-                <!-- Artigo 1 -->
                 <a href="/blog/desagio-nao-decide.html" class="article-card">
                     <span class="article-tag">Estratégia</span>
                     <h2>O Mito do Deságio</h2>
@@ -338,7 +331,6 @@
                     <span class="read-more">Ler Análise</span>
                 </a>
 
-                <!-- Artigo 2 -->
                 <a href="/blog/checklist-nulidades.html" class="article-card">
                     <span class="article-tag">Risco Jurídico</span>
                     <h2>Checklist de Nulidades</h2>
@@ -346,7 +338,6 @@
                     <span class="read-more">Ler Análise</span>
                 </a>
 
-                <!-- Artigo 3 -->
                 <a href="#" class="article-card">
                     <span class="article-tag">Estudo de Caso</span>
                     <h2>Agilidade na Posse</h2>
@@ -357,7 +348,6 @@
             </div>
         </section>
 
-        <!-- Banner de Conversão Final (CTA) -->
         <section class="cta-section animate-fade delay-2">
             <div class="cta-banner">
                 <h2>Tem um edital em vista?</h2>
