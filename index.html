@@ -5,129 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Victor Prata | Decisão Jurídica Estruturada em Leilões Judiciais</title>
     <meta name="description" content="Parecer técnico conclusivo em até 72h para investidores de leilões em SP. Semáforo de risco e custo total projetado antes do seu lance.">
+    <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://analise-leilao.vercel.app/">
+    
+    <meta property="og:title" content="Victor Prata | Decisão Jurídica Estruturada">
+    <meta property="og:description" content="Parecer técnico conclusivo em até 72h para investidores de leilões judiciais.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://analise-leilao.vercel.app/">
+    <meta property="og:image" content="https://analise-leilao.vercel.app/og-image.jpg">
+
     <link rel="icon" type="image/png" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        :root { --gold:#c6a85a; --gold-dark:#a3863f; --dark:#0a0c10; --dark-2:#12161d; --text:#f0f0f0; --text-soft:#a0a0a0; --border:rgba(198,168,90,0.15); }
+        :root { --gold:#c6a85a; --dark:#0a0c10; --dark-2:#12161d; --text:#f0f0f0; --text-soft:#a0a0a0; --border:rgba(198,168,90,0.15); }
         * { box-sizing:border-box; -webkit-font-smoothing: antialiased; }
         body { margin:0; font-family:'Montserrat', sans-serif; background-color:var(--dark); color:var(--text); line-height:1.6; }
         .container { max-width:1100px; margin:0 auto; padding:0 40px; }
-        
         nav { padding:40px 0; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); }
         .nav-logo { font-family:'Playfair Display', serif; font-size:1.4rem; color:var(--gold); text-decoration:none; font-weight:700; letter-spacing:3px; }
         .nav-links a { color:var(--text-soft); text-decoration:none; font-size:11px; letter-spacing:2px; margin-left:30px; text-transform:uppercase; font-weight:600; transition:0.3s; }
         .nav-links a:hover { color:var(--gold); }
-
         .hero { padding:140px 0 100px 0; text-align:center; }
         .hero h1 { font-family:'Playfair Display', serif; font-size:3.8rem; margin-bottom:30px; line-height:1.1; letter-spacing:-1px; }
         .hero p { font-size:1.3rem; color:var(--text-soft); max-width:850px; margin:0 auto 50px auto; font-weight:300; }
-
-        .button { display:inline-block; padding:22px 50px; border:1px solid var(--gold); color:var(--gold); text-decoration:none; font-size:12px; letter-spacing:3px; text-transform:uppercase; font-weight:600; transition:0.4s; background: transparent; }
+        .button { display:inline-block; padding:22px 50px; border:1px solid var(--gold); color:var(--gold); text-decoration:none; font-size:12px; letter-spacing:3px; text-transform:uppercase; font-weight:600; transition:0.4s; }
         .button:hover { background:var(--gold); color:var(--dark); transform:translateY(-3px); box-shadow:0 15px 30px rgba(198,168,90,0.1); }
-
-        .section-label { color:var(--gold); font-size:11px; text-transform:uppercase; letter-spacing:4px; display:block; text-align:center; margin-bottom:20px; font-weight:600; }
         .section { padding:120px 0; border-bottom:1px solid rgba(255,255,255,0.03); }
         h2 { font-family:'Playfair Display', serif; font-size:2.8rem; text-align:center; margin-bottom:70px; }
-
         .deliverables-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; max-width:900px; margin:0 auto; }
         .d-card { background:var(--dark-2); padding:40px; border:1px solid var(--border); transition:0.3s; }
-        .d-card:hover { border-color:var(--gold); }
         .d-card strong { color:var(--gold); display:block; font-size:1.2rem; margin-bottom:10px; font-family:'Playfair Display', serif; }
-        .d-card p { margin:0; color:var(--text-soft); font-size:0.95rem; font-weight:300; }
-
         .profile-wrapper { display:flex; align-items:center; gap:80px; max-width:1000px; margin:0 auto; }
-        .profile-img { width:350px; border:1px solid var(--border); padding:15px; background:var(--dark-2); filter:grayscale(30%); }
-        .profile-content h2 { text-align:left; margin-bottom:30px; }
-        .profile-content p { color:var(--text-soft); font-size:1.15rem; margin-bottom:25px; font-weight:300; }
-
-        .target-box { background:linear-gradient(to right, var(--dark-2), transparent); padding:50px; border-left:2px solid var(--gold); }
-        .target-item { margin-bottom:20px; display:flex; gap:20px; font-size:1.1rem; color:var(--text-soft); }
-        .target-item span { color:var(--gold); }
-
-        .cta-final { text-align:center; padding:140px 0; background: radial-gradient(circle at center, #12161d 0%, #0a0c10 100%); }
-        .footer { padding:80px 0; text-align:center; font-size:10px; color:#444; letter-spacing:3px; text-transform:uppercase; border-top:1px solid var(--border); }
-
-        @media(max-width:900px){
-            .hero h1 { font-size:2.6rem; }
-            .profile-wrapper { flex-direction:column; text-align:center; }
-            .profile-content h2 { text-align:center; }
-            .deliverables-grid { grid-template-columns:1fr; }
-        }
+        .profile-img { width:350px; border:1px solid var(--border); padding:15px; filter:grayscale(30%); }
+        .footer { padding:80px 0; text-align:center; font-size:10px; color:#444; letter-spacing:3px; text-transform:uppercase; }
+        @media(max-width:900px){ .hero h1 { font-size:2.6rem; } .profile-wrapper { flex-direction:column; text-align:center; } .deliverables-grid { grid-template-columns:1fr; } }
     </style>
 </head>
 <body>
 <div class="container">
     <nav>
         <a href="/" class="nav-logo">VICTOR PRATA</a>
-        <div class="nav-links">
-            <a href="/blog">Artigos</a>
-            <a href="https://wa.me/553491138795?text=Olá,%20Desejo%20submeter%20um%20edital%20para%20análise%20técnica." target="_blank">Submeter Edital</a>
-        </div>
+        <div class="nav-links"><a href="/blog">Artigos</a><a href="https://wa.me/553491138795?text=Olá,%20Dr.%20Victor.%20Desejo%20submeter%20um%20edital%20para%20análise%20técnica." target="_blank">Submeter Edital</a></div>
     </nav>
-
     <header class="hero">
-        <span class="section-label">Inteligência em Arrematações</span>
         <h1>Estruture o risco antes de expor seu capital.</h1>
         <p>Parecer técnico conclusivo em até 72h para investidores de leilões judiciais. Segurança jurídica traduzida em números e viabilidade real.</p>
-        <a href="https://wa.me/553491138795?text=Olá,%20Desejo%20submeter%20um%20edital%20para%20análise%20técnica." class="button">Solicitar Análise Técnica</a>
+        <a href="https://wa.me/553491138795?text=Olá,%20Dr.%20Victor.%20Desejo%20submeter%20um%20edital%20para%20análise%20técnica." class="button">Solicitar Análise Técnica</a>
     </header>
-
     <section class="section">
-        <span class="section-label">O Produto da Diligência</span>
         <h2>Entregáveis Estratégicos</h2>
         <div class="deliverables-grid">
-            <div class="d-card">
-                <strong>Semáforo de Risco</strong>
-                <p>Classificação objetiva (Verde, Amarelo ou Vermelho) baseada na saúde processual e chances de nulidade.</p>
-            </div>
-            <div class="d-card">
-                <strong>Custo Total Projetado</strong>
-                <p>Mapeamento de passivos de IPTU, condomínio, ITBI e taxas ocultas. Sua margem líquida real revelada.</p>
-            </div>
-            <div class="d-card">
-                <strong>Preço-Teto Técnico</strong>
-                <p>Cálculo do valor máximo racional para oferta, garantindo que o emocional não destrua o lucro.</p>
-            </div>
-            <div class="d-card">
-                <strong>Veredito Final</strong>
-                <p>Parecer direto: avançar com segurança ou recuar estrategicamente. Decisão baseada em fatos autos.</p>
-            </div>
+            <div class="d-card"><strong>Semáforo de Risco</strong><p>Classificação objetiva do cenário jurídico: Verde, Amarelo ou Vermelho.</p></div>
+            <div class="d-card"><strong>Custo Total Projetado</strong><p>Mapeamento de passivos de IPTU, condomínio e taxas ocultas.</p></div>
+            <div class="d-card"><strong>Preço-Teto Técnico</strong><p>Cálculo do valor máximo racional para preservar sua margem.</p></div>
+            <div class="d-card"><strong>Veredito Final</strong><p>Parecer direto: avançar com segurança ou recuar estrategicamente.</p></div>
         </div>
     </section>
-
     <section class="section">
         <div class="profile-wrapper">
-            <img src="foto.png" alt="Dr. Victor Prata" class="profile-img">
+            <img src="foto.png" alt="Victor Prata" class="profile-img">
             <div class="profile-content">
                 <h2>Dr. Victor Prata</h2>
-                <p>Estrategista jurídico especializado em leilões judiciais residenciais. Atuo como o filtro final entre a oportunidade de edital e a segurança do seu patrimônio.</p>
-                <p>Minha metodologia foca na identificação de nulidades processuais e passivos invisíveis, garantindo que o investidor opere com previsibilidade absoluta.</p>
+                <p>Estrategista jurídico focado na estruturação de risco em leilões judiciais. Atuo como o filtro técnico final para investidores que operam com profissionalismo.</p>
             </div>
         </div>
     </section>
-
-    <section class="section">
-        <h2>Perfil do Investidor</h2>
-        <div style="max-width:800px;margin:0 auto;">
-            <div class="target-box">
-                <div class="target-item"><span>01</span> Opera leilões judiciais residenciais no estado de São Paulo.</div>
-                <div class="target-item"><span>02</span> Exige análise técnica profunda em janelas curtas (72h).</div>
-                <div class="target-item"><span>03</span> Compreende que o lucro real nasce na diligência, não no lance.</div>
-                <div class="target-item"><span>04</span> Prefere o recuo estratégico à imobilização de capital por nulidade.</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-final">
-        <h2>Pronto para arrematar com racionalidade?</h2>
-        <p>Submeta o edital escolhido e receba o mapa de riscos em 72h.</p>
-        <a href="https://wa.me/553491138795?text=Olá,%20Desejo%20submeter%20um%20edital%20para%20análise%20técnica." class="button">Contratar Diligência Técnica</a>
-    </section>
-
-    <footer class="footer">
-        Victor Prata • Decisão Jurídica Estruturada • 2026
-    </footer>
+    <footer class="footer">VICTOR PRATA • 2026</footer>
 </div>
 </body>
 </html>
