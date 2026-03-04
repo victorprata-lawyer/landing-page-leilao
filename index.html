@@ -68,10 +68,13 @@
             --border: rgba(198,168,90,0.15); 
             --border-soft: rgba(198,168,90,0.05);
         }
+        
         * { 
             box-sizing: border-box; 
             -webkit-font-smoothing: antialiased; 
+            -moz-osx-font-smoothing: grayscale;
         }
+        
         body { 
             margin: 0; 
             font-family: 'Montserrat', sans-serif; 
@@ -79,20 +82,46 @@
             color: var(--text); 
             line-height: 1.6; 
         }
+
+        /* Animações de Entrada (Fade-up) */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade {
+            opacity: 0;
+            animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
         .container { 
             max-width: 1100px; 
             margin: 0 auto; 
             padding: 0 40px; 
         }
         
-        /* Navegação */
-        nav { 
-            padding: 40px 0; 
+        /* Navegação Glassmorphism (Vidro Fosco) */
+        .glass-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 12, 16, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-soft);
+        }
+        
+        .nav-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 25px 40px;
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
-            border-bottom: 1px solid var(--border-soft); 
         }
+
         .nav-logo { 
             font-family: 'Playfair Display', serif; 
             font-size: 1.4rem; 
@@ -101,6 +130,7 @@
             font-weight: 700; 
             letter-spacing: 3px; 
         }
+        
         .nav-links a { 
             color: var(--text-soft); 
             text-decoration: none; 
@@ -171,17 +201,17 @@
             transform: translateY(-3px); 
         }
 
-        /* Barra de Confiança */
+        /* Barra de Confiança com Brilho Sutil (Glow) */
         .trust-bar { 
             background: var(--dark-2); 
             padding: 30px; 
-            border: 1px solid var(--border-soft); 
+            border: 1px solid rgba(198,168,90,0.2); 
             border-radius: 12px;
             text-align: center; 
             margin-top: -50px; 
             position: relative; 
             z-index: 10; 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 30px rgba(198,168,90,0.06);
         }
         .trust-bar span { 
             display: block; 
@@ -234,7 +264,7 @@
             font-family: 'Playfair Display', serif; 
         }
 
-        /* Perfil */
+        /* Perfil - Foto 100% P&B com alto contraste */
         .profile-wrapper { 
             display: flex; 
             align-items: center; 
@@ -247,7 +277,7 @@
             border: 1px solid var(--border); 
             border-radius: 16px;
             padding: 12px; 
-            filter: grayscale(20%); 
+            filter: grayscale(100%) contrast(110%);
         }
 
         /* Links Internos e Footer */
@@ -286,31 +316,40 @@
             .profile-wrapper { flex-direction: column; text-align: center; } 
             .deliverables-grid { grid-template-columns: 1fr; } 
             .internal-links a { display: block; margin: 15px 0; }
+            .nav-wrapper { padding: 20px; flex-direction: column; gap: 15px; }
+            .nav-links a { margin: 0 10px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <nav>
+    
+    <!-- Navbar Extraída do Container para Glassmorphism cobrir a tela -->
+    <nav class="glass-nav">
+        <div class="nav-wrapper">
             <a href="/" class="nav-logo">VICTOR PRATA</a>
             <div class="nav-links">
                 <a href="/blog">Artigos</a>
                 <a href="https://wa.me/553491138795" target="_blank">Submeter Edital</a>
             </div>
-        </nav>
-        
-        <header class="hero">
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero com Animação 0s -->
+        <header class="hero animate-fade">
             <h1>Blindagem Jurídica para Leilões Judiciais em São Paulo.</h1>
             <p>Não deixe seu capital travado por nulidades processuais. Estruturação de risco e viabilidade técnica <strong>em até 72h</strong> para investidores em SP.</p>
             <a href="https://wa.me/553491138795" class="button button-primary">Solicitar Análise Técnica</a>
         </header>
         
-        <div class="trust-bar">
+        <!-- Trust Bar com Animação 0.2s -->
+        <div class="trust-bar animate-fade delay-1">
             <span>+100 Editais em SP</span>
             <small>Segurança técnica para investidores profissionais</small>
         </div>
         
-        <section class="section">
+        <!-- Serviços com Animação 0.4s -->
+        <section class="section animate-fade delay-2">
             <h2>Blindagem do Investimento</h2>
             <div class="deliverables-grid">
                 <div class="d-card">
@@ -332,7 +371,8 @@
             </div>
         </section>
         
-        <section class="section">
+        <!-- Perfil com Animação 0.6s -->
+        <section class="section animate-fade delay-3">
             <div class="profile-wrapper">
                 <img src="foto.png" alt="Victor Prata Advogado Leilões" class="profile-img">
                 <div class="profile-content">
