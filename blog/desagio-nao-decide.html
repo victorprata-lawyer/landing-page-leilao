@@ -3,77 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deságio Não Decide | Victor Prata | Estruturação de Risco</title>
-    <meta name="description" content="Por que o desconto no edital é o fator menos importante na rentabilidade real de um leilão judicial. Aprenda a calcular o risco antes do lance.">
+    <title>Deságio Não Decide | Victor Prata</title>
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://analise-leilao.vercel.app/blog/desagio-nao-decide.html">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root { --gold:#c6a85a; --dark:#0a0c10; --dark-2:#12161d; --text:#f0f0f0; --text-soft:#a0a0a0; --border:rgba(198,168,90,0.15); }
-        * { box-sizing:border-box; -webkit-font-smoothing: antialiased; }
         body { margin:0; background:var(--dark); color:var(--text); font-family:'Montserrat',sans-serif; line-height:1.8; }
         .container { max-width:850px; margin:0 auto; padding:0 30px; }
-        
-        nav { padding:40px 0; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); margin-bottom:60px; }
-        .nav-logo { font-family:'Playfair Display',serif; color:var(--gold); text-decoration:none; font-weight:700; letter-spacing:2px; font-size:1.3rem; }
-        .back-link { color:var(--text-soft); text-decoration:none; font-size:11px; text-transform:uppercase; letter-spacing:1px; font-weight:600; transition: 0.3s; }
-        .back-link:hover { color: var(--gold); }
-
-        .article h1 { font-family:'Playfair Display',serif; font-size:3.5rem; line-height:1.1; margin-bottom:40px; color:#fff; letter-spacing: -1px; }
-        .article h2 { font-family:'Playfair Display',serif; color:var(--gold); margin-top:50px; font-size:2rem; margin-bottom: 20px; }
-        .article p { font-size:1.15rem; color:var(--text-soft); font-weight:300; margin-bottom: 25px; }
-        
-        .highlight-box { background:var(--dark-2); padding:40px; border:1px solid var(--border); margin:40px 0; border-left:4px solid var(--gold); }
-        .highlight-box strong { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.3rem; display: block; margin-bottom: 10px; }
-
-        .button { display:inline-block; margin-top:40px; padding:22px 50px; border:1px solid var(--gold); color:var(--gold); text-decoration:none; text-transform:uppercase; font-size:12px; letter-spacing:3px; font-weight:600; transition:.4s; }
-        .button:hover { background:var(--gold); color:var(--dark); transform:translateY(-3px); box-shadow:0 15px 30px rgba(198,168,90,0.1); }
-
-        .footer { padding:80px 0; text-align:center; font-size:10px; color:#444; letter-spacing:3px; text-transform:uppercase; border-top:1px solid var(--border); margin-top:100px; }
-        
-        @media(max-width:750px){ .article h1 { font-size: 2.5rem; } }
+        nav { padding:40px 0; display:flex; justify-content:space-between; border-bottom:1px solid var(--border); margin-bottom:60px; }
+        .nav-logo { font-family:'Playfair Display',serif; color:var(--gold); text-decoration:none; font-weight:700; font-size:1.3rem; }
+        .article h1 { font-family:'Playfair Display',serif; font-size:3.5rem; line-height:1.1; margin-bottom:40px; }
+        .article h2 { font-family:'Playfair Display',serif; color:var(--gold); margin-top:50px; font-size:2rem; }
+        .highlight-box { background:var(--dark-2); padding:40px; border-left:4px solid var(--gold); margin:40px 0; }
+        .button { display:inline-block; margin-top:40px; padding:22px 50px; border:1px solid var(--gold); color:var(--gold); text-decoration:none; text-transform:uppercase; font-size:12px; letter-spacing:3px; font-weight:600; transition: 0.4s; }
+        .button:hover { background:var(--gold); color:var(--dark); }
     </style>
 </head>
-
 <body>
 <div class="container">
-    <nav>
-        <a href="/" class="nav-logo">VICTOR PRATA</a>
-        <a href="/blog" class="back-link">← Voltar aos Artigos</a>
-    </nav>
-
+    <nav><a href="/" class="nav-logo">VICTOR PRATA</a><a href="/blog" style="color:var(--text-soft);text-decoration:none;font-size:11px;">← Voltar</a></nav>
     <article class="article">
-        <h1>Deságio Não Decide: A Armadilha do Preço Baixo nos Leilões</h1>
-        
-        <p>O percentual de desconto indicado no edital — o famoso "deságio" — costuma ser a primeira métrica que seduz o investidor iniciante. A sensação de oportunidade imediata ao ver um imóvel avaliado em R$ 1,5 milhão sendo ofertado por R$ 750 mil cria uma urgência emocional que, muitas vezes, atropela a racionalidade técnica.</p>
-        
-        <p>No entanto, para quem opera no mercado de leilões judiciais como negócio e não como aposta, o deságio isolado é a informação menos relevante da planilha. O lucro real não está no desconto do edital, mas na <strong>saúde processual</strong> da arrematação.</p>
-
-        <div class="highlight-box">
-            <strong>O Mito da Oportunidade Óbvia</strong>
-            <p>Se um imóvel possui um desconto muito agressivo e ninguém está dando lances, o mercado está te enviando um sinal. Muitas vezes, esse preço baixo é o reflexo de um risco jurídico que já foi precificado pelos investidores profissionais: uma nulidade de citação (fls.), um passivo tributário milionário ou uma ocupação complexa que pode levar anos para ser resolvida.</p>
-        </div>
-
+        <h1>Deságio Não Decide: A Armadilha do Preço Baixo</h1>
+        <p>O percentual de desconto indicado no edital — o famoso "deságio" — costuma ser a métrica que seduz o amador. No entanto, para o investidor profissional, o deságio isolado é a informação menos relevante da planilha.</p>
+        <div class="highlight-box"><strong>O Mito da Oportunidade Óbvia</strong><p>Um desconto de 60% pode ocultar um risco jurídico precificado pelo mercado. O lucro real nasce na diligência, não no lance.</p></div>
         <h2>O Custo Invisível: Capital Imobilizado</h2>
-        <p>Imagine arrematar um imóvel com 60% de desconto, mas descobrir, logo após o lance, que o executado não foi intimado pessoalmente (vício de intimação). Embora o Art. 903 do CPC tente proteger a arrematação, pedidos de anulação podem suspender a expedição da carta de arrematação por 2, 3 ou 5 anos.</p>
-        
-        <p>Nesse cenário, o seu capital está "morto". Se considerarmos o custo de oportunidade (o que esse dinheiro renderia em outros investimentos) somado à inflação e às custas processuais para defesa da arrematação, aquele deságio inicial de 60% é rapidamente corroído. O investidor profissional prefere uma margem de 30% com liquidez em 6 meses do que 60% com capital travado por tempo indeterminado.</p>
-
-        <h2>Passivos que o Edital Não Mostra</h2>
-        <p>Muitos editais são omissos ou genéricos sobre dívidas de IPTU e Condomínio. A análise técnica serve para mapear se esses débitos se sub-rogam no preço da arrematação ou se serão transferidos a você. Sem esse cálculo prévio, o "desconto" do edital é uma ilusão contábil; você paga menos no lance, mas paga a diferença em boletos acumulados após a imissão.</p>
-
-        <h2>Decisão Baseada em Previsibilidade</h2>
-        <p>A rentabilidade real de um leilão judicial nasce na <strong>diligência prévia</strong>. Ela depende da análise minuciosa de cada folha do processo (fls.), da verificação da cadeia de intimações e da homologação correta da avaliação. O desconto atrai o amador, mas é a segurança jurídica que garante o lucro do profissional.</p>
-
-        <div style="text-align:center;">
-            <a href="https://wa.me/553491138795?text=Olá,%20Dr.%20Victor.%20Desejo%20submeter%20um%20edital%20para%20análise%20técnica." class="button">Submeter Edital para Análise Técnica</a>
-        </div>
+        <p>Arrematar com 60% de desconto e ter o capital travado por 5 anos devido a uma nulidade de citação (fls.) destrói qualquer TIR. O custo de oportunidade e a inflação corroem a margem.</p>
+        <p>Em nossa diligência técnica, <strong>analisamos o regime jurídico da arrematação previsto no Art. 903 do CPC, especialmente quanto à irretratabilidade e hipóteses de invalidação</strong>, garantindo que o seu lance não se torne uma âncora financeira.</p>
+        <h2>Passivos Ocultos</h2>
+        <p>Mapeamos débitos tributários e condominiais que o edital omite. O "desconto" do edital muitas vezes é consumido por dívidas propter rem não sub-rogadas.</p>
+        <div style="text-align:center;"><a href="https://wa.me/553491138795?text=Olá,%20Dr.%20Victor.%20Desejo%20submeter%20um%20edital%20para%20análise%20técnica." class="button">Submeter Edital para Análise</a></div>
     </article>
-
-    <footer class="footer">
-        Victor Prata • Decisão Jurídica Estruturada • 2026
-    </footer>
 </div>
 </body>
 </html>
