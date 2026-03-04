@@ -1,66 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deságio Não Decide | Victor Prata | Estruturação de Risco</title>
+    <meta name="description" content="Por que o desconto no edital é o fator menos importante na rentabilidade de um leilão judicial. Entenda a importância da análise técnica.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://analise-leilao.vercel.app/blog/desagio-nao-decide.html">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold:#c6a85a; --dark:#0a0c10; --dark-2:#12161d; --text:#f0f0f0; --text-soft:#a0a0a0; --border:rgba(198,168,90,0.15); }
+        * { box-sizing:border-box; -webkit-font-smoothing: antialiased; }
+        body { margin:0; background:var(--dark); color:var(--text); font-family:'Montserrat',sans-serif; line-height:1.8; }
+        .container { max-width:850px; margin:0 auto; padding:0 30px; }
+        
+        nav { padding:40px 0; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border); margin-bottom:60px; }
+        .nav-logo { font-family:'Playfair Display',serif; color:var(--gold); text-decoration:none; font-weight:700; letter-spacing:2px; font-size:1.3rem; }
+        .back-link { color:var(--text-soft); text-decoration:none; font-size:11px; text-transform:uppercase; letter-spacing:1px; font-weight:600; transition: 0.3s; }
+        .back-link:hover { color: var(--gold); }
 
-<title>Deságio Não Decide | Victor Prata</title>
-<meta name="description" content="O desconto elevado no edital não garante lucro. Entenda o risco estrutural por trás do deságio.">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://analise-leilao.vercel.app/blog/desagio-nao-decide.html">
+        .article h1 { font-family:'Playfair Display',serif; font-size:3.5rem; line-height:1.1; margin-bottom:40px; color:#fff; letter-spacing: -1px; }
+        .article h2 { font-family:'Playfair Display',serif; color:var(--gold); margin-top:50px; font-size:2rem; margin-bottom: 20px; }
+        .article p { font-size:1.15rem; color:var(--text-soft); font-weight:300; margin-bottom: 25px; }
+        
+        .highlight-box { background:var(--dark-2); padding:40px; border:1px solid var(--border); margin:40px 0; border-left:4px solid var(--gold); }
+        .highlight-box strong { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.3rem; display: block; margin-bottom: 10px; }
 
-<link rel="icon" type="image/png" href="/favicon.png?v=2">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display&display=swap" rel="stylesheet">
+        .button { display:inline-block; margin-top:40px; padding:22px 50px; border:1px solid var(--gold); color:var(--gold); text-decoration:none; text-transform:uppercase; font-size:12px; letter-spacing:3px; font-weight:600; transition:.4s; }
+        .button:hover { background:var(--gold); color:var(--dark); transform:translateY(-3px); box-shadow:0 15px 30px rgba(198,168,90,0.1); }
 
-<style>
-:root { --gold:#c6a85a; --dark:#0a0c10; --dark-2:#12161d; --text:#f0f0f0; --text-soft:#a0a0a0; --border:rgba(198,168,90,0.2); }
-body{margin:0;background:var(--dark);color:var(--text);font-family:'Montserrat',sans-serif;}
-.container{max-width:900px;margin:0 auto;padding:0 30px;}
-nav{padding:40px 0;display:flex;justify-content:space-between;border-bottom:1px solid var(--border);}
-.nav-logo{font-family:'Playfair Display',serif;color:var(--gold);text-decoration:none;font-weight:700;letter-spacing:2px;}
-.article{padding:100px 0;}
-.article h1{font-family:'Playfair Display',serif;font-size:3rem;margin-bottom:40px;}
-.article h2{color:var(--gold);margin-top:50px;}
-.article p{color:var(--text-soft);font-size:1.1rem;line-height:1.8;}
-.button{display:inline-block;margin-top:60px;padding:18px 40px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;text-transform:uppercase;font-size:12px;letter-spacing:2px;}
-.button:hover{background:var(--gold);color:var(--dark);}
-.footer{padding:60px 0;text-align:center;font-size:11px;color:#444;letter-spacing:2px;text-transform:uppercase;}
-</style>
+        .footer { padding:80px 0; text-align:center; font-size:10px; color:#444; letter-spacing:3px; text-transform:uppercase; border-top:1px solid var(--border); margin-top:100px; }
+        
+        @media(max-width:750px){ .article h1 { font-size: 2.5rem; } }
+    </style>
 </head>
 
 <body>
 <div class="container">
+    <nav>
+        <a href="/" class="nav-logo">VICTOR PRATA</a>
+        <a href="/blog" class="back-link">← Voltar aos Artigos</a>
+    </nav>
 
-<nav>
-<a href="/" class="nav-logo">VICTOR PRATA</a>
-<a href="/blog" style="color:var(--text-soft);text-decoration:none;">← Voltar</a>
-</nav>
+    <section class="article">
+        <h1>Deságio Não Decide: A Armadilha dos 50% de Desconto</h1>
+        
+        <p>O percentual de desconto indicado no edital — o famoso "deságio" — costuma ser a primeira métrica que salta aos olhos do investidor iniciante. A sensação de "ganho imediato" ao ver um imóvel avaliado em R$ 1 milhão sendo ofertado por R$ 500 mil cria uma urgência perigosa.</p>
+        
+        <p>Contudo, para o investidor profissional, o deságio isolado é apenas uma informação preliminar. Ele não revela a <strong>saúde processual</strong> da operação, tampouco a viabilidade do lucro líquido.</p>
 
-<section class="article">
+        <div class="highlight-box">
+            <strong>O Risco Não Está no Preço</strong>
+            <p>Um deságio agressivo pode ocultar nulidades processuais insanáveis (fls.), recursos pendentes com efeito suspensivo ou passivos ocultos que não constam na descrição do edital. O preço baixo, muitas vezes, é o reflexo de um risco que o mercado já identificou, mas o investidor desatento ignora.</p>
+        </div>
 
-<h1>Deságio Não Decide</h1>
+        <h2>A Perda Silenciosa do Capital Imobilizado</h2>
+        <p>Mesmo uma arrematação com 60% de desconto perde sua atratividade se o capital permanecer bloqueado por 3 ou 4 anos devido a uma impugnação baseada em falta de intimação (Art. 889 CPC). O custo de oportunidade e a inflação corroem a margem prevista, transformando a "grande oportunidade" em um passivo financeiro.</p>
 
-<p>O percentual de desconto indicado no edital cria uma sensação imediata de oportunidade. Contudo, o deságio isolado não revela o cenário jurídico da operação.</p>
+        <h2>O Lucro Nasce na Diligência, não no Lance</h2>
+        <p>A rentabilidade real de um leilão judicial em São Paulo é decidida antes da abertura do cronômetro. Ela depende da análise minuciosa de:</p>
+        <ul>
+            <li style="color:var(--text-soft); margin-bottom:10px;">Custo de desocupação e imissão na posse.</li>
+            <li style="color:var(--text-soft); margin-bottom:10px;">Mapeamento de débitos propter rem (IPTU e Condomínio) não sub-rogados.</li>
+            <li style="color:var(--text-soft); margin-bottom:10px;">Verificação de citação pessoal positiva às folhas do processo.</li>
+        </ul>
 
-<h2>O Risco Não Está no Preço</h2>
-<p>Recursos pendentes, nulidades processuais, passivos ocultos e dificuldades de imissão na posse podem comprometer completamente a margem prevista.</p>
+        <h2>Veredito Técnico</h2>
+        <p>Investidores que operam com profissionalismo decidem com base em <strong>previsibilidade jurídica</strong>. O deságio atrai, mas é a estrutura do risco que decide se o capital deve entrar ou recuar.</p>
 
-<h2>Capital Imobilizado é Perda Silenciosa</h2>
-<p>Mesmo um desconto elevado perde relevância se o capital permanecer bloqueado por anos.</p>
+        <div style="text-align:center;">
+            <a href="https://wa.me/553491138795?text=Olá,%20Desejo%20submeter%20um%20edital%20para%20análise%20técnica." class="button">Submeter Edital para Análise</a>
+        </div>
+    </section>
 
-<h2>Decisão Técnica Antes do Lance</h2>
-<p>O investidor profissional decide com base em previsibilidade jurídica, não em percentuais chamativos.</p>
-
-<a href="https://wa.me/553491138795?text=Olá,%20Dr.%20Victor.%20Desejo%20submeter%20um%20edital%20para%20análise%20técnica." class="button">
-Submeter Edital para Análise
-</a>
-
-</section>
-
-<footer class="footer">
-VICTOR PRATA • DECISÃO JURÍDICA ESTRUTURADA • 2026
-</footer>
-
+    <footer class="footer">
+        Victor Prata • Decisão Jurídica Estruturada • 2026
+    </footer>
 </div>
 </body>
 </html>
