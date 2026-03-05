@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVMQFQ8DQV"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EVMQFQ8DQV');
+    </script>
+
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1460437159061048');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1460437159061048&ev=PageView&noscript=1"
+    /></noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -63,6 +87,12 @@
         .article-body strong { color: var(--text); font-weight: 600; }
         .article-body blockquote { border-left: 3px solid var(--gold); margin: 40px 0; padding: 20px 0 20px 30px; font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text); font-style: italic; background: linear-gradient(90deg, rgba(198,168,90,0.05) 0%, transparent 100%); }
         
+        /* Tabela de Impacto */
+        .impact-table { width: 100%; border-collapse: collapse; margin: 40px 0; font-size: 0.9rem; border: 1px solid var(--border-soft); }
+        .impact-table th { background: var(--dark-2); color: var(--gold); padding: 15px; text-align: left; border-bottom: 2px solid var(--gold); text-transform: uppercase; letter-spacing: 1px; }
+        .impact-table td { padding: 15px; border-bottom: 1px solid var(--border-soft); }
+        .impact-table tr:hover { background: rgba(198,168,90,0.02); }
+
         .article-cta { background: linear-gradient(145deg, var(--dark-2) 0%, var(--dark) 100%); padding: 50px 40px; border-radius: 12px; border: 1px solid rgba(198,168,90,0.3); margin: 60px 0 20px 0; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         .article-cta h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); margin: 0 0 15px 0; }
         .article-cta p { color: var(--text-soft); margin-bottom: 30px; }
@@ -70,7 +100,7 @@
         .button-primary:hover { background: var(--gold-hover); transform: translateY(-3px); }
         
         .footer { padding: 60px 0; background: var(--dark-2); text-align: center; font-size: 10px; color: #555; letter-spacing: 3px; text-transform: uppercase; border-top: 1px solid var(--border-soft); margin-top: 40px; }
-        @media(max-width:900px){ .article-header h1 { font-size: 2.4rem; } .article-container { padding: 40px 20px; } }
+        @media(max-width:900px){ .article-header h1 { font-size: 2.4rem; } .article-container { padding: 40px 20px; } .impact-table { font-size: 0.8rem; } }
     </style>
 </head>
 <body>
@@ -97,18 +127,43 @@
             <p>A alocação de capital em leilões judiciais não suporta passivos não mapeados. E o leão fiscal de São Paulo é o sócio mais silencioso da sua operação.</p>
 
             <h2>A armadilha da Base de Cálculo do ITBI</h2>
-            <p>O ITBI em São Paulo é de 3%. A grande questão jurídica não é a alíquota, mas a <strong>base de cálculo</strong>. A prefeitura sempre tenta cobrar o imposto sobre o Valor Venal de Referência (que muitas vezes é superior até mesmo ao valor de avaliação do edital) ou sobre o valor da avaliação judicial.</p>
+            <p>O ITBI em São Paulo é de 3%. A grande questão jurídica não é a alíquota, mas a <strong>base de cálculo</strong>. A prefeitura sempre tenta cobrar o imposto sobre o Valor Venal de Referência ou sobre o valor da avaliação judicial.</p>
             
-            <p>A jurisprudência do STJ é clara: <strong>o ITBI em leilão judicial deve incidir sobre o valor da arrematação</strong> (o valor do lance). Se você arrematou um imóvel avaliado em R$ 1.000.000,00 por R$ 500.000,00, a diferença de recolhimento do ITBI é de <strong>R$ 15.000,00 de puro lucro jogado fora</strong> se você pagar a guia cheia gerada pelo município sem a devida contestação técnica.</p>
+            <table class="impact-table">
+                <thead>
+                    <tr>
+                        <th>Base de Cálculo</th>
+                        <th>Valor Exemplo</th>
+                        <th>ITBI (3%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Valor Venal Ref. (Prefeitura)</td>
+                        <td>R$ 1.200.000,00</td>
+                        <td>R$ 36.000,00</td>
+                    </tr>
+                    <tr>
+                        <td>Valor da Avaliação Judicial</td>
+                        <td>R$ 1.000.000,00</td>
+                        <td>R$ 30.000,00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Valor da Arrematação (Lance)</strong></td>
+                        <td><strong>R$ 600.000,00</strong></td>
+                        <td><strong>R$ 18.000,00</strong></td>
+                    </tr>
+                </tbody>
+            </table>
 
-            <blockquote>"Cada real pago indevidamente em tributos é um real a menos na taxa interna de retorno (TIR) do seu investimento. Leilão é sobre eficiência de capital."</blockquote>
+            <p>A jurisprudência do STJ é clara: <strong>o ITBI em leilão judicial deve incidir sobre o valor da arrematação</strong>. No exemplo acima, a diferença é de <strong>R$ 18.000,00 de lucro preservado</strong> apenas com a tese jurídica correta.</p>
+
+            <blockquote>"Cada real pago indevidamente em tributos é um real a menos na taxa interna de retorno (TIR) do seu investimento."</blockquote>
 
             <h2>O mito da Sub-rogação do IPTU</h2>
-            <p>O Código Tributário Nacional (Art. 130, parágrafo único) estabelece que os créditos tributários (como IPTU) sub-rogam-se sobre o respectivo preço. Em tese, quem arremata recebe o imóvel livre de IPTU atrasado, pois a dívida é paga com o dinheiro do lance.</p>
+            <p>O Código Tributário Nacional (Art. 130) estabelece que dívidas de IPTU sub-rogam-se sobre o preço do lance. Em tese, o arrematante recebe o imóvel limpo.</p>
             
-            <p>Porém, a realidade processual em São Paulo é outra. Se o edital constar de forma expressa que as dívidas de IPTU <strong>ficarão a cargo do arrematante</strong> (o que acontece frequentemente por equívoco do juízo ou má-fé do exequente), e isso não for impugnado tempestivamente, você assumirá a dívida fiscal integral.</p>
-
-            <p>Em condomínios de alto padrão e imóveis comerciais, um IPTU não mapeado pode ultrapassar facilmente 15% do valor da propriedade, transformando o seu desconto em um déficit financeiro imediato.</p>
+            <p>Porém, se o edital contiver cláusula expressa transferindo o débito ao arrematante e não houver impugnação tempestiva, você assume o passivo. Em imóveis de alto padrão, um IPTU não mapeado pode ultrapassar 15% do valor do bem, destruindo o deságio conquistado no martelo.</p>
 
             <h2>Veredito Estratégico</h2>
             <p>Matemática tributária não se faz depois do arremate; faz-se na estruturação da proposta. <strong>Lucro líquido só é real quando as guias estão quitadas e a margem sobrevive.</strong></p>
