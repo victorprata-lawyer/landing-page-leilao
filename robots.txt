@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://analise-leilao.vercel.app/sitemap.xml
+Sitemap: https://victorprataleilao.com/sitemap.xml
