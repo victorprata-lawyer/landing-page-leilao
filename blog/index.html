@@ -19,7 +19,6 @@
     <meta name="twitter:url" content="https://analise-leilao.vercel.app/blog">
     <meta name="twitter:title" content="Perspectiva Técnica | Victor Prata">
     <meta name="twitter:description" content="Inteligência imobiliária e análise de risco para arrematações seguras em São Paulo.">
-    <meta name="twitter:image" content="https://analise-leilao.vercel.app/og-image.jpg">
 
     <link rel="icon" type="image/png" href="/favicon.png">
 
@@ -35,265 +34,65 @@
         "@type": "Person",
         "name": "Victor Prata",
         "jobTitle": "Advogado",
-        "url": "https://analise-leilao.vercel.app/",
-        "sameAs": "https://www.linkedin.com/in/victor-prata-leilao"
+        "url": "https://analise-leilao.vercel.app/"
       }
     }
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --gold: #c6a85a; 
-            --gold-hover: #d4b86a;
-            --dark: #0a0c10; 
-            --dark-2: #12161d; 
-            --text: #f0f0f0; 
-            --text-soft: #a0a0a0; 
-            --border: rgba(198,168,90,0.15); 
-            --border-soft: rgba(198,168,90,0.05);
-        }
+        :root { --gold: #c6a85a; --gold-hover: #d4b86a; --dark: #0a0c10; --dark-2: #12161d; --text: #f0f0f0; --text-soft: #a0a0a0; --border: rgba(198,168,90,0.15); --border-soft: rgba(198,168,90,0.05); }
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         
-        * { 
-            box-sizing: border-box; 
-            -webkit-font-smoothing: antialiased; 
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        /* BLOQUEIO TOTAL DE AZUL E CORES PADRÃO DE LINKS */
-        a, a:visited, a:active {
-            text-decoration: none !important;
-            color: inherit !important;
-            transition: 0.3s;
-        }
+        a, a:visited, a:active { text-decoration: none !important; color: inherit !important; transition: 0.3s; }
         a:hover { color: var(--gold) !important; }
 
-        body { 
-            margin: 0; 
-            font-family: 'Montserrat', sans-serif; 
-            background-color: var(--dark); 
-            color: var(--text); 
-            line-height: 1.6; 
-        }
+        body { margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--dark); color: var(--text); line-height: 1.6; }
 
-        /* Animações de Entrada */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade {
-            opacity: 0;
-            animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade { opacity: 0; animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.4s; }
 
-        /* Estrutura Base */
-        .container { 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            padding: 0 40px; 
-        }
-
-        /* Glassmorphism Nav */
-        .glass-nav {
-            position: sticky; 
-            top: 0; 
-            z-index: 1000;
-            background: rgba(10, 12, 16, 0.85);
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-soft);
-        }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
         
-        .nav-wrapper {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 25px 40px;
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
+        .glass-nav { position: sticky; top: 0; z-index: 1000; background: rgba(10, 12, 16, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-soft); }
+        .nav-wrapper { max-width: 1100px; margin: 0 auto; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold) !important; font-weight: 700; letter-spacing: 3px; }
+        .nav-links a { font-size: 11px; letter-spacing: 2px; margin-left: 30px; text-transform: uppercase; font-weight: 600; color: var(--gold) !important; border-bottom: 1px solid var(--gold); padding-bottom: 3px; }
 
-        .nav-logo { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.4rem; 
-            color: var(--gold) !important; 
-            font-weight: 700; 
-            letter-spacing: 3px; 
-        }
-        
-        .nav-links a { 
-            font-size: 11px; 
-            letter-spacing: 2px; 
-            margin-left: 30px; 
-            text-transform: uppercase; 
-            font-weight: 600; 
-            color: var(--gold) !important; 
-            border-bottom: 1px solid var(--gold); 
-            padding-bottom: 3px;
-        }
+        .blog-header { padding: 100px 0 60px 0; text-align: center; }
+        .blog-header span { color: var(--gold); letter-spacing: 3px; font-size: 10px; text-transform: uppercase; font-weight: 600; }
+        .blog-header h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 15px 0 20px 0; line-height: 1.1; }
+        .blog-header p { color: var(--text-soft); max-width: 600px; margin: 0 auto; font-size: 1.1rem; font-weight: 300; }
 
-        /* Header do Blog */
-        .blog-header {
-            padding: 100px 0 60px 0;
-            text-align: center;
-        }
-        .blog-header span {
-            color: var(--gold); 
-            letter-spacing: 3px; 
-            font-size: 10px; 
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .blog-header h1 {
-            font-family: 'Playfair Display', serif; 
-            font-size: 3.5rem; 
-            margin: 15px 0 20px 0;
-            line-height: 1.1;
-        }
-        .blog-header p {
-            color: var(--text-soft);
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            font-weight: 300;
-        }
+        .articles-section { padding: 40px 0 80px 0; }
+        .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px; }
 
-        /* Grid de Artigos */
-        .articles-section {
-            padding: 40px 0 80px 0;
-        }
-        .articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 40px;
-        }
+        .article-card { display: flex; flex-direction: column; background: linear-gradient(145deg, var(--dark-2) 0%, var(--dark) 100%); border: 1px solid rgba(198,168,90,0.1); border-radius: 12px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.4s ease; height: 100%; }
+        .article-card:hover { transform: translateY(-8px); border-color: var(--gold) !important; box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(198,168,90,0.05); }
+        .article-tag { font-size: 10px; color: var(--text-soft) !important; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
+        .article-card h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold) !important; margin: 0 0 15px 0; text-align: left; line-height: 1.3; }
+        .article-card p { color: var(--text-soft) !important; font-size: 0.95rem; margin: 0 0 30px 0; flex-grow: 1; }
+        .read-more { font-size: 11px; color: var(--gold) !important; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; display: inline-flex; align-items: center; }
+        .read-more::after { content: '→'; margin-left: 8px; transition: transform 0.3s; }
+        .article-card:hover .read-more::after { transform: translateX(5px); }
 
-        /* Cards de Artigo Premium */
-        .article-card { 
-            display: flex;
-            flex-direction: column;
-            background: linear-gradient(145deg, var(--dark-2) 0%, var(--dark) 100%);
-            border: 1px solid rgba(198,168,90,0.1);
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: all 0.4s ease;
-            height: 100%;
-        }
-        .article-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--gold) !important;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(198,168,90,0.05);
-        }
+        .cta-section { padding: 0 0 100px 0; }
+        .cta-banner { background: linear-gradient(145deg, var(--dark-2) 0%, var(--dark) 100%); border: 1px solid rgba(198,168,90,0.3); border-radius: 12px; padding: 60px 40px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+        .cta-banner h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold) !important; margin: 0 0 15px 0; }
+        .cta-banner p { color: var(--text-soft); font-size: 1.1rem; max-width: 600px; margin: 0 auto 40px auto; font-weight: 300; }
 
-        .article-tag {
-            font-size: 10px;
-            color: var(--text-soft) !important;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-        }
-        .article-card h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--gold) !important;
-            margin: 0 0 15px 0;
-            text-align: left;
-            line-height: 1.3;
-        }
-        .article-card p {
-            color: var(--text-soft) !important;
-            font-size: 0.95rem;
-            margin: 0 0 30px 0;
-            flex-grow: 1;
-        }
-        .read-more {
-            font-size: 11px;
-            color: var(--gold) !important;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-        }
-        .read-more::after {
-            content: '→';
-            margin-left: 8px;
-            transition: transform 0.3s;
-        }
-        .article-card:hover .read-more::after {
-            transform: translateX(5px);
-        }
+        .button { display: inline-block; padding: 20px 45px; border-radius: 8px; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; transition: all 0.4s ease; }
+        .button-primary { background: var(--gold); color: var(--dark) !important; border: none !important; box-shadow: 0 10px 25px rgba(198,168,90,0.15); }
+        .button-primary:hover { background: var(--gold-hover); transform: translateY(-3px); box-shadow: 0 15px 35px rgba(198,168,90,0.25); }
 
-        /* Banner de Conversão (CTA) */
-        .cta-section {
-            padding: 0 0 100px 0;
-        }
-        .cta-banner {
-            background: linear-gradient(145deg, var(--dark-2) 0%, var(--dark) 100%);
-            border: 1px solid rgba(198,168,90,0.3);
-            border-radius: 12px;
-            padding: 60px 40px;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 30px rgba(198,168,90,0.05);
-        }
-        .cta-banner h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--gold) !important;
-            margin: 0 0 15px 0;
-            text-align: center;
-        }
-        .cta-banner p {
-            color: var(--text-soft);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-            font-weight: 300;
-        }
-
-        /* Botões */
-        .button { 
-            display: inline-block; 
-            padding: 20px 45px; 
-            border-radius: 8px;
-            font-size: 12px; 
-            letter-spacing: 3px; 
-            text-transform: uppercase; 
-            font-weight: 600; 
-            transition: all 0.4s ease; 
-        }
-        .button-primary {
-            background: var(--gold); 
-            color: var(--dark) !important; 
-            border: 1px solid var(--gold);
-            box-shadow: 0 10px 25px rgba(198,168,90,0.15);
-        }
-        .button-primary:hover { 
-            background: var(--gold-hover); 
-            border-color: var(--gold-hover) !important;
-            transform: translateY(-3px); 
-            box-shadow: 0 15px 35px rgba(198,168,90,0.25); 
-        }
-
-        /* Footer */
-        .footer { 
-            padding: 60px 0; 
-            background: var(--dark-2);
-            text-align: center; 
-            font-size: 10px; 
-            color: #555; 
-            letter-spacing: 3px; 
-            text-transform: uppercase; 
-            border-top: 1px solid var(--border-soft);
-        }
+        .footer { padding: 60px 0; background: var(--dark-2); text-align: center; font-size: 10px; color: #555; letter-spacing: 3px; text-transform: uppercase; border-top: 1px solid var(--border-soft); }
 
         @media(max-width:900px){ 
             .blog-header h1 { font-size: 2.6rem; } 
             .nav-wrapper { padding: 20px; flex-direction: column; gap: 15px; }
-            .nav-links a { margin: 0 10px; }
+            .nav-links a { margin: 0; }
             .container { padding: 0 20px; }
             .article-card { padding: 30px; }
             .cta-banner { padding: 40px 20px; }
@@ -327,7 +126,7 @@
                 <a href="/blog/desagio-nao-decide.html" class="article-card">
                     <span class="article-tag">Estratégia</span>
                     <h2>O Mito do Deságio</h2>
-                    <p>Por que focar apenas no desconto do edital é a armadilha mais cara que um investidor iniciante pode cair no mercado de São Paulo.</p>
+                    <p>Por que focar apenas no desconto do edital é a armadilha mais cara que um investidor iniciante pode cair.</p>
                     <span class="read-more">Ler Análise</span>
                 </a>
 
@@ -335,7 +134,7 @@
                 <a href="/blog/checklist-nulidades.html" class="article-card">
                     <span class="article-tag">Risco Processual</span>
                     <h2>Checklist de Nulidades</h2>
-                    <p>Os 5 vícios processuais ocultos que travam o capital do arrematante por anos, e como identificá-los antes de dar o lance.</p>
+                    <p>Os 5 vícios processuais ocultos que travam o capital do arrematante por anos no tribunal.</p>
                     <span class="read-more">Ler Análise</span>
                 </a>
 
@@ -343,7 +142,23 @@
                 <a href="/blog/agilidade-na-posse.html" class="article-card">
                     <span class="article-tag">Estudo de Caso</span>
                     <h2>Agilidade na Posse</h2>
-                    <p>Como a análise prévia do histórico do juízo e da vara pode reduzir o tempo de imissão na posse de meses para semanas.</p>
+                    <p>Como a análise prévia do histórico do juízo e da vara pode reduzir a imissão na posse de anos para semanas.</p>
+                    <span class="read-more">Ler Análise</span>
+                </a>
+
+                <!-- Artigo 4 -->
+                <a href="/blog/custo-invisivel-impostos.html" class="article-card">
+                    <span class="article-tag">Matemática Tributária</span>
+                    <h2>Custo Invisível: ITBI e IPTU</h2>
+                    <p>Como a falta de planejamento fiscal em leilões corrói até 8% da margem líquida do arrematante em SP.</p>
+                    <span class="read-more">Ler Análise</span>
+                </a>
+
+                <!-- Artigo 5 -->
+                <a href="/blog/fracao-ideal.html" class="article-card">
+                    <span class="article-tag">Engenharia Jurídica</span>
+                    <h2>Fração Ideal: A Cilada Útil</h2>
+                    <p>Como arrematar 50% de um imóvel para forçar a extinção de condomínio e multiplicar seu lucro na venda total.</p>
                     <span class="read-more">Ler Análise</span>
                 </a>
 
@@ -353,7 +168,7 @@
         <section class="cta-section animate-fade delay-2">
             <div class="cta-banner">
                 <h2>Tem um edital em vista?</h2>
-                <p>Não arrisque seu capital. Solicite um parecer técnico conclusivo em até 72h e saiba a margem real de lucro antes de dar o lance.</p>
+                <p>Não arrisque seu capital. Solicite um parecer técnico conclusivo e saiba a margem real de lucro antes de dar o lance.</p>
                 <a href="https://wa.me/553491138795" class="button button-primary">Validar Meu Próximo Lance</a>
             </div>
         </section>
