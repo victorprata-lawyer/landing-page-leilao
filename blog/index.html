@@ -61,10 +61,12 @@
         }
         
         /* BLOQUEIO TOTAL DE AZUL E CORES PADRÃO DE LINKS */
-        a, a:visited, a:hover, a:active {
+        a, a:visited, a:active {
             text-decoration: none !important;
-            color: inherit;
+            color: inherit !important;
+            transition: 0.3s;
         }
+        a:hover { color: var(--gold) !important; }
 
         body { 
             margin: 0; 
@@ -122,16 +124,14 @@
         }
         
         .nav-links a { 
-            color: var(--text-soft) !important; 
             font-size: 11px; 
             letter-spacing: 2px; 
             margin-left: 30px; 
             text-transform: uppercase; 
             font-weight: 600; 
-            transition: 0.3s; 
-        }
-        .nav-links a:hover { 
             color: var(--gold) !important; 
+            border-bottom: 1px solid var(--gold); 
+            padding-bottom: 3px;
         }
 
         /* Header do Blog */
@@ -184,13 +184,13 @@
         }
         .article-card:hover {
             transform: translateY(-8px);
-            border-color: var(--gold);
+            border-color: var(--gold) !important;
             box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(198,168,90,0.05);
         }
 
         .article-tag {
             font-size: 10px;
-            color: var(--text-soft);
+            color: var(--text-soft) !important;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 15px;
@@ -273,7 +273,7 @@
         }
         .button-primary:hover { 
             background: var(--gold-hover); 
-            border-color: var(--gold-hover);
+            border-color: var(--gold-hover) !important;
             transform: translateY(-3px); 
             box-shadow: 0 15px 35px rgba(198,168,90,0.25); 
         }
@@ -307,8 +307,7 @@
         <div class="nav-wrapper">
             <a href="/" class="nav-logo">VICTOR PRATA</a>
             <div class="nav-links">
-                <a href="/">Início</a>
-                <a href="https://wa.me/553491138795" target="_blank">Submeter Edital</a>
+                <a href="https://wa.me/553491138795" target="_blank">Validar Edital</a>
             </div>
         </div>
     </nav>
@@ -324,6 +323,7 @@
         <section class="articles-section">
             <div class="articles-grid animate-fade delay-1">
                 
+                <!-- Artigo 1 -->
                 <a href="/blog/desagio-nao-decide.html" class="article-card">
                     <span class="article-tag">Estratégia</span>
                     <h2>O Mito do Deságio</h2>
@@ -331,14 +331,16 @@
                     <span class="read-more">Ler Análise</span>
                 </a>
 
+                <!-- Artigo 2 -->
                 <a href="/blog/checklist-nulidades.html" class="article-card">
-                    <span class="article-tag">Risco Jurídico</span>
+                    <span class="article-tag">Risco Processual</span>
                     <h2>Checklist de Nulidades</h2>
                     <p>Os 5 vícios processuais ocultos que travam o capital do arrematante por anos, e como identificá-los antes de dar o lance.</p>
                     <span class="read-more">Ler Análise</span>
                 </a>
 
-                <a href="#" class="article-card">
+                <!-- Artigo 3 -->
+                <a href="/blog/agilidade-na-posse.html" class="article-card">
                     <span class="article-tag">Estudo de Caso</span>
                     <h2>Agilidade na Posse</h2>
                     <p>Como a análise prévia do histórico do juízo e da vara pode reduzir o tempo de imissão na posse de meses para semanas.</p>
@@ -358,7 +360,7 @@
 
     </div>
     
-    <footer class="footer">VICTOR PRATA • 2026 • SÃO PAULO - BRASIL</footer>
+    <footer class="footer">VICTOR PRATA • SÃO PAULO - BRASIL</footer>
 
 </body>
 </html>
