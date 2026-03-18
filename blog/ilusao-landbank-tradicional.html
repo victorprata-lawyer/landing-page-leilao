@@ -5,177 +5,169 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>A Ilusão do Landbank Tradicional | Prata Real Estate</title>
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="O landbank tradicional deixou de ser a principal fonte de distorção. Entenda onde a assimetria de preço real se esconde no mercado imobiliário atual." />
-    <meta name="keywords" content="landbank, real estate, ativos judiciais, investimento imobiliário, Victor Prata, special situations" />
-    <meta name="author" content="Victor Prata" />
-    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Entenda onde a assimetria de preço real se esconde no mercado imobiliário atual." />
     
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="A Ilusão do Landbank Tradicional | Prata Real Estate" />
-    <meta property="og:description" content="A margem hoje está menos no ativo evidente e mais na capacidade de navegar contextos imperfeitos com critério." />
-    <meta property="og:image" content="https://pratarealestate.com.br/og-image-landbank.jpg" />
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
 
     <style>
-        /* Baseado na folha de estilos da Home */
         :root {
             --gold: #c6a85a;
-            --gold-hover: #d4bc7a;
-            --dark: #0a0a0a;
-            --dark-soft: #141414;
-            --white: #ffffff;
-            --gray: #888888;
-            --glass: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --gold-hover: #d6b86a;
+            --dark: #0a0c10;
+            --dark-2: #11151c;
+            --text: #f2f2f2;
+            --text-soft: #b6bcc6;
+            --text-muted: #8a919b;
+            --border: rgba(198,168,90,0.16);
+            --border-soft: rgba(198,168,90,0.08);
+            --shadow: 0 24px 48px rgba(0,0,0,0.35);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { background-color: var(--dark); color: var(--white); font-family: 'Montserrat', sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
 
-        /* Nav (Coerência com Home) */
-        .glass-nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--glass-border); }
-        .nav-wrapper { height: 80px; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: 2px; font-size: 1.1rem; }
-        .nav-links a { color: var(--gray); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: 0.3s; margin-left: 2rem; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-links a:hover { color: var(--gold); }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at top, rgba(198,168,90,0.08), transparent 28%), linear-gradient(180deg, #090b0f 0%, #0a0c10 100%);
+            color: var(--text);
+            line-height: 1.8;
+        }
 
-        /* Estrutura de Artigo */
-        main { padding-top: 140px; }
-        .divider { width: 40px; height: 2px; background: var(--gold); margin-bottom: 1.5rem; }
-        .eyebrow { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 3px; color: var(--gold); font-weight: 600; margin-bottom: 1rem; display: block; }
+        .container-article {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Nav Minimalista para Artigos */
+        .article-nav {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-soft);
+            margin-bottom: 60px;
+        }
         
-        h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.1; margin-bottom: 2rem; }
-        h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1.5rem; color: var(--white); }
-        h3 { font-size: 1.1rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+        .back-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            line-height: 1.1;
+            margin: 0 0 20px 0;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Estilização do Conteúdo */
+        article section { padding: 40px 0; }
         
-        p { color: var(--gray); font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 300; }
-        strong { color: var(--white); font-weight: 600; }
+        p { margin-bottom: 28px; color: var(--text-soft); font-size: 1.15rem; }
+        
+        strong { color: var(--text); font-weight: 600; }
 
-        .section-intro { font-size: 1.25rem; color: var(--white); margin-bottom: 3rem; max-width: 800px; }
+        .quote-box {
+            margin: 50px 0;
+            padding: 30px;
+            border-left: 2px solid var(--gold);
+            background: rgba(255,255,255,0.02);
+            border-radius: 0 16px 16px 0;
+            font-size: 1.2rem;
+            color: var(--text);
+        }
 
-        /* Grids de Conteúdo */
-        .cards-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 3rem 0; }
-        .card { background: var(--glass); border: 1px solid var(--glass-border); padding: 2.5rem; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
-        .card:hover { border-color: var(--gold); background: rgba(255, 255, 255, 0.05); transform: translateY(-5px); }
+        /* CTA Final */
+        .cta-box {
+            margin-top: 80px;
+            padding: 40px;
+            background: linear-gradient(180deg, rgba(198,168,90,0.06), transparent);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            text-align: center;
+        }
 
-        .highlight-box { background: var(--dark-soft); border-left: 4px solid var(--gold); padding: 3rem; margin: 4rem 0; }
-        .highlight-box ul { list-style: none; margin-top: 1.5rem; }
-        .highlight-box li { color: var(--gray); margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; }
-        .highlight-box li::before { content: "→"; position: absolute; left: 0; color: var(--gold); }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: 700;
+            background: var(--gold);
+            color: var(--dark);
+            transition: transform .28s ease;
+        }
 
-        /* CTA */
-        .contact-panel { background: var(--dark-soft); border: 1px solid var(--glass-border); padding: 4rem; text-align: center; margin: 6rem 0; }
-        .button { display: inline-block; padding: 1.1rem 2.5rem; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; transition: 0.3s; cursor: pointer; border: none; }
-        .button-primary { background: var(--gold); color: var(--dark); }
-        .button-primary:hover { background: var(--gold-hover); transform: translateY(-2px); }
+        .button:hover { transform: translateY(-2px); }
 
-        footer { padding: 4rem 0; text-align: center; border-top: 1px solid var(--glass-border); color: var(--gray); font-size: 0.75rem; letter-spacing: 1px; }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            h1 { font-size: 2.2rem; }
-            .highlight-box { padding: 2rem; }
+        @media (max-width: 760px) {
+            header h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="glass-nav">
-        <div class="container">
-            <div class="nav-wrapper">
-                <a href="index.html" class="nav-logo">PRATA REAL ESTATE</a>
-                <div class="nav-links">
-                    <a href="index.html#diferenciais">Diferenciais</a>
-                    <a href="index.html#processo">Processo</a>
-                    <a href="index.html#atuacao">Atuação</a>
-                    <a href="index.html#artigos">Teses & Artigos</a>
-                    <a href="#contato">Contato</a>
-                </div>
-            </div>
+    <nav class="article-nav">
+        <div class="container-article">
+            <a href="index.html" class="back-link">← Voltar para Home</a>
         </div>
     </nav>
 
-    <main class="container">
+    <main class="container-article">
+        <header>
+            <span class="eyebrow">Tese & Inteligência</span>
+            <h1>A Ilusão do Landbank Tradicional</h1>
+        </header>
+
         <article>
-            <header>
-                <span class="eyebrow">Tese & Artigo</span>
-                <div class="divider"></div>
-                <h1>A Ilusão do Landbank Tradicional</h1>
-                <p class="section-intro">Durante muito tempo, o landbank tradicional foi tratado como uma avenida natural de criação de valor. A lógica parecia simples: comprar bem, carregar o ativo e capturar a valorização no ciclo seguinte. <strong>Esse raciocínio ficou mais fraco.</strong></p>
-            </header>
+            <p>
+                O landbank tradicional, baseado puramente na aquisição de áreas óbvias via corretores, deixou de ser a principal fonte de distorção de preço para o capital institucional[cite: 171]. 
+            </p>
 
-            <section>
-                <p>Hoje, nas praças mais disputadas, boa parte do mercado já trabalha com informação suficiente para comprimir margem. O ativo regular, limpo, bem localizado e facilmente compreensível raramente chega à mesa com desconto real. Quando aparece, o preço já reflete a previsibilidade.</p>
-                <p>O problema, portanto, não é o landbank em si. O problema é imaginar que o modelo tradicional de aquisição continua oferecendo a mesma distorção que oferecia antes.</p>
-            </section>
+            <div class="quote-box">
+                A margem hoje está menos no ativo evidente e mais na capacidade de navegar contextos imperfeitos com critério jurídico[cite: 221, 224].
+            </div>
 
-            <section>
-                <div class="divider"></div>
-                <h2>O que mudou</h2>
-                <p>O mercado amadureceu em três frentes principais que redefiniram o prêmio de risco:</p>
-                
-                <div class="cards-3">
-                    <article class="card">
-                        <h3>01. Competição</h3>
-                        <p>Terrenos com vocação clara e leitura urbanística simples circulam em um ambiente de concorrência maior.</p>
-                    </article>
-                    <article class="card">
-                        <h3>02. Previsibilidade</h3>
-                        <p>Quanto mais limpa a oportunidade, menor a margem de entrada. O comprador paga pela facilidade de underwriting.</p>
-                    </article>
-                    <article class="card">
-                        <h3>03. Capital Seletivo</h3>
-                        <p>O custo do capital fez o investidor olhar menos para "estoque por estoque" e mais para assimetria real.</p>
-                    </article>
-                </div>
-            </section>
+            <p>
+                No cenário atual, a <strong>originação estruturada</strong> em situações especiais — como ativos judiciais e falimentares — permite o acesso a oportunidades que não estão no fluxo convencional do mercado[cite: 152, 167].
+            </p>
 
-            <section class="highlight-box">
-                <div class="divider"></div>
-                <h2>Onde a assimetria continua existindo</h2>
-                <p>Ela mudou de lugar. Hoje, as distorções estão em ativos que o mercado tradicional evita por não querer carregar a complexidade jurídica:</p>
-                <ul>
-                    <li>Ativos judiciais e falências</li>
-                    <li>Execuções e estruturas com passivo processual</li>
-                    <li>Situações com ruído documental ou informacional</li>
-                </ul>
-                <p style="margin-top: 1.5rem;">Esses ativos são baratos porque o mercado exige uma <strong>leitura jurídica aplicada</strong> para transformar ruído em tese executável.</p>
-            </section>
-
-            <section>
-                <div class="divider"></div>
-                <h2>O Ponto Central</h2>
-                <p>No ambiente atual, a vantagem deixou de estar apenas em "achar terreno". A vantagem está em identificar ativos fora do fluxo convencional, entender o regime jurídico da aquisição e mapear o risco antes de chegar à mesa.</p>
-                <p>A margem hoje está menos no ativo evidente e mais na capacidade de navegar contextos imperfeitos com critério. Em real estate, a assimetria aparece onde a leitura jurídica ainda é insuficiente para a maioria dos players.</p>
-            </section>
-
-            <section class="contact-panel" id="contato">
-                <div class="divider" style="margin: 0 auto 1.5rem;"></div>
-                <h2>Interesse em Ativos Especiais?</h2>
-                <p>Transformamos complexidade jurídica em material estruturado para decisão de investimento institucional.</p>
-                <div style="margin-top: 2.5rem;">
-                    <a href="mailto:victor@pratarealestate.com.br" class="button button-primary">Solicitar Diagnóstico</a>
-                </div>
-            </section>
+            <p>
+                A <strong>Prata Real Estate</strong> atua justamente nessa fronteira, utilizando inteligência proprietária para filtrar o ruído e entregar teses executáveis para <em>underwriting</em>[cite: 168, 197].
+            </p>
         </article>
+
+        <section class="cta-box">
+            <h3>Interessado nesta tese?</h3>
+            <p>Se você representa um fundo ou family office e busca acesso qualificado a ativos fora do radar convencional, vamos conversar.</p>
+            <a href="index.html#contato" class="button">Abrir Conversa</a>
+        </section>
     </main>
 
-    <footer>
-        <div class="container">
-            PRATA REAL ESTATE • SÃO PAULO, BRASIL • <span id="year"></span>
-        </div>
+    <footer style="padding: 60px 0; text-align: center; color: var(--text-muted); font-size: 11px; letter-spacing: 1px;">
+        PRATA REAL ESTATE • SÃO PAULO, BRASIL
     </footer>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
 </body>
 </html>
