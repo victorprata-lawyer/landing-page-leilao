@@ -3,1268 +3,176 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prata Real Estate | Special Situations em Real Estate</title>
-    <meta name="description" content="Originação estruturada em ativos judiciais e situações especiais para fundos, incorporadoras e family offices. Jurídico, inteligência proprietária e estrutura de aquisição para capital institucional." />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://pratarealestate.com.br/" />
-
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://pratarealestate.com.br/" />
-    <meta property="og:title" content="Prata Real Estate | Special Situations em Real Estate" />
-    <meta property="og:description" content="Jurídico, originação e inteligência proprietária aplicados a ativos judiciais e situações especiais em real estate." />
-    <meta property="og:image" content="https://pratarealestate.com.br/og-image.jpg" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://pratarealestate.com.br/" />
-    <meta name="twitter:title" content="Prata Real Estate | Special Situations em Real Estate" />
-    <meta name="twitter:description" content="Jurídico, originação e inteligência proprietária aplicados a ativos judiciais e situações especiais em real estate." />
-    <meta name="twitter:image" content="https://pratarealestate.com.br/og-image.jpg" />
-
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <title>Aquisição Originária e a Blindagem da LRF | Prata Real Estate</title>
+    
+    <meta name="description" content="Como a interpretação do STF sobre a Lei de Recuperação Judicial e Falências redefiniu a segurança na aquisição de ativos estressados." />
+    
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "@id": "https://pratarealestate.com.br/#organization",
-      "name": "Prata Real Estate",
-      "url": "https://pratarealestate.com.br/",
-      "image": "https://pratarealestate.com.br/og-image.jpg",
-      "logo": "https://pratarealestate.com.br/og-image.jpg",
-      "description": "Originação estruturada em ativos judiciais e situações especiais, combinando jurídico, inteligência proprietária e estrutura para decisão de investimento.",
-      "founder": {
-        "@type": "Person",
-        "name": "Victor Prata",
-        "jobTitle": "Founder & Managing Partner"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/in/victor-prata-real-state/"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "São Paulo",
-        "addressRegion": "SP",
-        "addressCountry": "BR"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Business",
-        "email": "victor@pratarealestate.com.br",
-        "telephone": "+55-11-96642-2314",
-        "areaServed": "BR",
-        "availableLanguage": ["Portuguese", "English"]
-      }
-    }
-    </script>
-
+    
     <style>
         :root {
             --gold: #c6a85a;
             --gold-hover: #d6b86a;
             --dark: #0a0c10;
             --dark-2: #11151c;
-            --dark-3: #171d26;
             --text: #f2f2f2;
             --text-soft: #b6bcc6;
             --text-muted: #8a919b;
             --border: rgba(198,168,90,0.16);
             --border-soft: rgba(198,168,90,0.08);
             --shadow: 0 24px 48px rgba(0,0,0,0.35);
-            --radius: 16px;
-            --container: 1160px;
         }
-
-        * {
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
-            background:
-                radial-gradient(circle at top, rgba(198,168,90,0.08), transparent 28%),
-                linear-gradient(180deg, #090b0f 0%, #0a0c10 100%);
+            background: radial-gradient(circle at top, rgba(198,168,90,0.08), transparent 28%), linear-gradient(180deg, #090b0f 0%, #0a0c10 100%);
             color: var(--text);
-            line-height: 1.65;
+            line-height: 1.8;
         }
-
-        a {
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        .container {
+        .container-article {
             width: 100%;
-            max-width: var(--container);
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 32px;
+            padding: 0 24px;
         }
-
-        .glass-nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(10,12,16,0.82);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+        /* Nav Minimalista para Artigos */
+        .article-nav {
+            padding: 30px 0;
             border-bottom: 1px solid var(--border-soft);
+            margin-bottom: 60px;
         }
-
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 24px;
-            min-height: 82px;
-        }
-
-        .nav-logo {
-            text-decoration: none;
+        
+        .back-link {
             color: var(--gold);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.28rem;
-            letter-spacing: 2.6px;
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
             font-weight: 700;
-            white-space: nowrap;
         }
-
-        .nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-soft);
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 600;
-            transition: color .25s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        .hero {
-            padding: 112px 0 90px;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.18fr 0.92fr;
-            gap: 42px;
-            align-items: center;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 11px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .eyebrow::before {
-            content: "";
-            width: 34px;
-            height: 1px;
-            background: var(--gold);
-            opacity: .8;
-        }
-
-        h1 {
-            margin: 0 0 24px 0;
+        header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4.1rem;
-            line-height: 1.03;
-            letter-spacing: -1.2px;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            line-height: 1.1;
+            margin: 0 0 20px 0;
         }
-
-        .hero-copy p {
-            margin: 0 0 16px 0;
-            color: var(--text-soft);
-            font-size: 1.12rem;
-            max-width: 760px;
-        }
-
-        .hero-copy strong {
-            color: var(--text);
+        .eyebrow {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
             font-weight: 600;
+            display: block;
+            margin-bottom: 15px;
         }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            margin-top: 34px;
+        /* Estilização do Conteúdo */
+        article section { padding: 40px 0; }
+        
+        p { margin-bottom: 28px; color: var(--text-soft); font-size: 1.15rem; }
+        
+        .lead {
+            font-size: 1.35rem;
+            color: var(--text);
+            font-weight: 300;
+            margin-bottom: 40px;
+            line-height: 1.6;
         }
-
+        
+        strong { color: var(--text); font-weight: 600; }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin: 50px 0 20px 0;
+            font-weight: 500;
+        }
+        
+        /* CTA Final / Related Box */
+        .cta-box {
+            margin-top: 80px;
+            padding: 40px;
+            background: linear-gradient(180deg, rgba(198,168,90,0.06), transparent);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            text-align: center;
+        }
+        .cta-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin: 0 0 25px 0;
+        }
         .button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             min-height: 52px;
-            padding: 0 26px;
+            padding: 0 32px;
             border-radius: 10px;
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 11px;
             font-weight: 700;
-            transition: all .28s ease;
-        }
-
-        .button-primary {
             background: var(--gold);
             color: var(--dark);
-            border: 1px solid var(--gold);
-            box-shadow: 0 12px 28px rgba(198,168,90,0.16);
-        }
-
-        .button-primary:hover {
-            background: var(--gold-hover);
-            border-color: var(--gold-hover);
-            transform: translateY(-2px);
-        }
-
-        .button-secondary {
-            border: 1px solid var(--border);
-            color: var(--text);
-            background: rgba(255,255,255,0.02);
-        }
-
-        .button-secondary:hover {
-            border-color: rgba(198,168,90,0.3);
-            background: rgba(198,168,90,0.05);
-            transform: translateY(-2px);
-        }
-
-        .hero-card,
-        .card,
-        .contact-panel,
-        .signal-box {
-            background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
-            border: 1px solid var(--border-soft);
-            border-radius: 18px;
-            box-shadow: var(--shadow);
-        }
-
-        .hero-card {
-            padding: 28px;
-        }
-
-        .hero-card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 20px;
-            padding-bottom: 14px;
-            border-bottom: 1px solid var(--border-soft);
-        }
-
-        .hero-card-title {
-            margin: 0;
-            color: var(--gold);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-        }
-
-        .tag {
-            border: 1px solid var(--border);
-            color: var(--text-soft);
-            border-radius: 999px;
-            padding: 7px 12px;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1.6px;
-            white-space: nowrap;
-        }
-
-        .hero-list {
-            display: grid;
-            gap: 14px;
-        }
-
-        .hero-item {
-            padding: 14px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .hero-item:last-child {
-            border-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .hero-item small {
-            display: block;
-            color: var(--text-muted);
-            font-size: .76rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 4px;
-        }
-
-        .hero-item strong {
-            color: var(--text);
-            font-size: .98rem;
-            font-weight: 600;
-        }
-
-        .hero-note {
-            margin-top: 16px;
-            color: var(--text-muted);
-            font-size: .82rem;
-        }
-
-        .institutional-bar {
-            padding: 24px 28px;
-            margin-top: 22px;
-            background: linear-gradient(180deg, rgba(198,168,90,0.06), rgba(198,168,90,0.02));
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            box-shadow: var(--shadow);
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
-
-        .bar-item {
-            text-align: center;
-        }
-
-        .bar-item strong {
-            display: block;
-            color: var(--gold);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.35rem;
-            margin-bottom: 4px;
-        }
-
-        .bar-item span {
-            color: var(--text-soft);
-            font-size: .82rem;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-        }
-
-        section {
-            padding: 108px 0;
-        }
-
-        h2 {
-            margin: 0 0 18px 0;
-            font-family: 'Playfair Display', serif;
-            font-size: 2.75rem;
-            line-height: 1.08;
-            letter-spacing: -.5px;
-            text-align: center;
-        }
-
-        .section-intro {
-            max-width: 830px;
-            margin: 0 auto 56px auto;
-            text-align: center;
-            color: var(--text-soft);
-            font-size: 1.05rem;
-        }
-
-        .divider {
-            width: 84px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 0 auto 24px auto;
-            opacity: .8;
-        }
-
-        .cards-3,
-        .links-grid {
-            display: grid;
-            gap: 24px;
-        }
-
-        .cards-3 {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .card {
-            padding: 30px;
-            transition: transform .25s ease, border-color .25s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(198,168,90,0.24);
-        }
-
-        .card h3 {
-            margin: 0 0 14px 0;
-            color: var(--gold);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.34rem;
-        }
-
-        .card p {
-            margin: 0;
-            color: var(--text-soft);
-            font-size: .98rem;
-        }
-
-        .process-step {
-            position: relative;
-            padding-top: 26px;
-        }
-
-        .process-step::before {
-            content: attr(data-step);
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: rgba(198,168,90,0.18);
-            font-size: 2.35rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .signal-box {
-            margin-top: 40px;
-            padding: 24px 28px;
-        }
-
-        .signal-box h3 {
-            margin: 0 0 12px 0;
-            color: var(--gold);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-        }
-
-        .signal-box p {
-            margin: 0;
-            color: var(--text-soft);
-        }
-
-        .proptech-grid {
-            display: grid;
-            grid-template-columns: 1.05fr .95fr;
-            gap: 26px;
-            align-items: stretch;
-        }
-
-        .metric-list {
-            display: grid;
-            gap: 16px;
-        }
-
-        .metric-item {
-            padding: 18px 20px;
-            border-radius: 14px;
-            border: 1px solid var(--border-soft);
-            background: rgba(255,255,255,0.02);
-        }
-
-        .metric-item small {
-            display: block;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: .72rem;
-            margin-bottom: 6px;
-        }
-
-        .metric-item strong {
-            color: var(--text);
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .profile-block {
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 54px;
-            align-items: center;
-        }
-
-        .profile-photo {
-            background: linear-gradient(180deg, rgba(198,168,90,0.08), rgba(255,255,255,0.02));
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 12px;
-            box-shadow: var(--shadow);
-        }
-
-        .profile-photo img {
-            border-radius: 14px;
-            width: 100%;
-            height: auto;
-        }
-
-        .profile-copy h2 {
-            text-align: left;
-            margin-bottom: 8px;
-        }
-
-        .profile-role {
-            margin: 0 0 24px 0;
-            color: var(--gold);
-            font-size: 1.02rem;
-            font-weight: 600;
-            letter-spacing: .4px;
-        }
-
-        .profile-copy p {
-            color: var(--text-soft);
-            font-size: 1rem;
-            margin: 0 0 16px 0;
-        }
-
-        .quote-box {
-            margin-top: 26px;
-            padding: 22px 24px;
-            border-left: 2px solid var(--gold);
-            background: rgba(255,255,255,0.02);
-            border-radius: 0 12px 12px 0;
-            color: var(--text);
-        }
-
-        .articles-wrap {
-            background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.012));
-            border-top: 1px solid var(--border-soft);
-            border-bottom: 1px solid var(--border-soft);
-        }
-
-        .links-grid {
-            grid-template-columns: repeat(2, 1fr);
-            max-width: 960px;
-            margin: 0 auto;
-        }
-
-        .article-link {
-            display: block;
-            padding: 20px 22px;
-            border-radius: 14px;
-            text-decoration: none;
-            border: 1px solid var(--border-soft);
-            background: rgba(255,255,255,0.02);
-            color: var(--text);
-            transition: all .25s ease;
-        }
-
-        .article-link:hover {
-            border-color: rgba(198,168,90,0.24);
-            transform: translateY(-2px);
-            color: var(--gold);
-        }
-
-        .article-link small {
-            display: block;
-            color: var(--text-muted);
-            font-size: .74rem;
-            text-transform: uppercase;
-            letter-spacing: 1.4px;
-            margin-bottom: 8px;
-        }
-
-        .article-link strong {
-            font-weight: 600;
-            line-height: 1.5;
-        }
-
-        .contact-panel {
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 34px;
-        }
-
-        .contact-panel h2 {
-            margin-bottom: 12px;
-        }
-
-        .contact-panel p {
-            text-align: center;
-            color: var(--text-soft);
-            max-width: 760px;
-            margin: 0 auto 30px auto;
-        }
-
-        .contact-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-            justify-content: center;
-            margin-bottom: 26px;
-        }
-
-        .contact-meta {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 14px;
-            margin-top: 10px;
-        }
-
-        .contact-meta-card {
-            padding: 18px 20px;
-            border-radius: 12px;
-            border: 1px solid var(--border-soft);
-            background: rgba(255,255,255,0.02);
-            text-align: center;
-        }
-
-        .contact-meta-card small {
-            display: block;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1.4px;
-            font-size: .72rem;
-            margin-bottom: 8px;
-        }
-
-        .contact-meta-card a,
-        .contact-meta-card span {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            word-break: break-word;
-        }
-
-        .footer {
-            padding: 34px 0 44px;
-            text-align: center;
-            color: #69707a;
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .footer-note {
-            display: block;
-            margin-top: 14px;
-            max-width: 780px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--text-muted);
-            font-size: 11px;
-            letter-spacing: 0.6px;
-            text-transform: none;
-            line-height: 1.55;
-        }
-
-        .cookie-banner {
-            position: fixed;
-            left: 24px;
-            right: 24px;
-            bottom: 24px;
-            z-index: 1200;
-            display: none;
-            background: rgba(17,21,28,0.96);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            border-radius: 16px;
-            padding: 18px 20px;
-        }
-
-        .cookie-banner.show {
-            display: block;
-        }
-
-        .cookie-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .cookie-content p {
-            margin: 0;
-            color: var(--text-soft);
-            max-width: 760px;
-            font-size: .92rem;
-        }
-
-        .cookie-actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .cookie-btn {
-            min-height: 44px;
-            padding: 0 18px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,0.02);
-            color: var(--text);
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1.6px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .cookie-btn.accept {
-            background: var(--gold);
-            color: var(--dark);
-            border-color: var(--gold);
-        }
-
-        @media (max-width: 1080px) {
-            .hero-grid,
-            .cards-3,
-            .proptech-grid,
-            .profile-block,
-            .contact-meta,
-            .institutional-bar,
-            .links-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 3.2rem;
-            }
-        }
-
+            transition: transform .28s ease;
+            margin: 10px;
+        }
+        .button:hover { transform: translateY(-2px); }
+        
         @media (max-width: 760px) {
-            .container {
-                padding: 0 22px;
-            }
-
-            .nav-wrapper {
-                min-height: auto;
-                padding: 18px 0;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .nav-links {
-                gap: 14px;
-            }
-
-            .nav-links a {
-                font-size: 10px;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2.1rem;
-            }
-
-            .hero-copy p,
-            .section-intro,
-            .profile-copy p {
-                font-size: .98rem;
-            }
-
-            .button,
-            .cookie-btn {
-                width: 100%;
-            }
-
-            .hero-actions,
-            .contact-actions,
-            .cookie-actions {
-                flex-direction: column;
-            }
-
-            .hero-card,
-            .card,
-            .contact-panel,
-            .signal-box {
-                padding: 24px;
-            }
-
-            .cookie-banner {
-                left: 16px;
-                right: 16px;
-                bottom: 16px;
-            }
+            header h1 { font-size: 2.2rem; }
+            .button { width: 100%; margin: 10px 0; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Ativar somente após adequar a política de consentimento / privacidade -->
-    <!-- Google Analytics -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=SEU_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied'
-      });
-      gtag('config', 'SEU_ID');
-    </script>
-    -->
-
-    <!-- Meta Pixel -->
-    <!--
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', 'SEU_PIXEL_ID');
-      fbq('consent', 'revoke');
-      fbq('track', 'PageView');
-    </script>
-    -->
-
-    <nav class="glass-nav">
-        <div class="container">
-            <div class="nav-wrapper">
-                <a href="#topo" class="nav-logo">PRATA REAL ESTATE</a>
-                <div class="nav-links">
-                    <a href="#diferenciais">Diferenciais</a>
-                    <a href="#processo">Processo</a>
-                    <a href="#infra">Infraestrutura</a>
-                    <a href="#atuacao">Atuação</a>
-                    <a href="#victor">Victor Prata</a>
-                    <a href="#artigos">Teses & Artigos</a>
-                    <a href="#contato">Contato</a>
-                </div>
-            </div>
+    <nav class="article-nav">
+        <div class="container-article">
+            <a href="../index.html" class="back-link">← Voltar para Home</a>
         </div>
     </nav>
-
-    <main id="topo">
-        <section class="hero">
-            <div class="container">
-                <div class="hero-grid">
-                    <div class="hero-copy">
-                        <div class="eyebrow">Special Situations | Real Estate</div>
-                        <h1>Originação Estruturada em Situações Especiais Imobiliárias</h1>
-                        <p>
-                            A <strong>Prata Real Estate</strong> combina <strong>jurídico</strong>, <strong>originação</strong> e
-                            <strong>inteligência proprietária de sourcing</strong> para identificar oportunidades em
-                            <strong>ativos judiciais</strong> e <strong>situações especiais em real estate</strong>.
-                        </p>
-                        <p>
-                            A operação é voltada a <strong>fundos</strong>, <strong>incorporadoras</strong> e
-                            <strong>family offices</strong> que buscam acesso qualificado a oportunidades fora do fluxo tradicional,
-                            com material estruturado para decisão de investimento.
-                        </p>
-                        <div class="hero-actions">
-                            <a href="#contato" class="button button-primary">Abrir Conversa</a>
-                            <a href="https://wa.me/5511966422314" target="_blank" rel="noopener noreferrer" class="button button-secondary">Apresentar Mandato</a>
-                        </div>
-                    </div>
-
-                    <aside class="hero-card">
-                        <div class="hero-card-header">
-                            <h2 class="hero-card-title">Tese Operacional</h2>
-                            <span class="tag">Capital Institucional</span>
-                        </div>
-                        <div class="hero-list">
-                            <div class="hero-item">
-                                <small>Cobertura</small>
-                                <strong>Monitoramento diário de leilões em escala nacional</strong>
-                            </div>
-                            <div class="hero-item">
-                                <small>Filtro</small>
-                                <strong>Triagem proprietária de editais com leitura jurídica e econômica</strong>
-                            </div>
-                            <div class="hero-item">
-                                <small>Estrutura</small>
-                                <strong>Aquisição originária e organização de risco conforme a legislação aplicável</strong>
-                            </div>
-                            <div class="hero-item">
-                                <small>Entrega</small>
-                                <strong>Teaser, diagnóstico, data room e tese executável para underwriting</strong>
-                            </div>
-                        </div>
-                        <div class="hero-note">
-                            A home pública não expõe ativos identificáveis. O aprofundamento ocorre de forma escalonada, conforme o estágio da conversa.
-                        </div>
-                    </aside>
-                </div>
-
-                <div class="institutional-bar">
-                    <div class="bar-item">
-                        <strong>Jurídico</strong>
-                        <span>Leitura processual e estrutura de aquisição</span>
-                    </div>
-                    <div class="bar-item">
-                        <strong>Originação</strong>
-                        <span>Deal flow proprietário fora do fluxo convencional</span>
-                    </div>
-                    <div class="bar-item">
-                        <strong>Execução</strong>
-                        <span>Material estruturado para decisão institucional</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="diferenciais">
-            <div class="container">
-                <div class="divider"></div>
-                <h2>Diferenciais da Operação</h2>
-                <p class="section-intro">
-                    O diferencial não está apenas em encontrar ativos. Está em separar ruído de oportunidade,
-                    organizar a informação e entregar material que possa ser efetivamente analisado por uma mesa institucional.
-                </p>
-                <div class="cards-3">
-                    <article class="card">
-                        <h3>Sourcing Proprietário</h3>
-                        <p>
-                            Infraestrutura própria de monitoramento e triagem de leilões, organizada para cobertura recorrente do mercado judicial brasileiro.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Leitura Jurídica Aplicada</h3>
-                        <p>
-                            Análise de edital, processo, ônus, passivos, regime de alienação e viabilidade de aquisição com foco em decisão de investimento.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Originação Estruturada</h3>
-                        <p>
-                            Conversão de processos complexos em material executivo: teaser, diagnóstico, racional de entrada e estrutura de data room.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="processo">
-            <div class="container">
-                <div class="divider"></div>
-                <h2>Como a Operação Funciona</h2>
-                <p class="section-intro">
-                    A informação sobe em camadas. A lógica é identificar, filtrar, proteger a origem e abrir o ativo na medida certa.
-                </p>
-
-                <div class="cards-3">
-                    <article class="card process-step" data-step="01">
-                        <h3>Sourcing e Mapeamento</h3>
-                        <p>
-                            Monitoramento ativo e recorrente de oportunidades em leilões judiciais, falências, execuções e outras situações especiais com racional de entrada.
-                        </p>
-                    </article>
-
-                    <article class="card process-step" data-step="02">
-                        <h3>Triagem Jurídica</h3>
-                        <p>
-                            Avaliação preliminar de edital, processo, gravames, passivos e executabilidade da aquisição antes de qualquer abertura sensível.
-                        </p>
-                    </article>
-
-                    <article class="card process-step" data-step="03">
-                        <h3>Teaser Cego</h3>
-                        <p>
-                            Apresentação macro da tese: região, tipologia, racional financeiro e estrutura jurídica, sem exposição integral da identificação do ativo.
-                        </p>
-                    </article>
-
-                    <article class="card process-step" data-step="04">
-                        <h3>Proteção de Originação</h3>
-                        <p>
-                            Havendo aderência com o mandato, a oportunidade avança com disciplina de confidencialidade, rastreabilidade e proteção mínima da originação.
-                        </p>
-                    </article>
-
-                    <article class="card process-step" data-step="05">
-                        <h3>Data Room</h3>
-                        <p>
-                            Abertura controlada de documentos, matrículas, certidões, peças processuais e notas de leitura jurídica para aprofundamento do underwriting.
-                        </p>
-                    </article>
-
-                    <article class="card process-step" data-step="06">
-                        <h3>Estruturação e Execução</h3>
-                        <p>
-                            Organização da estratégia de aquisição, alinhamento econômico da operação e suporte até a etapa executável do deal.
-                        </p>
-                    </article>
-                </div>
-
-                <div class="signal-box">
-                    <h3>Abertura Escalonada</h3>
-                    <p>
-                        O objetivo não é expor um ativo cedo demais. É permitir que a mesa valide a tese primeiro, proteja a origem da oportunidade e aprofunde a análise com o nível de informação adequado ao momento.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section id="infra">
-            <div class="container">
-                <div class="divider"></div>
-                <h2>Infraestrutura Proprietária</h2>
-                <p class="section-intro">
-                    A operação conta com uma camada própria de monitoramento, triagem e organização de informação, desenhada para dar escala ao sourcing sem perder critério jurídico.
-                </p>
-
-                <div class="proptech-grid">
-                    <article class="card">
-                        <h3>Proptech de Monitoramento</h3>
-                        <p style="margin-bottom: 14px;">
-                            Uma infraestrutura interna acompanha diariamente leilões em todo o Brasil, consolida editais, organiza dados de ativo e reduz o universo de análise para oportunidades potencialmente aproveitáveis.
-                        </p>
-                        <p style="margin-bottom: 14px;">
-                            A tecnologia não substitui o jurídico. Ela cria velocidade de leitura, cobertura nacional e disciplina de sourcing.
-                        </p>
-                        <p>
-                            A camada decisiva continua sendo a qualificação jurídica da oportunidade, com foco em executabilidade.
-                        </p>
-                    </article>
-
-                    <div class="metric-list">
-                        <div class="metric-item">
-                            <small>Monitoramento</small>
-                            <strong>Leitura diária e recorrente do mercado judicial brasileiro</strong>
-                        </div>
-
-                        <div class="metric-item">
-                            <small>Triagem</small>
-                            <strong>Filtro proprietário para separar volume bruto de editais de situações economicamente analisáveis</strong>
-                        </div>
-
-                        <div class="metric-item">
-                            <small>Qualificação</small>
-                            <strong>Leitura jurídica aplicada para transformar dado bruto em tese de aquisição</strong>
-                        </div>
-
-                        <div class="metric-item">
-                            <small>Entrega</small>
-                            <strong>Planilha estruturada, teaser e material de suporte para underwriting</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="atuacao">
-            <div class="container">
-                <div class="divider"></div>
-                <h2>Universo de Atuação</h2>
-                <p class="section-intro">
-                    Atuação seletiva em oportunidades com relevância de escala, racional de entrada e aderência ao capital institucional.
-                </p>
-
-                <div class="cards-3">
-                    <article class="card">
-                        <h3>Landbank</h3>
-                        <p>
-                            Áreas urbanas e glebas com vocação para incorporação, reorganização fundiária ou estruturação de tese de desenvolvimento.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Logístico e Industrial</h3>
-                        <p>
-                            Ativos monousuários, galpões, complexos industriais e situações com potencial de retrofit, renda ou reposicionamento.
-                        </p>
-                    </article>
-
-                    <article class="card">
-                        <h3>Situações Especiais</h3>
-                        <p>
-                            Ativos judiciais, falimentares e outras situações em que a assimetria jurídica e informacional cria oportunidade de entrada.
-                        </p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="victor">
-            <div class="container">
-                <div class="profile-block">
-                    <div class="profile-photo">
-                        <img src="foto.png" alt="Victor Prata - Prata Real Estate" />
-                    </div>
-
-                    <div class="profile-copy">
-                        <div class="divider" style="margin-left:0;"></div>
-                        <h2>Victor Prata</h2>
-                        <p class="profile-role">Founder & Managing Partner • Special Situations | Real Estate</p>
-
-                        <p>
-                            Victor Prata é advogado com atuação focada em <strong>leilões judiciais</strong>,
-                            <strong>aquisição originária</strong> e <strong>estruturação de oportunidades</strong>
-                            para capital institucional.
-                        </p>
-
-                        <p>
-                            Sua operação foi construída para atuar na fronteira entre <strong>processo</strong>,
-                            <strong>ativo</strong> e <strong>investimento</strong>: identificar assimetrias,
-                            qualificar juridicamente a oportunidade e converter complexidade em tese executável.
-                        </p>
-
-                        <p>
-                            O produto não é apenas advocacia. É <strong>inteligência jurídica aplicada à aquisição de ativos em situações especiais</strong>, apoiada por uma infraestrutura proprietária de sourcing.
-                        </p>
-
-                        <div class="quote-box">
-                            Jurídico como base de autoridade. Originação como frente comercial. Inteligência proprietária como infraestrutura de acesso.
-                        </div>
-
-                        <div class="hero-actions" style="margin-top:28px;">
-                            <a href="mailto:victor@pratarealestate.com.br" class="button button-secondary">Solicitar Contato</a>
-                            <a href="https://www.linkedin.com/in/victor-prata-real-state/" target="_blank" rel="noopener noreferrer" class="button button-secondary">LinkedIn</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="articles-wrap">
-    <div class="container">
-        <section id="artigos" style="padding:108px 0;">
-            <div class="divider"></div>
-            <h2>Teses & Artigos</h2>
-            <p class="section-intro">
-                Conteúdo voltado a aquisição originária, estrutura de risco, distorções de preço e situações especiais em real estate.
+    <main class="container-article">
+        <header>
+            <span class="eyebrow">Tese Jurídica</span>
+            <h1>Aquisição Originária e a Blindagem da LRF</h1>
+            <p class="lead">Como a interpretação do STF sobre a Lei de Recuperação Judicial e Falências redefiniu a segurança na aquisição de ativos estressados.</p>
+        </header>
+        <article>
+            <p>
+                No mercado de <i>Special Situations</i>, o risco de sucessão — seja trabalhista, tributária ou cível — é o principal detrator de valor. O investidor institucional não busca apenas desconto; ele busca isolamento de passivos. É aqui que a tese da <strong>Aquisição Originária</strong> se torna a ferramenta definitiva de mitigação de risco.
             </p>
 
-            <div class="links-grid">
-                <a class="article-link" href="/blog/ilusao-landbank-tradicional.html">
-                    <small>Tese</small>
-                    <strong>A Ilusão do Landbank Tradicional</strong>
-                </a>
+            <h2>O Paradigma da Sucessão</h2>
+            <p>
+                A crença comum de que "quem compra o ativo, compra o problema" é o que afasta o capital conservador. No entanto, a Lei 11.101/2005 (LRF), em seus artigos 60 e 141, estabelece um "porto seguro": a venda judicial de ativos em processos de recuperação ou falência é livre de qualquer ônus, não havendo sucessão do arrematante nas obrigações do devedor.
+            </p>
 
-                <a class="article-link" href="/blog/aquisicao-originaria-lrf.html">
-                    <small>Tese</small>
-                    <strong>Aquisição Originária e Estrutura Jurídica</strong>
-                </a>
+            <h2>A Blindagem na Prática</h2>
+            <p>
+                O que a Prata Real Estate executa é a engenharia para que a aquisição seja reconhecida como originária. Isso significa que o imóvel nasce "novo" para o comprador. Não se trata apenas de uma compra e venda; é um ato de autoridade judicial que limpa a matrícula e interrompe o nexo causal de dívidas pretéritas.
+            </p>
 
-                <a class="article-link" href="/blog/arbitragem-galpoes-logisticos.html">
-                    <small>Análise</small>
-                    <strong>Arbitragem em Galpões Logísticos</strong>
-                </a>
+            <h2>Conclusão</h2>
+            <p>
+                Dominar a blindagem da LRF permite que operemos em ativos que o mercado considera "tóxicos", transformando o imbróglio jurídico em margem de lucro líquida e segura para o Family Office ou Fundo de Investimento.
+            </p>
+        </article>
 
-                <a class="article-link" href="/blog/distorcoes-financeiras.html">
-                    <small>Análise</small>
-                    <strong>Onde Estão as Distorções Financeiras</strong>
-                </a>
-
-                <a class="article-link" href="/blog/estruturacao-passivos.html">
-                    <small>Estrutura Jurídica</small>
-                    <strong>Isolamento e Estrutura de Passivos</strong>
-                </a>
-
-                <a class="article-link" href="/blog/index.html">
-                    <small>Biblioteca</small>
-                    <strong>Acessar todos os artigos</strong>
-                </a>
-            </div>
-        </section>
-    </div>
-</section>
-        <section id="contato">
-            <div class="container">
-                <div class="contact-panel">
-                    <div class="divider"></div>
-                    <h2>Mandatos & Contato</h2>
-                    <p>
-                        Se houver mandato, tese específica ou interesse em entender a operação com mais profundidade,
-                        o contato pode começar por e-mail, LinkedIn ou WhatsApp.
-                    </p>
-
-                    <div class="contact-actions">
-                        <a href="mailto:victor@pratarealestate.com.br" class="button button-primary">Solicitar Contato</a>
-                        <a href="https://wa.me/5511966422314" target="_blank" rel="noopener noreferrer" class="button button-secondary">Abrir Conversa</a>
-                        <a href="https://www.linkedin.com/in/victor-prata-real-state/" target="_blank" rel="noopener noreferrer" class="button button-secondary">LinkedIn</a>
-                    </div>
-
-                    <div class="contact-meta">
-                        <div class="contact-meta-card">
-                            <small>E-mail</small>
-                            <a href="mailto:victor@pratarealestate.com.br">victor@pratarealestate.com.br</a>
-                        </div>
-
-                        <div class="contact-meta-card">
-                            <small>WhatsApp</small>
-                            <a href="https://wa.me/5511966422314" target="_blank" rel="noopener noreferrer">+55 11 96642-2314</a>
-                        </div>
-
-                        <div class="contact-meta-card">
-                            <small>Base</small>
-                            <span>São Paulo, Brasil</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="cta-box">
+            <h3>Aprofunde a análise</h3>
+            <a href="/blog/ilusao-landbank-tradicional.html" class="button">A Ilusão do Landbank Tradicional</a>
+            <a href="/blog/distorcoes-financeiras.html" class="button">Distorções Financeiras no Mercado Judicial</a>
         </section>
     </main>
-
-    <footer class="footer">
-        PRATA REAL ESTATE • SÃO PAULO, BRASIL • <span id="year"></span>
-        <span class="footer-note">
-            Esta página tem finalidade institucional. O acesso a informações sensíveis e materiais identificáveis ocorre de forma escalonada, conforme o estágio da conversa e da análise.
-        </span>
+    <footer style="padding: 60px 0; text-align: center; color: var(--text-muted); font-size: 11px; letter-spacing: 1px;">
+        PRATA REAL ESTATE • SÃO PAULO, BRASIL
     </footer>
-
-    <div class="cookie-banner" id="cookieBanner" aria-live="polite" aria-label="Aviso de cookies">
-        <div class="cookie-content">
-            <p>
-                Este site pode utilizar cookies e tecnologias semelhantes para análise de navegação e melhoria de experiência. Você pode aceitar ou recusar os cookies não essenciais.
-            </p>
-
-            <div class="cookie-actions">
-                <button class="cookie-btn" id="rejectCookies" type="button">Recusar</button>
-                <button class="cookie-btn accept" id="acceptCookies" type="button">Aceitar</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        (function () {
-            const cookieBanner = document.getElementById('cookieBanner');
-            const acceptBtn = document.getElementById('acceptCookies');
-            const rejectBtn = document.getElementById('rejectCookies');
-            const consentKey = 'pre_cookie_consent';
-            const consent = localStorage.getItem(consentKey);
-
-            if (!consent) {
-                cookieBanner.classList.add('show');
-            }
-
-            acceptBtn.addEventListener('click', function () {
-                localStorage.setItem(consentKey, 'accepted');
-                cookieBanner.classList.remove('show');
-            });
-
-            rejectBtn.addEventListener('click', function () {
-                localStorage.setItem(consentKey, 'rejected');
-                cookieBanner.classList.remove('show');
-            });
-        })();
-    </script>
-
 </body>
 </html>
