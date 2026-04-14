@@ -1,148 +1,178 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aquisição Originária e a Blindagem da LRF - Prata Real Estate</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aquisição Originária e a Blindagem da LRF | Prata Real Estate</title>
+    
+    <meta name="description" content="Como a interpretação do STF sobre a Lei de Recuperação Judicial e Falências redefiniu a segurança na aquisição de ativos estressados." />
+    
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+    
     <style>
         :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2d3748;
-            --accent-color: #e53e3e;
-            --text-color: #2d3748;
-            --background-color: #ffffff;
-            --font-family: 'Arial', sans-serif;
-            --font-size-base: 16px;
-            --line-height: 1.6;
-            --spacing-unit: 1rem;
+            --gold: #c6a85a;
+            --gold-hover: #d6b86a;
+            --dark: #0a0c10;
+            --dark-2: #11151c;
+            --text: #f2f2f2;
+            --text-soft: #b6bcc6;
+            --text-muted: #8a919b;
+            --border: rgba(198,168,90,0.16);
+            --border-soft: rgba(198,168,90,0.08);
+            --shadow: 0 24px 48px rgba(0,0,0,0.35);
         }
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
         body {
-            font-family: var(--font-family);
-            font-size: var(--font-size-base);
-            line-height: var(--line-height);
-            color: var(--text-color);
-            background-color: var(--background-color);
             margin: 0;
-            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at top, rgba(198,168,90,0.08), transparent 28%), linear-gradient(180deg, #090b0f 0%, #0a0c10 100%);
+            color: var(--text);
+            line-height: 1.8;
         }
-        header {
-            background-color: var(--primary-color);
-            color: #ffffff;
-            padding: var(--spacing-unit);
-        }
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        main {
+        .container-article {
+            width: 100%;
             max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 24px;
+        }
+        /* Nav Minimalista para Artigos */
+        .article-nav {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-soft);
+            margin-bottom: 60px;
+        }
+        
+        .back-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            line-height: 1.1;
+            margin: 0 0 20px 0;
         }
         .eyebrow {
-            font-size: 0.875rem;
+            color: var(--gold);
             text-transform: uppercase;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
+            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 15px;
         }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
+        /* Estilização do Conteúdo */
+        article section { padding: 40px 0; }
+        
+        p { margin-bottom: 28px; color: var(--text-soft); font-size: 1.15rem; }
+        
         .lead {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            color: var(--secondary-color);
+            font-size: 1.35rem;
+            color: var(--text);
+            font-weight: 300;
+            margin-bottom: 40px;
+            line-height: 1.6;
         }
-        p {
-            margin-bottom: 1.5rem;
-        }
-        section {
-            margin-bottom: 2rem;
-        }
+        
+        strong { color: var(--text); font-weight: 600; }
+        
         h2 {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin: 50px 0 20px 0;
+            font-weight: 500;
         }
-        .related-box {
-            background-color: #f7fafc;
-            border: 1px solid #e2e8f0;
-            padding: 1.5rem;
-            margin-top: 2rem;
+        
+        /* CTA Final / Related Box */
+        .cta-box {
+            margin-top: 80px;
+            padding: 40px;
+            background: linear-gradient(180deg, rgba(198,168,90,0.06), transparent);
+            border: 1px solid var(--border);
+            border-radius: 18px;
             text-align: center;
         }
-        .related-box h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
+        .cta-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin: 0 0 25px 0;
         }
         .button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: #ffffff;
-            padding: 0.75rem 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 32px;
+            border-radius: 10px;
             text-decoration: none;
-            border-radius: 0.25rem;
-            margin: 0.5rem;
-            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: 700;
+            background: var(--gold);
+            color: var(--dark);
+            transition: transform .28s ease;
+            margin: 10px;
         }
-        .button:hover {
-            background-color: #c53030;
-        }
-        footer {
-            background-color: var(--secondary-color);
-            color: #ffffff;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
-        }
-        footer p {
-            margin: 0;
+        .button:hover { transform: translateY(-2px); }
+        
+        @media (max-width: 760px) {
+            header h1 { font-size: 2.2rem; }
+            .button { width: 100%; margin: 10px 0; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="/">Voltar</a>
-            <div>Prata Real Estate</div>
-        </nav>
-    </header>
-    <main>
-        <article>
-            <div class="eyebrow">Tese Jurídica</div>
+    <nav class="article-nav">
+        <div class="container-article">
+            <a href="../index.html" class="back-link">← Voltar para Home</a>
+        </div>
+    </nav>
+    <main class="container-article">
+        <header>
+            <span class="eyebrow">Tese Jurídica</span>
             <h1>Aquisição Originária e a Blindagem da LRF</h1>
             <p class="lead">Como a interpretação do STF sobre a Lei de Recuperação Judicial e Falências redefiniu a segurança na aquisição de ativos estressados.</p>
-            <p>No mercado de <i>Special Situations</i>, o risco de sucessão — seja trabalhista, tributária ou cível — é o principal detrator de valor. O investidor institucional não busca apenas desconto; ele busca isolamento de passivos. É aqui que a tese da <strong>Aquisição Originária</strong> se torna a ferramenta definitiva de mitigação de risco.</p>
-            <section>
-                <h2>O Paradigma da Sucessão</h2>
-                <p>A sucessão em ativos estressados representa um desafio complexo, onde passivos ocultos podem emergir após a aquisição, comprometendo a rentabilidade do investimento. Tradicionalmente, os mecanismos de proteção eram insuficientes, levando a disputas judiciais prolongadas e custos elevados.</p>
-            </section>
-            <section>
-                <h2>A Blindagem na Prática</h2>
-                <p>A aplicação prática da Aquisição Originária permite ao comprador adquirir o ativo de forma isolada, evitando a transmissão de responsabilidades anteriores. Essa abordagem, validada por decisões recentes do STF, oferece uma camada adicional de segurança jurídica, essencial para operações em mercados voláteis.</p>
-            </section>
-            <section>
-                <h2>Conclusão</h2>
-                <p>Em resumo, a Aquisição Originária, aliada à interpretação da LRF pelo STF, transforma o cenário de risco em uma oportunidade controlada. Investidores que adotam essa tese jurídica ganham não apenas ativos descontados, mas também a paz de espírito necessária para operações de longo prazo.</p>
-            </section>
-            <div class="related-box">
-                <h3>Aprofunde a análise</h3>
-                <a href="/blog/ilusao-landbank-tradicional.html" class="button">A Ilusão do Landbank Tradicional</a>
-                <a href="/blog/distorcoes-financeiras.html" class="button">Distorções Financeiras no Mercado Judicial</a>
-            </div>
+        </header>
+        <article>
+            <p>
+                No mercado de <i>Special Situations</i>, o risco de sucessão — seja trabalhista, tributária ou cível — é o principal detrator de valor. O investidor institucional não busca apenas desconto; ele busca isolamento de passivos. É aqui que a tese da <strong>Aquisição Originária</strong> se torna a ferramenta definitiva de mitigação de risco.
+            </p>
+
+            <h2>O Paradigma da Sucessão</h2>
+            <p>
+                A crença comum de que "quem compra o ativo, compra o problema" é o que afasta o capital conservador. No entanto, a Lei 11.101/2005 (LRF), em seus artigos 60 e 141, estabelece um "porto seguro": a venda judicial de ativos em processos de recuperação ou falência é livre de qualquer ônus, não havendo sucessão do arrematante nas obrigações do devedor.
+            </p>
+
+            <h2>A Blindagem na Prática</h2>
+            <p>
+                O que a Prata Real Estate executa é a engenharia para que a aquisição seja reconhecida como originária. Isso significa que o imóvel nasce "novo" para o comprador. Não se trata apenas de uma compra e venda; é um ato de autoridade judicial que limpa a matrícula e interrompe o nexo causal de dívidas pretéritas.
+            </p>
+
+            <h2>Conclusão</h2>
+            <p>
+                Dominar a blindagem da LRF permite que operemos em ativos que o mercado considera "tóxicos", transformando o imbróglio jurídico em margem de lucro líquida e segura para o Family Office ou Fundo de Investimento.
+            </p>
         </article>
+
+        <section class="cta-box">
+            <h3>Aprofunde a análise</h3>
+            <a href="/blog/ilusao-landbank-tradicional.html" class="button">A Ilusão do Landbank Tradicional</a>
+            <a href="/blog/distorcoes-financeiras.html" class="button">Distorções Financeiras no Mercado Judicial</a>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2023 Prata Real Estate. Todos os direitos reservados. <a href="https://pratarealestate.com.br">pratarealestate.com.br</a></p>
+    <footer style="padding: 60px 0; text-align: center; color: var(--text-muted); font-size: 11px; letter-spacing: 1px;">
+        PRATA REAL ESTATE • SÃO PAULO, BRASIL
     </footer>
 </body>
 </html>
