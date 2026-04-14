@@ -1,41 +1,176 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distorções Financeiras no Mercado Judicial | Arbitragem Real Estate</title>
-    <meta name="description" content="Como identificar e capturar ineficiências de preço no mercado judicial através de arbitragem de liquidez e inteligência de dados.">
-    <link rel="stylesheet" href="../style.css">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AnalysisNewsArticle",
-      "headline": "Arbitragem de Liquidez: Onde Estão as Distorções Financeiras?",
-      "author": { "@type": "Person", "name": "Victor Prata" }
-    }
-    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distorções Financeiras no Mercado Judicial | Prata Real Estate</title>
+    
+    <meta name="description" content="Como identificar e capturar ineficiências de preço no mercado judicial através de arbitragem de liquidez e inteligência de dados." />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --gold: #c6a85a;
+            --gold-hover: #d6b86a;
+            --dark: #0a0c10;
+            --dark-2: #11151c;
+            --text: #f2f2f2;
+            --text-soft: #b6bcc6;
+            --text-muted: #8a919b;
+            --border: rgba(198,168,90,0.16);
+            --border-soft: rgba(198,168,90,0.08);
+            --shadow: 0 24px 48px rgba(0,0,0,0.35);
+        }
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at top, rgba(198,168,90,0.08), transparent 28%), linear-gradient(180deg, #090b0f 0%, #0a0c10 100%);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .container-article {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* Nav Minimalista para Artigos */
+        .article-nav {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-soft);
+            margin-bottom: 60px;
+        }
+        
+        .back-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            line-height: 1.1;
+            margin: 0 0 20px 0;
+        }
+        .eyebrow {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 15px;
+        }
+        /* Estilização do Conteúdo */
+        article section { padding: 40px 0; }
+        
+        p { margin-bottom: 28px; color: var(--text-soft); font-size: 1.15rem; }
+        
+        .lead {
+            font-size: 1.35rem;
+            color: var(--text);
+            font-weight: 300;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        strong { color: var(--text); font-weight: 600; }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin: 50px 0 20px 0;
+            font-weight: 500;
+        }
+        
+        /* CTA Final */
+        .cta-box {
+            margin-top: 80px;
+            padding: 40px;
+            background: linear-gradient(180deg, rgba(198,168,90,0.06), transparent);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            text-align: center;
+        }
+        .cta-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin: 0 0 15px 0;
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: 700;
+            background: var(--gold);
+            color: var(--dark);
+            transition: transform .28s ease;
+            margin-top: 20px;
+        }
+        .button:hover { transform: translateY(-2px); }
+        
+        @media (max-width: 760px) {
+            header h1 { font-size: 2.2rem; }
+        }
+    </style>
 </head>
 <body>
-    <article class="article-container">
-        <header class="article-header">
+    <nav class="article-nav">
+        <div class="container-article">
+            <a href="../index.html" class="back-link">← Voltar para Home</a>
+        </div>
+    </nav>
+    <main class="container-article">
+        <header>
             <span class="eyebrow">Financial Analysis</span>
             <h1>Distorções Financeiras no Mercado Judicial</h1>
             <p class="lead">A ineficiência processual como geradora de assimetria positiva: por que ativos operam com deságios severos.</p>
         </header>
-
-        <section class="article-content">
-            <p>O mercado de ativos judiciais não é regido pelas leis clássicas de oferta e demanda imobiliária, mas sim por <strong>ineficiências de liquidez</strong>. Uma distorção financeira ocorre quando o valor de avaliação de um ativo ignora o custo de oportunidade e o tempo de saída do capital.</p>
+        <article>
+            <p>
+                O mercado de ativos judiciais não é regido pelas leis clássicas de oferta e demanda imobiliária, mas sim por <strong>ineficiências de liquidez</strong>. Uma distorção financeira ocorre quando o valor de avaliação de um ativo ignora o custo de oportunidade e o tempo de saída do capital.
+            </p>
 
             <h2>Arbitragem vs. Especulação</h2>
-            <p>Especular é torcer para o mercado subir. <strong>Arbitrar</strong> é comprar por 50 o que vale 100 no estado atual, simplesmente porque você detém a chave jurídica para destravar o ativo mais rápido que a média do mercado. No judiciário, o deságio é o prêmio pago pela paciência e pelo conhecimento técnico.</p>
+            <p>
+                Especular é torcer para o mercado subir. <strong>Arbitrar</strong> é comprar por 50 o que vale 100 no estado atual, simplesmente porque você detém a chave jurídica para destravar o ativo mais rápido que a média do mercado. No judiciário, o deságio é o prêmio pago pela paciência e pelo conhecimento técnico.
+            </p>
 
             <h2>Monitoramento de Ciclos de Deságio</h2>
-            <p>Utilizamos inteligência de dados para identificar o <i>sweet spot</i> da arrematação: o momento exato onde a queda de praças (1ª para 2ª praça) encontra o limite da viabilidade econômica dos credores. Antecipamos o movimento de grandes players ao analisar o volume de passivos habilitados e a urgência de liquidação do juízo.</p>
+            <p>
+                Utilizamos inteligência de dados para identificar o <i>sweet spot</i> da arrematação: o momento exato onde a queda de praças (1ª para 2ª praça) encontra o limite da viabilidade econômica dos credores. Antecipamos o movimento de grandes players ao analisar o volume de passivos habilitados e a urgência de liquidação do juízo.
+            </p>
 
             <h2>O IRR como Métrica de Sucesso</h2>
-            <p>Para nós, o sucesso não é medido pelo lucro bruto, mas pela **Taxa Interna de Retorno (IRR)**. Um lucro de 100% em 5 anos é inferior a um lucro de 40% em 12 meses. Nossa inteligência foca na velocidade da imissão na posse e no saneamento da matrícula para maximizar o giro do capital institucional.</p>
+            <p>
+                Para nós, o sucesso não é medido pelo lucro bruto, mas pela <strong>Taxa Interna de Retorno (IRR)</strong>. Um lucro de 100% em 5 anos é inferior a um lucro de 40% em 12 meses. Nossa inteligência foca na velocidade da imissão na posse e no saneamento da matrícula para maximizar o giro do capital institucional.
+            </p>
+        </article>
+
+        <section class="cta-box">
+            <h3>Interessado nesta análise?</h3>
+            <p>Se você busca entender como capturar essas distorções com segurança jurídica, vamos conversar.</p>
+            <a href="../index.html#contato" class="button">Abrir Conversa</a>
         </section>
-    </article>
+    </main>
+    <footer style="padding: 60px 0; text-align: center; color: var(--text-muted); font-size: 11px; letter-spacing: 1px;">
+        PRATA REAL ESTATE • SÃO PAULO, BRASIL
+    </footer>
 </body>
 </html>
