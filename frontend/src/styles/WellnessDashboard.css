@@ -1,0 +1,108 @@
+@import './variables.css';
+
+.wellness-dashboard {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin: var(--spacing-xxl) 0 var(--spacing-xl) 0;
+}
+
+.dashboard-header h1 {
+    margin-bottom: var(--spacing-md);
+    font-size: 2.75rem;
+}
+
+.dashboard-header p {
+    color: var(--text-soft);
+    font-size: 1.05rem;
+}
+
+.reminders-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.reminders-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+    grid-auto-rows: 1fr;
+}
+
+.loading,
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.refresh-button {
+    display: block;
+    margin: var(--spacing-xl) auto 120px;
+    padding: 0 26px;
+    min-height: 52px;
+    background: var(--wellness);
+    color: white;
+    border: 1px solid var(--wellness);
+    border-radius: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 12px 28px rgba(37,99,235,0.2);
+    font-family: var(--font-sans);
+}
+
+.refresh-button:hover {
+    background: var(--wellness-hover);
+    border-color: var(--wellness-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(37,99,235,0.3);
+}
+
+.refresh-button:hover {
+    background: var(--gold-hover);
+    border-color: var(--gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(198,168,90,0.24);
+}
+
+.refresh-button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 1080px) {
+    .reminders-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 760px) {
+    .wellness-dashboard {
+        padding: 0 22px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 2.1rem;
+    }
+
+    .reminders-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reminders-section h2 {
+    margin: 0 0 var(--spacing-xl) 0;
+    font-family: var(--font-serif);
+    font-size: 2.75rem;
+    line-height: 1.08;
+    letter-spacing: -0.5px;
+    text-align: center;
+    }
+}

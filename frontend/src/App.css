@@ -1,0 +1,30 @@
+/* IMPORTAÇÃO DAS FONTES DO SITE OFICIAL */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap');
+
+:root {
+  --prata-navy: #05070a;
+  --prata-gold: #c5a47e;
+  --prata-glass: rgba(255, 255, 255, 0.03);
+  --prata-border: rgba(255, 255, 255, 0.08);
+  --prata-text: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--prata-navy);
+  color: var(--prata-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Restauração do Wellness (Fundo Branco e Fontes Padrão) */
+.wellness-dashboard {
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+  font-family: sans-serif !important;
+}
+
+/* Estilos de utilidade do Tailwind isolados */
+@tailwind components;
+@tailwind utilities;
