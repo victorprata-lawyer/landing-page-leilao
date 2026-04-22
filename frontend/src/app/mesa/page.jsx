@@ -2,15 +2,6 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
 
-// Metadata para Favicon e SEO (O Next.js usa isso para o cabeçalho da aba)
-export const metadata = {
-  title: 'Mesa de Originação | Prata Real Estate',
-  description: 'Acesso exclusivo a ativos estruturados e situações especiais.',
-  icons: {
-    icon: '/favicon.ico', // Certifique-se de que o arquivo está em /public
-  },
-};
-
 export default function MesaPage() {
   const [assets, setAssets] = useState([]);
   const [cityInput, setCityInput] = useState('');
@@ -78,7 +69,6 @@ export default function MesaPage() {
     <div style={{ padding: '40px 20px', backgroundColor: '#05070a', minHeight: '100vh', color: '#fff', fontFamily: 'Montserrat, sans-serif' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         
-        {/* BOTÃO VOLTAR DISCRETO */}
         <div style={{ marginBottom: '30px' }}>
           <a href="/" style={{ color: '#64748b', fontSize: '0.7rem', textDecoration: 'none', textTransform: 'uppercase', letterSpacing: '1px', display: 'flex', alignItems: 'center', gap: '5px' }}>
             ← Voltar para o Site Institucional
@@ -93,11 +83,10 @@ export default function MesaPage() {
             Mesa de Originação
           </h2>
           <div style={{ color: '#64748b', fontSize: '0.8rem', marginTop: '10px' }}>
-            Exibindo **{filtered.length}** ativos estruturados sob sigilo.
+            Exibindo **{filtered.length}** ativos estruturados sob sigilo profissional.
           </div>
         </header>
 
-        {/* BARRA DE FILTRAGEM */}
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px', marginBottom: '50px', padding: '20px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '2px', alignItems: 'center' }}>
           <input
             type="text" placeholder="Buscar por cidade..." value={cityInput}
@@ -154,7 +143,6 @@ export default function MesaPage() {
           </div>
         )}
 
-        {/* MODAL DE PROTOCOLO */}
         {showModal && (
           <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', background: 'rgba(0,0,0,0.92)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000 }}>
             <div style={{ background: '#0a0d12', padding: '40px', border: '1px solid #c5a47e', maxWidth: '500px', width: '90%', textAlign: 'center' }}>
