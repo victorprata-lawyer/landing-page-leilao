@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Isolamento e Estrutura de Passivos | Prata Real Estate</title>
+    
+    <meta name="description" content="Em ativos judiciais, entender o tratamento dos passivos é essencial para separar desconto real de risco mal precificado." />
+    
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --gold: #c6a85a;
+            --gold-hover: #d6b86a;
+            --dark: #0a0c10;
+            --dark-2: #11151c;
+            --text: #f2f2f2;
+            --text-soft: #b6bcc6;
+            --text-muted: #8a919b;
+            --border: rgba(198,168,90,0.16);
+            --border-soft: rgba(198,168,90,0.08);
+            --shadow: 0 24px 48px rgba(0,0,0,0.35);
+        }
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at top, rgba(198,168,90,0.08), transparent 28%), linear-gradient(180deg, #090b0f 0%, #0a0c10 100%);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .container-article {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* Nav Minimalista para Artigos */
+        .article-nav {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-soft);
+            margin-bottom: 60px;
+        }
+        
+        .back-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            line-height: 1.1;
+            margin: 0 0 20px 0;
+        }
+        .eyebrow {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 15px;
+        }
+        /* Estilização do Conteúdo */
+        article section { padding: 40px 0; }
+        
+        p { margin-bottom: 28px; color: var(--text-soft); font-size: 1.15rem; }
+        
+        .lead {
+            font-size: 1.35rem;
+            color: var(--text);
+            font-weight: 300;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        strong { color: var(--text); font-weight: 600; }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin: 50px 0 20px 0;
+            font-weight: 500;
+        }
+        
+        /* CTA Final / Related Box */
+        .cta-box {
+            margin-top: 80px;
+            padding: 40px;
+            background: linear-gradient(180deg, rgba(198,168,90,0.06), transparent);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            text-align: center;
+        }
+        .cta-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin: 0 0 25px 0;
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: 700;
+            background: var(--gold);
+            color: var(--dark);
+            transition: transform .28s ease;
+            margin: 10px;
+        }
+        .button:hover { transform: translateY(-2px); }
+        
+        @media (max-width: 760px) {
+            header h1 { font-size: 2.2rem; }
+            .button { width: 100%; margin: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="article-nav">
+        <div class="container-article">
+            <a href="../index.html" class="back-link">← Voltar para Home</a>
+        </div>
+    </nav>
+    <main class="container-article">
+        <header>
+            <span class="eyebrow">Estrutura Jurídica</span>
+            <h1>Isolamento e Estrutura de Passivos</h1>
+            <p class="lead">Em ativos judiciais, entender o tratamento dos passivos é essencial para separar desconto real de risco mal precificado.</p>
+        </header>
+        <article>
+            <p>
+                A aquisição de ativos judiciais e <em>distressed</em> atrai capital pela promessa de alto deságio. No entanto, o que separa uma operação bem-sucedida de um desastre financeiro é a capacidade de mapear, quantificar e, fundamentalmente, isolar os passivos atrelados ao imóvel.
+            </p>
+
+            <h2>A Anatomia do Passivo Oculto</h2>
+            <p>
+                O mercado amador foca na dívida que levou o bem a leilão. O operador institucional olha para a teia de credores periféricos: execuções fiscais não sub-rogadas, débitos condominiais <em>propter rem</em> com ações de cobrança paralelas, e penhoras trabalhistas de empresas do mesmo grupo econômico. Um ativo com 50% de desconto no edital pode ter 70% do seu valor comprometido em passivos invisíveis ao comprador desatento.
+            </p>
+
+            <h2>Mecanismos de Isolamento</h2>
+            <p>
+                O verdadeiro valor da engenharia jurídica está em criar barreiras intransponíveis entre o patrimônio do investidor e as dívidas do antigo proprietário. Isso se faz através da aplicação cirúrgica de institutos como a sub-rogação no preço da arrematação (Art. 130 do CTN e Art. 908 do CPC) e, no ápice da segurança, a Aquisição Originária via Lei de Recuperação Judicial e Falências (LRF). Quando a estrutura de aquisição é bem montada, o imóvel nasce com uma nova matrícula, blindada contra o passado.
+            </p>
+
+            <h2>Desconto Real vs. Risco Mal Precificado</h2>
+            <p>
+                Desconto real é aquele que sobrevive à planilha de custos de saneamento. Se o custo para baixar penhoras, negociar com credores e regularizar a posse consome a margem de segurança, não havia deságio, havia apenas um risco mal precificado. A diligência prévia deve transformar incerteza jurídica em custo quantificável.
+            </p>
+
+            <h2>Veredito</h2>
+            <p>
+                Não se adquire um imóvel judicial; adquire-se a estrutura jurídica que o envolve. O isolamento de passivos é o que garante que o capital investido retorne com a rentabilidade projetada, sem surpresas no meio do caminho.
+            </p>
+        </article>
+
+        <section class="cta-box">
+            <h3>Aprofunde a análise</h3>
+            <a href="/blog/aquisicao-originaria-lrf.html" class="button">Aquisição Originária e a Blindagem da LRF</a>
+            <a href="/blog/checklist-nulidades.html" class="button">Checklist de Nulidades</a>
+        </section>
+    </main>
+    <footer style="padding: 60px 0; text-align: center; color: var(--text-muted); font-size: 11px; letter-spacing: 1px;">
+        PRATA REAL ESTATE • SÃO PAULO, BRASIL
+    </footer>
+</body>
+</html>

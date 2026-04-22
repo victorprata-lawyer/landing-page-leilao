@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O Custo Invisível dos Impostos em Leilões | Prata Real Estate</title>
+    
+    <meta name="description" content="Como a falta de planejamento tributário (ITBI e IPTU) em São Paulo pode destruir até 8% da sua margem líquida de lucro em leilões judiciais." />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --gold: #c6a85a;
+            --gold-hover: #d6b86a;
+            --dark: #0a0c10;
+            --dark-2: #11151c;
+            --text: #f2f2f2;
+            --text-soft: #b6bcc6;
+            --text-muted: #8a919b;
+            --border: rgba(198,168,90,0.16);
+            --border-soft: rgba(198,168,90,0.08);
+            --shadow: 0 24px 48px rgba(0,0,0,0.35);
+        }
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at top, rgba(198,168,90,0.08), transparent 28%), linear-gradient(180deg, #090b0f 0%, #0a0c10 100%);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .container-article {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* Nav Minimalista para Artigos */
+        .article-nav {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-soft);
+            margin-bottom: 60px;
+        }
+        
+        .back-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            line-height: 1.1;
+            margin: 0 0 20px 0;
+        }
+        .eyebrow {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 15px;
+        }
+        /* Estilização do Conteúdo */
+        article section { padding: 40px 0; }
+        
+        p { margin-bottom: 28px; color: var(--text-soft); font-size: 1.15rem; }
+        
+        strong { color: var(--text); font-weight: 600; }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin: 50px 0 20px 0;
+            font-weight: 500;
+        }
+        
+        .quote-box {
+            margin: 50px 0;
+            padding: 30px;
+            border-left: 2px solid var(--gold);
+            background: rgba(255,255,255,0.02);
+            border-radius: 0 16px 16px 0;
+            font-size: 1.2rem;
+            color: var(--text);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        /* Tabela de Impacto adaptada ao novo CSS */
+        .impact-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 40px 0; 
+            font-size: 1rem; 
+            border: 1px solid var(--border-soft); 
+            background: rgba(255,255,255,0.01);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .impact-table th { 
+            background: rgba(198,168,90,0.05); 
+            color: var(--gold); 
+            padding: 18px 20px; 
+            text-align: left; 
+            border-bottom: 1px solid var(--border); 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .impact-table td { 
+            padding: 18px 20px; 
+            border-bottom: 1px solid var(--border-soft); 
+            color: var(--text-soft);
+        }
+        .impact-table tr:last-child td {
+            border-bottom: none;
+        }
+        .impact-table tr:hover td { 
+            background: rgba(198,168,90,0.03); 
+            color: var(--text);
+        }
+        
+        /* CTA Final */
+        .cta-box {
+            margin-top: 80px;
+            padding: 40px;
+            background: linear-gradient(180deg, rgba(198,168,90,0.06), transparent);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            text-align: center;
+        }
+        .cta-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin: 0 0 15px 0;
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: 700;
+            background: var(--gold);
+            color: var(--dark);
+            transition: transform .28s ease;
+            margin-top: 20px;
+        }
+        .button:hover { transform: translateY(-2px); }
+        
+        @media (max-width: 760px) {
+            header h1 { font-size: 2.2rem; }
+            .impact-table { font-size: 0.9rem; }
+            .impact-table th, .impact-table td { padding: 12px 10px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="article-nav">
+        <div class="container-article">
+            <a href="../index.html" class="back-link">← Voltar para Home</a>
+        </div>
+    </nav>
+    <main class="container-article">
+        <header>
+            <span class="eyebrow">Matemática Tributária</span>
+            <h1>O Custo Invisível dos Impostos: A sangria da margem líquida em SP</h1>
+        </header>
+        <article>
+            <p>
+                A euforia de uma arrematação barata geralmente morre na mesa da prefeitura. Investidores que calculam o retorno sobre investimento (ROI) baseando-se apenas no valor do lance e na comissão do leiloeiro estão fadados a deixar <strong>até 8% da sua margem líquida no lixo</strong>.
+            </p>
+            <p>
+                A alocação de capital em leilões judiciais não suporta passivos não mapeados. E o leão fiscal de São Paulo é o sócio mais silencioso da sua operação.
+            </p>
+
+            <h2>A armadilha da Base de Cálculo do ITBI</h2>
+            <p>
+                O ITBI em São Paulo é de 3%. A grande questão jurídica não é a alíquota, mas a <strong>base de cálculo</strong>. A prefeitura sempre tenta cobrar o imposto sobre o Valor Venal de Referência ou sobre o valor da avaliação judicial.
+            </p>
+
+            <table class="impact-table">
+                <thead>
+                    <tr>
+                        <th>Base de Cálculo</th>
+                        <th>Valor Exemplo</th>
+                        <th>ITBI (3%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Valor Venal Ref. (Prefeitura)</td>
+                        <td>R$ 1.200.000,00</td>
+                        <td>R$ 36.000,00</td>
+                    </tr>
+                    <tr>
+                        <td>Valor da Avaliação Judicial</td>
+                        <td>R$ 1.000.000,00</td>
+                        <td>R$ 30.000,00</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Valor da Arrematação (Lance)</strong></td>
+                        <td><strong>R$ 600.000,00</strong></td>
+                        <td><strong>R$ 18.000,00</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                A jurisprudência do STJ é clara: <strong>o ITBI em leilão judicial deve incidir sobre o valor da arrematação</strong>. No exemplo acima, a diferença é de <strong>R$ 18.000,00 de lucro preservado</strong> apenas com a tese jurídica correta.
+            </p>
+
+            <div class="quote-box">
+                "Cada real pago indevidamente em tributos é um real a menos na taxa interna de retorno (TIR) do seu investimento."
+            </div>
+
+            <h2>O mito da Sub-rogação do IPTU</h2>
+            <p>
+                O Código Tributário Nacional (Art. 130) estabelece que dívidas de IPTU sub-rogam-se sobre o preço do lance. Em tese, o arrematante recebe o imóvel limpo.
+            </p>
+            <p>
+                Porém, se o edital contiver cláusula expressa transferindo o débito ao arrematante e não houver impugnação tempestiva, você assume o passivo. Em imóveis de alto padrão, um IPTU não mapeado pode ultrapassar 15% do valor do bem, destruindo o deságio conquistado no martelo.
+            </p>
+
+            <h2>Veredito Estratégico</h2>
+            <p>
+                Matemática tributária não se faz depois do arremate; faz-se na estruturação da proposta. <strong>Lucro líquido só é real quando as guias estão quitadas e a margem sobrevive.</strong>
+            </p>
+        </article>
+
+        <section class="cta-box">
+            <h3>Pare de perder margem para a Prefeitura</h3>
+            <p>Minha due diligence projeta o custo exato de ITBI e mapeia o risco real de IPTU não sub-rogado antes de você imobilizar seu capital.</p>
+            <a href="../index.html#contato" class="button">Calcular Custos do Meu Edital</a>
+        </section>
+    </main>
+    <footer style="padding: 60px 0; text-align: center; color: var(--text-muted); font-size: 11px; letter-spacing: 1px;">
+        PRATA REAL ESTATE • SÃO PAULO, BRASIL
+    </footer>
+</body>
+</html>

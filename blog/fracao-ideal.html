@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leilão de Fração Ideal: Oportunidade ou Cilada? | Prata Real Estate</title>
+    
+    <meta name="description" content="Aprenda como arrematar parte de um imóvel para forçar a extinção de condomínio e maximizar seu lucro em leilões judiciais em São Paulo." />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --gold: #c6a85a;
+            --gold-hover: #d6b86a;
+            --dark: #0a0c10;
+            --dark-2: #11151c;
+            --text: #f2f2f2;
+            --text-soft: #b6bcc6;
+            --text-muted: #8a919b;
+            --border: rgba(198,168,90,0.16);
+            --border-soft: rgba(198,168,90,0.08);
+            --shadow: 0 24px 48px rgba(0,0,0,0.35);
+        }
+        * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(circle at top, rgba(198,168,90,0.08), transparent 28%), linear-gradient(180deg, #090b0f 0%, #0a0c10 100%);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .container-article {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        /* Nav Minimalista para Artigos */
+        .article-nav {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-soft);
+            margin-bottom: 60px;
+        }
+        
+        .back-link {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            line-height: 1.1;
+            margin: 0 0 20px 0;
+        }
+        .eyebrow {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 15px;
+        }
+        /* Estilização do Conteúdo */
+        article section { padding: 40px 0; }
+        
+        p { margin-bottom: 28px; color: var(--text-soft); font-size: 1.15rem; }
+        
+        strong { color: var(--text); font-weight: 600; }
+        
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin: 50px 0 20px 0;
+            font-weight: 500;
+        }
+        
+        .quote-box {
+            margin: 50px 0;
+            padding: 30px;
+            border-left: 2px solid var(--gold);
+            background: rgba(255,255,255,0.02);
+            border-radius: 0 16px 16px 0;
+            font-size: 1.2rem;
+            color: var(--text);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+        
+        /* Infográfico de Passos adaptado para o novo CSS */
+        .step-map {
+            background: rgba(255,255,255,0.02);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border-soft);
+            margin: 40px 0;
+        }
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        .step-item:last-child {
+            margin-bottom: 0;
+        }
+        .step-number {
+            background: var(--gold);
+            color: var(--dark);
+            min-width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 20px;
+            font-size: 14px;
+        }
+        .step-content {
+            color: var(--text-soft);
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        .step-content b {
+            color: var(--gold);
+        }
+
+        /* CTA Final */
+        .cta-box {
+            margin-top: 80px;
+            padding: 40px;
+            background: linear-gradient(180deg, rgba(198,168,90,0.06), transparent);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            text-align: center;
+        }
+        .cta-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin: 0 0 15px 0;
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 52px;
+            padding: 0 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: 700;
+            background: var(--gold);
+            color: var(--dark);
+            transition: transform .28s ease;
+            margin-top: 20px;
+        }
+        .button:hover { transform: translateY(-2px); }
+        
+        @media (max-width: 760px) {
+            header h1 { font-size: 2.2rem; }
+            .step-map { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="article-nav">
+        <div class="container-article">
+            <a href="../index.html" class="back-link">← Voltar para Home</a>
+        </div>
+    </nav>
+    <main class="container-article">
+        <header>
+            <span class="eyebrow">Engenharia Jurídica</span>
+            <h1>Leilão de Fração Ideal: A arte de forçar a extinção de condomínio</h1>
+        </header>
+        <article>
+            <p>
+                Quando um edital anuncia "50% do imóvel", a imensa maioria dos investidores foge. Para o amador, ser "meio dono" de um apartamento com um desconhecido soa como um pesadelo jurídico insolúvel.
+            </p>
+            <p>
+                Para o operador jurídico de capital, <strong>é a maior assimetria de lucro do mercado.</strong> Onde a massa enxerga um problema, a engenharia jurídica enxerga uma Alavancagem por Extinção.
+            </p>
+
+            <h2>A mecânica da Fração Ideal</h2>
+            <p>
+                A lei brasileira é taxativa: ninguém é obrigado a manter uma copropriedade contra a vontade. Ao arrematar uma cota-parte, você ganha o poder legal de "explodir" o condomínio existente.
+            </p>
+
+            <div class="step-map">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content"><b>Arrematação:</b> Você compra 50% do bem por um valor baixíssimo (sem concorrência).</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content"><b>Notificação:</b> O outro dono é avisado da sua entrada e da intenção de venda total.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content"><b>Ação de Extinção:</b> O juiz determina a venda de 100% do imóvel no mercado.</div>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content"><b>Liquidez:</b> Você recebe 50% do valor de mercado atualizado. ROI exponencial.</div>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                "Comprar a fração ideal é comprar a chave para forçar a venda da totalidade. É uma questão de tempo, não de sorte."
+            </div>
+
+            <h2>Os caminhos da Liquidez</h2>
+            <p>
+                <strong>Cenário A (Acordo):</strong> O coproprietário, temendo perder a moradia no leilão de extinção, aceita comprar sua parte pelo valor de mercado ou vender a parte dele para você com desconto.
+            </p>
+            <p>
+                <strong>Cenário B (Alienação Judicial):</strong> O imóvel vai a leilão por inteiro. Como você arrematou sua parte com 50% ou 60% de deságio, o retorno sobre o capital empregado na liquidação final costuma bater qualquer investimento de renda variável.
+            </p>
+
+            <h2>O Risco: A Matrícula Silenciosa</h2>
+            <p>
+                A estratégia é brilhante, mas a <strong>due diligence deve ser implacável.</strong> Usufruto vitalício na outra metade, cláusulas de impenhorabilidade ou alienações fiduciárias ativas podem paralisar a liquidez por anos.
+            </p>
+            <p>
+                O lucro da fração ideal mora nas entrelinhas. Não se arremata "pedaços" de imóveis sem um mapa de saída validado por quem opera o processo judicial.
+            </p>
+        </article>
+
+        <section class="cta-box">
+            <h3>Acha que achou uma mina de ouro em fração ideal?</h3>
+            <p>Não imobilize seu capital sem um diagnóstico de viabilidade da extinção de condomínio.</p>
+            <a href="../index.html#contato" class="button">Validar Fração Ideal</a>
+        </section>
+    </main>
+    <footer style="padding: 60px 0; text-align: center; color: var(--text-muted); font-size: 11px; letter-spacing: 1px;">
+        PRATA REAL ESTATE • SÃO PAULO, BRASIL
+    </footer>
+</body>
+</html>
