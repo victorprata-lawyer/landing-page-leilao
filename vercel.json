@@ -1,3 +1,8 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/mesa/:path*",
+      "destination": "/mesa/index.html"
+    }
+  ]
 }
