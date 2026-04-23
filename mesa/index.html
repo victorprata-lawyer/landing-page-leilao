@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesa de Originação - Prata Real Estate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="header">
+    <a href="/" class="back-link">← Voltar para Home</a>
+    <h1>Mesa de Originação</h1>
+  </nav>
+
+  <section class="hero">
+    <h2>Oportunidades Exclusivas de Originação Imobiliária</h2>
+    <p>Ativos premium selecionados para investidores qualificados.</p>
+  </section>
+
+  <div class="container">
+    <div class="filters">
+      <select id="estadoFilter">
+        <option value="">Todos os Estados</option>
+      </select>
+      <select id="cidadeFilter">
+        <option value="">Todas as Cidades</option>
+      </select>
+      <label class="checkbox-label">
+        <input type="checkbox" id="hideLowValue">
+        Apenas Qualificados (+R$ 300k)
+      </label>
+      <button id="clearFilters">Limpar Filtros</button>
+    </div>
+
+    <div id="loading" class="loading">Carregando oportunidades...</div>
+    <div id="empty" class="empty" style="display: none;">Nenhuma oportunidade encontrada.</div>
+    <div id="grid" class="grid" style="display: none;"></div>
+  </div>
+
+  <div id="modal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <h3>Protocolo de Acesso</h3>
+      <p>Código Público: <strong id="modalCode"></strong></p>
+      <button id="copyCode">Copiar Código</button>
+      <button id="zapsign">Acessar ZapSign</button>
+      <button id="closeModal">Fechar</button>
+    </div>
+  </div>
+  <div id="overlay" class="overlay" style="display: none;"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
