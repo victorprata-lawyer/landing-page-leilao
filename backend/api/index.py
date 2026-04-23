@@ -1,4 +1,5 @@
 import sys
+<<<<<<< Updated upstream
 import os
 from pathlib import Path
 
@@ -30,3 +31,11 @@ Nota curta:
 - O import em backend/app/routes/oportunidades.py pode continuar usando app.models.database
 - O main.py pode ficar como está
 - Primeiro teste: abra /api/oportunidades/ no navegador
+=======
+from pathlib import Path
+
+backend_path = Path(__file__).parent.parent / "backend"
+sys.path.insert(0, str(backend_path))
+
+from main import app
+>>>>>>> Stashed changes
