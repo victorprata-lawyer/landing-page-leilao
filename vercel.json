@@ -1,12 +1,11 @@
 {
-  "rewrites": [
-    {
-      "source": "/mesa/:path*",
-      "destination": "/mesa/index.html"
-    }
-  ]
-<<<<<<< Updated upstream
+  "Option 1 - Safest minimal": {},
+  "Option 2 - Rewrite only for /mesa": {
+    "rewrites": [
+      {
+        "source": "/mesa",
+        "destination": "/mesa/index.html"
+      }
+    ]
+  }
 }
-=======
-}
->>>>>>> Stashed changes
