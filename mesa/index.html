@@ -4,69 +4,395 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesa de Originação | Prata Real Estate</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* BRANDING & DESIGN SYSTEM */
+        :root {
+            --gold: #c5a47e;
+            --dark-bg: #05070a;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-soft: #64748b;
+            --text-muted: #94a3b8;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* HEADER */
+        header {
+            margin-bottom: 40px;
+            border-left: 3px solid var(--gold);
+            padding-left: 25px;
+        }
+
+        .eyebrow {
+            font-size: 0.75rem;
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .asset-count {
+            color: var(--text-soft);
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        /* FILTROS */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 2px;
+            align-items: center;
+        }
+
+        input[type="text"], select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #fff;
+            padding: 12px 15px;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        input[type="text"] { flex: 2 1 250px; }
+        select { flex: 1 1 120px; cursor: pointer; }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 15px;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .checkbox-group input { cursor: pointer; accent-color: var(--gold); }
+        .checkbox-group label {
+            color: var(--gold);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        /* GRID & CARDS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+
+        .card:hover { border-color: var(--gold); }
+
+        .arbitrage-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: var(--gold);
+            font-size: 0.6rem;
+            font-weight: 800;
+            border: 1px solid var(--gold);
+            padding: 3px 8px;
+        }
+
+        .public-code { color: var(--text-soft); font-size: 0.7rem; font-weight: 600; margin-bottom: 8px; letter-spacing: 1px; }
+
+        .card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 5px; font-weight: 400; }
+
+        .typology { color: var(--text-muted); font-size: 0.75rem; margin-bottom: 25px; text-transform: uppercase; }
+
+        .details { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 20px; margin-bottom: 30px; }
+
+        .detail-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+
+        .detail-label { color: var(--text-soft); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; }
+
+        .detail-value { font-weight: 600; font-size: 1rem; }
+
+        .detail-value.gold { color: var(--gold); }
+
+        .btn-analyze {
+            margin-top: auto;
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-analyze:hover { background: var(--gold); color: var(--dark-bg); }
+
+        /* MODAL */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: #0a0d12;
+            padding: 40px;
+            border: 1px solid var(--gold);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .modal-content h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 15px; }
+
+        .modal-text { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 20px; line-height: 1.6; text-align: justify; }
+
+        .copy-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copy-code { flex: 1; font-weight: 700; font-size: 0.9rem; text-align: left; align-self: center; padding-left: 10px; }
+
+        .btn-copy {
+            background: var(--gold);
+            color: var(--dark-bg);
+            border: none;
+            padding: 8px 15px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .btn-sign {
+            width: 100%;
+            padding: 16px;
+            background: var(--gold);
+            color: var(--dark-bg);
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .btn-back {
+            background: transparent;
+            color: var(--text-soft);
+            border: none;
+            margin-top: 15px;
+            cursor: pointer;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .loading { color: var(--gold); text-align: center; padding: 100px; letter-spacing: 2px; }
+    </style>
 </head>
 <body>
-    <!-- /mesa/index.html -->
 
-    <a href="/" class="back-link">← Voltar ao site</a>
-
-    <header class="main-header">
-        <div class="header-top">
-            <span>PRATA REAL ESTATE | SPECIAL SITUATIONS</span>
-        </div>
-        <h1 class="page-title">Mesa de Originação</h1>
-        <p class="subtitle" id="asset-count">Exibindo 0 teses estruturadas.</p>
+<div class="container">
+    <header>
+        <div class="eyebrow">PRATA REAL ESTATE | SPECIAL SITUATIONS</div>
+        <h1>Mesa de Originação</h1>
+        <div class="asset-count" id="count-label">Sincronizando base de ativos...</div>
     </header>
 
-    <section class="filters-section">
-        <div class="filters">
-            <input type="text" id="city-filter" placeholder="Cidade...">
-            <select id="state-filter">
-                <option value="">Estados</option>
-            </select>
-            <label class="checkbox-label">
-                <input type="checkbox" id="qualified-filter">
-                Filtro Qualificado (+300k)
-            </label>
-        </div>
-    </section>
-
-    <main class="assets-section">
-        <div class="loading" id="loading-area">
-            <p>Sincronizando base de ativos...</p>
-        </div>
-        <div class="assets-grid" id="assets-grid">
-            <!-- Ativos serão populados pelo app.js -->
-        </div>
-    </main>
-
-    <!-- Modal de Acesso -->
-    <div class="modal-overlay" id="modal-overlay"></div>
-    <div class="modal" id="access-modal">
-        <div class="modal-content">
-            <h2>Protocolo de Acesso</h2>
-            <p class="modal-text">
-                Esta tese jurídica é exclusiva e confidencial. Para acessar os dados completos,
-                é necessário assinar um NDA.
-            </p>
-            <div class="code-block">
-                <label>Código do Ativo para o Formulário:</label>
-                <div class="code-container">
-                    <span id="asset-code" class="code-value"></span>
-                    <button id="copy-btn">Copiar</button>
-                </div>
-            </div>
-            <div class="modal-buttons">
-                <button id="nda-btn" class="nda-button">Assinar NDA e Acessar Dados</button>
-                <button id="back-btn">Voltar para a Mesa</button>
-            </div>
+    <div class="filter-bar">
+        <input type="text" id="city-input" placeholder="Cidade...">
+        <select id="state-select">
+            <option value="">Estados</option>
+        </select>
+        <div class="checkbox-group">
+            <input type="checkbox" id="quality-filter" checked>
+            <label for="quality-filter">Filtro Qualificado (+300k)</label>
         </div>
     </div>
 
-    <script src="app.js"></script>
+    <div id="loading-msg" class="loading">Sincronizando base de ativos...</div>
+    <div id="asset-grid" class="grid"></div>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal-overlay">
+    <div class="modal-content">
+        <h3>Protocolo de Acesso</h3>
+        <p class="modal-text">
+            Para garantir a <strong>exclusividade da tese jurídica</strong> e a proteção das partes envolvidas, o acesso ao Data Room requer a assinatura de um Acordo de Confidencialidade (NDA). Este protocolo assegura que o ativo permaneça restrito a investidores qualificados.
+        </p>
+        <div class="copy-box">
+            <div id="modal-asset-code" class="copy-code"></div>
+            <button id="btn-copy-action" class="btn-copy">Copiar</button>
+        </div>
+        <button id="btn-go-zapsign" class="btn-sign">Assinar NDA e Acessar Dados</button>
+        <button onclick="closeModal()" class="btn-back">Voltar para a Mesa</button>
+    </div>
+</div>
+
+<script>
+    let allAssets = [];
+    const zapSignLink = "https://app.zapsign.com.br/verificar/doc/18154b67-464f-4cbe-a59f-a9f2549829b6";
+
+    // INICIALIZAÇÃO
+    async function init() {
+        try {
+            const res = await fetch('/api/oportunidades');
+            const data = await res.json();
+            allAssets = Array.isArray(data) ? data : [];
+            
+            populateStates();
+            render();
+            document.getElementById('loading-msg').style.display = 'none';
+        } catch (e) {
+            console.error(e);
+            document.getElementById('loading-msg').innerText = "Erro ao carregar base.";
+        }
+    }
+
+    function populateStates() {
+        const states = [...new Set(allAssets.map(a => a.state).filter(Boolean))].sort();
+        const select = document.getElementById('state-select');
+        states.forEach(uf => {
+            const opt = document.createElement('option');
+            opt.value = uf; opt.innerText = uf;
+            select.appendChild(opt);
+        });
+    }
+
+    function normalize(str) {
+        return str ? str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase() : '';
+    }
+
+    function formatBRL(val) {
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val);
+    }
+
+    // RENDERIZAÇÃO
+    function render() {
+        const cityQuery = normalize(document.getElementById('city-input').value);
+        const stateQuery = document.getElementById('state-select').value;
+        const hideLow = document.getElementById('quality-filter').checked;
+
+        const filtered = allAssets.filter(asset => {
+            const vgv = asset.estimated_vgv || 0;
+            if (vgv <= 0) return false;
+            if (hideLow && vgv < 300000) return false;
+            if (stateQuery && asset.state !== stateQuery) return false;
+            if (cityQuery && !normalize(asset.city).includes(cityQuery)) return false;
+            return true;
+        }).slice(0, 40);
+
+        document.getElementById('count-label').innerHTML = `Exibindo <strong>${filtered.length}</strong> teses estruturadas.`;
+        
+        const grid = document.getElementById('asset-grid');
+        grid.innerHTML = '';
+
+        filtered.forEach(asset => {
+            const vgv = asset.estimated_vgv || 0;
+            const lance = asset.min_bid || 0;
+            const arbitragem = asset.discount_percentage || (vgv > 0 ? Math.round(((vgv - lance) / vgv) * 100) : 0);
+
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <div class="arbitrage-badge">${arbitragem}% ARBITRAGEM</div>
+                <div class="public-code">${asset.public_code}</div>
+                <h3>${asset.city.toUpperCase()} / ${asset.state}</h3>
+                <p class="typology">${asset.typology}</p>
+                <div class="details">
+                    <div class="detail-row">
+                        <span class="detail-label">Avaliação de Mercado</span>
+                        <span class="detail-value">${formatBRL(vgv)}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Lance Mínimo Estimado</span>
+                        <span class="detail-value gold">${formatBRL(lance)}</span>
+                    </div>
+                </div>
+                <button class="btn-analyze" onclick="openModal('${asset.public_code}')">Analisar Viabilidade</button>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    // MODAL & CLIPBOARD
+    function openModal(code) {
+        document.getElementById('modal-asset-code').innerText = code;
+        document.getElementById('modal').style.display = 'flex';
+        document.getElementById('btn-copy-action').innerText = "Copiar";
+        document.getElementById('btn-copy-action').style.background = "#c5a47e";
+    }
+
+    function closeModal() { document.getElementById('modal').style.display = 'none'; }
+
+    document.getElementById('btn-copy-action').onclick = function() {
+        const code = document.getElementById('modal-asset-code').innerText;
+        navigator.clipboard.writeText(code);
+        this.innerText = "Copiado!";
+        this.style.background = "#27ae60";
+    };
+
+    document.getElementById('btn-go-zapsign').onclick = function() {
+        window.open(zapSignLink, '_blank');
+        closeModal();
+    };
+
+    // EVENTOS
+    document.getElementById('city-input').oninput = render;
+    document.getElementById('state-select').onchange = render;
+    document.getElementById('quality-filter').onchange = render;
+
+    init();
+</script>
 </body>
 </html>
