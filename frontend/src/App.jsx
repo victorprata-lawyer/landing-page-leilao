@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 import { WellnessDashboard } from "./pages/WellnessDashboard";
 import AssetShowcase from "./AssetShowcase";
 import "./App.css";
 
 function App() {
-  const [activeTab, setActiveTab] = useState("wellness");
+  const location = useLocation();
 
   return (
     <div className="App">
-      {/* Menu de Navegação - Estilizado manualmente para não conflitar */}
       <nav style={{ 
         backgroundColor: '#0f172a', 
         padding: '1rem', 
@@ -19,51 +19,41 @@ function App() {
         boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
       }}>
         <span style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>ADVOCACIA HUB</span>
-        
         <div style={{ display: 'flex', gap: '10px' }}>
-          <button
-            onClick={() => setActiveTab("wellness")}
-            style={{
+          <Link to="/">
+            <button style={{
               padding: '8px 16px',
               borderRadius: '4px',
               border: 'none',
               cursor: 'pointer',
-              backgroundColor: activeTab === "wellness" ? '#2563eb' : 'transparent',
+              backgroundColor: location.pathname === "/" ? '#2563eb' : 'transparent',
               color: 'white',
               fontWeight: 'bold'
-            }}
-          >
-            🌿 Gestão Wellness
-          </button>
-          
-          <button
-            onClick={() => setActiveTab("assets")}
-            style={{
+            }}>🌿 Gestão Wellness</button>
+          </Link>
+          <Link to="/mesa">
+            <button style={{
               padding: '8px 16px',
               borderRadius: '4px',
               border: 'none',
               cursor: 'pointer',
-              backgroundColor: activeTab === "assets" ? '#2563eb' : 'transparent',
+              backgroundColor: location.pathname === "/mesa" ? '#2563eb' : 'transparent',
               color: 'white',
               fontWeight: 'bold'
-            }}
-          >
-            💎 Mesa de Originação
-          </button>
+            }}>💎 Mesa de Originação</button>
+          </Link>
         </div>
       </nav>
 
-      {/* Área de Conteúdo Dinâmico */}
       <div className="content-area">
-        {activeTab === "wellness" ? (
-          /* Seu Wellness original sem interferência do Tailwind */
-          <WellnessDashboard />
-        ) : (
-          /* Mesa de Originação usando Tailwind de forma isolada */
-          <div className="tailwind-scope">
-            <AssetShowcase />
-          </div>
-        )}
+        <Routes>
+          <Route path="/" element={<WellnessDashboard />} />
+          <Route path="/mesa" element={
+            <div className="tailwind-scope">
+              <AssetShowcase />
+            </div>
+          } />
+        </Routes>
       </div>
     </div>
   );
