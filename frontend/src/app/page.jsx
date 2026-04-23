@@ -1,14 +1,8 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 
 export default function HomePage() {
-  useEffect(() => {
-    // Garante que o script de ano e cookies do seu HTML original funcione
-    const yearElement = document.getElementById('year');
-    if (yearElement) yearElement.textContent = new Date().getFullYear();
-  }, []);
-
   return (
     <div dangerouslySetInnerHTML={{ __html: `
       <!DOCTYPE html>
