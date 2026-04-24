@@ -1,25 +1,58 @@
-import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+from pathlib import Path
+from urllib.parse import urlparse
+import os
+
 from app.models.models import Base
 
-# CAMINHO ABSOLUTO FORÇADO (Caminho que o seu terminal confirmou ter 880 ativos)
-DATABASE_PATH = r"C:\Users\victo\OneDrive\Documentos\advocacia-hub\assets.db"
-DATABASE_URL = f"sqlite:///{DATABASE_PATH}"
+# Determina a URL do banco de dados com prioridade: DATABASE_URL -> DATABASE_PATH -> assets.db na raiz
 
-# Criação do engine com verificação de existência
-engine = create_engine(
-    DATABASE_URL, 
-    connect_args={"check_same_thread": False}
-)
+database_url = os.getenv('DATABASE_URL')
+db_path = None
+
+if database_url:
+    if database_url.startswith('sqlite://'):
+        parsed = urlparse(database_url)
+        file_path = parsed.path.lstrip('/')
+        db_path = Path(file_path).resolve()
+        if not db_path.exists():
+            raise FileNotFoundError(f"Arquivo de banco não encontrado: {db_path}")
+        print(f"Caminho final do banco: {db_path}")
+    else:
+        # Para outros bancos como PostgreSQL
+        print(f"Usando DATABASE_URL: {database_url}")
+        db_path = None
+else:
+    database_path = os.getenv('DATABASE_PATH')
+    if database_path:
+        db_path = Path(database_path).resolve()
+        if not db_path.exists():
+            raise FileNotFoundError(f"Arquivo de banco não encontrado: {db_path}")
+        print(f"Caminho final do banco: {db_path}")
+        database_url = f"sqlite:///{db_path}"
+    else:
+        # Fallback para assets.db na raiz do projeto advocacia-hub
+        root_path = Path(__file__).resolve().parents[3]
+        db_path = root_path / "assets.db"
+        if not db_path.exists():
+            raise FileNotFoundError(f"Arquivo de banco não encontrado: {db_path}")
+        print(f"Caminho final do banco: {db_path}")
+        database_url = f"sqlite:///{db_path}"
+
+# Cria o motor do banco de dados
+is_sqlite = database_url and database_url.startswith('sqlite://')
+connect_args = {"check_same_thread": False} if is_sqlite else {}
+engine = create_engine(database_url, connect_args=connect_args)
+
+def create_tables():
+    """Cria todas as tabelas definidas nos models."""
+    Base.metadata.create_all(bind=engine)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-def create_tables():
-    # Isso garante que as tabelas existam no arquivo correto
-    Base.metadata.create_all(bind=engine)
-
 def get_db():
+    """Gera uma sessão do banco para dependência no FastAPI."""
     db = SessionLocal()
     try:
         yield db
