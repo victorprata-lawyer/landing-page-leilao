@@ -3,435 +3,434 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesa de Originação Jurídica</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Mesa de Originação | Prata Real Estate</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
     <style>
+        /* REFERÊNCIA DIRETA DO BRANDING DA HOME */
         :root {
-            --bg: #0a0c10;
-            --dark: #1a1c22;
             --gold: #c6a85a;
-            --gold-dark: #a68a40;
-            --text: #ffffff;
-            --text-muted: #cccccc;
+            --gold-hover: #d6b86a;
+            --dark: #0a0c10;
+            --dark-2: #11151c;
+            --text: #f2f2f2;
+            --text-soft: #b6bcc6;
+            --text-muted: #8a919b;
+            --border: rgba(198,168,90,0.16);
+            --border-soft: rgba(198,168,90,0.08);
+            --shadow: 0 24px 48px rgba(0,0,0,0.35);
         }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
         body {
+            margin: 0;
             font-family: 'Montserrat', sans-serif;
-            background: var(--bg);
+            background: 
+                radial-gradient(circle at top, rgba(198,168,90,0.08), transparent 28%),
+                linear-gradient(180deg, #090b0f 0%, #0a0c10 100%);
             color: var(--text);
-            line-height: 1.6;
+            line-height: 1.65;
+            min-height: 100vh;
+            padding: 40px 20px;
         }
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
-        header {
-            padding: 1rem 2rem;
-            background: var(--dark);
-            display: flex;
+
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* BOTÃO VOLTAR */
+        .nav-actions { margin-bottom: 30px; }
+        .btn-home {
+            display: inline-flex;
             align-items: center;
-        }
-        .back-btn {
-            background: none;
-            border: 2px solid var(--gold);
-            color: var(--gold);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: inherit;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        .back-btn:hover {
-            background: var(--gold);
-            color: var(--bg);
-        }
-        .hero {
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-        .hero-title {
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
-        }
-        .hero-desc {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-        .filters {
-            display: flex;
-            gap: 1rem;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-        }
-        select {
-            padding: 0.75rem 1rem;
-            border: 2px solid var(--gold);
-            background: var(--dark);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.02);
             color: var(--text);
-            border-radius: 5px;
-            font-family: inherit;
-            font-size: 1rem;
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            transition: all .28s ease;
         }
-        select option {
-            background: var(--dark);
-            color: var(--text);
-        }
-        .filter-btn {
-            padding: 0.75rem 1.5rem;
-            background: var(--gold);
-            color: var(--bg);
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-        .filter-btn:hover {
-            background: var(--gold-dark);
+        .btn-home:hover {
+            border-color: rgba(198,168,90,0.3);
+            background: rgba(198,168,90,0.05);
             transform: translateY(-2px);
         }
-        .counter {
-            text-align: center;
-            padding: 1.5rem 2rem;
-            background: var(--dark);
-            color: var(--gold);
-            font-weight: 500;
-            font-size: 1.1rem;
+
+        /* HEADER */
+        header {
+            margin-bottom: 50px;
+            border-left: 2px solid var(--gold);
+            padding-left: 25px;
         }
+        .eyebrow {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+        .asset-count { color: var(--text-soft); font-size: 0.9rem; }
+
+        /* FILTROS */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+            padding: 25px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
+            border: 1px solid var(--border-soft);
+            border-radius: 18px;
+            align-items: center;
+        }
+        input[type="text"], select {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 14px 18px;
+            border-radius: 10px;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+        }
+        input[type="text"] { flex: 2 1 250px; }
+        select { flex: 1 1 120px; cursor: pointer; }
+
+        #state-select {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+#state-select option {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+#state-select:focus {
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+  outline: none;
+}
+
+#state-select:hover {
+  background-color: #3d3d3d;
+}
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-left: 20px;
+            border-left: 1px solid var(--border);
+        }
+        .checkbox-group input { cursor: pointer; accent-color: var(--gold); }
+        .checkbox-group label {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        /* GRID & CARDS */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 30px;
         }
         .card {
-            background: var(--dark);
-            border: 2px solid transparent;
-            border-radius: 10px;
-            padding: 2rem;
-            transition: all 0.3s;
+            background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
+            border: 1px solid var(--border-soft);
+            border-radius: 18px;
+            padding: 35px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: all .28s ease;
+            box-shadow: var(--shadow);
         }
         .card:hover {
-            border-color: var(--gold);
-            box-shadow: 0 10px 30px rgba(198, 168, 90, 0.3);
-            transform: translateY(-5px);
+            border-color: rgba(198,168,90,0.24);
+            transform: translateY(-4px);
         }
-        .card h3 {
+        .arbitrage-badge {
+            position: absolute;
+            top: 25px;
+            right: 25px;
             color: var(--gold);
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: 10px;
+            font-weight: 700;
+            border: 1px solid var(--border);
+            padding: 5px 10px;
+            border-radius: 999px;
+            text-transform: uppercase;
         }
-        .card p {
-            margin-bottom: 1rem;
-            color: var(--text-muted);
-        }
-        .card .meta {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.95rem;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-        }
-        .access-btn {
+        .public-code { color: var(--text-muted); font-size: 11px; font-weight: 600; margin-bottom: 10px; letter-spacing: 1px; }
+        .card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 8px; color: var(--text); }
+        .typology { color: var(--text-soft); font-size: 12px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        .details { border-top: 1px solid var(--border-soft); padding-top: 20px; margin-bottom: 30px; }
+        .detail-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .detail-label { color: var(--text-muted); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .detail-value { font-weight: 600; font-size: 1.1rem; }
+        .detail-value.gold { color: var(--gold); }
+
+        .btn-analyze {
+            margin-top: auto;
             width: 100%;
-            background: var(--gold);
-            color: var(--bg);
-            border: none;
-            padding: 0.75rem;
-            border-radius: 5px;
-            font-weight: 500;
+            padding: 16px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 2px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: all 0.3s;
-            font-family: inherit;
+            transition: all .28s ease;
         }
-        .access-btn:hover {
-            background: var(--gold-dark);
-        }
-        .modal {
-            display: none;
+        .btn-analyze:hover { background: var(--gold); color: var(--dark); }
+
+        /* MODAL */
+        .modal-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(10, 12, 16, 0.9);
-            z-index: 1000;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.94);
+            display: none;
             align-items: center;
             justify-content: center;
-        }
-        .modal.active {
-            display: flex;
+            z-index: 1200;
+            padding: 20px;
         }
         .modal-content {
-            background: var(--dark);
-            padding: 3rem;
-            border-radius: 10px;
+            background: var(--dark-2);
+            padding: 45px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
             max-width: 500px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-        }
-        .modal-content h2 {
-            color: var(--gold);
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-        }
-        #asset-code {
             width: 100%;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-            background: var(--bg);
-            border: 2px solid var(--gold);
-            color: var(--text);
-            border-radius: 5px;
-            font-size: 1.1rem;
             text-align: center;
+            box-shadow: var(--shadow);
         }
-        .zapsign-btn, .close-modal {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-weight: 500;
-            margin: 0 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: inherit;
-            font-size: 1rem;
+        .modal-content h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 20px; color: var(--gold); }
+        .modal-text { color: var(--text-soft); font-size: 14px; margin-bottom: 25px; line-height: 1.6; text-align: justify; }
+        .copy-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
         }
-        #zapsign-btn {
-            background: #25D366;
-            color: white;
-        }
-        #zapsign-btn:hover {
-            background: #20ba5a;
-        }
-        .close-modal {
+        .copy-code { flex: 1; font-weight: 700; font-size: 15px; text-align: left; align-self: center; padding-left: 10px; color: var(--text); }
+        .btn-copy {
             background: var(--gold);
-            color: var(--bg);
+            color: var(--dark);
+            border: none;
+            padding: 8px 18px;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 10px;
+            text-transform: uppercase;
         }
-        .close-modal:hover {
-            background: var(--gold-dark);
+        .btn-sign {
+            width: 100%;
+            padding: 18px;
+            background: var(--gold);
+            color: var(--dark);
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 11px;
+            box-shadow: 0 12px 28px rgba(198,168,90,0.16);
         }
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            .filters {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .filters select, .filters .filter-btn {
-                flex: 1;
-            }
-            .grid {
-                grid-template-columns: 1fr;
-                padding: 1rem;
-                gap: 1.5rem;
-            }
+        .btn-back {
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: underline;
         }
+
+        .loading { color: var(--gold); text-align: center; padding: 100px; letter-spacing: 2px; font-weight: 600; text-transform: uppercase; font-size: 12px; }
     </style>
 </head>
 <body>
+
+<div class="container">
+    <div class="nav-actions">
+        <a href="https://pratarealestate.com.br" class="btn-home">← Voltar para a Home</a>
+    </div>
+
     <header>
-        <button class="back-btn" onclick="window.history.back()">← Voltar</button>
+        <div class="eyebrow">Special Situations | Real Estate</div>
+        <h1>Mesa de Originação</h1>
+        <div class="asset-count" id="count-label">Sincronizando base de ativos...</div>
     </header>
 
-    <section class="hero">
-        <h1 class="hero-title">Mesa de Originação Jurídica</h1>
-        <p class="hero-desc">Descubra teses jurídicas estruturadas para otimizar sua estratégia de investimento.</p>
-    </section>
-
-    <div class="filters">
-        <select id="state">
-            <option value="">Todos Estados</option>
-            <option value="SP">SP</option>
-            <option value="RJ">RJ</option>
-            <option value="MG">MG</option>
+    <div class="filter-bar">
+        <input type="text" id="city-input" placeholder="Cidade...">
+        <select id="state-select">
+            <option value="">Estados</option>
         </select>
-        <select id="city">
-            <option value="">Todas Cidades</option>
-            <option value="São Paulo">São Paulo</option>
-            <option value="Rio de Janeiro">Rio de Janeiro</option>
-            <option value="Belo Horizonte">Belo Horizonte</option>
-        </select>
-        <select id="value">
-            <option value="">Todos Valores</option>
-            <option value="&lt;1M">&lt; 1M</option>
-            <option value="1M-5M">1M - 5M</option>
-            <option value=">5M">&gt; 5M</option>
-        </select>
-        <button id="filter-btn" class="filter-btn">Filtrar</button>
-    </div>
-
-    <div class="counter">
-        Exibindo <span id="current">6</span> de <span id="total">150</span> teses estruturadas.
-    </div>
-
-    <div class="grid" id="grid">
-        <!-- Cards will be generated by JS -->
-    </div>
-
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <h2>Protocolo de Acesso</h2>
-            <input type="text" id="asset-code" placeholder="Código do Ativo" readonly>
-            <div>
-                <button id="zapsign-btn" class="zapsign-btn">ZapSign</button>
-                <button id="close-modal" class="close-modal">Fechar</button>
-            </div>
+        <div class="checkbox-group">
+            <input type="checkbox" id="quality-filter" checked>
+            <label for="quality-filter">Filtro Qualificado (+300k)</label>
         </div>
     </div>
 
-    <script>
-        const TOTAL_THESES = 150;
-        const data = [
-            {
-                id: 1,
-                title: "Tese Imobiliária SP Centro",
-                desc: "Estruturação de fundo para aquisição de imóveis comerciais no centro de SP com garantia real.",
-                state: "SP",
-                city: "São Paulo",
-                value: "1M-5M",
-                valueDisplay: "1M - 5M",
-                assetCode: "SP-CENTRO-001"
-            },
-            {
-                id: 2,
-                title: "Desenvolvimento Residencial Barra RJ",
-                desc: "Projeto de alto padrão na Barra da Tijuca com teses de funding acelerado.",
-                state: "RJ",
-                city: "Rio de Janeiro",
-                value: ">5M",
-                valueDisplay: "> 5M",
-                assetCode: "RJ-BARRA-001"
-            },
-            {
-                id: 3,
-                title: "Galpões Logísticos MG",
-                desc: "Investimento em logística industrial em Betim com estrutura securitizada.",
-                state: "MG",
-                city: "Belo Horizonte",
-                value: "<1M",
-                valueDisplay: "< 1M",
-                assetCode: "MG-LOG-001"
-            },
-            {
-                id: 4,
-                title: "Shoppings SP",
-                desc: "Revitalização de shopping centers com lastro imobiliário.",
-                state: "SP",
-                city: "São Paulo",
-                value: ">5M",
-                valueDisplay: "> 5M",
-                assetCode: "SP-SHOP-001"
-            },
-            {
-                id: 5,
-                title: "Loteamentos RJ",
-                desc: "Urbanização de loteamentos na zona norte.",
-                state: "RJ",
-                city: "Rio de Janeiro",
-                value: "1M-5M",
-                valueDisplay: "1M - 5M",
-                assetCode: "RJ-LOTE-001"
-            },
-            {
-                id: 6,
-                title: "Hotéis MG",
-                desc: "Rede hoteleira em Poços de Caldas com estrutura jurídica inovadora.",
-                state: "MG",
-                city: "Belo Horizonte",
-                value: "<1M",
-                valueDisplay: "< 1M",
-                assetCode: "MG-HOTEL-001"
-            }
-        ];
+    <div id="loading-msg" class="loading">Sincronizando base de ativos...</div>
+    <div id="asset-grid" class="grid"></div>
+</div>
 
-        let filteredData = data;
-        const modal = document.getElementById('modal');
-        const grid = document.getElementById('grid');
+<!-- MODAL -->
+<div id="modal" class="modal-overlay">
+    <div class="modal-content">
+        <h3>Protocolo de Acesso</h3>
+        <p class="modal-text">
+            Para garantir a <strong>exclusividade da tese jurídica</strong> e a proteção das partes envolvidas, o acesso ao Data Room requer a assinatura de um Acordo de Confidencialidade (NDA). Este protocolo assegura que o ativo permaneça restrito a investidores qualificados.
+        </p>
+        <div class="copy-box">
+            <div id="modal-asset-code" class="copy-code"></div>
+            <button id="btn-copy-action" class="btn-copy">Copiar</button>
+        </div>
+        <button id="btn-go-zapsign" class="btn-sign">Assinar NDA e Acessar Dados</button>
+        <button onclick="closeModal()" class="btn-back">Voltar para a Mesa</button>
+    </div>
+</div>
 
-        function renderGrid(thesesToRender) {
-            grid.innerHTML = '';
-            thesesToRender.forEach(t => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                    <h3>${t.title}</h3>
-                    <p>${t.desc}</p>
-                    <div class="meta">
-                        <span>${t.state}</span> |
-                        <span>${t.city}</span> |
-                        <span>R$ ${t.valueDisplay}</span>
+<script>
+    let allAssets = [];
+    const zapSignLink = "https://app.zapsign.com.br/verificar/doc/18154b67-464f-4cbe-a59f-a9f2549829b6";
+
+    async function init() {
+        try {
+            const res = await fetch('/api/oportunidades');
+            const data = await res.json();
+            allAssets = Array.isArray(data) ? data : [];
+            populateStates();
+            render();
+            document.getElementById('loading-msg').style.display = 'none';
+        } catch (e) {
+            document.getElementById('loading-msg').innerText = "Erro ao carregar base.";
+        }
+    }
+
+    function populateStates() {
+        const states = [...new Set(allAssets.map(a => a.state).filter(Boolean))].sort();
+        const select = document.getElementById('state-select');
+        states.forEach(uf => {
+            const opt = document.createElement('option');
+            opt.value = uf; opt.innerText = uf;
+            select.appendChild(opt);
+        });
+    }
+
+    function normalize(str) {
+        return str ? str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase() : '';
+    }
+
+    function formatBRL(val) {
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val);
+    }
+
+    function render() {
+        const cityQuery = normalize(document.getElementById('city-input').value);
+        const stateQuery = document.getElementById('state-select').value;
+        const hideLow = document.getElementById('quality-filter').checked;
+
+        const filtered = allAssets.filter(asset => {
+            const vgv = asset.estimated_vgv || 0;
+            if (vgv <= 0) return false;
+            if (hideLow && vgv < 300000) return false;
+            if (stateQuery && asset.state !== stateQuery) return false;
+            if (cityQuery && !normalize(asset.city).includes(cityQuery)) return false;
+            return true;
+        }).slice(0, 40);
+
+        document.getElementById('count-label').innerHTML = `Exibindo <strong>${filtered.length}/${allAssets.length}</strong> teses estruturadas.`;
+        const grid = document.getElementById('asset-grid');
+        grid.innerHTML = '';
+
+        filtered.forEach(asset => {
+            const vgv = asset.estimated_vgv || 0;
+            const lance = asset.min_bid || 0;
+            const arbitragem = asset.discount_percentage || (vgv > 0 ? Math.round(((vgv - lance) / vgv) * 100) : 0);
+
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <div class="arbitrage-badge">${arbitragem}% ARBITRAGEM</div>
+                <div class="public-code">${asset.public_code}</div>
+                <h3>${asset.city.toUpperCase()} / ${asset.state}</h3>
+                <p class="typology">${asset.typology}</p>
+                <div class="details">
+                    <div class="detail-row">
+                        <span class="detail-label">Avaliação de Mercado</span>
+                        <span class="detail-value">${formatBRL(vgv)}</span>
                     </div>
-                    <button class="access-btn" data-asset="${t.assetCode}">Acessar Protocolo</button>
-                `;
-                grid.appendChild(card);
-            });
-            document.getElementById('current').textContent = thesesToRender.length;
-            document.getElementById('total').textContent = TOTAL_THESES;
-        }
-
-        grid.addEventListener('click', (e) => {
-            if (e.target.classList.contains('access-btn')) {
-                const assetCode = e.target.dataset.asset;
-                document.getElementById('asset-code').value = assetCode;
-                modal.classList.add('active');
-            }
+                    <div class="detail-row">
+                        <span class="detail-label">Lance Mínimo Estimado</span>
+                        <span class="detail-value gold">${formatBRL(lance)}</span>
+                    </div>
+                </div>
+                <button class="btn-analyze" onclick="openModal('${asset.public_code}')">Analisar Viabilidade</button>
+            `;
+            grid.appendChild(card);
         });
+    }
 
-        function applyFilters() {
-            const state = document.getElementById('state').value;
-            const city = document.getElementById('city').value;
-            const valueFilter = document.getElementById('value').value;
-            filteredData = data.filter(t => 
-                (state === '' || t.state === state) &&
-                (city === '' || t.city === city) &&
-                (valueFilter === '' || t.value === valueFilter)
-            );
-            renderGrid(filteredData);
-        }
+    function openModal(code) {
+        document.getElementById('modal-asset-code').innerText = code;
+        document.getElementById('modal').style.display = 'flex';
+        document.getElementById('btn-copy-action').innerText = "Copiar";
+        document.getElementById('btn-copy-action').style.background = "#c6a85a";
+    }
 
-        document.getElementById('filter-btn').onclick = applyFilters;
+    function closeModal() { document.getElementById('modal').style.display = 'none'; }
 
-        document.getElementById('close-modal').onclick = () => {
-            modal.classList.remove('active');
-            document.getElementById('asset-code').value = '';
-        };
+    document.getElementById('btn-copy-action').onclick = function() {
+        const code = document.getElementById('modal-asset-code').innerText;
+        navigator.clipboard.writeText(code);
+        this.innerText = "Copiado!";
+        this.style.background = "#27ae60";
+    };
 
-        document.getElementById('zapsign-btn').onclick = () => {
-            const code = document.getElementById('asset-code').value.trim();
-            if (code) {
-                alert(`Protocolo de acesso para o ativo ${code} foi enviado via ZapSign!`);
-                modal.classList.remove('active');
-                document.getElementById('asset-code').value = '';
-            } else {
-                alert('Por favor, insira o código do ativo.');
-            }
-        };
+    document.getElementById('btn-go-zapsign').onclick = function() {
+        window.open(zapSignLink, '_blank');
+        closeModal();
+    };
 
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.remove('active');
-                document.getElementById('asset-code').value = '';
-            }
-        });
+    document.getElementById('city-input').oninput = render;
+    document.getElementById('state-select').onchange = render;
+    document.getElementById('quality-filter').onchange = render;
 
-        // Initialize
-        renderGrid(data);
-    </script>
+    init();
+</script>
 </body>
 </html>
