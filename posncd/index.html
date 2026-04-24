@@ -3,210 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pós-Assinatura NDA/NCND - Prata Real Estate</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Fluxo Protegido Formalizado | Prata Real Estate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --gold: #c6a85a;
+            --gold-hover: #d6b86a;
+            --dark: #0a0c10;
+            --dark-2: #11151c;
+            --text: #f2f2f2;
+            --text-soft: #b6bcc6;
+            --text-muted: #8a919b;
+            --border: rgba(198,168,90,0.16);
+            --border-soft: rgba(198,168,90,0.08);
+            --shadow: 0 24px 48px rgba(0,0,0,0.35);
+        }
+
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
-            color: #ffffff;
+            background: radial-gradient(ellipse at top, #1a1f2e 0%, var(--dark) 50%), linear-gradient(135deg, var(--dark-2) 0%, var(--dark) 100%);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
             line-height: 1.6;
-            overflow-x: hidden;
+            min-height: 100vh;
         }
-        h1, h2 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-        }
-        .page-shell {
+
+        .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        .hero {
-            text-align: center;
-            padding: 120px 0 80px;
-            background: radial-gradient(circle at center, rgba(198, 168, 90, 0.05) 0%, transparent 70%);
+
+        header {
+            border-left: 2px solid var(--gold);
+            padding-left: 25px;
+            margin: 60px 0 40px;
+            text-align: left;
         }
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: #c6a85a;
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-        }
-        .hero-subtitle {
-            font-size: 1.3rem;
-            font-weight: 300;
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-        .panel {
-            background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(198, 168, 90, 0.1);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 40px;
-        }
-        .panel h2 {
-            font-size: 1.8rem;
-            color: #c6a85a;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .panel h2::before {
-            content: '';
-            width: 4px;
-            height: 24px;
-            background: #c6a85a;
-            border-radius: 2px;
-        }
+
         .eyebrow {
-            font-size: 0.95rem;
+            font-size: 14px;
             font-weight: 500;
-            color: #c6a85a;
+            color: var(--gold);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 10px;
+            letter-spacing: 0.5em;
+            margin-bottom: 20px;
         }
-        .panel-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.2;
         }
-        .panel-item {
-            padding: 20px;
-            background: rgba(10, 10, 10, 0.5);
-            border-radius: 8px;
-            border-left: 3px solid #c6a85a;
+
+        .hero-text {
+            font-size: 1.25rem;
+            color: var(--text-soft);
+            max-width: 800px;
+            margin-top: 24px;
         }
-        .cta-row {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: center;
-            margin-top: 60px;
+
+        .card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(20px);
         }
-        .button-primary {
-            display: inline-block;
-            background: linear-gradient(135deg, #c6a85a, #d4b373);
-            color: #0a0a0a;
-            padding: 18px 40px;
-            font-size: 1.1rem;
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
             font-weight: 500;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(198, 168, 90, 0.3);
+            color: var(--text);
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list li {
+            padding: 12px 0;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-soft);
+        }
+
+        .list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .btn {
+            padding: 16px 32px;
             border: none;
-            cursor: default;
-        }
-        .button-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(198, 168, 90, 0.4);
-        }
-        .button-secondary {
-            display: inline-block;
-            background: transparent;
-            color: #ffffff;
-            padding: 14px 30px;
-            font-size: 1rem;
-            font-weight: 400;
-            text-decoration: none;
-            border: 1px solid rgba(198, 168, 90, 0.3);
-            border-radius: 50px;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 16px;
+            margin-bottom: 16px;
         }
-        .button-secondary:hover {
-            border-color: #c6a85a;
-            color: #c6a85a;
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-hover));
+            color: var(--dark);
         }
-        ol {
-            list-style-position: inside;
-            padding-left: 20px;
-            font-size: 1.05rem;
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(198,168,90,0.4);
         }
-        ol li {
-            margin-bottom: 12px;
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-soft);
+            border: 1px solid var(--border);
         }
-        @media (max-width: 768px) {
-            .page-shell {
-                padding: 0 15px;
-            }
-            .hero {
-                padding: 80px 0 60px;
-            }
-            .panel {
-                padding: 30px 20px;
-            }
+
+        .btn-secondary:hover {
+            background: var(--border-soft);
+            color: var(--text);
+            border-color: var(--gold);
         }
-        .footer {
+
+        .buttons {
             text-align: center;
-            padding: 40px 0;
-            opacity: 0.6;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(198, 168, 90, 0.1);
-            margin-top: 80px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            header {
+                margin: 40px 0 30px;
+                padding-left: 20px;
+            }
+
+            .card {
+                padding: 24px;
+            }
+
+            .btn {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 12px;
+            }
+
+            .hero-text {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="page-shell">
-        <section class="hero">
-            <h1 class="hero-title">Confidencialidade Formalizada</h1>
-            <p class="hero-subtitle">A confidencialidade e a vedação de não circunvenção foram oficializadas com a Prata Real Estate. O ativo estratégico agora avança em fluxo protegido.</p>
+    <div class="container">
+        <header>
+            <div class="eyebrow">NDA/NCND ASSINADO</div>
+            <h1>Fluxo Protegido Formalizado</h1>
+            <p class="hero-text">Parabéns! A confidencialidade e a vedação de não circunvenção foram formalizadas com sucesso. O ativo estratégico agora segue em fluxo protegido e abertura controlada.</p>
+        </header>
+
+        <section class="card">
+            <h2 class="section-title">O que acontece agora</h2>
+            <p style="color: var(--text-soft); font-size: 1.1rem;">A Mesa de Originação enviará, por e-mail, a camada inicial controlada do ativo estratégico, utilizando o endereço de e-mail informado durante a assinatura.</p>
         </section>
 
-        <div class="panel">
-            <div class="eyebrow">Próximo Passo</div>
-            <p>O próximo contato será realizado por e-mail, utilizando o endereço informado durante a assinatura no ZapSign. A camada inicial controlada do ativo será enviada em breve.</p>
-            <div class="panel-grid">
-                <div class="panel-item">
-                    <strong>Camada Inicial Inclui:</strong>
-                </div>
-            </div>
-            <ol>
+        <section class="card">
+            <h2 class="section-title">Próximo contato</h2>
+            <p style="color: var(--text-soft);">A camada inicial poderá incluir:</p>
+            <ul class="list">
                 <li>Documentação inicial controlada</li>
                 <li>Resumo jurídico do ativo</li>
                 <li>Leitura preliminar de risco</li>
                 <li>Sequência formal até a abertura do Data Room</li>
-            </ol>
-        </div>
-
-        <div class="panel">
-            <h2>O que acontece agora</h2>
-            <p>Monitore sua caixa de entrada (incluindo spam). O material protegido será enviado automaticamente. Acesse com o e-mail utilizado na assinatura para prosseguir de forma segura.</p>
-        </div>
-
-        <div class="panel">
-            <h2>Próximo contato</h2>
-            <p>Envio por e-mail em poucas horas. Siga as instruções exclusivas para o avanço controlado do ativo estratégico.</p>
-        </div>
-
-        <div class="panel">
-            <h2>Por que este processo existe</h2>
-            <ul style="padding-left: 20px;">
-                <li>Preservar a origem do ativo estratégico</li>
-                <li>Restringir circulação indevida</li>
-                <li>Organizar o avanço apenas com quem realmente pode seguir</li>
             </ul>
-        </div>
+        </section>
 
-        <div class="cta-row">
-            <button class="button-primary">Aguardar Material por E-mail</button>
-            <a href="#" class="button-secondary">Voltar à Mesa de Originação</a>
-        </div>
+        <section class="card">
+            <h2 class="section-title">Por que este processo existe</h2>
+            <p style="color: var(--text-soft);">Este fluxo garante a <strong>disciplina de processo</strong>, a <strong>proteção da origem</strong> e a condução profissional pela Mesa de Originação da Prata Real Estate. Cada etapa é meticulosamente controlada para preservar a integridade do ativo estratégico e assegurar uma análise sóbria e institucional.</p>
+        </section>
 
-        <div class="footer">
-            Prata Real Estate | Processo Institucional e Protegido
+        <div class="card">
+            <div class="buttons">
+                <button class="btn btn-primary" type="button">Aguardar Material por E-mail</button>
+                <a class="btn btn-secondary" href="https://pratarealestate.com.br/mesa">Voltar para a Mesa de Originação</a>
+            </div>
         </div>
     </div>
 </body>
