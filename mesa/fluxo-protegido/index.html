@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Fluxo Protegido Formalizado | Prata Real Estate</title>
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c6a85a;
+            --gold-hover: #d6b86a;
+            --dark: #0a0c10;
+            --dark-2: #11151c;
+            --text: #f2f2f2;
+            --text-soft: #b6bcc6;
+            --text-muted: #8a919b;
+            --border: rgba(198,168,90,0.16);
+            --border-soft: rgba(198,168,90,0.08);
+            --shadow: 0 24px 48px rgba(0,0,0,0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(ellipse at top, #1a1f2e 0%, var(--dark) 50%), linear-gradient(135deg, var(--dark-2) 0%, var(--dark) 100%);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            border-left: 2px solid var(--gold);
+            padding-left: 25px;
+            margin: 60px 0 40px;
+            text-align: left;
+        }
+
+        .eyebrow {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.5em;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .hero-text {
+            font-size: 1.25rem;
+            color: var(--text-soft);
+            max-width: 800px;
+            margin-top: 24px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(20px);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--text);
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list li {
+            padding: 12px 0;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-soft);
+        }
+
+        .list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 16px;
+            margin-bottom: 16px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-hover));
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(198,168,90,0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-soft);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border-soft);
+            color: var(--text);
+            border-color: var(--gold);
+        }
+
+        .buttons {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            header {
+                margin: 40px 0 30px;
+                padding-left: 20px;
+            }
+
+            .card {
+                padding: 24px;
+            }
+
+            .btn {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 12px;
+            }
+
+            .hero-text {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="eyebrow">NDA/NCND ASSINADO</div>
+            <h1>Fluxo Protegido Formalizado</h1>
+            <p class="hero-text">Parabéns! A confidencialidade e a vedação de não circunvenção foram formalizadas com sucesso. O ativo estratégico agora segue em fluxo protegido e abertura controlada.</p>
+        </header>
+
+        <section class="card">
+            <h2 class="section-title">O que acontece agora</h2>
+            <p style="color: var(--text-soft); font-size: 1.1rem;">A Mesa de Originação enviará, por e-mail, a camada inicial controlada do ativo estratégico, utilizando o endereço de e-mail informado durante a assinatura.</p>
+        </section>
+
+        <section class="card">
+            <h2 class="section-title">Próximo contato</h2>
+            <p style="color: var(--text-soft);">A camada inicial poderá incluir:</p>
+            <ul class="list">
+                <li>Documentação inicial controlada</li>
+                <li>Resumo jurídico do ativo</li>
+                <li>Leitura preliminar de risco</li>
+                <li>Sequência formal até a abertura do Data Room</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2 class="section-title">Por que este processo existe</h2>
+            <p style="color: var(--text-soft);">Este fluxo garante a <strong>disciplina de processo</strong>, a <strong>proteção da origem</strong> e a condução profissional pela Mesa de Originação da Prata Real Estate. Cada etapa é meticulosamente controlada para preservar a integridade do ativo estratégico e assegurar uma análise sóbria e institucional.</p>
+        </section>
+
+        <div class="card">
+            <div class="buttons">
+                <button class="btn btn-primary" type="button">Fluxo em Andamento por E-mail</button>
+                <a class="btn btn-secondary" href="https://pratarealestate.com.br/mesa">Voltar para a Mesa de Originação</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
