@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const cidadeFilter = document.getElementById('cidadeFilter');
   const hideLowValue = document.getElementById('hideLowValue');
   const clearFilters = document.getElementById('clearFilters');
+  const resultsCounter = document.getElementById('resultsCounter'); // Novo elemento
 
   let oportunidades = [];
   let filteredOportunidades = [];
@@ -29,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
       const response = await fetch('/api/oportunidades');
       oportunidades = await response.json();
 
-      // Calcular discount_percentage se não existir
       oportunidades.forEach(item => {
         if (!item.discount_percentage) {
           item.discount_percentage = Math.round((1 - item.min_bid / item.estimated_vgv) * 100);
@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
         item.normCity = normalizeCity(item.city);
       });
 
-      // Ordenar por arbitragem descendente
       oportunidades.sort((a, b) => b.discount_percentage - a.discount_percentage);
 
       atualizarFiltros();
@@ -50,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function atualizarFiltros() {
-    // Estados únicos
     const estadosUnicos = [...new Set(oportunidades.map(o => o.state))].sort();
     estadoFilter.innerHTML = '<option value="">Todos os Estados</option>';
     estadosUnicos.forEach(estado => {
@@ -59,8 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
       option.textContent = estado;
       estadoFilter.appendChild(option);
     });
-
-    // Todas as cidades inicialmente
     atualizarCidades();
   }
 
@@ -73,11 +69,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     cidadeFilter.innerHTML = '<option value="">Todas as Cidades</option>';
     cidadesNorm.forEach(normCity => {
-      const cidadeOriginal = oportunidades.find(o => o.normCity === normCity).city;
-      const option = document.createElement('option');
-      option.value = normCity;
-      option.textContent = cidadeOriginal;
-      cidadeFilter.appendChild(option);
+      const match = oportunidades.find(o => o.normCity === normCity);
+      if (match) {
+        const option = document.createElement('option');
+        option.value = normCity;
+        option.textContent = match.city;
+        cidadeFilter.appendChild(option);
+      }
     });
   }
 
@@ -86,16 +84,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const cidadeNorm = cidadeFilter.value;
     const hideLow = hideLowValue.checked;
 
-    filteredOportunidades = oportunidades.filter(item => {
+    // Filtra a lista completa
+    const fullFilteredList = oportunidades.filter(item => {
       if (estado && item.state !== estado) return false;
       if (cidadeNorm && item.normCity !== cidadeNorm) return false;
       if (hideLow && item.estimated_vgv < 300000) return false;
       return true;
-    }).slice(0, 40);
+    });
+
+    // Atualiza o contador com o poder da mesa (X de Y)
+    if (resultsCounter) {
+      const exibidos = fullFilteredList.length;
+      const total = oportunidades.length;
+      resultsCounter.textContent = `Exibindo ${exibidos} de ${total} teses estruturadas`;
+    }
+
+    // Limita a exibição no grid para performance (opcional, mantido conforme seu original)
+    filteredOportunidades = fullFilteredList.slice(0, 40);
 
     exibirGrid();
 
-    if (filteredOportunidades.length === 0) {
+    if (fullFilteredList.length === 0) {
       empty.style.display = 'block';
       grid.style.display = 'none';
     } else {
@@ -153,7 +162,6 @@ document.addEventListener('DOMContentLoaded', function() {
   closeModalBtn.addEventListener('click', fecharModal);
   overlay.addEventListener('click', fecharModal);
 
-  // Event listeners para filtros
   estadoFilter.addEventListener('change', () => {
     atualizarCidades(estadoFilter.value);
     filtrarEExibir();
@@ -170,6 +178,5 @@ document.addEventListener('DOMContentLoaded', function() {
     filtrarEExibir();
   });
 
-  // Carregar dados
   carregarOportunidades();
 });
