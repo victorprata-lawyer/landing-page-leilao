@@ -1,32 +1,26 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from dotenv import load_dotenv
 import os
 import sys
-
-# 1. Ajuste de Path para garantir que a Vercel encontre os módulos
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.append(BASE_DIR)
-
-# Importação dos roteadores e do banco
+from dotenv import load_dotenv
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.routes import wellness, oportunidades
 from app.models.database import create_tables
 
-# 2. Carrega variáveis de ambiente
+# Configuração de diretório base
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(BASE_DIR)
+
+# Carrega variáveis de ambiente
 load_dotenv()
 
-# 3. Inicializa a aplicação
-app = FastAPI(
-    title="Prata Real Estate - Advocacia Hub",
-    description="Mesa de Originação e Gestão de Ativos Distressed",
-    version="0.1.0"
-)
+# Instância FastAPI (apenas uma vez)
+app = FastAPI()
 
-# 4. Configuração de CORS Blindada
+# Configuração CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "https://pratarealestate.com.br", 
+        "https://pratarealestate.com.br",
         "https://www.pratarealestate.com.br",
         "http://localhost:3000"
     ],
@@ -35,32 +29,33 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 5. Criar as tabelas ao iniciar
-try:
-    # Garantimos que o banco seja criado/lido no local correto
-    create_tables()
-except Exception as e:
-    print(f"Aviso: Erro na base de dados: {e}")
+# Cria tabelas se não for Vercel
+if "VERCEL" not in os.environ:
+    try:
+        create_tables()
+    except Exception as e:
+        print(f"Aviso: Erro ao criar tabelas: {e}")
 
-# 6. Registro das Rotas
+# Inclui roteadores
 app.include_router(wellness.router)
 app.include_router(oportunidades.router)
 
-# 7. Rotas de Status
+# Rota raiz
 @app.get("/")
 def read_root():
     return {
-        "message": "Prata Real Estate API está rodando!",
-        "status": "online",
-        "version": "0.1.0",
-        "environment": "production" if os.getenv("VERCEL") else "development"
+        "message": "API Wellness e Oportunidades",
+        "status": "ok",
+        "version": "1.0",
+        "environment": os.getenv("ENVIRONMENT", "development")
     }
 
+# Rota health
 @app.get("/health")
-def health_check():
+def health():
     return {"status": "healthy"}
 
-# 8. Execução Local
+# Bloco para execução local
 if __name__ == "__main__":
     import uvicorn
     port = int(os.getenv("BACKEND_PORT", 8000))
