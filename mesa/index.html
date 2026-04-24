@@ -311,99 +311,25 @@
 <!-- MODAL -->
 <div id="modal" class="modal-overlay">
     <div class="modal-content">
-        <h3>Protocolo de Acesso</h3>
-        <p class="modal-text">
-            Para garantir a <strong>exclusividade da tese jurídica</strong> e a proteção das partes envolvidas, o acesso ao Data Room requer a assinatura de um Acordo de Confidencialidade (NDA). Este protocolo assegura que o ativo permaneça restrito a investidores qualificados.
-        </p>
+        <h3>Fluxo Protegido: Assine o NDA e Libere a Oportunidade</h3>
+        <p class="modal-text">Este ativo está em fluxo protegido para preservar a integridade da tese de investimento e garantir uma análise estruturada.</p>
+        <p class="modal-text">Ao assinar o NDA, você libera imediatamente a próxima camada da oportunidade, com acesso exclusivo aos materiais essenciais.</p>
+        <p class="modal-text"><strong>Após a assinatura, receba:</strong></p>
+        <ul>
+            <li>Documentação inicial controlada</li>
+            <li>Racional jurídico macro da operação</li>
+            <li>Enquadramento preliminar de risco</li>
+            <li>Próximos passos para abertura do Data Room</li>
+        </ul>
         <div class="copy-box">
-            <div id="modal-asset-code" class="copy-code"></div>
-            <button id="btn-copy-action" class="btn-copy">Copiar</button>
+            <code id="modal-asset-code" class="copy-code">CÓDIGO_DO_ATIVO</code>
+            <button id="btn-copy-action" class="btn-copy">Copiar Código</button>
         </div>
-        <button id="btn-go-zapsign" class="btn-sign">Assinar NDA e Acessar Dados</button>
-        <button onclick="closeModal()" class="btn-back">Voltar para a Mesa</button>
+        <button id="btn-go-zapsign" class="btn-sign">Assinar NDA Agora e Liberar Dados</button>
+        <button onclick="closeModal()" class="btn-back">Voltar à Mesa</button>
+        <p class="modal-text">Não é burocracia: é proteção da tese e organização do avanço.</p>
     </div>
 </div>
-
-<script>
-    let allAssets = [];
-    const zapSignLink = "https://app.zapsign.com.br/verificar/doc/18154b67-464f-4cbe-a59f-a9f2549829b6";
-
-    async function init() {
-        try {
-            const res = await fetch('/api/oportunidades');
-            const data = await res.json();
-            allAssets = Array.isArray(data) ? data : [];
-            populateStates();
-            render();
-            document.getElementById('loading-msg').style.display = 'none';
-        } catch (e) {
-            document.getElementById('loading-msg').innerText = "Erro ao carregar base.";
-        }
-    }
-
-    function populateStates() {
-        const states = [...new Set(allAssets.map(a => a.state).filter(Boolean))].sort();
-        const select = document.getElementById('state-select');
-        states.forEach(uf => {
-            const opt = document.createElement('option');
-            opt.value = uf; opt.innerText = uf;
-            select.appendChild(opt);
-        });
-    }
-
-    function normalize(str) {
-        return str ? str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase() : '';
-    }
-
-    function formatBRL(val) {
-        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val);
-    }
-
-    function render() {
-        const cityQuery = normalize(document.getElementById('city-input').value);
-        const stateQuery = document.getElementById('state-select').value;
-        const hideLow = document.getElementById('quality-filter').checked;
-
-        const filtered = allAssets.filter(asset => {
-            const vgv = asset.estimated_vgv || 0;
-            if (vgv <= 0) return false;
-            if (hideLow && vgv < 300000) return false;
-            if (stateQuery && asset.state !== stateQuery) return false;
-            if (cityQuery && !normalize(asset.city).includes(cityQuery)) return false;
-            return true;
-        }).slice(0, 40);
-
-        document.getElementById('count-label').innerHTML = `Exibindo <strong>${filtered.length}/${allAssets.length}</strong> teses estruturadas.`;
-        const grid = document.getElementById('asset-grid');
-        grid.innerHTML = '';
-
-        filtered.forEach(asset => {
-            const vgv = asset.estimated_vgv || 0;
-            const lance = asset.min_bid || 0;
-            const arbitragem = asset.discount_percentage || (vgv > 0 ? Math.round(((vgv - lance) / vgv) * 100) : 0);
-
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.innerHTML = `
-                <div class="arbitrage-badge">${arbitragem}% ARBITRAGEM</div>
-                <div class="public-code">${asset.public_code}</div>
-                <h3>${asset.city.toUpperCase()} / ${asset.state}</h3>
-                <p class="typology">${asset.typology}</p>
-                <div class="details">
-                    <div class="detail-row">
-                        <span class="detail-label">Avaliação de Mercado</span>
-                        <span class="detail-value">${formatBRL(vgv)}</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Lance Mínimo Estimado</span>
-                        <span class="detail-value gold">${formatBRL(lance)}</span>
-                    </div>
-                </div>
-                <button class="btn-analyze" onclick="openModal('${asset.public_code}')">Analisar Viabilidade</button>
-            `;
-            grid.appendChild(card);
-        });
-    }
 
     function openModal(code) {
         document.getElementById('modal-asset-code').innerText = code;
