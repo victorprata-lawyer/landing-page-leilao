@@ -117,61 +117,65 @@
                 padding: 0 32px;
             }
     
-            /* --- NAVEGAÇÃO --- */
-    
+/* NAVEGAÇÃO DESKTOP - LINEAR E TRAVADA */
             .glass-nav {
                 position: sticky;
                 top: 0;
                 z-index: 1000;
-                background: rgba(10,12,16,0.85); /* Um pouco mais opaco para autoridade */
+                background: rgba(10,12,16,0.85);
                 backdrop-filter: blur(14px);
                 -webkit-backdrop-filter: blur(14px);
                 border-bottom: 1px solid var(--border-soft);
+                height: 70px; /* Altura fixa para não subir */
                 width: 100%;
-                height: 80px; /* Altura fixa para não subir */
             }
             
             .nav-wrapper {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                height: 80px; /* Alinhado com a nav */
-                padding: 0;
+                height: 70px;
+                padding: 0; /* O container já tem padding lateral */
             }
-    
+            
+            .nav-logo {
+                text-decoration: none;
+                color: var(--gold);
+                font-family: 'Playfair Display', serif;
+                font-size: 1.15rem; /* Reduzi levemente para caber tudo na linha */
+                letter-spacing: 1px;
+                font-weight: 700;
+                white-space: nowrap; /* Impede o logo de quebrar */
+            }
+            
             .nav-links {
                 display: flex;
-                flex-wrap: wrap;
-                gap: 16px;
+                flex-wrap: nowrap; /* PROIBE A QUEBRA DE LINHA */
                 align-items: center;
-                justify-content: flex-end;
-                flex: 1;
-                min-width: 0;
+                gap: 14px; /* Espaço entre os links */
+                flex-shrink: 0; /* Impede que o menu encolha demais */
             }
-    
+            
             .nav-links a {
+                text-decoration: none;
                 color: var(--text-soft);
-                font-size: 10px;
-                letter-spacing: 1.6px;
+                font-size: 9px; /* Fonte técnica e elegante */
+                letter-spacing: 1.2px;
                 text-transform: uppercase;
                 font-weight: 600;
+                white-space: nowrap; /* Garante que o texto do botão não quebre */
                 transition: color .25s ease;
             }
-    
-            .nav-links a:hover {
-                color: var(--gold);
-            }
-    
+            
             .nav-cta {
-                margin-left: 15px;
-                padding: 8px 20px;
+                margin-left: 10px;
+                padding: 8px 16px;
                 border: 1px solid var(--gold);
                 color: var(--gold) !important;
-                border-radius: 8px;
-                transition: all 0.3s ease;
-                background: transparent;
+                border-radius: 6px;
+                font-size: 9px !important;
             }
-    
+                
             .nav-cta:hover {
                 background-color: var(--gold) !important;
                 color: var(--dark) !important;
@@ -765,15 +769,25 @@
             }
     
             @media (max-width: 760px) {
-                .container { padding: 0 20px; }
-                
+                .glass-nav { height: auto; } /* No mobile permitimos crescer */
                 .nav-wrapper {
-                    min-height: auto;
-                    padding: 12px 0;
                     flex-direction: column;
-                    align-items: center;
-                    gap: 10px;
+                    height: auto;
+                    padding: 15px 0;
+                    gap: 12px;
                 }
+                .nav-links {
+                    flex-direction: column;
+                    width: 100%;
+                    gap: 8px;
+                }
+                .nav-links a {
+                    font-size: 10px;
+                    padding: 8px 0;
+                    border-bottom: 1px solid rgba(198,168,90,0.05);
+                }
+                .nav-cta { margin-left: 0 !important; width: 100%; text-align: center; }
+            }
                 
                 .nav-logo { font-size: 0.88rem; text-align: center; white-space: normal; margin: 0 auto; }
                 .nav-links a:not(.nav-cta) { display: none; }
