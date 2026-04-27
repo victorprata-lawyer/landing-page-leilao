@@ -124,48 +124,61 @@
         }
         
         .nav-wrapper {
-            background-color: #000;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+            min-height: 68px;
         }
-        .nav-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #D4AF37;
+        
+        .nav-logo {
+            text-decoration: none;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.28rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            white-space: nowrap;
         }
-        .nav-desktop {
-            display: none;
-        }
-        .nav-mobile {
-            display: none;
-        }
+        
         .nav-links {
             display: flex;
-            list-style: none;
+            flex-wrap: wrap; /* Permite que os links se ajustem sem estourar a tela */
+            gap: 16px;
+            align-items: center;
+            justify-content: flex-end;
+            flex: 1;
+            min-width: 0;
         }
+        
         .nav-links a {
-            color: white;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            transition: color 0.3s;
+            color: var(--text-soft);
+            font-size: 10px;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: color .25s ease;
         }
+        
         .nav-links a:hover {
-            color: #D4AF37;
+            color: var(--gold);
         }
+        
         .nav-cta {
-            background-color: #D4AF37;
-            color: #000;
-            padding: 0.5rem 1.5rem;
-            border-radius: 5px;
-            font-weight: bold;
+            margin-left: 15px;
+            padding: 8px 20px;
+            border: 1px solid var(--gold);
+            color: var(--gold) !important;
+            border-radius: 8px;
+            transition: all 0.3s ease;
             text-decoration: none;
-            transition: background-color 0.3s;
+            background: transparent;
         }
+        
         .nav-cta:hover {
-            background-color: #FFD700;
+            background-color: var(--gold) !important;
+            color: var(--dark) !important;
         }
 
         
@@ -777,50 +790,42 @@
         }
         /* Mobile */
         @media (max-width: 760px) {
-            .nav-mobile {
-                display: block;
+            body {
+                overflow-x: hidden;
             }
-            .nav-mobile-header {
-                display: flex;
-                justify-content: space-between;
+        
+            .nav-wrapper {
+                min-height: auto;
+                padding: 15px 0;
+                flex-direction: column;
                 align-items: center;
-                width: 100%;
-                margin-bottom: 1rem;
+                gap: 12px;
             }
-            .hamburger {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
-                width: 30px;
-                height: 25px;
-            }
-            .hamburger span {
-                width: 100%;
-                height: 3px;
-                background-color: #D4AF37;
-                transition: 0.3s;
-            }
-            .nav-mobile .nav-links {
-                flex-direction: column;
-                width: 100%;
+        
+            .nav-logo {
+                font-size: 1.1rem;
                 text-align: center;
             }
-            .nav-mobile .nav-links a {
-                padding: 0.8rem 0;
-                display: block;
-                border-bottom: 1px solid #333;
+        
+            /* Esconde os links de pesquisa e mantém apenas o botão da mesa */
+            .nav-links a:not(.nav-cta) {
+                display: none;
             }
-            .nav-mobile .nav-links a:last-child {
-                border-bottom: none;
+        
+            .nav-links {
+                width: 100%;
+                justify-content: center;
             }
-            .nav-mobile .nav-cta {
-                margin-top: 1rem;
-                align-self: center;
+        
+            .nav-cta {
+                width: 100%;
+                margin-left: 0;
+                text-align: center;
+                padding: 14px 0;
+                font-size: 11px;
+                background: rgba(198,168,90,0.1) !important; /* Destaque sutil no mobile */
             }
         }
-    </style>
-</head>
-<body>
 
     <!-- Ativar somente após adequar a política de consentimento / privacidade -->
     <!-- Google Analytics -->
@@ -855,47 +860,23 @@
     </script>
     -->
 
-   <header class="nav-wrapper">
-            <!-- Desktop Nav -->
-            <nav class="nav-desktop">
-                <div class="nav-brand">PRATA REAL ESTATE</div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#imoveis">Imóveis</a></li>
-                    <li><a href="#investimentos">Investimentos</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-                <div class="nav-cta-wrapper">
-                    <a href="#mesa" class="nav-cta">Mesa de Originação</a>
+   <nav class="glass-nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#topo" class="nav-logo">PRATA REAL ESTATE</a>
+                <div class="nav-links">
+                    <a href="#diferenciais">Diferenciais</a>
+                    <a href="#processo">Processo</a>
+                    <a href="#infra">Infraestrutura</a>
+                    <a href="#atuacao">Atuação</a>
+                    <a href="#victor">Victor Prata</a>
+                    <a href="#artigos">Teses & Artigos</a>
+                    <a href="#contato">Contato</a>
+                    <a href="/mesa" class="nav-cta">Mesa de Originação</a>
                 </div>
-            </nav>
-            <!-- Mobile Nav -->
-            <nav class="nav-mobile">
-                <div class="nav-mobile-header">
-                    <div class="nav-brand">PRATA REAL ESTATE</div>
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#imoveis">Imóveis</a></li>
-                    <li><a href="#investimentos">Investimentos</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-                <a href="#mesa" class="nav-cta">Mesa de Originação</a>
-            </nav>
-        </header>
-        <main style="padding: 2rem;">
-            <h2>Teste de Menu Responsivo</h2>
-            <p>Redimensione a janela do navegador para testar o menu desktop (acima de 760px) e mobile (até 760px).</p>
-        </main>
-    </body>
-    </html>
+            </div>
+        </div>
+    </nav>
 
     
     <main id="topo">
