@@ -126,21 +126,26 @@
                 border-bottom: 1px solid var(--border-soft);
             }
     
+            .glass-nav {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                background: rgba(10,12,16,0.82);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                border-bottom: 1px solid var(--border-soft);
+                min-height: 68px; /* Força altura mínima */
+            }
+            
             .nav-wrapper {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 gap: 18px;
-                min-height: 68px;
-            }
-    
-            .nav-logo {
-                color: var(--gold);
-                font-family: 'Playfair Display', serif;
-                font-size: 1.28rem;
-                letter-spacing: 2px;
-                font-weight: 700;
-                white-space: nowrap;
+                min-height: 68px; /* Altura fixa */
+                height: 68px; /* Bloqueia em altura exata */
+                padding: 0 32px;
+                box-sizing: border-box;
             }
     
             .nav-links {
