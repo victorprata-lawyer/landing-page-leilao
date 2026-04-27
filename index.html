@@ -143,7 +143,7 @@
         
         .nav-links {
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: wrap; /* Correção da horizontalidade infinita */
             gap: 16px;
             align-items: center;
             justify-content: flex-end;
@@ -163,6 +163,23 @@
         
         .nav-links a:hover {
             color: var(--gold);
+        }
+        
+        /* Recuperação do destaque amarelo/dourado do botão */
+        .nav-cta {
+            margin-left: 15px;
+            padding: 8px 20px;
+            border: 1px solid var(--gold);
+            color: var(--gold) !important;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            background: transparent;
+        }
+        
+        .nav-cta:hover {
+            background-color: var(--gold) !important;
+            color: var(--dark) !important;
         }
         
         .hero {
@@ -753,61 +770,41 @@
         }
 
         @media (max-width: 760px) {
-            .container {
-                padding: 0 22px;
+            body {
+                overflow-x: hidden;
             }
-
+        
             .nav-wrapper {
                 min-height: auto;
-                padding: 18px 0;
+                padding: 15px 0;
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
+                gap: 12px;
             }
-
+        
+            .nav-logo {
+                font-size: 1.1rem;
+                text-align: center;
+            }
+        
             .nav-links {
-                gap: 14px;
-            }
-
-            .nav-links a {
-                font-size: 10px;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2.1rem;
-            }
-
-            .hero-copy p,
-            .section-intro,
-            .profile-copy p {
-                font-size: .98rem;
-            }
-
-            .button,
-            .cookie-btn {
-                width: 100%;
-            }
-
-            .hero-actions,
-            .contact-actions,
-            .cookie-actions {
                 flex-direction: column;
+                width: 100%;
+                gap: 5px;
             }
-
-            .hero-card,
-            .card,
-            .contact-panel,
-            .signal-box {
-                padding: 24px;
+        
+            .nav-links a {
+                width: 100%;
+                text-align: center;
+                padding: 12px 0;
+                font-size: 9px;
+                border-bottom: 1px solid rgba(198,168,90,0.05);
             }
-
-            .cookie-banner {
-                left: 16px;
-                right: 16px;
-                bottom: 16px;
+        
+            .nav-cta {
+                margin-left: 0 !important;
+                margin-top: 5px;
+                background: rgba(198,168,90,0.1) !important;
             }
         }
     </style>
@@ -848,32 +845,22 @@
     -->
 
     <nav class="glass-nav">
-        <div class="container">
-            <div class="nav-wrapper">
-                <a href="#topo" class="nav-logo">PRATA REAL ESTATE</a>
-                <div class="nav-links">
-                    <a href="#diferenciais">Diferenciais</a>
-                    <a href="#processo">Processo</a>
-                    <a href="#infra">Infraestrutura</a>
-                    <a href="#atuacao">Atuação</a>
-                    <a href="#victor">Victor Prata</a>
-                    <a href="#artigos">Teses & Artigos</a>
-                    <a href="#contato">Contato</a>
-                    <a href="/mesa" style="
-                        margin-left: 15px;
-                        padding: 8px 20px;
-                        border: 1px solid var(--gold);
-                        color: var(--gold) !important;
-                        border-radius: 8px;
-                        transition: all 0.3s ease;
-                    " onmouseover="this.style.backgroundColor='var(--gold)'; this.style.color='var(--dark)'" 
-                       onmouseout="this.style.backgroundColor='transparent'; this.style.color='var(--gold)'">
-                        Mesa de Originação
-                    </a>
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#topo" class="nav-logo">PRATA REAL ESTATE</a>
+                    <div class="nav-links">
+                        <a href="#diferenciais">Diferenciais</a>
+                        <a href="#processo">Processo</a>
+                        <a href="#infra">Infraestrutura</a>
+                        <a href="#atuacao">Atuação</a>
+                        <a href="#victor">Victor Prata</a>
+                        <a href="#artigos">Teses & Artigos</a>
+                        <a href="#contato">Contato</a>
+                        <a href="/mesa" class="nav-cta">Mesa de Originação</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
     
     <main id="topo">
         <section class="hero">
