@@ -76,17 +76,17 @@
             --radius: 16px;
             --container: 1160px;
         }
-
+        
         * {
             box-sizing: border-box;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
+        
         html {
             scroll-behavior: smooth;
         }
-
+        
         body {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
@@ -96,23 +96,23 @@
             color: var(--text);
             line-height: 1.65;
         }
-
+        
         a {
             color: inherit;
         }
-
+        
         img {
             max-width: 100%;
             display: block;
         }
-
+        
         .container {
             width: 100%;
             max-width: var(--container);
             margin: 0 auto;
             padding: 0 32px;
         }
-
+        
         .glass-nav {
             position: sticky;
             top: 0;
@@ -122,7 +122,7 @@
             -webkit-backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border-soft);
         }
-
+        
         .nav-wrapper {
             display: flex;
             justify-content: space-between;
@@ -130,7 +130,7 @@
             gap: 18px;
             min-height: 68px;
         }
-
+        
         .nav-logo {
             text-decoration: none;
             color: var(--gold);
@@ -140,7 +140,7 @@
             font-weight: 700;
             white-space: nowrap;
         }
-
+        
         .nav-links {
             display: flex;
             flex-wrap: nowrap;
@@ -150,7 +150,7 @@
             flex: 1;
             min-width: 0;
         }
-
+        
         .nav-links a {
             text-decoration: none;
             color: var(--text-soft);
@@ -160,22 +160,22 @@
             font-weight: 600;
             transition: color .25s ease;
         }
-
+        
         .nav-links a:hover {
             color: var(--gold);
         }
-
+        
         .hero {
             padding: 88px 0 90px;
         }
-
+        
         .hero-grid {
             display: grid;
             grid-template-columns: 1.18fr 0.92fr;
             gap: 42px;
             align-items: center;
         }
-
+        
         .eyebrow {
             display: inline-flex;
             align-items: center;
@@ -187,7 +187,7 @@
             font-weight: 600;
             margin-bottom: 20px;
         }
-
+        
         .eyebrow::before {
             content: "";
             width: 34px;
@@ -195,7 +195,7 @@
             background: var(--gold);
             opacity: .8;
         }
-
+        
         h1 {
             margin: 0 0 24px 0;
             font-family: 'Playfair Display', serif;
@@ -203,26 +203,26 @@
             line-height: 1.03;
             letter-spacing: -1.2px;
         }
-
+        
         .hero-copy p {
             margin: 0 0 16px 0;
             color: var(--text-soft);
             font-size: 1.12rem;
             max-width: 760px;
         }
-
+        
         .hero-copy strong {
             color: var(--text);
             font-weight: 600;
         }
-
+        
         .hero-actions {
             display: flex;
             flex-wrap: nowrap;
             gap: 14px;
             margin-top: 34px;
         }
-
+        
         .button {
             display: inline-flex;
             align-items: center;
@@ -237,31 +237,32 @@
             font-weight: 700;
             transition: all .28s ease;
         }
-
+        
         .button-primary {
             background: var(--gold);
             color: var(--dark);
             border: 1px solid var(--gold);
             box-shadow: 0 12px 28px rgba(198,168,90,0.16);
         }
-
+        
         .button-primary:hover {
             background: var(--gold-hover);
             border-color: var(--gold-hover);
             transform: translateY(-2px);
         }
-
+        
         .button-secondary {
             border: 1px solid var(--border);
             color: var(--text);
             background: rgba(255,255,255,0.02);
         }
-
+        
         .button-secondary:hover {
             border-color: rgba(198,168,90,0.3);
             background: rgba(198,168,90,0.05);
             transform: translateY(-2px);
         }
+
 
         .hero-card,
         .card,
