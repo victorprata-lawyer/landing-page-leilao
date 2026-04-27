@@ -90,14 +90,15 @@
     
             body {
                 margin: 0;
-                padding: 0;
-                padding-top: 0; /* O sticky já ocupa o topo, mas garantimos o reset */
+                padding-top: 0; /* Remove padding extra */
                 font-family: 'Montserrat', sans-serif;
-                background: radial-gradient(circle at top, rgba(198,168,90,0.08), transparent 28%),
-                            linear-gradient(180deg, #090b0f 0%, #0a0c10 100%);
+                background:
+                    radial-gradient(circle at top, rgba(198,168,90,0.08), transparent 28%),
+                    linear-gradient(180deg, #090b0f 0%, #0a0c10 100%);
                 color: var(--text);
                 line-height: 1.65;
                 overflow-x: hidden;
+                scroll-behavior: smooth;
             }
     
             a {
@@ -117,65 +118,72 @@
                 padding: 0 32px;
             }
     
-/* NAVEGAÇÃO DESKTOP - LINEAR E TRAVADA */
+            /* --- NAVEGAÇÃO --- */
             .glass-nav {
                 position: sticky;
                 top: 0;
                 z-index: 1000;
-                background: rgba(10,12,16,0.85);
+                background: rgba(10,12,16,0.82);
                 backdrop-filter: blur(14px);
                 -webkit-backdrop-filter: blur(14px);
                 border-bottom: 1px solid var(--border-soft);
-                height: 70px; /* Altura fixa para não subir */
-                width: 100%;
+            }
+    
+            .glass-nav {
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+                background: rgba(10,12,16,0.82);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                border-bottom: 1px solid var(--border-soft);
+                min-height: 68px; /* Força altura mínima */
             }
             
             .nav-wrapper {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                height: 70px;
-                padding: 0; /* O container já tem padding lateral */
+                gap: 18px;
+                min-height: 68px; /* Altura fixa */
+                height: 68px; /* Bloqueia em altura exata */
+                padding: 0 32px;
+                box-sizing: border-box;
             }
-            
-            .nav-logo {
-                text-decoration: none;
-                color: var(--gold);
-                font-family: 'Playfair Display', serif;
-                font-size: 1.15rem; /* Reduzi levemente para caber tudo na linha */
-                letter-spacing: 1px;
-                font-weight: 700;
-                white-space: nowrap; /* Impede o logo de quebrar */
-            }
-            
+    
             .nav-links {
                 display: flex;
-                flex-wrap: nowrap; /* PROIBE A QUEBRA DE LINHA */
+                flex-wrap: wrap;
+                gap: 16px;
                 align-items: center;
-                gap: 14px; /* Espaço entre os links */
-                flex-shrink: 0; /* Impede que o menu encolha demais */
+                justify-content: flex-end;
+                flex: 1;
+                min-width: 0;
             }
-            
+    
             .nav-links a {
-                text-decoration: none;
                 color: var(--text-soft);
-                font-size: 9px; /* Fonte técnica e elegante */
-                letter-spacing: 1.2px;
+                font-size: 10px;
+                letter-spacing: 1.6px;
                 text-transform: uppercase;
                 font-weight: 600;
-                white-space: nowrap; /* Garante que o texto do botão não quebre */
                 transition: color .25s ease;
             }
-            
+    
+            .nav-links a:hover {
+                color: var(--gold);
+            }
+    
             .nav-cta {
-                margin-left: 10px;
-                padding: 8px 16px;
+                margin-left: 15px;
+                padding: 8px 20px;
                 border: 1px solid var(--gold);
                 color: var(--gold) !important;
-                border-radius: 6px;
-                font-size: 9px !important;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                background: transparent;
             }
-                
+    
             .nav-cta:hover {
                 background-color: var(--gold) !important;
                 color: var(--dark) !important;
@@ -769,25 +777,15 @@
             }
     
             @media (max-width: 760px) {
-                .glass-nav { height: auto; } /* No mobile permitimos crescer */
+                .container { padding: 0 20px; }
+                
                 .nav-wrapper {
+                    min-height: auto;
+                    padding: 12px 0;
                     flex-direction: column;
-                    height: auto;
-                    padding: 15px 0;
-                    gap: 12px;
+                    align-items: center;
+                    gap: 10px;
                 }
-                .nav-links {
-                    flex-direction: column;
-                    width: 100%;
-                    gap: 8px;
-                }
-                .nav-links a {
-                    font-size: 10px;
-                    padding: 8px 0;
-                    border-bottom: 1px solid rgba(198,168,90,0.05);
-                }
-                .nav-cta { margin-left: 0 !important; width: 100%; text-align: center; }
-            }
                 
                 .nav-logo { font-size: 0.88rem; text-align: center; white-space: normal; margin: 0 auto; }
                 .nav-links a:not(.nav-cta) { display: none; }
