@@ -90,12 +90,15 @@
     
             body {
                 margin: 0;
+                padding-top: 0; /* Remove padding extra */
                 font-family: 'Montserrat', sans-serif;
                 background:
                     radial-gradient(circle at top, rgba(198,168,90,0.08), transparent 28%),
                     linear-gradient(180deg, #090b0f 0%, #0a0c10 100%);
                 color: var(--text);
                 line-height: 1.65;
+                overflow-x: hidden;
+                scroll-behavior: smooth;
             }
     
             a {
