@@ -143,7 +143,7 @@
         
         .nav-links {
             display: flex;
-            flex-wrap: wrap; /* Correção da horizontalidade infinita */
+            flex-wrap: wrap; /* Permite que os links se ajustem sem estourar a tela */
             gap: 16px;
             align-items: center;
             justify-content: flex-end;
@@ -165,7 +165,6 @@
             color: var(--gold);
         }
         
-        /* Recuperação do destaque amarelo/dourado do botão */
         .nav-cta {
             margin-left: 15px;
             padding: 8px 20px;
@@ -778,7 +777,7 @@
                 min-height: auto;
                 padding: 15px 0;
                 flex-direction: column;
-                align-items: stretch;
+                align-items: center;
                 gap: 12px;
             }
         
@@ -787,24 +786,23 @@
                 text-align: center;
             }
         
-            .nav-links {
-                flex-direction: column;
-                width: 100%;
-                gap: 5px;
+            /* Esconde os links de pesquisa e mantém apenas o botão da mesa */
+            .nav-links a:not(.nav-cta) {
+                display: none;
             }
         
-            .nav-links a {
+            .nav-links {
                 width: 100%;
-                text-align: center;
-                padding: 12px 0;
-                font-size: 9px;
-                border-bottom: 1px solid rgba(198,168,90,0.05);
+                justify-content: center;
             }
         
             .nav-cta {
-                margin-left: 0 !important;
-                margin-top: 5px;
-                background: rgba(198,168,90,0.1) !important;
+                width: 100%;
+                margin-left: 0;
+                text-align: center;
+                padding: 14px 0;
+                font-size: 11px;
+                background: rgba(198,168,90,0.1) !important; /* Destaque sutil no mobile */
             }
         }
     </style>
@@ -845,22 +843,22 @@
     -->
 
     <nav class="glass-nav">
-            <div class="container">
-                <div class="nav-wrapper">
-                    <a href="#topo" class="nav-logo">PRATA REAL ESTATE</a>
-                    <div class="nav-links">
-                        <a href="#diferenciais">Diferenciais</a>
-                        <a href="#processo">Processo</a>
-                        <a href="#infra">Infraestrutura</a>
-                        <a href="#atuacao">Atuação</a>
-                        <a href="#victor">Victor Prata</a>
-                        <a href="#artigos">Teses & Artigos</a>
-                        <a href="#contato">Contato</a>
-                        <a href="/mesa" class="nav-cta">Mesa de Originação</a>
-                    </div>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#topo" class="nav-logo">PRATA REAL ESTATE</a>
+                <div class="nav-links">
+                    <a href="#diferenciais">Diferenciais</a>
+                    <a href="#processo">Processo</a>
+                    <a href="#infra">Infraestrutura</a>
+                    <a href="#atuacao">Atuação</a>
+                    <a href="#victor">Victor Prata</a>
+                    <a href="#artigos">Teses & Artigos</a>
+                    <a href="#contato">Contato</a>
+                    <a href="/mesa" class="nav-cta">Mesa de Originação</a>
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
     
     <main id="topo">
         <section class="hero">
