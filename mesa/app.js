@@ -179,4 +179,4 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   carregarOportunidades();
-});
+}); 
