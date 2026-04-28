@@ -287,28 +287,50 @@ tbody tr:hover {
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  .modal {
-    top: 5vh;
-    left: 2.5vw;
-    width: 95vw;
-    height: 90vh;
-    transform: none;
-    max-height: 90vh;
-    overflow-y: auto;
-    border-radius: var(--border-radius-sm);
-  }
+    /* Regras originais da página */
+    body { padding: 1rem; overflow-x: hidden; }
+    .filter-group { flex-direction: column; }
+    .results-info { font-size: 1.1rem; padding: 1rem 0 1rem 1.5rem; }
+    table { font-size: 0.9rem; }
+    th, td { padding: 0.75rem; }
 
-  .modal-footer {
-    flex-direction: column;
-    gap: var(--spacing-sm);
-  }
+    /* Lógica de Redução de 20% no Modal */
+    .modal-overlay {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; /* Fixa no topo para evitar sumir no scroll */
+        padding-top: 5vh;
+        z-index: 2000;
+    }
 
-  .modal-header {
-    padding: var(--spacing-md);
-  }
+    .modal-content {
+        width: 90% !important;
+        max-height: 85vh !important;
+        background: #fff;
+        border-radius: 12px;
+        padding: 1.5rem !important;
+        overflow-y: auto;
+        transform: scale(0.8); /* Redução de 20% no 'zoom' visual */
+        transform-origin: top center;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
 
-  .modal-body,
-  .modal-footer {
-    padding: var(--spacing-md);
-  }
+    /* Ajuste de escala para os elementos internos */
+    .modal-content h3 { font-size: 1.3rem !important; margin-bottom: 5px; }
+    .modal-text { font-size: 0.9rem !important; line-height: 1.4; }
+    .copy-box { padding: 8px !important; margin-bottom: 10px; }
+    
+    .btn-copy, .btn-sign, .btn-back {
+        width: 100% !important;
+        padding: 12px !important;
+        font-size: 0.9rem !important;
+        margin-bottom: 8px;
+    }
 }
