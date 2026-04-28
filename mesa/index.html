@@ -112,6 +112,32 @@
         input[type="text"] { flex: 2 1 250px; }
         select { flex: 1 1 120px; cursor: pointer; }
 
+        @media (max-width: 760px) {
+        .modal-overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px; /* Garante respiro nas bordas extremas */
+        }
+
+        .modal-content {
+            transform: scale(0.8); /* Redução de 20% no zoom */
+            transform-origin: center center;
+            max-height: 90vh; /* Trava a altura para caber na tela */
+            overflow-y: auto; /* Habilita o scroll interno */
+            padding: 25px; /* Compactação de espaço */
+            width: 95%; /* Garante largura quase total */
+        }
+
+        .modal-content h3 {
+            font-size: 1.4rem; /* Título mais proporcional */
+        }
+
+        .modal-text {
+            font-size: 13px; /* Texto técnico e legível */
+        }
+}
+
         #state-select {
   background-color: #2d2d2d;
   color: #ffffff;
