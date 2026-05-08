@@ -20,13 +20,6 @@ class Asset(Base):
     leilao_percent = Column(Float, nullable=False)
     is_public = Column(Boolean, default=True)
     metragem = Column(Float, default=0.0)
-
-    # --- NOVOS CAMPOS PARA INTEGRAÇÃO ZAPSIGN ---
-    # Chave de vínculo extraída do PDF (ex: OPSP-ZS-20260331 - 17)
-    codigo_oportunidade = Column(String, unique=True, index=True, nullable=True)
-    status = Column(String, index=True, default='pendente')
-    data_formalizacao = Column(DateTime, nullable=True)
-    email_signatario = Column(String, nullable=True)
     
     @hybrid_property
     def minimum_bid(self):

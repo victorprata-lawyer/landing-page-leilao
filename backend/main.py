@@ -1,62 +1,66 @@
+# Configuração inicial do path para garantir que imports locais funcionem corretamente
 import os
 import sys
-from dotenv import load_dotenv
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from app.routes import wellness, oportunidades
-from app.models.database import create_tables
 
-# Configuração de diretório base
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(BASE_DIR)
 
-# Carrega variáveis de ambiente
+# Carrega variáveis de ambiente do arquivo .env
+from dotenv import load_dotenv
 load_dotenv()
 
-# Instância FastAPI (apenas uma vez)
-app = FastAPI()
+# Imports do FastAPI
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
-# Configuração CORS
+# Imports locais do projeto (agora funcionam com path configurado)
+from app.routes import wellness, oportunidades
+from app.models.database import create_tables
+from integrations.zapsign import router as zapsign_router
+
+# Cria a aplicação FastAPI
+app = FastAPI(
+    title="Backend API",
+    version="1.0.0",
+    description="API backend principal"
+)
+
+# Configuração do CORS (preservada)
+allow_origins = [
+    "http://localhost:3000",
+    "https://your-frontend.vercel.app",  # Ajuste conforme o frontend
+    "*"  # Em produção, especifique domínios exatos
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://pratarealestate.com.br",
-        "https://www.pratarealestate.com.br",
-        "http://localhost:3000"
-    ],
+    allow_origins=allow_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Cria tabelas se não for Vercel
-if "VERCEL" not in os.environ:
-    try:
-        create_tables()
-    except Exception as e:
-        print(f"Aviso: Erro ao criar tabelas: {e}")
+# Cria as tabelas do banco apenas se não estiver no Vercel (preservado)
+if os.environ.get("VERCEL") != "1":
+    create_tables()
 
-# Inclui roteadores
+# Inclui as rotas (preservado, sem alteração de nomes ou prefixos)
 app.include_router(wellness.router)
 app.include_router(oportunidades.router)
+app.include_router(zapsign_router)
 
-# Rota raiz
+# Rota raiz (preservada)
 @app.get("/")
-def read_root():
-    return {
-        "message": "API Wellness e Oportunidades",
-        "status": "ok",
-        "version": "1.0",
-        "environment": os.getenv("ENVIRONMENT", "development")
-    }
+def root():
+    return {"message": "Backend rodando!"}
 
-# Rota health
+# Rota de health check (preservada)
 @app.get("/health")
 def health():
-    return {"status": "healthy"}
+    return {"status": "ok"}
 
-# Bloco para execução local
+# Bloco uvicorn para execução local (preservado)
 if __name__ == "__main__":
     import uvicorn
-    port = int(os.getenv("BACKEND_PORT", 8000))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)

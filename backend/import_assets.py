@@ -1,151 +1,153 @@
-import sqlite3
-import csv
 import os
-import unicodedata
 import re
+import csv
+import sqlite3
 import hashlib
-from datetime import datetime, timedelta
 
-#--- AJUSTE DE CAMINHO DINÂMICO ---
-# Ele identifica a pasta onde o script está e aponta para o assets.db no mesmo local
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DB_PATH = os.path.join(BASE_DIR, "assets.db")
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+db_path = os.path.join(parent_dir, 'assets.db')
 
-def limpar_chave(chave):
-    nfkd = unicodedata.normalize('NFKD', chave)
-    limpa = "".join([c for c in nfkd if not unicodedata.combining(c)])
-    return limpa.lower().strip().replace(" ", "_").replace("%", "").replace("$", "")
+def limpar_chave(key):
+    key = str(key).strip()
+    key = re.sub(r'\W+', '_', key)
+    key = re.sub(r'_+', '_', key)
+    key = key.strip('_')
+    if not key:
+        key = 'coluna'
+    if key[0].isdigit():
+        key = f'col_{key}'
+    return key.lower()
 
-def limpar_valor_numerico(val):
-    if not val or str(val).strip() in ['-', '', 'N/D', 'N/A', 'nan']:
-        return 0.0
-    texto = str(val).strip().upper()
-    if 'E' in texto and any(char.isdigit() for char in texto):
-        try: return float(texto)
-        except: pass
-    texto = re.sub(r'[^\d.,]', '', texto)
-    if not texto: return 0.0
-    if ',' in texto and '.' in texto:
-        texto = texto.replace('.', '').replace(',', '.')
-    elif ',' in texto:
-        texto = texto.replace(',', '.')
-    elif texto.count('.') > 1:
-        partes = texto.split('.')
-        texto = "".join(partes[:-1]) + "." + partes[-1]
-    try: return float(texto)
-    except: return 0.0
-
-def garantir_tabela(cursor):
-    """Cria a tabela se não existir, SEM apagar os dados anteriores."""
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS assets (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            internal_code TEXT,
-            public_code TEXT,
-            process_number TEXT, 
-            city TEXT,
-            state TEXT,
-            typology TEXT,
-            estimated_vgv REAL,
-            min_bid REAL,
-            discount_percentage REAL,
-            is_public INTEGER,
-            metragem REAL,
-            row_hash TEXT UNIQUE -- Chave para evitar duplicidade de linha
-        )
-    ''')
-
-def importar_planilha():
-    arquivos = [f for f in os.listdir('.') if f.endswith('.csv')]
-    if not arquivos:
-        print("❌ Nenhum arquivo .csv encontrado.")
-        return
-
-    print("\n--- 📂 Seleção de Planilha (Acumulativo) ---")
-    for i, arq in enumerate(arquivos):
-        print(f"[{i}] {arq}")
-    
-    try:
-        escolha = int(input("\n👉 Selecione a planilha para ADICIONAR ao banco: "))
-        csv_path = arquivos[escolha]
-    except: return
-
-    conn = sqlite3.connect(DB_PATH)
-    cursor = conn.cursor()
-    garantir_tabela(cursor)
-    
-    hoje = datetime.now()
-    limite_passado = hoje - timedelta(days=60)
-    data_ref = hoje.strftime("%m%y")
-    
-    novos = 0
-    duplicados = 0
-
-    with open(csv_path, mode='r', encoding='utf-8-sig') as f:
-        content = f.read(2048)
-        f.seek(0)
-        delimiter = ';' if ';' in content else ','
-        reader = csv.DictReader(f, delimiter=delimiter)
-        reader.fieldnames = [limpar_chave(h) for h in reader.fieldnames]
-        
-        print(f"🚀 Minerando dados de {csv_path}...")
-
-        for index, row in enumerate(reader):
+def limpar_valor_numerico(valor):
+    if not valor:
+        return ''
+    valor = str(valor).strip()
+    valor = re.sub(r'[R$\s%]', '', valor)
+    # Handle Brazilian format: 1.234,56 -> 1234.56
+    if ',' in valor:
+        parts = valor.split(',')
+        if len(parts) == 2:
+            integer_part = re.sub(r'\.', '', parts[0])
+            decimal_part = parts[1][:10]  # limit decimals
+            cleaned = f'{integer_part}.{decimal_part}'
             try:
-                # 1. Identidade única da linha para evitar duplicar o mesmo imóvel da mesma planilha
-                linha_str = "".join(str(v) for v in row.values())
-                row_hash = hashlib.md5(linha_str.encode()).hexdigest()
+                return str(float(cleaned))
+            except ValueError:
+                pass
+    # Remove thousands separator
+    valor = re.sub(r'\.', '', valor)
+    valor = valor.replace(',', '.')
+    try:
+        return str(float(valor))
+    except ValueError:
+        return valor
 
-                # 2. Janela de 60 dias
-                data_str = row.get('data_leilao', row.get('leilao', '')).strip()
-                is_public = 1
-                if data_str:
-                    try:
-                        data_leilao = datetime.strptime(data_str, "%d/%m/%Y")
-                        if data_leilao < limite_passado:
-                            is_public = 0
-                    except: pass
+def get_delimiter(filename):
+    with open(filename, 'r', encoding='utf-8') as f:
+        sample = f.read(4096)
+    sniffer = csv.Sniffer()
+    try:
+        dialect = sniffer.sniff(sample)
+        return dialect.delimiter
+    except:
+        return ','
 
-                # 3. Valores
-                vgv = limpar_valor_numerico(row.get('avaliacao', '0'))
-                p_raw = limpar_valor_numerico(row.get('leilao', row.get('_leilao', '50')))
-                percentual = p_raw if p_raw > 1 else p_raw * 100
-                min_bid = vgv * (percentual / 100)
-                discount = 100 - percentual
+def compute_row_hash(row_dict):
+    sorted_items = sorted(row_dict.items())
+    data = '|'.join(f'{k}:{v}' for k, v in sorted_items)
+    return hashlib.sha256(data.encode('utf-8')).hexdigest()
 
-                processo = row.get('processo', f"SN-{index}").strip()
-                cidade = row.get('cidade', 'N/D').strip()
-                estado = row.get('estado', 'N/D').strip()
-                tipo = row.get('tipo', 'N/D').strip()
-                metragem = limpar_valor_numerico(row.get('metragem', '0'))
-                
-                public_code = f"OP-{cidade.upper().replace(' ', '')}-{data_ref}-{index+1:03d}"
-                
-                dados = (
-                    f"PR-{datetime.now().year}-{index+1:03d}",
-                    public_code, processo, cidade, estado, tipo, 
-                    vgv, min_bid, discount, is_public, metragem, row_hash
-                )
+def generate_codes(row_hash):
+    h = hashlib.md5(row_hash.encode()).hexdigest()
+    public_code = h[:8].upper()
+    internal_code = h[8:16].upper()
+    return public_code, internal_code
 
-                # INSERT OR IGNORE: Se o row_hash já existir, ele pula (não duplica nem apaga)
-                cursor.execute('''
-                    INSERT OR IGNORE INTO assets (
-                        internal_code, public_code, process_number, city, state, 
-                        typology, estimated_vgv, min_bid, discount_percentage, is_public, metragem, row_hash
-                    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
-                ''', dados)
-                
-                if cursor.rowcount > 0:
-                    novos += 1
-                else:
-                    duplicados += 1
-            except: pass
+def import_csv(csv_file):
+    table_name = limpar_chave(os.path.splitext(os.path.basename(csv_file))[0])
+    conn = sqlite3.connect(db_path)
+    cur = conn.cursor()
+
+    delimiter = get_delimiter(csv_file)
+
+    # Read headers
+    with open(csv_file, 'r', encoding='utf-8', newline='') as f:
+        reader = csv.reader(f, delimiter=delimiter)
+        headers_raw = next(reader, [])
+    headers = [limpar_chave(h) for h in headers_raw]
+
+    # Additional columns
+    all_cols = ['row_hash', 'public_code', 'internal_code'] + headers
+
+    # Create table
+    cols_def = ', '.join([f'"{c}" TEXT' for c in all_cols])
+    create_sql = f'CREATE TABLE IF NOT EXISTS "{table_name}" ({cols_def})'
+    # Add UNIQUE constraint
+    alter_sql = f'CREATE UNIQUE INDEX IF NOT EXISTS idx_{table_name}_row_hash ON "{table_name}" (row_hash)'
+    cur.execute(create_sql)
+    cur.execute(alter_sql)
+
+    # Prepare insert
+    col_names = ', '.join([f'"{c}"' for c in all_cols])
+    placeholders = ', '.join(['?'] * len(all_cols))
+    insert_sql = f'INSERT OR IGNORE INTO "{table_name}" ({col_names}) VALUES ({placeholders})'
+
+    imported = 0
+    skipped = 0
+
+    # Read data
+    with open(csv_file, 'r', encoding='utf-8', newline='') as f:
+        reader = csv.reader(f, delimiter=delimiter)
+        next(reader)  # skip header
+        for row_num, row in enumerate(reader, 1):
+            if len(row) != len(headers):
+                print(f"Linha {row_num} ignorada: número de colunas inconsistente ({len(row)} != {len(headers)})")
+                continue
+            row_dict = {headers[i]: limpar_valor_numerico(row[i]) for i in range(len(headers))}
+            row_hash = compute_row_hash(row_dict)
+            public_code, internal_code = generate_codes(row_hash)
+            insert_data = (row_hash, public_code, internal_code) + tuple(row_dict.values())
+            cur.execute(insert_sql, insert_data)
+            if cur.rowcount > 0:
+                imported += 1
+            else:
+                skipped += 1
 
     conn.commit()
     conn.close()
-    print(f"\n✅ IMPORTAÇÃO CONCLUÍDA")
-    print(f"💎 Novos ativos minerados: {novos}")
-    print(f"🛡️ Itens já existentes (pulados): {duplicados}")
+    print(f"Resumo para {csv_file}: {imported} linhas importadas, {skipped} ignoradas.")
 
-if __name__ == "__main__":
-    importar_planilha()
+def main():
+    csv_files = [f for f in os.listdir('.') if f.lower().endswith('.csv')]
+    if not csv_files:
+        print("Nenhum arquivo CSV encontrado no diretório atual.")
+        return
+
+    while True:
+        print("\n=== Menu de Importação de Assets ===")
+        print("CSVs disponíveis:")
+        for i, f in enumerate(csv_files, 1):
+            print(f"{i}. {f}")
+        print("0. Sair")
+        choice = input("Escolha o número do CSV: ").strip()
+        if choice == '0':
+            break
+        try:
+            idx = int(choice) - 1
+            if 0 <= idx < len(csv_files):
+                csv_file = csv_files[idx]
+                confirm = input(f"Importar {csv_file}? (s/n): ").strip().lower()
+                if confirm in ['s', 'sim', 'y', 'yes']:
+                    print(f"Iniciando importação de {csv_file}...")
+                    import_csv(csv_file)
+                else:
+                    print("Importação cancelada.")
+            else:
+                print("Escolha inválida.")
+        except ValueError:
+            print("Entrada inválida. Digite um número.")
+        except Exception as e:
+            print(f"Erro: {e}")
+
+if __name__ == '__main__':
+    main()
