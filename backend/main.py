@@ -46,7 +46,7 @@ if os.environ.get("VERCEL") != "1":
 
 # Inclui as rotas (preservado, sem alteração de nomes ou prefixos)
 app.include_router(wellness.router)
-app.include_router(oportunidades.router)
+app.include_router(oportunidades.router, prefix="/api")
 app.include_router(zapsign_router)
 
 # Rota raiz (preservada)
