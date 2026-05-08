@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import text
 from app.models.database import get_db
 
-router = APIRouter(prefix="/api/oportunidades", tags=["Oportunidades"])
+router = APIRouter(prefix="/api/oportunidades", tags=["oportunidades"])
 
 @router.get("/")
 def listar_oportunidades(db: Session = Depends(get_db)):
