@@ -6,9 +6,9 @@ import re
 import hashlib
 from datetime import datetime, timedelta
 
-#--- AJUSTE DE CAMINHO DINÂMICO ---
-# Ele identifica a pasta onde o script está e aponta para o assets.db no mesmo local
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+#--- AJUSTE DE CAMINHO DINÂMICO PARA A RAIZ ---
+# Sobe um nível para encontrar o assets.db na raiz do hub, fora da pasta backend
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_PATH = os.path.join(BASE_DIR, "assets.db")
 
 def limpar_chave(chave):
@@ -70,6 +70,7 @@ def importar_planilha():
         csv_path = arquivos[escolha]
     except: return
 
+    print(f"📍 Banco de dados em: {DB_PATH}")
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     garantir_tabela(cursor)
