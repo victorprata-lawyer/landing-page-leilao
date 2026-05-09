@@ -2,14 +2,12 @@ import os
 import sqlite3
 import hashlib
 
-
 def limpar_chave(chave):
     if not chave:
         return ''
     chave = str(chave).strip().lower()
     chave = chave.replace(' ', '_').replace('-', '_').replace('/', '_')
     return chave
-
 
 def limpar_valor_numerico(valor):
     if valor is None or valor == '':
@@ -22,7 +20,6 @@ def limpar_valor_numerico(valor):
         return float(s)
     except ValueError:
         return 0.0
-
 
 def process_row(row):
     cleaned = {}
@@ -38,7 +35,7 @@ def process_row(row):
             cleaned['tipo'] = str(v).strip() if v else ''
         elif clean_k in ['avaliacao', 'arremate']:
             cleaned[clean_k] = limpar_valor_numerico(v)
-    # Provide defaults for missing fields
+    
     defaults = {
         'public_code': '',
         'cidade': '',
@@ -51,71 +48,65 @@ def process_row(row):
         cleaned.setdefault(field, default)
     return cleaned
 
+# Path to database in project root (../assets.db from script directory)
 DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets.db")
 
-# Example data - replace with real data from your source (e.g., API or JSON file)
+# Example data (replace with your CSV reading logic if necessary)
 data = [
     {
-        "Public Code": "PR001",
-        "Cidade": "São Paulo",
-        "Estado": "SP",
-        "Tipo": "Apartamento",
-        "Avaliação": "1.234.567,89",
-        "Arremate": "987.654,32"
-    },
-    {
-        "public_code": "PR002",
-        "cidade": "Rio de Janeiro",
-        "estado": "RJ",
-        "tipo": "Casa",
-        "avaliacao": "500.000,00",
-        "arremate": "400.000,00"
+        "public_code": "PR001",
+        "cidade": "São Paulo",
+        "estado": "SP",
+        "tipo": "Apartamento",
+        "avaliacao": "1.234.567,89",
+        "arremate": "987.654,32"
     }
-    # Add more rows here or load from file: data = json.load(open('raw_data.json'))
 ]
 
-with sqlite3.connect(DB_PATH) as conn:
-    conn.execute("""
-        CREATE TABLE IF NOT EXISTS assets (
-            row_hash TEXT PRIMARY KEY,
-            public_code TEXT,
-            cidade TEXT,
-            estado TEXT,
-            tipo TEXT,
-            avaliacao REAL,
-            arremate REAL
-        )
-    """)
-
-    count = 0
-    for row in data:
-        cleaned = process_row(row)
-        fields_for_hash = [
-            str(cleaned['public_code']),
-            str(cleaned['cidade']),
-            str(cleaned['estado']),
-            str(cleaned['tipo']),
-            str(cleaned['avaliacao']),
-            str(cleaned['arremate'])
-        ]
-        row_hash = hashlib.md5('||'.join(fields_for_hash).encode('utf-8')).hexdigest()
-
+def executar_importacao(lista_dados):
+    with sqlite3.connect(DB_PATH) as conn:
         conn.execute("""
-            INSERT OR REPLACE INTO assets
-            (row_hash, public_code, cidade, estado, tipo, avaliacao, arremate)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-        """, (
-            row_hash,
-            cleaned['public_code'],
-            cleaned['c['estado'],
-            cleaned['tipo'],
-            cleaned['avaliacao'],
-            cleaned['arremate']
-        ))
-        count += 1
+            CREATE TABLE IF NOT EXISTS assets (
+                row_hash TEXT PRIMARY KEY,
+                public_code TEXT,
+                cidade TEXT,
+                estado TEXT,
+                tipo TEXT,
+                avaliacao REAL,
+                arremate REAL
+            )
+        """)
 
-    conn.commit()
+        count = 0
+        for row in lista_dados:
+            cleaned = process_row(row)
+            fields_for_hash = [
+                str(cleaned['public_code']),
+                str(cleaned['cidade']),
+                str(cleaned['estado']),
+                str(cleaned['tipo']),
+                str(cleaned['avaliacao']),
+                str(cleaned['arremate'])
+            ]
+            row_hash = hashlib.md5('||'.join(fields_for_hash).encode('utf-8')).hexdigest()
 
-abs_db_path = os.path.abspath(DB_PATH)
-print(f"Database saved at: {abs_db_path}")
-print(f"Processed {count} rows. Table 'assets' is now populated.")
+            conn.execute("""
+                INSERT OR REPLACE INTO assets
+                (row_hash, public_code, cidade, estado, tipo, avaliacao, arremate)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+            """, (
+                row_hash,
+                cleaned['public_code'],
+                cleaned['cidade'],
+                cleaned['estado'],
+                cleaned['tipo'],
+                cleaned['avaliacao'],
+                cleaned['arremate']
+            ))
+            count += 1
+        conn.commit()
+    print(f"Banco atualizado em: {os.path.abspath(DB_PATH)}")
+    print(f"Processados {count} ativos.")
+
+if __name__ == "__main__":
+    executar_importacao(data)
