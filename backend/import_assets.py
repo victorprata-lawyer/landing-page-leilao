@@ -1,152 +1,121 @@
-import sqlite3
-import csv
 import os
-import unicodedata
-import re
+import sqlite3
 import hashlib
-from datetime import datetime, timedelta
 
-#--- AJUSTE DE CAMINHO DINÂMICO PARA A RAIZ ---
-# Sobe um nível para encontrar o assets.db na raiz do hub, fora da pasta backend
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DB_PATH = os.path.join(BASE_DIR, "assets.db")
 
 def limpar_chave(chave):
-    nfkd = unicodedata.normalize('NFKD', chave)
-    limpa = "".join([c for c in nfkd if not unicodedata.combining(c)])
-    return limpa.lower().strip().replace(" ", "_").replace("%", "").replace("$", "")
+    if not chave:
+        return ''
+    chave = str(chave).strip().lower()
+    chave = chave.replace(' ', '_').replace('-', '_').replace('/', '_')
+    return chave
 
-def limpar_valor_numerico(val):
-    if not val or str(val).strip() in ['-', '', 'N/D', 'N/A', 'nan']:
+
+def limpar_valor_numerico(valor):
+    if valor is None or valor == '':
         return 0.0
-    texto = str(val).strip().upper()
-    if 'E' in texto and any(char.isdigit() for char in texto):
-        try: return float(texto)
-        except: pass
-    texto = re.sub(r'[^\d.,]', '', texto)
-    if not texto: return 0.0
-    if ',' in texto and '.' in texto:
-        texto = texto.replace('.', '').replace(',', '.')
-    elif ',' in texto:
-        texto = texto.replace(',', '.')
-    elif texto.count('.') > 1:
-        partes = texto.split('.')
-        texto = "".join(partes[:-1]) + "." + partes[-1]
-    try: return float(texto)
-    except: return 0.0
-
-def garantir_tabela(cursor):
-    """Cria a tabela se não existir, SEM apagar os dados anteriores."""
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS assets (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            internal_code TEXT,
-            public_code TEXT,
-            process_number TEXT, 
-            city TEXT,
-            state TEXT,
-            typology TEXT,
-            estimated_vgv REAL,
-            min_bid REAL,
-            discount_percentage REAL,
-            is_public INTEGER,
-            metragem REAL,
-            row_hash TEXT UNIQUE -- Chave para evitar duplicidade de linha
-        )
-    ''')
-
-def importar_planilha():
-    arquivos = [f for f in os.listdir('.') if f.endswith('.csv')]
-    if not arquivos:
-        print("❌ Nenhum arquivo .csv encontrado.")
-        return
-
-    print("\n--- 📂 Seleção de Planilha (Acumulativo) ---")
-    for i, arq in enumerate(arquivos):
-        print(f"[{i}] {arq}")
-    
+    if isinstance(valor, (int, float)):
+        return float(valor)
+    s = str(valor).strip()
+    s = s.replace('.', '').replace(',', '.')
     try:
-        escolha = int(input("\n👉 Selecione a planilha para ADICIONAR ao banco: "))
-        csv_path = arquivos[escolha]
-    except: return
+        return float(s)
+    except ValueError:
+        return 0.0
 
-    print(f"📍 Banco de dados em: {DB_PATH}")
-    conn = sqlite3.connect(DB_PATH)
-    cursor = conn.cursor()
-    garantir_tabela(cursor)
-    
-    hoje = datetime.now()
-    limite_passado = hoje - timedelta(days=60)
-    data_ref = hoje.strftime("%m%y")
-    
-    novos = 0
-    duplicados = 0
 
-    with open(csv_path, mode='r', encoding='utf-8-sig') as f:
-        content = f.read(2048)
-        f.seek(0)
-        delimiter = ';' if ';' in content else ','
-        reader = csv.DictReader(f, delimiter=delimiter)
-        reader.fieldnames = [limpar_chave(h) for h in reader.fieldnames]
-        
-        print(f"🚀 Minerando dados de {csv_path}...")
+def process_row(row):
+    cleaned = {}
+    for k, v in row.items():
+        clean_k = limpar_chave(k)
+        if clean_k == 'public_code':
+            cleaned['public_code'] = str(v).strip() if v else ''
+        elif clean_k == 'cidade':
+            cleaned['cidade'] = str(v).strip() if v else ''
+        elif clean_k == 'estado':
+            cleaned['estado'] = str(v).strip() if v else ''
+        elif clean_k == 'tipo':
+            cleaned['tipo'] = str(v).strip() if v else ''
+        elif clean_k in ['avaliacao', 'arremate']:
+            cleaned[clean_k] = limpar_valor_numerico(v)
+    # Provide defaults for missing fields
+    defaults = {
+        'public_code': '',
+        'cidade': '',
+        'estado': '',
+        'tipo': '',
+        'avaliacao': 0.0,
+        'arremate': 0.0
+    }
+    for field, default in defaults.items():
+        cleaned.setdefault(field, default)
+    return cleaned
 
-        for index, row in enumerate(reader):
-            try:
-                # 1. Identidade única da linha para evitar duplicar o mesmo imóvel da mesma planilha
-                linha_str = "".join(str(v) for v in row.values())
-                row_hash = hashlib.md5(linha_str.encode()).hexdigest()
+DB_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "assets.db")
 
-                # 2. Janela de 60 dias
-                data_str = row.get('data_leilao', row.get('leilao', '')).strip()
-                is_public = 1
-                if data_str:
-                    try:
-                        data_leilao = datetime.strptime(data_str, "%d/%m/%Y")
-                        if data_leilao < limite_passado:
-                            is_public = 0
-                    except: pass
+# Example data - replace with real data from your source (e.g., API or JSON file)
+data = [
+    {
+        "Public Code": "PR001",
+        "Cidade": "São Paulo",
+        "Estado": "SP",
+        "Tipo": "Apartamento",
+        "Avaliação": "1.234.567,89",
+        "Arremate": "987.654,32"
+    },
+    {
+        "public_code": "PR002",
+        "cidade": "Rio de Janeiro",
+        "estado": "RJ",
+        "tipo": "Casa",
+        "avaliacao": "500.000,00",
+        "arremate": "400.000,00"
+    }
+    # Add more rows here or load from file: data = json.load(open('raw_data.json'))
+]
 
-                # 3. Valores
-                vgv = limpar_valor_numerico(row.get('avaliacao', '0'))
-                p_raw = limpar_valor_numerico(row.get('leilao', row.get('_leilao', '50')))
-                percentual = p_raw if p_raw > 1 else p_raw * 100
-                min_bid = vgv * (percentual / 100)
-                discount = 100 - percentual
+with sqlite3.connect(DB_PATH) as conn:
+    conn.execute("""
+        CREATE TABLE IF NOT EXISTS assets (
+            row_hash TEXT PRIMARY KEY,
+            public_code TEXT,
+            cidade TEXT,
+            estado TEXT,
+            tipo TEXT,
+            avaliacao REAL,
+            arremate REAL
+        )
+    """)
 
-                processo = row.get('processo', f"SN-{index}").strip()
-                cidade = row.get('cidade', 'N/D').strip()
-                estado = row.get('estado', 'N/D').strip()
-                tipo = row.get('tipo', 'N/D').strip()
-                metragem = limpar_valor_numerico(row.get('metragem', '0'))
-                
-                public_code = f"OP-{cidade.upper().replace(' ', '')}-{data_ref}-{index+1:03d}"
-                
-                dados = (
-                    f"PR-{datetime.now().year}-{index+1:03d}",
-                    public_code, processo, cidade, estado, tipo, 
-                    vgv, min_bid, discount, is_public, metragem, row_hash
-                )
+    count = 0
+    for row in data:
+        cleaned = process_row(row)
+        fields_for_hash = [
+            str(cleaned['public_code']),
+            str(cleaned['cidade']),
+            str(cleaned['estado']),
+            str(cleaned['tipo']),
+            str(cleaned['avaliacao']),
+            str(cleaned['arremate'])
+        ]
+        row_hash = hashlib.md5('||'.join(fields_for_hash).encode('utf-8')).hexdigest()
 
-                # INSERT OR IGNORE: Se o row_hash já existir, ele pula (não duplica nem apaga)
-                cursor.execute('''
-                    INSERT OR IGNORE INTO assets (
-                        internal_code, public_code, process_number, city, state, 
-                        typology, estimated_vgv, min_bid, discount_percentage, is_public, metragem, row_hash
-                    ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
-                ''', dados)
-                
-                if cursor.rowcount > 0:
-                    novos += 1
-                else:
-                    duplicados += 1
-            except: pass
+        conn.execute("""
+            INSERT OR REPLACE INTO assets
+            (row_hash, public_code, cidade, estado, tipo, avaliacao, arremate)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            row_hash,
+            cleaned['public_code'],
+            cleaned['c['estado'],
+            cleaned['tipo'],
+            cleaned['avaliacao'],
+            cleaned['arremate']
+        ))
+        count += 1
 
     conn.commit()
-    conn.close()
-    print(f"\n✅ IMPORTAÇÃO CONCLUÍDA")
-    print(f"💎 Novos ativos minerados: {novos}")
-    print(f"🛡️ Itens já existentes (pulados): {duplicados}")
 
-if __name__ == "__main__":
-    importar_planilha()
+abs_db_path = os.path.abspath(DB_PATH)
+print(f"Database saved at: {abs_db_path}")
+print(f"Processed {count} rows. Table 'assets' is now populated.")

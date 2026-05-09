@@ -33,7 +33,7 @@ else:
         database_url = f"sqlite:///{db_path}"
     else:
         # Fallback para assets.db na raiz do projeto advocacia-hub
-        root_path = Path(__file__).resolve().parents[3]
+        root_path = Path(__file__).resolve().parents[2]
         db_path = root_path / "assets.db"
         if not db_path.exists():
             raise FileNotFoundError(f"Arquivo de banco não encontrado: {db_path}")
