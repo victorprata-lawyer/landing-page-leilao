@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 root_path = Path(__file__).resolve().parents[3]
 
 DATABASE_URL = os.getenv("DATABASE_URL")
-DATABASE_PATH = root_path / "database.db"
+DATABASE_PATH = root_path / "assets.db"
 
 if DATABASE_URL:
     engine = create_engine(DATABASE_URL)
