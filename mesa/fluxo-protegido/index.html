@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Fluxo Protegido Formalizado | Prata Real Estate</title>
+    <title>Mesa de Originação | Prata Real Estate</title>
     <link rel="icon" href="/favicon.png" type="image/png">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
     <style>
+        /* REFERÊNCIA DIRETA DO BRANDING DA HOME (linda por*/
         :root {
             --gold: #c6a85a;
             --gold-hover: #d6b86a;
@@ -23,211 +26,439 @@
             --shadow: 0 24px 48px rgba(0,0,0,0.35);
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
+            margin: 0;
             font-family: 'Montserrat', sans-serif;
             background: 
                 radial-gradient(circle at top, rgba(198,168,90,0.08), transparent 28%),
                 linear-gradient(180deg, #090b0f 0%, #0a0c10 100%);
             color: var(--text);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
+            line-height: 1.65;
             min-height: 100vh;
+            padding: 40px 20px;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .container { max-width: 1200px; margin: 0 auto; }
+
+        /* BOTÃO VOLTAR */
+        .nav-actions { margin-bottom: 30px; }
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.02);
+            color: var(--text);
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+            transition: all .28s ease;
+        }
+        .btn-home:hover {
+            border-color: rgba(198,168,90,0.3);
+            background: rgba(198,168,90,0.05);
+            transform: translateY(-2px);
         }
 
+        /* HEADER */
         header {
+            margin-bottom: 50px;
             border-left: 2px solid var(--gold);
             padding-left: 25px;
-            margin: 60px 0 40px;
-            text-align: left;
         }
-
         .eyebrow {
-            font-size: 11px;
-            font-weight: 500;
             color: var(--gold);
             text-transform: uppercase;
-            letter-spacing: 0.5em;
-            margin-bottom: 20px;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 10px;
         }
-
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 3.2rem);
-            font-weight: 600;
-            margin: 0;
-            line-height: 1.2;
+            font-size: 3.2rem;
+            line-height: 1.1;
+            margin-bottom: 15px;
         }
+        .asset-count { color: var(--text-soft); font-size: 0.9rem; }
 
-        .hero-text {
-            font-size: 1.1rem;
-            color: var(--text-soft);
-            max-width: 800px;
-            margin-top: 24px;
+        /* FILTROS */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
+            padding: 25px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
+            border: 1px solid var(--border-soft);
+            border-radius: 18px;
+            align-items: center;
         }
-
-        .card {
-            background: rgba(255,255,255,0.03);
+        input[type="text"], select {
+            background: rgba(255,255,255,0.02);
             border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 32px;
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(20px);
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.875rem;
-            font-weight: 500;
             color: var(--text);
-            margin-bottom: 24px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: var(--gold);
-        }
-
-        .list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .list li {
-            padding: 12px 0;
-            padding-left: 24px;
-            position: relative;
-            color: var(--text-soft);
-        }
-
-        .list li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            font-weight: 600;
-        }
-
-        .btn {
-            padding: 16px 32px;
-            border: none;
-            border-radius: 12px;
+            padding: 14px 18px;
+            border-radius: 10px;
+            outline: none;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 500;
-            font-size: 15px;
+            font-size: 13px;
+        }
+        input[type="text"] { flex: 2 1 250px; }
+        select { flex: 1 1 120px; cursor: pointer; }
+
+        @media (max-width: 760px) {
+        .modal-overlay {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px; /* Garante respiro nas bordas extremas */
+        }
+
+        .modal-content {
+            transform: scale(0.8); /* Redução de 20% no zoom */
+            transform-origin: center center;
+            max-height: 90vh; /* Trava a altura para caber na tela */
+            overflow-y: auto; /* Habilita o scroll interno */
+            padding: 25px; /* Compactação de espaço */
+            width: 95%; /* Garante largura quase total */
+        }
+
+        .modal-content h3 {
+            font-size: 1.4rem; /* Título mais proporcional */
+        }
+
+        .modal-text {
+            font-size: 13px; /* Texto técnico e legível */
+        }
+}
+
+        #state-select {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+#state-select option {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+#state-select:focus {
+  border: 2px solid #ffd700;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+  outline: none;
+}
+
+#state-select:hover {
+  background-color: #3d3d3d;
+}
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-left: 20px;
+            border-left: 1px solid var(--border);
+        }
+        .checkbox-group input { cursor: pointer; accent-color: var(--gold); }
+        .checkbox-group label {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            margin-right: 16px;
-            margin-bottom: 16px;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--gold), var(--gold-hover));
-            color: var(--dark);
+        /* GRID & CARDS */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 30px;
         }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(198,168,90,0.4);
+        .card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.012));
+            border: 1px solid var(--border-soft);
+            border-radius: 18px;
+            padding: 35px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: all .28s ease;
+            box-shadow: var(--shadow);
         }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-soft);
+        .card:hover {
+            border-color: rgba(198,168,90,0.24);
+            transform: translateY(-4px);
+        }
+        .arbitrage-badge {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            color: var(--gold);
+            font-size: 10px;
+            font-weight: 700;
             border: 1px solid var(--border);
+            padding: 5px 10px;
+            border-radius: 999px;
+            text-transform: uppercase;
         }
+        .public-code { color: var(--text-muted); font-size: 11px; font-weight: 600; margin-bottom: 10px; letter-spacing: 1px; }
+        .card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 8px; color: var(--text); }
+        .typology { color: var(--text-soft); font-size: 12px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
+        .details { border-top: 1px solid var(--border-soft); padding-top: 20px; margin-bottom: 30px; }
+        .detail-row { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .detail-label { color: var(--text-muted); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .detail-value { font-weight: 600; font-size: 1.1rem; }
+        .detail-value.gold { color: var(--gold); }
 
-        .btn-secondary:hover {
-            background: var(--border-soft);
-            color: var(--text);
-            border-color: var(--gold);
+        .btn-analyze {
+            margin-top: auto;
+            width: 100%;
+            padding: 16px;
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 2px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all .28s ease;
         }
+        .btn-analyze:hover { background: var(--gold); color: var(--dark); }
 
-        .buttons {
+        /* MODAL */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.94);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1200;
+            padding: 20px;
+        }
+        .modal-content {
+            background: var(--dark-2);
+            padding: 45px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            max-width: 500px;
+            width: 100%;
             text-align: center;
-            margin-top: 40px;
+            box-shadow: var(--shadow);
+        }
+        .modal-content h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 20px; color: var(--gold); }
+        .modal-text { color: var(--text-soft); font-size: 14px; margin-bottom: 25px; line-height: 1.6; text-align: justify; }
+        .copy-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+        .copy-code { flex: 1; font-weight: 700; font-size: 15px; text-align: left; align-self: center; padding-left: 10px; color: var(--text); }
+        .btn-copy {
+            background: var(--gold);
+            color: var(--dark);
+            border: none;
+            padding: 8px 18px;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+        .btn-sign {
+            width: 100%;
+            padding: 18px;
+            background: var(--gold);
+            color: var(--dark);
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 11px;
+            box-shadow: 0 12px 28px rgba(198,168,90,0.16);
+        }
+        .btn-back {
+            background: transparent;
+            color: var(--text-muted);
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: underline;
         }
 
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 16px;
-            }
-
-            header {
-                margin: 40px 0 30px;
-                padding-left: 20px;
-            }
-
-            .card {
-                padding: 24px;
-            }
-
-            .btn {
-                width: 100%;
-                margin-right: 0;
-                margin-bottom: 12px;
-            }
-
-            .hero-text {
-                font-size: 1rem;
-            }
-        }
+        .loading { color: var(--gold); text-align: center; padding: 100px; letter-spacing: 2px; font-weight: 600; text-transform: uppercase; font-size: 12px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="eyebrow">NDA/NCND ASSINADO</div>
-            <h1>Fluxo Protegido Formalizado</h1>
-            <p class="hero-text">Parabéns! A confidencialidade e a vedação de não circunvenção foram formalizadas com sucesso. O ativo estratégico agora segue em fluxo protegido e abertura controlada.</p>
-        </header>
 
-        <section class="card">
-            <h2 class="section-title">O que acontece agora</h2>
-            <p style="color: var(--text-soft); font-size: 1rem;">A Mesa de Originação enviará, por e-mail, a camada inicial controlada do ativo estratégico, utilizando o endereço de e-mail informado durante a assinatura.</p>
-        </section>
+<div class="container">
+    <div class="nav-actions">
+        <a href="https://pratarealestate.com.br" class="btn-home">← Voltar para a Home</a>
+    </div>
 
-        <section class="card">
-            <h2 class="section-title">Próximo contato</h2>
-            <p style="color: var(--text-soft);">A camada inicial poderá incluir:</p>
-            <ul class="list">
-                <li>Documentação inicial controlada</li>
-                <li>Resumo jurídico do ativo</li>
-                <li>Leitura preliminar de risco</li>
-                <li>Sequência formal até a abertura do Data Room</li>
-            </ul>
-        </section>
+    <header>
+        <div class="eyebrow">Special Situations | Real Estate</div>
+        <h1>Mesa de Originação</h1>
+        <div class="asset-count" id="count-label">Sincronizando base de ativos...</div>
+    </header>
 
-        <section class="card">
-            <h2 class="section-title">Por que este processo existe</h2>
-            <p style="color: var(--text-soft);">Este fluxo garante a <strong>disciplina de processo</strong>, a <strong>proteção da origem</strong> e a condução profissional pela Mesa de Originação da Prata Real Estate. Cada etapa é meticulosamente controlada para preservar a integridade do ativo estratégico e assegurar uma análise sóbria e institucional.</p>
-        </section>
-
-        <div class="card">
-            <div class="buttons">
-                <button class="btn btn-primary" type="button">Fluxo protegido ativado</button>
-                <a class="btn btn-secondary" href="https://pratarealestate.com.br/mesa">Voltar para a Mesa de Originação</a>
-            </div>
+    <div class="filter-bar">
+        <input type="text" id="city-input" placeholder="Cidade...">
+        <select id="state-select">
+            <option value="">Estados</option>
+        </select>
+        <div class="checkbox-group">
+            <input type="checkbox" id="quality-filter" checked>
+            <label for="quality-filter">Filtro Qualificado (+300k)</label>
         </div>
     </div>
+
+    <div id="loading-msg" class="loading">Sincronizando base de ativos...</div>
+    <div id="asset-grid" class="grid"></div>
+</div>
+
+<!-- MODAL -->
+<!-- MODAL -->
+<div id="modal" class="modal-overlay">
+    <div class="modal-content">
+        <h3>Assine o NDA para acessar este ativo estratégico</h3>
+        <p class="modal-text">
+            Este ativo estratégico não é apresentado em fluxo irrestrito.<br><br>A mesa abre a próxima etapa apenas para interessados qualificados, com circulação protegida e análise controlada.<br><br>Com a assinatura do NDA, libera:<br>• documentação inicial controlada;<br>• resumo jurídico do ativo;<br>• leitura preliminar de risco;<br>• sequência formal para abertura do Data Room.<br><br>Não é burocracia; é o filtro que preserva a origem do ativo e restringe sua circulação a quem realmente pode avançar.
+        </p>
+        <div class="copy-box">
+            <div id="modal-asset-code" class="copy-code"></div>
+            <button id="btn-copy-action" class="btn-copy">Copiar</button>
+        </div>
+        <button id="btn-go-zapsign" class="btn-sign">Assinar NDA e Acessar o Ativo</button>
+        <button onclick="closeModal()" class="btn-back">Voltar para a Mesa</button>
+    </div>
+</div>
+
+<script>
+    let allAssets = [];
+    const zapSignLink = "https://app.zapsign.com.br/verificar/doc/18154b67-464f-4cbe-a59f-a9f2549829b6";
+
+    async function init() {
+        try {
+            const res = await fetch('/api/oportunidades');
+            const data = await res.json();
+            allAssets = Array.isArray(data) ? data : [];
+            populateStates();
+            render();
+            document.getElementById('loading-msg').style.display = 'none';
+        } catch (e) {
+            document.getElementById('loading-msg').innerText = "Erro ao carregar base.";
+        }
+    }
+
+    function populateStates() {
+        const states = [...new Set(allAssets.map(a => a.state).filter(Boolean))].sort();
+        const select = document.getElementById('state-select');
+        states.forEach(uf => {
+            const opt = document.createElement('option');
+            opt.value = uf; opt.innerText = uf;
+            select.appendChild(opt);
+        });
+    }
+
+    function normalize(str) {
+        return str ? str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase() : '';
+    }
+
+    function formatBRL(val) {
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val);
+    }
+
+    function render() {
+        const cityQuery = normalize(document.getElementById('city-input').value);
+        const stateQuery = document.getElementById('state-select').value;
+        const hideLow = document.getElementById('quality-filter').checked;
+
+        const filtered = allAssets.filter(asset => {
+            const vgv = asset.estimated_vgv || 0;
+            if (vgv <= 0) return false;
+            if (hideLow && vgv < 300000) return false;
+            if (stateQuery && asset.state !== stateQuery) return false;
+            if (cityQuery && !normalize(asset.city).includes(cityQuery)) return false;
+            return true;
+        }).slice(0, 40);
+
+        document.getElementById('count-label').innerHTML = `Exibindo <strong>${filtered.length}/${allAssets.length}</strong> teses estruturadas.`;
+        const grid = document.getElementById('asset-grid');
+        grid.innerHTML = '';
+
+        filtered.forEach(asset => {
+            const vgv = asset.estimated_vgv || 0;
+            const lance = asset.min_bid || 0;
+            const arbitragem = asset.discount_percentage || (vgv > 0 ? Math.round(((vgv - lance) / vgv) * 100) : 0);
+
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <div class="arbitrage-badge">${arbitragem}% ARBITRAGEM</div>
+                <div class="public-code">${asset.public_code}</div>
+                <h3>${asset.city.toUpperCase()} / ${asset.state}</h3>
+                <p class="typology">${asset.typology}</p>
+                <div class="details">
+                    <div class="detail-row">
+                        <span class="detail-label">Avaliação de Mercado</span>
+                        <span class="detail-value">${formatBRL(vgv)}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Lance Mínimo Estimado</span>
+                        <span class="detail-value gold">${formatBRL(lance)}</span>
+                    </div>
+                </div>
+                <button class="btn-analyze" onclick="openModal('${asset.public_code}')">Analisar Viabilidade</button>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    function openModal(code) {
+        document.getElementById('modal-asset-code').innerText = code;
+        document.getElementById('modal').style.display = 'flex';
+        document.getElementById('btn-copy-action').innerText = "Copiar";
+        document.getElementById('btn-copy-action').style.background = "#c6a85a";
+    }
+
+    function closeModal() { document.getElementById('modal').style.display = 'none'; }
+
+    document.getElementById('btn-copy-action').onclick = function() {
+        const code = document.getElementById('modal-asset-code').innerText;
+        navigator.clipboard.writeText(code);
+        this.innerText = "Copiado!";
+        this.style.background = "#27ae60";
+    };
+
+    document.getElementById('btn-go-zapsign').onclick = function() {
+        window.open(zapSignLink, '_blank');
+        closeModal();
+    };
+
+    document.getElementById('city-input').oninput = render;
+    document.getElementById('state-select').onchange = render;
+    document.getElementById('quality-filter').onchange = render;
+
+    init();
+</script>
 </body>
 </html>
