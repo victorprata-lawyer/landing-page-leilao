@@ -3,20 +3,24 @@ import sys
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+# --- AJUSTE DE CAMINHO ---
+# Define o BASE_DIR como a pasta 'backend' para achar a subpasta 'app'
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+
+# Agora os imports funcionam sem erro circular
 from app.routes import wellness, oportunidades
 from app.models.database import create_tables
-
-# Configuração de diretório base
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.append(BASE_DIR)
 
 # Carrega variáveis de ambiente
 load_dotenv()
 
-# Instância FastAPI (apenas uma vez)
+# Instância FastAPI
 app = FastAPI()
 
-# Configuração CORS
+# Configuração CORS (Mantendo suas URLs originais)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
