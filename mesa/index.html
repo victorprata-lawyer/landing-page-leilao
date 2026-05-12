@@ -358,7 +358,7 @@
 
     async function init() {
         try {
-            const res = await fetch('/api/oportunidades/');
+            const res = await fetch('http://localhost:8000/api/oportunidades/');
             const data = await res.json();
             allAssets = Array.isArray(data) ? data : [];
             populateStates();
