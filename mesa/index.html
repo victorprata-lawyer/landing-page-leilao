@@ -196,18 +196,33 @@
             border-color: rgba(198,168,90,0.24);
             transform: translateY(-4px);
         }
-        .arbitrage-badge {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            color: var(--gold);
-            font-size: 10px;
-            font-weight: 700;
-            border: 1px solid var(--border);
-            padding: 5px 10px;
-            border-radius: 999px;
+        .context-line {
+            font-size: 11px;
+            color: var(--text-muted);
             text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(255,255,255,0.02);
+            border-left: 2px solid var(--gold);
+            font-weight: 500;
         }
+
+        .arbitrage-row {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .arbitrage-badge {
+            background: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            border: 1px solid rgba(40, 167, 69, 0.2);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+}
         .public-code { color: var(--text-muted); font-size: 11px; font-weight: 600; margin-bottom: 10px; letter-spacing: 1px; }
         .card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-bottom: 8px; color: var(--text); }
         .typology { color: var(--text-soft); font-size: 12px; margin-bottom: 25px; text-transform: uppercase; letter-spacing: 1px; }
@@ -335,21 +350,37 @@
     <div id="asset-grid" class="grid"></div>
 </div>
 
-<!-- MODAL -->
-<!-- MODAL -->
-<div id="modal" class="modal-overlay">
-    <div class="modal-content">
-        <h3>Assine o NDA para acessar este ativo estratégico</h3>
-        <p class="modal-text">
-            Este ativo estratégico não é apresentado em fluxo irrestrito.<br><br>A mesa abre a próxima etapa apenas para interessados qualificados, com circulação protegida e análise controlada.<br><br>Com a assinatura do NDA, libera:<br>• documentação inicial controlada;<br>• resumo jurídico do ativo;<br>• leitura preliminar de risco;<br>• sequência formal para abertura do Data Room.<br><br>Não é burocracia; é o filtro que preserva a origem do ativo e restringe sua circulação a quem realmente pode avançar.
+<!-- MODAL SINCRONIZADO -->
+<div class="modal fade" id="ndaModal" tabindex="-1" aria-labelledby="ndaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="background: var(--dark-2); border: 1px solid var(--border); color: var(--text);">
+      <div class="modal-header" style="border-bottom: 1px solid var(--border-soft);">
+        <h5 class="modal-title" id="ndaModalLabel" style="font-family: 'Playfair Display', serif; color: var(--gold);">Assine o NDA para acessar os detalhes</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="padding: 30px;">
+        <p style="font-size: 14px; color: var(--text-soft); margin-bottom: 20px;">
+            Para acessar os detalhes completos deste ativo, utilizamos um NDA digital simples. Esse é o procedimento padrão da operação para organização do fluxo e organização do fluxo da operação e liberação das informações do ativo.
         </p>
-        <div class="copy-box">
+        <ul class="list-unstyled" style="text-align: left; margin-bottom: 25px;">
+          <li class="mb-2"><span style="color: #28a745; font-weight: bold; margin-right: 10px;">✓</span>Documentação do ativo</li>
+          <li class="mb-2"><span style="color: #28a745; font-weight: bold; margin-right: 10px;">✓</span>Resumo jurídico da estrutura</li>
+          <li class="mb-2"><span style="color: #28a745; font-weight: bold; margin-right: 10px;">✓</span>Informações para avaliação inicial</li>
+          <li><span style="color: #28a745; font-weight: bold; margin-right: 10px;">✓</span>Informações completas para avaliação</li>
+        </ul>
+        
+        <!-- Box de Código (Oculto ou visível conforme sua estratégia) -->
+        <div class="copy-box" style="display:none;">
             <div id="modal-asset-code" class="copy-code"></div>
             <button id="btn-copy-action" class="btn-copy">Copiar</button>
         </div>
-        <button id="btn-go-zapsign" class="btn-sign">Assinar NDA e Acessar o Ativo</button>
-        <button onclick="closeModal()" class="btn-back">Voltar para a Mesa</button>
+      </div>
+      <div class="modal-footer" style="border-top: 1px solid var(--border-soft); flex-direction: column;">
+        <button id="btn-go-zapsign" class="btn-sign" style="width: 100%;">Assinar NDA e Acessar Ativo</button>
+        <button type="button" class="btn-back" data-bs-dismiss="modal">Voltar para a Mesa</button>
+      </div>
     </div>
+  </div>
 </div>
 
 <script>
@@ -413,42 +444,64 @@
             const card = document.createElement('div');
             card.className = 'card';
             card.innerHTML = `
-                <div class="arbitrage-badge">${arbitragem}% ARBITRAGEM</div>
                 <div class="public-code">${asset.public_code}</div>
                 <h3>${asset.city.toUpperCase()} / ${asset.state}</h3>
                 <p class="typology">${asset.typology}</p>
+                
+                <p class="context-line">
+                    Ativo em estrutura judicial com análise preliminar de viabilidade
+                </p>
+
                 <div class="details">
                     <div class="detail-row">
                         <span class="detail-label">Avaliação de Mercado</span>
                         <span class="detail-value">${formatBRL(vgv)}</span>
                     </div>
                     <div class="detail-row">
-                        <span class="detail-label">Lance Mínimo Estimado</span>
+                        <span class="detail-label">Lance Mínimo</span>
                         <span class="detail-value gold">${formatBRL(lance)}</span>
                     </div>
                 </div>
-                <button class="btn-analyze" onclick="openModal('${asset.public_code}')">Analisar Viabilidade</button>
+
+                <div class="arbitrage-row">
+                    <span class="arbitrage-badge">${arbitragem}% oportunidade</span>
+                </div>
+
+                <button class="btn-analyze" onclick="openModal('${asset.public_code}')">
+                    Analisar Viabilidade
+                </button>
             `;
             grid.appendChild(card);
         });
     }
 
     function openModal(code) {
-        document.getElementById('modal-asset-code').innerText = code;
-        document.getElementById('modal').style.display = 'flex';
-        document.getElementById('btn-copy-action').innerText = "Copiar";
-        document.getElementById('btn-copy-action').style.background = "#c6a85a";
+        // Atualiza o código interno (mesmo que esteja oculto)
+        const codeEl = document.getElementById('modal-asset-code');
+        if(codeEl) codeEl.innerText = code;
+
+        // Abre o modal usando o motor do Bootstrap
+        const modalElement = document.getElementById('ndaModal');
+        const modal = new bootstrap.Modal(modalElement);
+        modal.show();
+        
+        // Reseta o botão de copiar
+        const btnCopy = document.getElementById('btn-copy-action');
+        if(btnCopy) {
+            btnCopy.innerText = "Copiar";
+            btnCopy.style.background = "var(--gold)";
+        }
     }
 
-    function closeModal() { document.getElementById('modal').style.display = 'none'; }
+    // O Bootstrap já gerencia o fechamento pelo data-bs-dismiss, 
+    // mas mantemos por compatibilidade se necessário
+    function closeModal() {
+        const modalElement = document.getElementById('ndaModal');
+        const modal = bootstrap.Modal.getInstance(modalElement);
+        if (modal) modal.hide();
+    }
 
-    document.getElementById('btn-copy-action').onclick = function() {
-        const code = document.getElementById('modal-asset-code').innerText;
-        navigator.clipboard.writeText(code);
-        this.innerText = "Copiado!";
-        this.style.background = "#27ae60";
-    };
-
+    // Configuração dos cliques
     document.getElementById('btn-go-zapsign').onclick = function() {
         window.open(zapSignLink, '_blank');
         closeModal();
