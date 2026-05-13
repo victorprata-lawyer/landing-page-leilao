@@ -485,39 +485,22 @@
         });
     }
 
-    function openModal(code) {
-        // Atualiza o código interno (mesmo que esteja oculto)
-        const codeEl = document.getElementById('modal-asset-code');
-        if(codeEl) codeEl.innerText = code;
+        function openModal(code) {
+            // 1. Atualiza o código se necessário
+            const codeEl = document.getElementById('modal-asset-code');
+            if (codeEl) codeEl.innerText = code;
 
-        // Abre o modal usando o motor do Bootstrap
-        const modalElement = document.getElementById('ndaModal');
-        const modal = new bootstrap.Modal(modalElement);
-        modal.show();
-        
-        // Reseta o botão de copiar
-        const btnCopy = document.getElementById('btn-copy-action');
-        if(btnCopy) {
-            btnCopy.innerText = "Copiar";
-            btnCopy.style.background = "var(--gold)";
-        
-            
+            // 2. Abre o modal usando o ID correto do seu HTML (ndaModal)
+            const modalEl = document.getElementById('ndaModal');
+            const modal = new bootstrap.Modal(modalEl);
+            modal.show();
         }
-    }
 
-    // O Bootstrap já gerencia o fechamento pelo data-bs-dismiss, 
-    // mas mantemos por compatibilidade se necessário
-    function closeModal() {
-        const modalElement = document.getElementById('ndaModal');
-        const modal = bootstrap.Modal.getInstance(modalElement);
-        if (modal) modal.hide();
-    }
-
-    // Configuração dos cliques
-    document.getElementById('btn-go-zapsign').onclick = function() {
-        window.open(zapSignLink, '_blank');
-        closeModal();
-    };
+        function closeModal() {
+            const modalEl = document.getElementById('ndaModal');
+            const modal = bootstrap.Modal.getInstance(modalEl);
+            if (modal) modal.hide();
+        }
 
     document.getElementById('city-input').oninput = render;
     document.getElementById('state-select').onchange = render;
