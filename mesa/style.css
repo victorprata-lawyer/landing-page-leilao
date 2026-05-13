@@ -234,104 +234,80 @@ tbody tr:hover {
   background: var(--primary-gold);
   color: var(--white);
 }
-
 /* Modal */
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90vw;
-  max-width: 600px;
-  max-height: 90vh;
-  background: var(--white);
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-lg);
-  z-index: 1050; /* Aumentei um pouco para garantir que fique sobre tudo */
-  overflow: hidden;
-  display: none; /* MUDANÇA AQUI: De flex para none */
-  flex-direction: column;
-}
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1055;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 
-.modal-header {
-  padding: var(--spacing-lg);
-  border-bottom: 1px solid var(--gray-lighter);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  .modal.show {
+    display: flex !important;
+  }
 
-.modal-body {
-  padding: var(--spacing-lg);
-  flex: 1;
-  overflow-y: auto;
-}
+  .modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 1.75rem auto;
+    max-width: 90%;
+    pointer-events: none;
+    transform: none;
+  }
 
-.modal-footer {
-  padding: var(--spacing-lg);
-  border-top: 1px solid var(--gray-lighter);
-  display: flex;
-  gap: var(--spacing-md);
-  justify-content: flex-end;
-}
+  .modal.show .modal-dialog {
+    pointer-events: auto;
+  }
 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1040;
-  display: none; /* MUDANÇA AQUI: Garante que comece escondido */
-}
+  .modal-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--white);
+    background-clip: padding-box;
+    border: none;
+    border-radius: 12px;
+    box-shadow: var(--shadow-lg);
+    outline: 0;
+  }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    /* Regras originais da página */
-    body { padding: 1rem; overflow-x: hidden; }
-    .filter-group { flex-direction: column; }
-    .results-info { font-size: 1.1rem; padding: 1rem 0 1rem 1.5rem; }
-    table { font-size: 0.9rem; }
-    th, td { padding: 0.75rem; }
+  .modal-header,
+  .modal-body,
+  .modal-footer {
+    padding: 1rem;
+  }
 
-    /* Lógica de Redução de 20% no Modal */
-    .modal-overlay {
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0, 0, 0, 0.85);
-        display: flex;
-        justify-content: center;
-        align-items: flex-start; /* Fixa no topo para evitar sumir no scroll */
-        padding-top: 5vh;
-        z-index: 2000;
+  .modal-header {
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .modal-footer {
+    border-top: 1px solid var(--gray-200);
+  }
+
+  @media (max-width: 768px) {
+    .modal-dialog {
+      transform: scale(0.8);
+      transform-origin: center;
+      max-width: 95%;
     }
 
-    .modal-content {
-        width: 90% !important;
-        max-height: 85vh !important;
-        background: #fff;
-        border-radius: 12px;
-        padding: 1.5rem !important;
-        overflow-y: auto;
-        transform: scale(0.8); /* Redução de 20% no 'zoom' visual */
-        transform-origin: top center;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+      padding: 0.75rem;
     }
+  }
 
-    /* Classe que o Bootstrap ou seu JS usará para mostrar */
-    .modal.show, .modal.fade.show {
-      display: flex !important;
-    }
-
-    /* Ajuste de escala para os elementos internos */
-    .modal-content h3 { font-size: 1.3rem !important; margin-bottom: 5px; }
-    .modal-text { font-size: 0.9rem !important; line-height: 1.4; }
-    .copy-box { padding: 8px !important; margin-bottom: 10px; }
     
     .btn-copy, .btn-sign, .btn-back {
         width: 100% !important;

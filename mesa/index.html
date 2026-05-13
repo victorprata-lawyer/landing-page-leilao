@@ -486,11 +486,11 @@
     }
 
         function openModal(code) {
-            // 1. Atualiza o código se necessário
+            // 1. Atualiza o código interno do ativo
             const codeEl = document.getElementById('modal-asset-code');
             if (codeEl) codeEl.innerText = code;
 
-            // 2. Abre o modal usando o ID correto do seu HTML (ndaModal)
+            // 2. Abre o modal usando o motor oficial do Bootstrap 5
             const modalEl = document.getElementById('ndaModal');
             const modal = new bootstrap.Modal(modalEl);
             modal.show();
@@ -502,11 +502,24 @@
             if (modal) modal.hide();
         }
 
-    document.getElementById('city-input').oninput = render;
-    document.getElementById('state-select').onchange = render;
-    document.getElementById('quality-filter').onchange = render;
+        // Configuração do clique no botão do ZapSign
+        document.addEventListener('DOMContentLoaded', function() {
+            const btnZap = document.getElementById('btn-go-zapsign');
+            if (btnZap) {
+                btnZap.onclick = function() {
+                    window.open(zapSignLink, '_blank');
+                    closeModal();
+                };
+            }
+        });
 
-    init();
+        // Listeners de filtro
+        document.getElementById('city-input').oninput = render;
+        document.getElementById('state-select').onchange = render;
+        document.getElementById('quality-filter').onchange = render;
+
+        // Inicializa a base
+        init();
 </script>
 </body>
 </html>
