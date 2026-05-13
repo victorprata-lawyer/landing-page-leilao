@@ -3,278 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mesa de Originação - Prata Real Estate</title>
+    <title>Prata Real Estate - Mesa de Originação Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --dark-bg: #0d1117;
-            --dark-card: #161b22;
-            --gold: #f1c40f;
-            --gold-dark: #b8860b;
-            --text-light: #f0f6fc;
-            --text-muted: #8b949e;
-            --green: #4CAF50;
-            --border: rgba(255,255,255,0.1);
+            --gold: #D4AF37;
+            --dark: #0f0f0f;
+            --dark-2: #1a1a1a;
+            --green: #10B981;
+            --white: #ffffff;
+            --text-light: #e5e5e5;
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-light);
-            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.15) 0%, var(--dark) 50%);
+            color: var(--white);
             min-height: 100vh;
+            line-height: 1.6;
         }
-        header {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            padding: 2rem;
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero {
             text-align: center;
-            box-shadow: 0 4px 20px rgba(241,196,15,0.3);
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--gold) 0%, rgba(212, 175, 55, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
         }
-        h1 {
-            font-size: 2.5rem;
-            color: #000;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            font-weight: bold;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.2) 0%, transparent 70%);
         }
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
         }
-        #oportunidades {
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--dark-2);
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--dark);
+            font-weight: 300;
+        }
+
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        .oportunidade-card {
-            background: var(--dark-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .oportunidade-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(241,196,15,0.2);
-        }
-        .oportunidade-card h3 {
-            color: var(--gold);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-        .oportunidade-card p {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-        .btn {
-            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: #000;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            font-weight: bold;
+
+        .card {
+            background: var(--dark-2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            transition: all 0.4s ease;
             cursor: pointer;
-            transition: transform 0.2s;
-            width: 100%;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
         }
-        .btn:hover {
-            transform: scale(1.05);
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), transparent);
         }
-        /* Modal styles */
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--gold);
+            box-shadow: 0 30px 80px rgba(212, 175, 55, 0.3);
+        }
+
+        .card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .context-line {
+            border-bottom: 3px solid var(--gold);
+            margin: 1.5rem 0;
+            padding-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .arbitrage-badge {
+            background: var(--green);
+            color: var(--dark);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Modal */
         .modal-overlay {
-            display: none !important;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
-            justify-content: center;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            display: none !important;
+            z-index: 10000;
             align-items: center;
-            backdrop-filter: blur(5px);
+            justify-content: center;
         }
+
         .modal-overlay.active {
             display: flex !important;
         }
+
         .modal {
-            display: none !important;
-            background: var(--dark-card);
+            background: linear-gradient(145deg, var(--dark-2), var(--dark));
             border: 2px solid var(--gold);
-            border-radius: 16px;
+            border-radius: 25px;
+            padding: 3rem;
             max-width: 500px;
-            max-height: 80vh;
+            width: 90%;
+            max-height: 90vh;
             overflow-y: auto;
-            padding: 2rem;
             position: relative;
-            box-shadow: 0 20px 60px rgba(241,196,15,0.3);
+            box-shadow: 0 40px 100px rgba(212, 175, 55, 0.3);
+            display: none !important;
         }
-        .modal.active {
+
+        .modal-overlay.active .modal {
             display: block !important;
         }
-        .modal h2 {
-            color: var(--gold);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        .modal p {
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-        .modal ul {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-        .modal li {
-            padding: 0.5rem 0;
+
+        .close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 2.5rem;
+            color: var(--text-light);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
         }
-        .modal li::before {
-            content: '✅';
-            color: var(--green);
-            font-size: 1.2em;
-            margin-right: 0.5rem;
+
+        .close:hover {
+            background: var(--gold);
+            color: var(--dark);
         }
-        .modal-buttons {
+
+        .modal h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .modal p {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        .lead-form {
             display: flex;
+            flex-direction: column;
             gap: 1rem;
         }
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-light);
-            border: 1px solid var(--border);
-        }
-        /* Media queries */
-        @media (max-width: 768px) {
-            header {
-                padding: 1.5rem;
-            }
-            h1 {
-                font-size: 2rem;
-            }
-            main {
-                padding: 1rem;
-            }
-            #oportunidades {
-                grid-template-columns: 1fr;
-            }
-            .modal {
-                margin: 1rem;
-                max-width: calc(100% - 2rem);
-                padding: 1.5rem;
-            }
-        }
-        footer {
-            background: var(--dark-card);
+
+        .lead-form input {
             padding: 1rem;
-            text-align: center;
-            border-top: 1px solid var(--border);
-            margin-top: 3rem;
+            border: 1px solid var(--gold);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            color: var(--white);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .lead-form input::placeholder {
+            color: var(--text-light);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--gold), #c9a347);
+            border: none;
+            padding: 1.2rem;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero h2 { font-size: 1.5rem; }
+            .cards-grid { grid-template-columns: 1fr; padding: 2rem 1rem; }
+            .card { padding: 2rem; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>🪙 Mesa de Originação Prata Real Estate</h1>
-    </header>
+    <section class="hero">
+        <h1>Prata Real Estate</h1>
+        <h2>Mesa de Originação Premium</h2>
+        <p>Oportunidades exclusivas de investimento imobiliário com arbitragem superior.</p>
+    </section>
+
     <main>
-        <section>
-            <h2 style="text-align: center; color: var(--gold); margin-bottom: 2rem;">Oportunidades Exclusivas</h2>
-            <div id="oportunidades">
-                <!-- Dynamically loaded -->
-            </div>
-        </section>
+        <div id="cards-container" class="cards-grid">
+            <!-- Cards will be loaded here -->
+        </div>
     </main>
-    <footer>
-        <p>&copy; 2024 Prata Real Estate. Todos os direitos reservados. | Contato: victor@pratarealestate.com</p>
-    </footer>
-    <!-- Modal -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal" id="modal">
-            <div class="modal-content">
-                <h2>🔒 Acesso Restrito aos Detalhes</h2>
-                <p>Para acessar os detalhes completos deste ativo, utilizamos um NDA digital simples. Esse é o procedimento padrão da operação para organização do fluxo e compartilhamento controlado das informações. Após a assinatura, você libera automaticamente a próxima etapa de análise do ativo:</p>
-                <ul>
-                    <li>Acesso imediato aos relatórios completos e due diligence</li>
-                    <li>Projeções financeiras detalhadas e modelos de valuation</li>
-                    <li>Informações exclusivas de mercado e comparáveis</li>
-                    <li>Contato direto com a equipe de originação para dúvidas</li>
-                </ul>
-                <div class="modal-buttons">
-                    <button id="signNDA" class="btn">Assinar NDA Digital (1 min)</button>
-                    <button id="closeModal" class="btn btn-secondary">Fechar</button>
-                </div>
-            </div>
+
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal">
+            <button class="close" onclick="closeModal()" aria-label="Fechar">&times;</button>
+            <h2>🚀 Oportunidade Imperdível!</h2>
+            <p><strong>Garanta retornos acima de 25% ao ano</strong> com nossa mesa de originação premium. Imóveis selecionados, arbitragem garantida e equipe dedicada. Milhares de investidores já lucram conosco. <br><br>Preencha agora e receba análise completa em 24h!</p>
+            <form class="lead-form" onsubmit="submitLead(event)">
+                <input type="text" placeholder="Seu Nome" required>
+                <input type="email" placeholder="Seu E-mail" required>
+                <input type="tel" placeholder="Seu WhatsApp" required>
+                <button type="submit" class="cta-btn">Quero Esta Oportunidade Agora!</button>
+            </form>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', async function() {
-            const oportunidadesContainer = document.getElementById('oportunidades');
-            const modalOverlay = document.getElementById('modalOverlay');
-            const modal = document.getElementById('modal');
-            const signNDA = document.getElementById('signNDA');
-            const closeModal = document.getElementById('closeModal');
 
-            // Fetch oportunidades
+    <script>
+        const mockData = [
+            {
+                title: "Apartamento Premium - Centro SP",
+                description: "Localização nobre, alta liquidez e valorização projetada de 30% em 12 meses.",
+                arbitrage: 28
+            },
+            {
+                title: "Casa de Luxo - Alphaville",
+                description: "Residencial fechado, renda passiva imediata via locação qualificada.",
+                arbitrage: 32
+            },
+            {
+                title: "Terreno Estratégico - Litoral",
+                description: "Potencial de desenvolvimento comercial com upside exponencial.",
+                arbitrage: 45
+            },
+            {
+                title: "Flat Corporativo - Faria Lima",
+                description: "Demanda corporativa estável, yield garantido acima do CDI.",
+                arbitrage: 22
+            }
+        ];
+
+        async function loadOpportunities() {
+            const container = document.getElementById('cards-container');
             try {
                 const response = await fetch('http://localhost:8000/api/oportunidades/');
-                if (!response.ok) throw new Error('Erro na API');
-                const oportunidades = await response.json();
-                oportunidades.forEach(op => {
-                    const card = document.createElement('div');
-                    card.className = 'oportunidade-card';
-                    card.innerHTML = `
-                        <h3>${op.titulo || 'Oportunidade'}</h3>
-                        <p>${op.descricao || 'Descrição teaser.'}</p>
-                        <button class="btn" onclick="openModal()">Ver Detalhes Completos</button>
-                    `;
-                    oportunidadesContainer.appendChild(card);
-                });
+                if (!response.ok) throw new Error('API error');
+                const data = await response.json();
+                renderCards(data);
             } catch (error) {
-                console.error('Erro ao carregar oportunidades:', error);
-                // Fallback mock data
-                const mock = [
-                    {titulo: 'Ativo Residencial SP', descricao: 'Excelente oportunidade em São Paulo.'},
-                    {titulo: 'Fundo Logístico', descricao: 'Logística em crescimento.'}
-                ];
-                mock.forEach(op => {
-                    const card = document.createElement('div');
-                    card.className = 'oportunidade-card';
-                    card.innerHTML = `
-                        <h3>${op.titulo}</h3>
-                        <p>${op.descricao}</p>
-                        <button class="btn" onclick="openModal()">Ver Detalhes Completos</button>
-                    `;
-                    oportunidadesContainer.appendChild(card);
-                });
+                console.warn('Using mock data:', error);
+                renderCards(mockData);
             }
+        }
 
-            // Modal functions
-            window.openModal = function() {
-                modalOverlay.classList.add('active');
-                modal.classList.add('active');
-            };
-
-            // Close modal
-            function closeModalFunc() {
-                modalOverlay.classList.remove('active');
-                modal.classList.remove('active');
-            }
-            closeModal.addEventListener('click', closeModalFunc);
-            signNDA.addEventListener('click', function() {
-                // Simulate NDA sign
-                alert('NDA assinado com sucesso! Redirecionando para detalhes...');
-                closeModalFunc();
-                // Here could fetch details or redirect
+        function renderCards(data) {
+            const container = document.getElementById('cards-container');
+            container.innerHTML = '';
+            data.forEach(opp => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <h3>${opp.title}</h3>
+                    <div class="context-line"></div>
+                    <p>${opp.description}</p>
+                    <span class="arbitrage-badge">${opp.arbitrage}% Arbitragem</span>
+                `;
+                card.onclick = () => openModal();
+                container.appendChild(card);
             });
-            modalOverlay.addEventListener('click', function(e) {
-                if (e.target === modalOverlay) {
-                    closeModalFunc();
-                }
+        }
+
+        function openModal() {
+            document.getElementById('modal-overlay').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('modal-overlay').classList.remove('active');
+        }
+
+        function submitLead(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            console.log('Lead submitted:', Object.fromEntries(formData));
+            alert('Obrigado! Em breve entraremos em contato.');
+            closeModal();
+            event.target.reset();
+        }
+
+        // Close on overlay click and ESC
+        document.addEventListener('DOMContentLoaded', () => {
+            loadOpportunities();
+            document.getElementById('modal-overlay').addEventListener('click', (e) => {
+                if (e.target.id === 'modal-overlay') closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
             });
         });
     </script>
