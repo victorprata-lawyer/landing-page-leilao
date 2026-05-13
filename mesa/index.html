@@ -3,355 +3,531 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prata Real Estate - Oportunidades Premium</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <title>Victor Prata</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: radial-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #000000 100%);
-            color: #ffffff;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+   <style>
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap');
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
+:root {
+  --primary-silver: #c0c0c0;
+  --accent-gold: #d4af37;
+  --dark-bg: #0a0a0a;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-hover: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  --shadow-hover: 0 35px 60px rgba(0, 0, 0, 0.35);
+  --gradient-bg: radial-gradient(ellipse farthest-corner at 30% 50%, rgba(120, 119, 198, 0.4) 0%, rgba(255, 119, 198, 0.25) 30%, rgba(120, 200, 255, 0.15) 60%, transparent 100%), radial-gradient(ellipse farthest-corner at 70% 20%, rgba(255, 119, 198, 0.3) 0%, rgba(120, 119, 198, 0.2) 40%, transparent 70%), linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+}
 
-        .gold {
-            color: #D4AF37;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-        }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--gradient-bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-gold), var(--primary-silver));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
+.nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
 
-        nav a:hover {
-            color: #D4AF37;
-        }
+.nav a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
 
-        #hero {
-            padding: 160px 0 100px;
-            text-align: center;
-        }
+.nav a:hover {
+  color: var(--accent-gold);
+}
 
-        #hero h1 {
-            font-size: 4rem;
-            color: #D4AF37;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-        }
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-gold);
+  transition: width 0.3s ease;
+}
 
-        #hero p {
-            font-size: 1.4rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+.nav a:hover::after {
+  width: 100%;
+}
 
-        #oportunidades {
-            padding: 80px 0;
-        }
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 5%;
+  position: relative;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--text-primary), var(--primary-silver));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-        .card {
-            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-            border: 1px solid rgba(212, 175, 55, 0.5);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
+.hero p {
+  font-size: 1.4rem;
+  max-width: 600px;
+  margin-bottom: 3rem;
+  color: var(--text-secondary);
+}
 
-        .card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 30px 60px rgba(212, 175, 55, 0.2);
-            border-color: #D4AF37;
-        }
+.cta-button {
+  background: linear-gradient(135deg, var(--accent-gold), #b8962e);
+  color: #000;
+  padding: 1.2rem 3rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  display: inline-block;
+}
 
-        .card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
 
-        .card-content {
-            padding: 2rem;
-        }
+.properties {
+  padding: 8rem 5% 5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
 
-        .card h3 {
-            color: #D4AF37;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: var(--text-primary);
+}
 
-        .card p {
-            margin-bottom: 0.75rem;
-            opacity: 0.85;
-        }
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
 
-        .btn {
-            background: linear-gradient(145deg, #D4AF37, #b8942f);
-            color: #000;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-            font-size: 1rem;
-            margin-top: 1rem;
-        }
+.property-card {
+  background: var(--card-bg);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+}
 
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
-        }
+.property-card:hover {
+  transform: translateY(-15px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(212, 175, 55, 0.3);
+}
 
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: #ffffff;
-            border: 1px solid rgba(212, 175, 55, 0.5);
-        }
+.property-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
 
-        .loading, .error {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 4rem;
-            font-size: 1.2rem;
-        }
+.property-content {
+  padding: 2rem;
+}
 
-        .error {
-            color: #ff6b6b;
-        }
+.property-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+}
 
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.95);
-            display: none !important;
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(5px);
-        }
+.property-price {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+}
 
-        .modal {
-            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-            border: 2px solid #D4AF37;
-            border-radius: 25px;
-            padding: 3rem;
-            max-width: 650px;
-            width: 90%;
-            max-height: 85vh;
-            overflow-y: auto;
-            display: none !important;
-            position: relative;
-            box-shadow: 0 40px 80px rgba(212, 175, 55, 0.3);
-        }
+.property-features {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+}
 
-        .modal h2 {
-            color: #D4AF37;
-            margin-bottom: 2rem;
-            text-align: center;
-            font-size: 2rem;
-        }
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
-        .modal p {
-            font-size: 1.15rem;
-            line-height: 1.8;
-            margin-bottom: 2.5rem;
-            text-align: justify;
-            opacity: 0.95;
-        }
+.property-description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
 
-        .modal-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-direction: column;
-        }
+.view-details {
+  background: transparent;
+  color: var(--accent-gold);
+  border: 2px solid var(--accent-gold);
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
 
-        @media (max-width: 768px) {
-            #hero h1 { font-size: 2.5rem; }
-            nav ul { flex-direction: column; gap: 1rem; }
-            .grid { grid-template-columns: 1fr; }
-        }
+.view-details:hover {
+  background: var(--accent-gold);
+  color: #000;
+}
 
-        footer {
-            padding: 3rem 0;
-            text-align: center;
-            opacity: 0.7;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            margin-top: 5rem;
-        }
-    </style>
-</head>
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: var(--card-bg);
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-hover);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(20px);
+  display: none;
+  flex-direction: column;
+  position: relative;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
+
+.modal.active {
+  display: flex;
+  transform: scale(1);
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close-modal:hover {
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.1);
+}
+
+.modal h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.modal p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.footer {
+  padding: 4rem 5% 2rem;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 5%;
+  }
+
+  .nav ul {
+    gap: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .properties {
+    padding: 6rem 5% 3rem;
+  }
+}
+</style><body>
+
 <body>
-    <header class="header">
-        <div class="container">
-            <nav>
-                <ul>
-                    <li><h1 class="gold" style="margin:0; font-size:1.8rem;">Prata Real Estate</h1></li>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#oportunidades">Oportunidades</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-            </nav>
-        </div>
+
+<div class="container">
+    <div class="nav-actions">
+        <a href="https://pratarealestate.com.br" class="btn-home">← Voltar para a Home</a>
+    </div>
+
+    <header>
+        <div class="eyebrow">Special Situations | Real Estate</div>
+        <h1>Mesa de Originação</h1>
+        <div class="asset-count" id="count-label">Sincronizando base de ativos...</div>
     </header>
 
-    <section id="hero">
-        <div class="container">
-            <h1>Oportunidades Exclusivas</h1>
-            <p>Invista em imóveis premium com rentabilidade superior e segurança total.</p>
-        </div>
-    </section>
-
-    <section id="oportunidades">
-        <div class="container">
-            <h2 style="text-align:center; margin-bottom:3rem; font-size:2.5rem; color:#D4AF37;">Nossas Oportunidades</h2>
-            <div class="grid" id="oportunidades-grid">
-                <!-- Cards loaded dynamically -->
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Prata Real Estate. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- Modal -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal" id="modalContent">
-            <h2>Acesso aos Detalhes do Ativo</h2>
-            <p>Para acessar os detalhes completos deste ativo, utilizamos um NDA digital simples. Esse é o procedimento padrão da operação para organização do fluxo e compartilhamento controlado das informações. Após a assinatura, você libera automaticamente a próxima etapa de análise do ativo:</p>
-            <div class="modal-buttons">
-                <button class="btn" id="signNdaBtn">Assinar NDA Digital</button>
-                <button class="btn btn-secondary" id="closeModalBtn">Cancelar</button>
-            </div>
+    <div class="filter-bar">
+        <input type="text" id="city-input" placeholder="Cidade...">
+        <select id="state-select">
+            <option value="">Estados</option>
+        </select>
+        <div class="checkbox-group">
+            <input type="checkbox" id="quality-filter" checked>
+            <label for="quality-filter">Filtro Qualificado (+300k)</label>
         </div>
     </div>
 
-    <script>
-        const oportunidadesContainer = document.getElementById('oportunidades-grid');
-        const modalOverlay = document.getElementById('modalOverlay');
-        const modal = document.getElementById('modalContent');
-        const signNdaBtn = document.getElementById('signNdaBtn');
-        const closeModalBtn = document.getElementById('closeModalBtn');
-        let currentItem = null;
+    <div id="loading-msg" class="loading">Sincronizando base de ativos...</div>
+    <div id="asset-grid" class="grid"></div>
+</div>
 
-        function showLoading() {
-            oportunidadesContainer.innerHTML = '<div class="loading">Carregando oportunidades...</div>';
+<!-- MODAL SINCRONIZADO -->
+<div class="modal fade" id="ndaModal" tabindex="-1" aria-labelledby="ndaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="background: var(--dark-2); border: 1px solid var(--border); color: var(--text);">
+      <div class="modal-header" style="border-bottom: 1px solid var(--border-soft);">
+        <h5 class="modal-title" id="ndaModalLabel" style="font-family: 'Playfair Display', serif; color: var(--gold);">Assine o NDA para acessar os detalhes</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="padding: 30px;">
+        <p style="font-size: 14px; color: var(--text-soft); margin-bottom: 20px;">
+            Para acessar os detalhes completos deste ativo, utilizamos um NDA digital simples. Esse é o procedimento padrão da operação para organização do fluxo e organização do fluxo da operação e liberação das informações do ativo.
+        </p>
+        <ul class="list-unstyled" style="text-align: left; margin-bottom: 25px;">
+          <li class="mb-2"><span style="color: #28a745; font-weight: bold; margin-right: 10px;">✓</span>Documentação do ativo</li>
+          <li class="mb-2"><span style="color: #28a745; font-weight: bold; margin-right: 10px;">✓</span>Resumo jurídico da estrutura</li>
+          <li class="mb-2"><span style="color: #28a745; font-weight: bold; margin-right: 10px;">✓</span>Informações para avaliação inicial</li>
+          <li><span style="color: #28a745; font-weight: bold; margin-right: 10px;">✓</span>Informações completas para avaliação</li>
+        </ul>
+        
+        <!-- Box de Código (Oculto ou visível conforme sua estratégia) -->
+        <div class="copy-box" style="display:none;">
+            <div id="modal-asset-code" class="copy-code"></div>
+            <button id="btn-copy-action" class="btn-copy">Copiar</button>
+        </div>
+      </div>
+      <div class="modal-footer" style="border-top: 1px solid var(--border-soft); flex-direction: column;">
+        <button id="btn-go-zapsign" class="btn-sign" style="width: 100%;">Assinar NDA e Acessar Ativo</button>
+        <button type="button" class="btn-back" data-bs-dismiss="modal">Voltar para a Mesa</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    let allAssets = [];
+    const zapSignLink = "https://app.zapsign.com.br/verificar/doc/18154b67-464f-4cbe-a59f-a9f2549829b6";
+
+    async function init() {
+        try {
+            // Busca os dados do seu backend local
+            const res = await fetch('http://localhost:8000/api/oportunidades/');
+            const data = await res.json();
+            allAssets = Array.isArray(data) ? data : [];
+            
+            populateStates();
+            render();
+            
+            // Remove a mensagem de carregamento assim que os dados chegam
+            document.getElementById('loading-msg').style.display = 'none';
+        } catch (e) {
+            document.getElementById('loading-msg').innerText = "Erro ao conectar com a base de ativos.";
+            console.error("Erro de sincronização:", e);
         }
+    }
 
-        function showError() {
-            oportunidadesContainer.innerHTML = '<div class="error">Erro ao carregar oportunidades. Verifique se o servidor API está rodando em http://localhost:8000.</div>';
-        }
-
-        function openModal(item) {
-            currentItem = item;
-            modalOverlay.style.setProperty('display', 'flex', 'important');
-            modal.style.setProperty('display', 'block', 'important');
-        }
-
-        function closeModal() {
-            modalOverlay.style.setProperty('display', 'none', 'important');
-            modal.style.setProperty('display', 'none', 'important');
-        }
-
-        // Event listeners
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) closeModal();
+    function populateStates() {
+        const states = [...new Set(allAssets.map(a => a.state).filter(Boolean))].sort();
+        const select = document.getElementById('state-select');
+        states.forEach(uf => {
+            const opt = document.createElement('option');
+            opt.value = uf; opt.innerText = uf;
+            select.appendChild(opt);
         });
+    }
 
-        closeModalBtn.addEventListener('click', closeModal);
+    function normalize(str) {
+        return str ? str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().toLowerCase() : '';
+    }
 
-        signNdaBtn.addEventListener('click', () => {
-            if (currentItem) {
-                alert(`NDA assinado digitalmente para ${currentItem.nome}!\nDetalhes completos liberados. Próxima etapa de análise iniciada.`);
-            } else {
-                alert('NDA assinado! Detalhes liberados.');
-            }
-            closeModal();
+    function formatBRL(val) {
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val);
+    }
+
+    function render() {
+        const cityQuery = normalize(document.getElementById('city-input').value);
+        const stateQuery = document.getElementById('state-select').value;
+        const hideLow = document.getElementById('quality-filter').checked;
+
+        const filtered = allAssets.filter(asset => {
+            const vgv = asset.estimated_vgv || 0;
+            if (vgv <= 0) return false;
+            if (hideLow && vgv < 300000) return false;
+            if (stateQuery && asset.state !== stateQuery) return false;
+            if (cityQuery && !normalize(asset.city).includes(cityQuery)) return false;
+            return true;
+        }).slice(0, 40);
+
+        document.getElementById('count-label').innerHTML = `Exibindo <strong>${filtered.length}/${allAssets.length}</strong> teses estruturadas.`;
+        const grid = document.getElementById('asset-grid');
+        grid.innerHTML = '';
+
+        filtered.forEach(asset => {
+            const vgv = asset.estimated_vgv || 0;
+            const lance = asset.min_bid || 0;
+            const arbitragem = asset.discount_percentage || (vgv > 0 ? Math.round(((vgv - lance) / vgv) * 100) : 0);
+
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <div class="public-code">${asset.public_code}</div>
+                <h3>${asset.city.toUpperCase()} / ${asset.state}</h3>
+                <p class="typology">${asset.typology}</p>
+                <p class="context-line">Ativo em estrutura judicial com análise preliminar de viabilidade</p>
+                <div class="details">
+                    <div class="detail-row">
+                        <span class="detail-label">Avaliação de Mercado</span>
+                        <span class="detail-value">${formatBRL(vgv)}</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="detail-label">Lance Mínimo</span>
+                        <span class="detail-value gold">${formatBRL(lance)}</span>
+                    </div>
+                </div>
+                <div class="arbitrage-row">
+                    <span class="arbitrage-badge">${arbitragem}% oportunidade</span>
+                </div>
+                <button class="btn-analyze" onclick="openModal('${asset.public_code}')">Analisar Viabilidade</button>
+            `;
+            grid.appendChild(card);
         });
+    }
 
-        // Fetch data
-        showLoading();
-        fetch('http://localhost:8000/api/oportunidades/')
-            .then(response => {
-                if (!response.ok) throw new Error('API error');
-                return response.json();
-            })
-            .then(data => {
-                oportunidadesContainer.innerHTML = '';
-                data.forEach(item => {
-                    const card = document.createElement('div');
-                    card.className = 'card';
-                    card.innerHTML = `
-                        <img src="${item.imagem || 'https://via.placeholder.com/400x300/1a1a1a/D4AF37?text=Im%C3%B3vel%20Premium'}" alt="${item.nome || 'Oportunidade'}">
-                        <div class="card-content">
-                            <h3>${item.nome || 'Oportunidade Exclusiva'}</h3>
-                            <p><strong>Localização:</strong> ${item.localizacao || 'Não informada'}</p>
-                            <p><strong>Valor:</strong> ${item.valor || 'Sob consulta'}</p>
-                            <p><strong>Rentabilidade:</strong> ${item.rentabilidade || 'Atraente'}</p>
-                            <button class="btn">Ver Detalhes</button>
-                        </div>
-                    `;
-                    const btn = card.querySelector('.btn');
-                    btn.onclick = () => openModal(item);
-                    oportunidadesContainer.appendChild(card);
-                });
-            })
-            .catch(err => {
-                console.error('Fetch error:', err);
-                showError();
-            });
-    </script>
-</body>
-</html>
+    function openModal(code) {
+        const codeEl = document.getElementById('modal-asset-code');
+        if (codeEl) codeEl.innerText = code;
+
+        const modalEl = document.getElementById('ndaModal');
+        const modal = new bootstrap.Modal(modalEl);
+        modal.show();
+    }
+
+    function closeModal() {
+        const modalEl = document.getElementById('ndaModal');
+        const modal = bootstrap.Modal.getInstance(modalEl);
+        if (modal) modal.hide();
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const btnZap = document.getElementById('btn-go-zapsign');
+        if (btnZap) {
+            btnZap.onclick = function() {
+                window.open(zapSignLink, '_blank');
+                closeModal();
+            };
+        }
+    });
+
+    document.getElementById('city-input').oninput = render;
+    document.getElementById('state-select').onchange = render;
+    document.getElementById('quality-filter').onchange = render;
+
+    init();
+</script>
