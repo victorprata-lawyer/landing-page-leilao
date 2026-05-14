@@ -371,7 +371,8 @@
         const select = document.getElementById('state-select');
         states.forEach(uf => {
             const opt = document.createElement('option');
-            opt.value = uf; opt.innerText = uf;
+            opt.value = uf; 
+            opt.innerText = uf;
             select.appendChild(opt);
         });
     }
@@ -385,58 +386,80 @@
     }
 
     function render() {
-        const cityQuery = normalize(document.getElementById('city-input').value);
-        const stateQuery = document.getElementById('state-select').value;
-        const hideLow = document.getElementById('quality-filter').checked;
-
-        const filtered = allAssets.filter(asset => {
-            const vgv = asset.estimated_vgv || 0;
-            if (vgv <= 0) return false;
-            if (hideLow && vgv < 300000) return false;
-            if (stateQuery && asset.state !== stateQuery) return false;
-            if (cityQuery && !normalize(asset.city).includes(cityQuery)) return false;
-            return true;
+        // Filtra os dados com base em VGV, Estado e Cidade
+        const filteredData = origData.filter((orig) => {
+            return (orig.VGV >= vgvMin && orig.VGV <= vgvMax) &&
+                (estadoFilter === '' || orig.Estado === estadoFilter) &&
+                (cidadeFilter === '' || orig.Cidade === cidadeFilter);
         }).slice(0, 40);
 
-        document.getElementById('count-label').innerHTML = `Exibindo <strong>${filtered.length}/${allAssets.length}</strong> teses estruturadas.`;
-        const grid = document.getElementById('asset-grid');
-        grid.innerHTML = '';
-
-        filtered.forEach(asset => {
-            const vgv = asset.estimated_vgv || 0;
-            const lance = asset.min_bid || 0;
-            const arbitragem = asset.discount_percentage || (vgv > 0 ? Math.round(((vgv - lance) / vgv) * 100) : 0);
-
-            const card = document.createElement('div');
-            card.className = 'card';
-            card.innerHTML = `
-                <div class="public-code">${asset.public_code}</div>
-                <h3>${asset.city.toUpperCase()} / ${asset.state}</h3>
-                <p class="typology">${asset.typology}</p>
-                <p class="context-line">Ativo em estrutura judicial com análise preliminar de viabilidade</p>
-                <div class="details">
-                    <div class="detail-row">
-                        <span class="detail-label">Avaliação de Mercado</span>
-                        <span class="detail-value">${formatBRL(vgv)}</span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">Lance Mínimo</span>
-                        <span class="detail-value gold">${formatBRL(lance)}</span>
-                    </div>
-                </div>
-                <div class="arbitrage-row">
-                    <span class="arbitrage-badge">${arbitragem}% oportunidade</span>
-                </div>
-                <button class="btn-analyze" onclick="openModal('${asset.public_code}')">Analisar Viabilidade</button>
+        // Gera HTML para os cards
+        let html = '';
+        filteredData.forEach((orig) => {
+            html += `
+    <div class="card">
+        <div class="card-header">
+            <h3>${orig.Nome || 'Sem Nome'}</h3>
+            <span class="vgv">VGV: R$ ${orig.VGV.toLocaleString()}</span>
+        </div>
+        <div class="card-body">
+            <p><strong>Estado:</strong> ${orig.Estado}</p>
+            <p><strong>Cidade:</strong> ${orig.Cidade}</p>
+            <!-- Outros campos mantidos na estrutura original -->
+        </div>
+    </div>
             `;
-            grid.appendChild(card);
         });
+
+        // Atualiza o container da Mesa de Originação
+        document.querySelector('#mesa-originacao').innerHTML = html;
     }
 
+
+    document.getElementById('count-label').innerHTML = `Exibindo <strong>${filtered.length}/${allAssets.length}</strong> teses estruturadas.`;
+    const grid = document.getElementById('asset-grid');
+    grid.innerHTML = '';
+
+    filtered.forEach(asset => {
+        const vgv = asset.estimated_vgv || 0;
+        const lance = asset.min_bid || 0;
+        const arbitragem = asset.discount_percentage || (vgv > 0 ? Math.round(((vgv - lance) / vgv) * 100) : 0);
+
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <div class="public-code">${asset.public_code}</div>
+            <h3>${asset.city.toUpperCase()} / ${asset.state}</h3>
+            <p class="typology">${asset.typology}</p>
+            <p class="context-line">Ativo em estrutura judicial com análise preliminar de viabilidade</p>
+            <div class="details">
+                <div class="detail-row">
+                    <span class="detail-label">Avaliação de Mercado</span>
+                    <span class="detail-value">${formatBRL(vgv)}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Lance Mínimo</span>
+                    <span class="detail-value gold">${formatBRL(lance)}</span>
+                </div>
+            </div>
+            <div class="arbitrage-row">
+                <span class="arbitrage-badge">${arbitragem}% oportunidade</span>
+            </div>
+            <button class="btn-analyze" onclick="openModal('${asset.public_code}')">Analisar Viabilidade</button>
+        `;
+        grid.appendChild(card);
+    });
+
     function openModal(code) {
+        // Vincula o código ao campo no modal
         const codeEl = document.getElementById('modal-asset-code');
         if (codeEl) codeEl.innerText = code;
 
+        // Torna o box de cópia visível
+        const copyBox = document.querySelector('.copy-box');
+        if (copyBox) copyBox.style.display = 'flex';
+
+        // Abre o modal usando o motor do Bootstrap
         const modalEl = document.getElementById('ndaModal');
         const modal = new bootstrap.Modal(modalEl);
         modal.show();
@@ -449,6 +472,22 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
+        // Lógica do botão de cópia
+        const btnCopy = document.getElementById('btn-copy-action');
+        if (btnCopy) {
+            btnCopy.onclick = function() {
+                const code = document.getElementById('modal-asset-code').innerText;
+                navigator.clipboard.writeText(code).then(() => {
+                    const originalText = btnCopy.innerText;
+                    btnCopy.innerText = 'Copiado!';
+                    setTimeout(() => {
+                        btnCopy.innerText = originalText;
+                    }, 2000);
+                });
+            };
+        }
+
+        // Lógica do botão ZapSign
         const btnZap = document.getElementById('btn-go-zapsign');
         if (btnZap) {
             btnZap.onclick = function() {
@@ -456,11 +495,13 @@
                 closeModal();
             };
         }
+
+        // Listeners de filtro
+        document.getElementById('city-input').oninput = render;
+        document.getElementById('state-select').onchange = render;
+        document.getElementById('quality-filter').onchange = render;
+
+        // Inicia a sincronização
+        init();
     });
-
-    document.getElementById('city-input').oninput = render;
-    document.getElementById('state-select').onchange = render;
-    document.getElementById('quality-filter').onchange = render;
-
-    init();
 </script>

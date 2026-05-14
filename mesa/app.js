@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   async function carregarOportunidades() {
     try {
-      const response = await fetch('/api/oportunidades');
+      const response = await fetch('/api/oportunidades/');
       oportunidades = await response.json();
 
       oportunidades.forEach(item => {
