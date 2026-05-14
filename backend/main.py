@@ -23,11 +23,7 @@ app = FastAPI()
 # Configuração CORS (Mantendo suas URLs originais)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://pratarealestate.com.br",
-        "https://www.pratarealestate.com.br",
-        "http://localhost:3000"
-    ],
+    allow_origins=["*"], # Libera para testes e para o seu site oficial
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
