@@ -5,6 +5,7 @@ import unicodedata
 import re
 import hashlib
 from datetime import datetime, timedelta
+import requests
 
 #--- AJUSTE DE CAMINHO DINÂMICO ---
 # Ele identifica a pasta onde o script está e aponta para o assets.db no mesmo local
@@ -146,6 +147,20 @@ def importar_planilha():
     print(f"\n✅ IMPORTAÇÃO CONCLUÍDA")
     print(f"💎 Novos ativos minerados: {novos}")
     print(f"🛡️ Itens já existentes (pulados): {duplicados}")
+
+def enviar_para_o_render(lista_ativos):
+    """Envia os ativos minerados para o servidor oficial."""
+    url = "https://landing-page-leilao-backend.onrender.com/api/oportunidades/"
+    try:
+        # Envia a lista de dicionários que você já minerou
+        response = requests.post(url, json=lista_ativos)
+        if response.status_code == 200:
+            print(f"✅ Sucesso! {len(lista_ativos)} ativos enviados para a Mesa Online.")
+        else:
+            print(f"⚠️ Erro no envio: {response.status_code}")
+    except Exception as e:
+        print(f"❌ Falha de conexão com o Render: {e}")
+
 
 if __name__ == "__main__":
     importar_planilha()
